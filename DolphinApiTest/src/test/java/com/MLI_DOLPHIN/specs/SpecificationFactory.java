@@ -29,8 +29,8 @@ public class SpecificationFactory extends BaseClass {
 		responsBuilder = new ResponseSpecBuilder();
 		responsBuilder.expectHeader("Content-Type", "application/json");
 		//responsBuilder.expectHeader("Transfer-Encoding", "chunked");
-		responsBuilder.expectResponseTime(lessThan(2L), TimeUnit.SECONDS);	
-		responsBuilder.rootPath("metadata").expectBody("appId", equalTo(properties.getProperty("AppID")));
+		responsBuilder.expectResponseTime(lessThan(20L), TimeUnit.SECONDS);	
+	//	responsBuilder.rootPath("metadata").expectBody("X-App-ID", equalTo(properties.getProperty("AppID")));
 //		responsBuilder.rootPath("metadata").expectBody("appId","");		
 		responseSpecification = responsBuilder.build();
 

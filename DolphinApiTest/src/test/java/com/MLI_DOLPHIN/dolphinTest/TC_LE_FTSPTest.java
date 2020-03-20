@@ -43,13 +43,13 @@ public class TC_LE_FTSPTest extends BaseClass{
 			
 			if (responseBody.getStatusCode() == responseStatusCode) {
 				responseBody.then().spec(SpecificationFactory.getGenericResponseSpec()).and().root(payloadTag)
-						.body("illustrationPdfBase64", Matchers.notNullValue())
-						.and()
-						.body("", Matchers.equalTo(""))
-						.and()
-						.body("", Matchers.equalTo(""))
-						.and()
-						.body("", Matchers.equalTo(""));
+						.body("illustrationPdfBase64", Matchers.notNullValue());
+//						.and()
+//						.body("", Matchers.equalTo(""))
+//						.and()
+//						.body("", Matchers.equalTo(""))
+//						.and()
+//						.body("", Matchers.equalTo(""));
 				
 			} else if (responseBody.getStatusCode() == responseStatusCode) {
 				responseBody.then().spec(SpecificationFactory.getGenericResponseSpec());
