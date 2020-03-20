@@ -1,4 +1,4 @@
-package com.MLI_DOLPHIN.dolphinTest;
+	package com.MLI_DOLPHIN.dolphinTest;
 
 import org.hamcrest.Matchers;
 import org.testng.Assert;
@@ -43,7 +43,7 @@ public class TC_OauthApi_TokenGenerator extends BaseClass {
 		
 		responseErrorMessage=expErrorMessage;
 
-		if (runmode.equalsIgnoreCase("y")) {
+		if (runmode.equalsIgnoreCase("yes")) {
 
 			responseStatusCode = Integer.valueOf(statusCode.trim());
 			testRequest = ReusableFunction.getSpecificRequest(requestBody.trim(), inputData.trim());

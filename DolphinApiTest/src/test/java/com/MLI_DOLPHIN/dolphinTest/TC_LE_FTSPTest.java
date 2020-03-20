@@ -34,7 +34,7 @@ public class TC_LE_FTSPTest extends BaseClass{
 	public void tc_LE_ftspProductTest(String testCaseNum,String runmode,String url,String requestBody,String headers
 			,String inputData,String statusCode,String payloadTag,String responseMessage){
 				
-		if (runmode.equalsIgnoreCase("y")) {
+		if (runmode.equalsIgnoreCase("yes")) {
 			
 			responseStatusCode = Integer.valueOf(statusCode.trim());
 			testRequest = ReusableFunction.getSpecificRequest(requestBody.trim(), inputData.trim());			
@@ -58,7 +58,7 @@ public class TC_LE_FTSPTest extends BaseClass{
 			}
 
 		} else {
-			throw new SkipException("Run mode marked as N in excel..");
+			throw new SkipException("Run mode marked as No in excel sheet:");
 
 		}
 	}
