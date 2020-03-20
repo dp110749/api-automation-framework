@@ -47,7 +47,7 @@ public class BaseClass {
 	}
 
 	public static Properties readPropertiesFile() {
-		file = new File(System.getProperty("user.dir") + "./src/test/resources/propertiesFile.properties");
+		file = new File(System.getProperty("user.dir") + "/src/test/resources/propertiesFile.properties");
 		try {
 			fileinput = new FileInputStream(file);
 			properties = new Properties();
