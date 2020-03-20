@@ -8,7 +8,7 @@
 	<test thread-count="5" name="FunctionalAPITest">
 		<classes>
 <!-- 			<class name="com.MLI_DOLPHIN.Execution.Execution"></class> -->
-			<class name="com.MLI_DOLPHIN.dolphinTest.TC_LE_FTSPTest"></class> 
+ 		<class name="com.MLI_DOLPHIN.dolphinTest.TC_LE_FTSPTest"></class>  	
 			<class name="com.MLI_DOLPHIN.dolphinTest.TC_OauthApi_TokenGenerator"></class> 
 
 		</classes>

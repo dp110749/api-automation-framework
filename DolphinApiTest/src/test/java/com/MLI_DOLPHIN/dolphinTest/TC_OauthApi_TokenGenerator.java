@@ -1,4 +1,4 @@
-	package com.MLI_DOLPHIN.dolphinTest;
+package com.MLI_DOLPHIN.dolphinTest;
 
 import org.hamcrest.Matchers;
 import org.testng.Assert;
@@ -36,46 +36,45 @@ public class TC_OauthApi_TokenGenerator extends BaseClass {
 	}
 
 	@Test(dataProvider = "TestData")
-	public void tc001_(String tcName, String runmode, String url, String requestBody, String headers,
-			String inputData, String statusCode, String jsonPayload, String responseValue, String actualMeaageCode,
-			String responseMessage,String pathofMesgcode,String expErrorMessage) throws Exception {
+	public void tc001_(String tcName, String runmode, String url, String requestBody, String headers, String inputData,
+			String statusCode, String jsonPayload, String responseValue, String actualMeaageCode,
+			String responseMessage, String pathofMesgcode, String expErrorMessage) throws Exception {
 		logger.info("Test Execution Started ");
-		
-		responseErrorMessage=expErrorMessage;
 
-		if (runmode.equalsIgnoreCase("yes")) {
+		responseErrorMessage = expErrorMessage;
+		try {
+			if (runmode.equalsIgnoreCase("yes")) {
 
-			responseStatusCode = Integer.valueOf(statusCode.trim());
-			testRequest = ReusableFunction.getSpecificRequest(requestBody.trim(), inputData.trim());
-			responseBody = WebservicesMethod.OAUTHAPI_POST_METHOD(url, testRequest,
-					ReusableFunction.requestHeaders(headers));
-			
-			logger.info("response body is ::"+responseBody.getBody().prettyPrint());
-			 responseMessageCode = responseBody.then().extract().path(pathofMesgcode.trim());
-			
-			/* Validation of Status Code and Access Token */			
-			if (statusCode.equals(responseMessage)) {
-				Assert.assertEquals(responseBody.getStatusCode(), 200);
-				responseBody.then().spec(SpecificationFactory.getGenericResponseSpec()).and().root(jsonPayload)
-						.body(responseValue, Matchers.notNullValue())
-						.and()
-						.root("msgInfo")
-						.body("msgDescription", Matchers.comparesEqualTo(expErrorMessage.trim()));
-				
-			} else if (responseMessageCode.equals(actualMeaageCode)) {
-				Assert.assertEquals(responseBody.getStatusCode(),200);
-				responseBody.then().spec(SpecificationFactory.getGenericResponseSpec())
-				.and()
-				.root("msgInfo")
-				.body("msgDescription", Matchers.comparesEqualTo(expErrorMessage.trim()));				
-			}else{
-				
-				logger.info("User not able to send the request..");
+				responseStatusCode = Integer.valueOf(statusCode.trim());
+				testRequest = ReusableFunction.getSpecificRequest(requestBody.trim(), inputData.trim());
+				responseBody = WebservicesMethod.OAUTHAPI_POST_METHOD(url, testRequest,
+						ReusableFunction.requestHeaders(headers));
+
+				logger.info("response body is ::" + responseBody.getBody().prettyPrint());
+				responseMessageCode = responseBody.then().extract().path(pathofMesgcode.trim());
+
+				/* Validation of Status Code and Access Token */
+				if (statusCode.equals(responseMessage)) {
+					Assert.assertEquals(responseBody.getStatusCode(), 200);
+					responseBody.then().spec(SpecificationFactory.getGenericResponseSpec()).and().root(jsonPayload)
+							.body(responseValue, Matchers.notNullValue()).and().root("msgInfo")
+							.body("msgDescription", Matchers.comparesEqualTo(expErrorMessage.trim()));
+
+				} else if (responseMessageCode.equals(actualMeaageCode)) {
+					Assert.assertEquals(responseBody.getStatusCode(), 200);
+					responseBody.then().spec(SpecificationFactory.getGenericResponseSpec()).and().root("msgInfo")
+							.body("msgDescription", Matchers.comparesEqualTo(expErrorMessage.trim()));
+				} else {
+
+					logger.info("User not able to send the request..");
+				}
+
+			} else {
+				throw new SkipException("Run mode marked as N in excel..");
+
 			}
-
-		} else {
-			throw new SkipException("Run mode marked as N in excel..");
-
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }
