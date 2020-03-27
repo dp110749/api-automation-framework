@@ -23,7 +23,6 @@ import io.restassured.specification.RequestSpecification;
 public class BaseClass {
 	public static File file;
 	public static FileInputStream fileinput;
-	public static Properties properties;
 	public static Logger logger;
 	public static Response response;
 	public static RequestSpecification httpRequest;

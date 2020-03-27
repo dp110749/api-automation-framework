@@ -7,14 +7,13 @@ import org.testng.annotations.Test;
 import com.MLI_DOLPHIN.baseclass.BaseClass;
 import com.MLI_DOLPHIN.baseclass.WebservicesMethod;
 import com.MLI_DOLPHIN.excelreader.ExcelFileReader;
-import com.MLI_DOLPHIN.requestClass.RequestFactory;
 import com.MLI_DOLPHIN.specs.SpecificationFactory;
 import com.MLI_DOLPHIN.utilities.ReusableFunction;
 import io.restassured.response.Response;
 
 public class TC_LE_FTSPTest extends BaseClass{
 	
-	public RequestFactory requestFactory;
+	
 	public Response responseBody;
 	public Integer responseStatusCode;
 	public String APIRequest;
