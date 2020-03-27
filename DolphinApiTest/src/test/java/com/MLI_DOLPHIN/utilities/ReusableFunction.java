@@ -1,8 +1,13 @@
 package com.MLI_DOLPHIN.utilities;
 
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Properties;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -25,9 +30,6 @@ public class ReusableFunction extends BaseClass {
 		return requestHeaders;
 
 	}
-	
-	
-
 
 	// This function is usesd interchange the request body
 	public static String getSpecificRequest(String requestBody, String inputData) {
@@ -62,4 +64,54 @@ public class ReusableFunction extends BaseClass {
 		}
 		return obj.toString();
 	}
+	
+	public static Properties readPropertiesFile() {
+		File file = new File(System.getProperty("user.dir") + "/src/test/resources/propertiesFile.properties");
+		Properties properties=null;
+		try {
+			FileInputStream fileinput = new FileInputStream(file);
+			properties = new Properties();
+			try {
+				properties.load(fileinput);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return properties;
+	}
+	
+	// This function is used to replace the value based on key
+    public static JSONObject replacekeyInJSONObject(JSONObject jsonObject, String jsonKey,String jsonValue) {
+
+        for (Object key : jsonObject.keySet()) {
+            if (key.equals(jsonKey) && ((jsonObject.get(key) instanceof String)||(jsonObject.get(key) instanceof Number)||jsonObject.get(key) ==null)) {
+                jsonObject.put(key, jsonValue);
+                return jsonObject;
+            } else if (jsonObject.get(key) instanceof JSONObject) {
+                JSONObject modifiedJsonobject = (JSONObject) jsonObject.get(key);
+                if (modifiedJsonobject != null) {
+                    replacekeyInJSONObject(modifiedJsonobject, jsonKey, jsonValue);
+                }
+            }
+
+        }
+        return jsonObject;
+    }
+ // This Function is used to convert String to json object 
+    public static JSONObject createJSONObject(String jsonString){
+        JSONObject  jsonObject=new JSONObject();
+        JSONParser jsonParser=new  JSONParser();
+        if ((jsonString != null) && !(jsonString.isEmpty())) {
+            try {
+                jsonObject=(JSONObject) jsonParser.parse(jsonString);
+            } catch (org.json.simple.parser.ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return jsonObject;
+    }
+
+
 }

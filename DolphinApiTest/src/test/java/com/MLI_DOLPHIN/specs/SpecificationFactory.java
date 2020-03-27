@@ -13,6 +13,7 @@ import org.apache.commons.math3.optimization.general.NonLinearConjugateGradientO
 import org.omg.CosNaming.NamingContextPackage.NotEmpty;
 import org.testng.Assert;
 import com.MLI_DOLPHIN.baseclass.BaseClass;
+import com.MLI_DOLPHIN.utilities.ReusableFunction;
 import com.sun.istack.NotNull;
 
 public class SpecificationFactory extends BaseClass {
@@ -41,7 +42,7 @@ public class SpecificationFactory extends BaseClass {
 		RequestSpecBuilder logBuilder;
 		RequestSpecification logrequestSpecification;
 		logBuilder = new RequestSpecBuilder();
-		if (readPropertiesFile().getProperty("allurelog").equals("ENABLED")) {
+		if (ReusableFunction.readPropertiesFile().getProperty("allurelog").equals("ENABLED")) {
 			logBuilder.addFilter(new AllureRestAssured());
 		}
 		logrequestSpecification = logBuilder.build();

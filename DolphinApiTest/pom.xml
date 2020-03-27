@@ -1,10 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>com.mono.APITest</groupId>
 	<artifactId>DolphinApiTest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>cucumber</name>
+	<url>http://maven.apache.org</url>
 
 	<properties>
 		<aspectj.version>1.8.10</aspectj.version>
@@ -13,7 +17,7 @@
 
 	<dependencies>
 
-	
+
 		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
 		<dependency>
 			<groupId>io.rest-assured</groupId>
@@ -70,6 +74,7 @@
 			<artifactId>json-simple</artifactId>
 			<version>1.1.1</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
 		<dependency>
 			<groupId>com.github.scribejava</groupId>
 			<artifactId>scribejava-apis</artifactId>
@@ -105,8 +110,6 @@
 		</dependency>
 
 
-
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -135,8 +138,6 @@
 			<scope>test</scope>
 		</dependency>
 
-
-
 		<dependency>
 			<groupId>org.skyscreamer</groupId>
 			<artifactId>jsonassert</artifactId>
@@ -144,15 +145,17 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+		<!-- <dependency> <groupId>io.cucumber</groupId> <artifactId>cucumber-java</artifactId> 
+			<version>5.1.2</version> </dependency> -->
+			
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>5.1.2</version>
+			<version>5.5.0</version>
+			<scope>test</scope>
 		</dependency>
-
-
+		
 		<!-- New Cucumber Implementation -->
-
 		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-core -->
 		<dependency>
 			<groupId>info.cukes</groupId>
@@ -220,8 +223,8 @@
 			<artifactId>allure-testng</artifactId>
 			<version>2.13.0</version>
 		</dependency>
-		
-	<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-rest-assured -->
+
+		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-rest-assured -->
 		<dependency>
 			<groupId>io.qameta.allure</groupId>
 			<artifactId>allure-rest-assured</artifactId>
@@ -240,6 +243,8 @@
 				<version>2.3.2</version>
 				<configuration>
 					<encoding>UTF-8</encoding>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 
@@ -255,12 +260,11 @@
 					</suiteXmlFiles>
 					<configuration>
 						<systemPropertyVariables>
-	<!-- 						<argLine>
-								-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-							</argLine> -->
- 						 <allure.results.directory>${project.build.directory}target/allure-results</allure.results.directory> 					
-							 <allure.link.issue.pattern>https://example.org/browse/{}</allure.link.issue.pattern> 
-								<allure.link.tms.pattern>https://example.org/browse/{}</allure.link.tms.pattern>
+							<!-- <argLine> -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar" 
+								</argLine> -->
+							<allure.results.directory>${project.build.directory}target/allure-results</allure.results.directory>
+							<allure.link.issue.pattern>https://example.org/browse/{}</allure.link.issue.pattern>
+							<allure.link.tms.pattern>https://example.org/browse/{}</allure.link.tms.pattern>
 						</systemPropertyVariables>
 						<dependencies>
 							<dependency>
@@ -273,9 +277,6 @@
 
 				</configuration>
 			</plugin>
-
-
-
 
 
 			<!-- New changes for cucumber reports -->
@@ -302,17 +303,8 @@
 				</executions>
 			</plugin>
 
-
-
-
 		</plugins>
 	</build>
-
-
-
-
-
-
 
 
 

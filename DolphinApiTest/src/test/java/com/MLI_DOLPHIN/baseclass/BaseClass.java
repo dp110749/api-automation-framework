@@ -10,6 +10,9 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+
+import com.MLI_DOLPHIN.utilities.ReusableFunction;
+
 import static io.restassured.RestAssured.*;
 
 import io.cucumber.java.After;
@@ -27,13 +30,13 @@ public class BaseClass {
 
 	/* This Function is used to set Log for every step: */
 	@BeforeClass
-	public static void SetUp() {
+	public static void SetUp() {		
 		logger = Logger.getLogger("Dolphin logger");
 		PropertyConfigurator.configure("log4j.properties");
 		logger.setLevel(Level.DEBUG);
 
 		/* Setting the Base Url */
-		baseURI = readPropertiesFile().getProperty("BASE_URI");
+		baseURI = ReusableFunction.readPropertiesFile().getProperty("BASE_URI");
 	}
 
 	@AfterClass
@@ -41,25 +44,7 @@ public class BaseClass {
 		reset();
 	}
 	
-	public static void main(String[] args) {
-		System.out.println(readPropertiesFile().getProperty("allurelog"));
-		
-	}
-
-	public static Properties readPropertiesFile() {
-		file = new File(System.getProperty("user.dir") + "./src/test/resources/propertiesFile.properties");
-		try {
-			fileinput = new FileInputStream(file);
-			properties = new Properties();
-			try {
-				properties.load(fileinput);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		return properties;
-	}
+	
+	
 
 }

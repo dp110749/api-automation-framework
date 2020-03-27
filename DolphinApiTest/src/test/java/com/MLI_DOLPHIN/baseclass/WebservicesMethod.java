@@ -6,7 +6,7 @@ import com.MLI_DOLPHIN.utilities.GetToken;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class WebservicesMethod extends BaseClass {
+public class WebservicesMethod extends BaseClass{
 	
 	public static GetToken gettoken;
     /*This fun is used to send the post Request..*/
@@ -26,8 +26,7 @@ public class WebservicesMethod extends BaseClass {
 	}
 
 	/*This Fun is used to generate the token*/
-	public static Response OAUTHAPI_POST_METHOD(String uRI,String Requestbody,Map<String, String> headers) {
-		
+	public static Response OAUTHAPI_POST_METHOD(String uRI,String Requestbody,Map<String, String> headers) {		
 		return given()
 				.contentType(ContentType.JSON)
 				.headers(headers)																																																.headers(headers)
@@ -52,5 +51,8 @@ public class WebservicesMethod extends BaseClass {
 				.body(Requestbody)
 				.post(uRI);
 	}
+    
+	
+
 
 }
