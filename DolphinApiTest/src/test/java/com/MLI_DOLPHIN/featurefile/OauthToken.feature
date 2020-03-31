@@ -1,3 +1,4 @@
+@OauthApI
 Feature: POST: Oauth API Test
   Description: POST: The purpose of this feature is to test Oauth Api.
 

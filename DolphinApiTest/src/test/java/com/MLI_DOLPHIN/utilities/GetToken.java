@@ -25,7 +25,7 @@ public class GetToken extends BaseClass {
 //		logger.info("Response Body is ==" + responseBody.getBody().prettyPrint());
 //		responseBody.then().root("payload").body("token", Matchers.notNullValue()).statusCode(statuscode);
 		access_token = responseBody.then().extract().path("payload.token");
-		logger.info("Segrigated Access token :" + access_token);
+//		logger.info("Segrigated Access token :" + access_token);
 
 		return access_token;
 	}
