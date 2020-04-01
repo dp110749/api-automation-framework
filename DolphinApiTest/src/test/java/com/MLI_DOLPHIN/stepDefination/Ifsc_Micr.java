@@ -26,11 +26,11 @@ public class Ifsc_Micr {
 	public String FILE_PATH;
 	public String APIREQUEST;
 	public String RESPONSEBODY;
+	public String TESTREQUEST;
 	public String FINALREQUEST;
 	public Response responseOFbody;
 
-	@Description("")
-	@Story("")
+	@Description("To test the functionality with valid input parameter ")
 	@Given("^I want to set the initial End Point URL as \"([^\"]*)\" for test case \"([^\"]*)\"$")
 	public void i_want_to_set_the_initial_End_Point_URL_as_for_test_case(String url, String testname) throws Throwable {
 		logger.info(testname + ":Test execution Started");
@@ -115,8 +115,53 @@ public class Ifsc_Micr {
 		}
 		STATUS_CODE = String.valueOf(responseOFbody.getStatusCode());
 		logger.info("Response body is ::" + responseOFbody.body().prettyPrint());
+	}
+	
+	@When("^I hit the API with requestbody \"([^\"]*)\" with passing the micrcode \"([^\"]*)\" value \"([^\"]*)\" and replacing the value of ifsc \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void i_hit_the_API_with_requestbody_with_passing_the_micrcode_value_and_replacing_the_value_of_ifsc_and(String requestBodyPath, String ifsckey, String ifscvalue, String micrKey, String micrValue) throws Throwable {
+       
+		System.out.println(ifsckey+"--"+ifscvalue+"----"+micrKey+"---------"+micrValue);
+		
+		if (requestBodyPath != null && !requestBodyPath.isEmpty()) {
+			JSONParser jsonParser = new JSONParser();
+			FILE_PATH = System.getProperty("user.dir") + "/ApiRequest/" + requestBodyPath;
+			logger.info("Path of requestbody file is :: " + FILE_PATH);
+			try (FileReader reader = new FileReader(FILE_PATH)) {
+				Object obj = jsonParser.parse(reader);
+				APIREQUEST = obj.toString();
+				JSONObject jsonobject = ReusableFunction.createJSONObject(APIREQUEST);
+				JSONObject jsonRequest = ReusableFunction.replacekeyInJSONObject(jsonobject, ifsckey, ifscvalue);
+				
+				TESTREQUEST = jsonRequest.toString();
+				
+				JSONObject jsonobjectToreplaceMicrkeyValue = ReusableFunction.createJSONObject(TESTREQUEST);
+				JSONObject finalJsonRequest = ReusableFunction.replacekeyInJSONObject(jsonobjectToreplaceMicrkeyValue, micrKey, micrValue); 
+				
+				FINALREQUEST=finalJsonRequest.toJSONString();
+				logger.info("Request Body is ==================== "+FINALREQUEST);
+			} catch (FileNotFoundException | ParseException exc) {
+				exc.printStackTrace();
+			}
+		}
+		if (FINALREQUEST.length() > 0) {
+
+			responseOFbody = WebservicesMethod.POST_METHOD(endPointUri, FINALREQUEST,
+					ReusableFunction.requestHeaders(apiHeader));
+		} else {
+			logger.info(" Request Body cannot be null or empty!");
+		}
+		STATUS_CODE = String.valueOf(responseOFbody.getStatusCode());
+		logger.info("Response body is ::" + responseOFbody.body().prettyPrint());
 
 	}
+	@Then("^I want to validate if response body contains specific string \"([^\"]*)\"$")
+	public void i_want_to_validate_if_response_body_contains_specific_string(String errorMesg) throws Throwable {
+		String bodyStringValue =responseOFbody.asString();
+		Assert.assertTrue(bodyStringValue.contains(errorMesg));
+
+	}
+
+
 
 
 
