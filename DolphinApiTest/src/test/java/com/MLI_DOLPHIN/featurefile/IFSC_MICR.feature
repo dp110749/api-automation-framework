@@ -1,6 +1,6 @@
 @IFSC_MICR_API
 Feature: POST: To Test the feature of IFSC MICR API
-Description:The Purpose of this api to fatch the deatis of IFSC and MICR
+Description:The Purpose of this api to fetch the deatis of IFSC and MICR
 
 @Post
 Scenario Outline: To test the functionality of IFSC MICR Api when we pass the valid
