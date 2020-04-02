@@ -1,0 +1,42 @@
+{
+  "request": {
+    "metadata": {
+      "soaCorrelationId": "12222221122",
+      "appId": "IBPS"
+    },
+    "payload": {
+      "nameOfPayer": "abc",
+      "ageOfPayer": "40",
+      "genderOfPayer": "F",
+      "nameOfInsured": "Aashkaar",
+      "ageOfInsured": "40",
+      "genderOfInsured": "M",
+      "isNRI": "No",
+      "policyHolderStateName": "GUJARAT",
+      "maxLifeRegisteredStateName": "HARYANA",
+      "isLIEqualsPH": "No",
+      "policyTerm": "20",
+      "premiumPayingTerm": "20",
+      "paymentModeName": "Annual",
+      "committedPremium": "50000",
+      "isSurrenderRequired": "Yes",
+      "surrenderOptionAmountArray" : ["0", "0", "0", "9000", "0", "0", "0", "7890", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
+      "coverMultiple": "10",
+      "productCode": "34",
+      "productName": "Max Life Fast Track Super Plan",
+      "growthFund": "20",
+      "growthSuperFund": "10",
+      "conservativeFund": "20",
+      "secureFund": "20",
+      "balancedFund": "20",
+      "highGrowthFund": "10",
+      "dfaOption": "No",
+      "stpOption": "No",
+      "channel": "SPARC",
+      "channelId": "9094",
+      "productGroup": "ULIP",
+      "objectiveOfInsurance": "Individual Policy",
+      "agentId": "719707"
+    }
+  }
+}
