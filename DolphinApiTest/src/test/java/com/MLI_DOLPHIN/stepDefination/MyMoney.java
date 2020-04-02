@@ -73,8 +73,8 @@ public class MyMoney {
 		logger.info("Varification of response status ");
 	}
 
-	@Then("^I try to validate the response time response type and response app id for mymoeny api$")
-	public void i_try_to_validate_the_response_time_response_type_and_response_app_id_for_mymoeny_api() throws Throwable {
+	@Then("^I try to validate the response time response type and response app id for myMoney api$")
+	public void i_try_to_validate_the_response_time_response_type_and_response_app_id_for_myMoney_api() throws Throwable {
 		responseOFbody.then().spec(SpecificationFactory.getGenericResponseSpec());
 	}
 

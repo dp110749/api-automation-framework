@@ -1,6 +1,6 @@
 @MYMONEY_API
 Feature: POST: To Test the feature of MYMONEY API
-Description:The Purpose of this api to fatch the status of premium amount 
+Description:The Purpose of this api to fetch the status of premium amount 
 
 @Post
 Scenario Outline: To test the functionality of Mymoney Api when we pass the valid
@@ -9,7 +9,7 @@ Scenario Outline: To test the functionality of Mymoney Api when we pass the vali
     When I set header for mymoney api "<Headers>"
     When I hit the myMoney API with requestbody and Post method "<RequestBody>"
     Then I try to verify mymoney rsponse status code is "<StatusCode>" 
-    And I try to validate the response time response type and response app id for mymoeny api
+    And I try to validate the response time response type and response app id for myMoney api
     And I want to validate if mymoney response body contains specific string "collectedAmount" and "bounceAmount"
     And I want to validate the collected amount 
     And i want to validate the bounce amount 
@@ -27,7 +27,7 @@ Scenario Outline: To test the functionality of Mymoney Api when we pass the mand
     When I set header for mymoney api "<Headers>"
     When I hit the myMoney API with requestbody and Post method "<RequestBody>" and policyNoKey "<policyNumberkey>" and PolicyNumValue "<policyNumValue>"
     Then I try to verify mymoney rsponse status code is "<StatusCode>" 
-    And I try to validate the response time response type and response app id for mymoeny api
+    And I try to validate the response time response type and response app id for myMoney api
     And I want to validate if mymoney api response body contains specific string "Mandatory Parameter is missing"
    
     Examples:
@@ -42,7 +42,7 @@ Scenario Outline: To test the functionality of Mymoney Api when we pass the wron
     When I set header for mymoney api "<Headers>"
     When I hit the myMoney API with requestbody and Post method "<RequestBody>" and policyNoKey "<policyNumberkey>" and PolicyNumValue "<policyNumValue>"
     Then I try to verify mymoney rsponse status code is "<StatusCode>" 
-    And I try to validate the response time response type and response app id for mymoeny api
+    And I try to validate the response time response type and response app id for myMoney api
     And I want to validate if mymoney api response body contains specific string "Policy number does not exist"
    
     Examples:
@@ -55,10 +55,10 @@ Scenario Outline: To test the functionality of Mymoney Api when we pass the wron
 Scenario Outline: To test the functionality of Mymoney Api when we pass the header  
                   null
     Given I want to set the initial End Point URL for mymoney api "<URL>" for test case "<TestName>"
-    When I set header for mymoney api "<Headers>"
+    When I set header for myMoney api "<Headers>"
     When I hit the myMoney API with requestbody and Post method "<RequestBody>" and policyNoKey "<policyNumberkey>" and PolicyNumValue "<policyNumValue>"
     Then I try to verify mymoney rsponse status code is "<StatusCode>" 
-    And I want to validate if mymoney api response body contains specific string "Forbidden"   
+    And I want to validate if myMoney api response body contains specific string "Forbidden"   
     Examples:
     
       | TestName        |             URL                            |  Headers     | RequestBody  |  StatusCode|   
