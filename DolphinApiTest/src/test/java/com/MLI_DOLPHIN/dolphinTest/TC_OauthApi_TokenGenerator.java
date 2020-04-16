@@ -45,7 +45,7 @@ public class TC_OauthApi_TokenGenerator extends BaseClass {
 			if (runmode.equalsIgnoreCase("yes")) {
 
 				responseStatusCode = Integer.valueOf(statusCode.trim());
-				testRequest = ReusableFunction.getSpecificRequest(requestBody.trim(), inputData.trim());
+				testRequest = ReusableFunction.getSpecificRequest(requestBody.trim(), inputData.trim(),"changeData");
 				responseBody = WebservicesMethod.OAUTHAPI_POST_METHOD(url, testRequest,
 						ReusableFunction.requestHeaders(headers));
 

@@ -36,7 +36,7 @@ public class TC_LE_FTSPTest extends BaseClass{
 		if (runmode.equalsIgnoreCase("yes")) {
 			
 			responseStatusCode = Integer.valueOf(statusCode.trim());
-			testRequest = ReusableFunction.getSpecificRequest(requestBody.trim(), inputData.trim());			
+			testRequest = ReusableFunction.getSpecificRequest(requestBody.trim(), inputData.trim(),"changeData");			
 			responseBody = WebservicesMethod.POST_METHOD(url, testRequest,ReusableFunction.requestHeaders(headers));
 			logger.info("Response Body is::"+responseBody.getBody().prettyPrint().toString());
 			

@@ -11,23 +11,23 @@ import com.MLI_DOLPHIN.utilities.ReusableFunction;
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
-@CucumberOptions(features ="src/test/java/com/MLI_DOLPHIN/featurefile", tags ="@OauthApI,@IFSC_MICR_API,@MYMONEY_API,@LE_IllustrationGenerator",
-                  glue = {"com.MLI_DOLPHIN.stepDefination"},
-                  plugin = { "pretty", "html:target/cucumber-reports" },
-                  dryRun = false, monochrome = true
-                  
-		)
-	
-public class OauthToken extends AbstractTestNGCucumberTests{
-	
+@CucumberOptions(features = "src/test/java/com/MLI_DOLPHIN/featurefile", tags = "@OauthApI,@IFSC_MICR_API,@MYMONEY_API,@LE_IllustrationGenerator,@LE_AWPService", glue = {
+		"com.MLI_DOLPHIN.stepDefination" }, plugin = { "pretty",
+				"html:target/cucumber-reports" }, dryRun = false, monochrome = true
+
+)
+
+public class OauthToken extends AbstractTestNGCucumberTests {
+
 	@BeforeClass
 	public static void SetUp() {
 		Logger logger = Logger.getLogger("Dolphin logger");
 		PropertyConfigurator.configure("log4j.properties");
 		logger.setLevel(Level.DEBUG);
-//		Setting the Base Url 
+		// Setting the Base Url
 		baseURI = ReusableFunction.readPropertiesFile().getProperty("BASE_URI");
-	}	
+	}
+
 	@AfterClass
 	public static void TearDown() {
 		reset();
