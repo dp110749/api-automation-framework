@@ -3,6 +3,7 @@ package com.MLI_DOLPHIN.stepDefination;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import org.apache.log4j.Logger;
+import org.hamcrest.Matchers;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -130,7 +131,21 @@ public class MyMoney {
 	public void i_want_to_validate_if_mymoney_api_response_body_contains_specific_string(String errorMesg) throws Throwable {
 		String bodyStringValue =responseOFbody.asString();
 		Assert.assertTrue(bodyStringValue.contains(errorMesg));
+        logger.info("Validation of error message successfull.");
+	}
+	
+	@When("^I set header for myMoney api \"([^\"]*)\"$")
+	public void i_set_header_for_myMoney_api(String inputheader) throws Throwable {
 
+		apiHeader=inputheader;
+		logger.info("Set the request header successfully.");
+		
+	}
+
+	@Then("^I want to validate if myMoney api response body contains specific string \"([^\"]*)\"$")
+	public void i_want_to_validate_if_myMoney_api_response_body_contains_specific_string(String message) throws Throwable {
+        responseOFbody.then().body("message", Matchers.equalTo(message));
+        logger.info("Validation of response body message when send the header as null.");
 	}
 
 }
