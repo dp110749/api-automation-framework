@@ -12,19 +12,19 @@ Background:
 		
 		| x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | /developer/microservices/mli/dolphin/api/medicalReport/ReportTrigger/v1 |UW_MedicalReport.json|
 		
-@Post 
+@PositiveTest 
 Scenario Outline: to test the functinality when user send the valid request with category T+M+B 
 
 	When i want to send the request 
 	Then i want to check "<responseStatusCode>" is the output 
 	And i want to check the respone time and response type and app ID 
-	And i want to check the "<responseMessage>" and "<medicalReportOutPut>" in the response 
+	And i want to check the "<responseMessage>" and "<medicalReportOutPut>" and "<kickoutMesg>" in the response  
 	
 	Examples: 
-		| responseStatusCode | responseMessage |medicalReportOutPut|
-		|        200         | Success         |    MANUW          |
+		| responseStatusCode | responseMessage |medicalReportOutPut|kickoutMesg|
+		|        200         | Success         |    MANUW          |Insured life cover exceeds 2 crore|
 		
-@Post 
+@PositiveTest 
 Scenario Outline: to test the functinality when user send the valid request with category T+M 
 
 Given i want to change the cotegory in request 
@@ -35,14 +35,50 @@ Given i want to change the cotegory in request
 When i want to send the request 
 Then i want to check "<responseStatusCode>" is the output 
 And i want to check the respone time and response type 
-And i want to check the "<responseMessage>" and "<medicalReportOutPut>" in the response 
+And  i want to check the "<responseMessage>" and "<medicalReportOutPut>" and "<kickoutMsg>" in the response 
 
 Examples: 
-	| responseStatusCode | responseMessage |medicalReportOutPut|
-	|           200      | Success         |    MANUW          |
+	| responseStatusCode | responseMessage |medicalReportOutPut|kickoutMsg|
+	|           200      | Success         |    MANUW          |Insured life cover exceeds 2 crore|
 				
+
+@PositiveTest 
+Scenario Outline: to test the functinality when user send the valid request with category B+T
+ 
+Given i want to change the cotegory in request 
+
+	|   inputdata      |actionType|
+	|{"category":"B+T"}|changeData|
+	
+When i want to send the request 
+Then i want to check "<responseStatusCode>" is the output 
+And i want to check the respone time and response type 
+And  i want to check the "<responseMessage>" and "<medicalReportOutPut>" and "<kickoutMsg>" in the response 
+
+Examples: 
+	| responseStatusCode | responseMessage |medicalReportOutPut|kickoutMsg|
+	|           200      | Success         |    SPA          |     |
+
+@PositiveTest 
+Scenario Outline:
+to test the functinality when user send the valid request with category M+B 
+
+Given i want to change the cotegory in request 
+
+	|   inputdata      |actionType|
+	|{"category":"M+B"}|changeData|
+	
+When i want to send the request 
+Then i want to check "<responseStatusCode>" is the output 
+And i want to check the respone time and response type 
+And  i want to check the "<responseMessage>" and "<medicalReportOutPut>" and "<kickoutMsg>" in the response 
+
+Examples: 
+	| responseStatusCode | responseMessage |medicalReportOutPut|kickoutMsg|
+	|           200      | Success         |    MANUW          |Insured life cover exceeds 2 crore|
+										
 				
-@Post 
+@PositiveTest 
 Scenario Outline: to test the functinality when user send the valid request with category T 
 
 Given i want to change the cotegory in request 
@@ -50,18 +86,18 @@ Given i want to change the cotegory in request
 	|   inputdata      |actionType|
 	|{"category":"T"}|changeData|
 	
-When i want to send the request 
-Then i want to check "<responseStatusCode>" is the output 
-And i want to check the respone time and response type 
-And i want to check the "<responseMessage>" and "<medicalReportOutPut>" in the response 
+ When i want to send the request 
+ Then i want to check "<responseStatusCode>" is the output 
+ And i want to check the respone time and response type 
+ And  i want to check the "<responseMessage>" and "<medicalReportOutPut>" and "<kickoutMsg>" in the response 
 
-Examples: 
-	| responseStatusCode | responseMessage |medicalReportOutPut|
-	|           200      | Success         |    SPA            |
+  Examples: 
+	 | responseStatusCode | responseMessage |medicalReportOutPut|kickoutMsg|
+	 |           200      | Success         |    SPA            |          |
 						
-@Post 
-Scenario Outline: to test the functinality when user send the valid request with category M 
-
+ @PositiveTest 
+  Scenario Outline: to test the functinality when user send the valid request with category M 
+ 
 	Given i want to change the cotegory in request 
 	
 		|   inputdata      |actionType|
@@ -70,65 +106,31 @@ Scenario Outline: to test the functinality when user send the valid request with
 	When i want to send the request 
 	Then i want to check "<responseStatusCode>" is the output 
 	And i want to check the respone time and response type 
-	And i want to check the "<responseMessage>" and "<medicalReportOutPut>" in the response 
+	And  i want to check the "<responseMessage>" and "<medicalReportOutPut>" and "<kickoutMsg>" in the response 
 	
 	Examples: 
-		| responseStatusCode | responseMessage |medicalReportOutPut|
-		|           200      | Success         |    MANUW          |
-		
-@Post 
-Scenario Outline: to test the functinality when user send the valid request with category M+B 
+		| responseStatusCode | responseMessage |medicalReportOutPut|kickoutMsg|
+		|           200      | Success         |    MANUW          |Insured life cover exceeds 2 crore|
 
-Given i want to change the cotegory in request 
-
-	|   inputdata      |actionType|
-	|{"category":"M+B"}|changeData|
-	
-When i want to send the request 
-Then i want to check "<responseStatusCode>" is the output 
-And i want to check the respone time and response type 
-And i want to check the "<responseMessage>" and "<medicalReportOutPut>" in the response 
-
-Examples: 
-	| responseStatusCode | responseMessage |medicalReportOutPut|
-	|           200      | Success         |    MANUW          |
-										
-@Post 
-Scenario Outline: to test the functinality when user send the valid request with category M+B
+ @NegativeTest
+  Scenario Outline: to test the functinality when user send the invalid category 
  
-Given i want to change the cotegory in request 
-
-	|   inputdata      |actionType|
-	|{"category":"M+B"}|changeData|
-	
-When i want to send the request 
-Then i want to check "<responseStatusCode>" is the output 
-And i want to check the respone time and response type 
-And i want to check the "<responseMessage>" and "<medicalReportOutPut>" in the response 
-
-Examples: 
-	| responseStatusCode | responseMessage |medicalReportOutPut|
-	|           200      | Success         |    MANUW          |
-	
-												
-@Post 
-Scenario Outline: to test the functinality when user send the valid request with category B+T 
-
 	Given i want to change the cotegory in request 
 	
 		|   inputdata      |actionType|
-		|{"category":"B+T"}|changeData|
+		|{"category":"X+Y"}|changeData|
 		
 	When i want to send the request 
 	Then i want to check "<responseStatusCode>" is the output 
 	And i want to check the respone time and response type 
-	And i want to check the "<responseMessage>" and "<medicalReportOutPut>" in the response 
+	And  i want to check the "<responseMessage>" and "<messageCode>" in the response 
 	
 	Examples: 
-		| responseStatusCode | responseMessage |medicalReportOutPut|
-		|           200      | Success         |    SPA            |
+		| responseStatusCode | responseMessage |messageCode|
+		|           200      | Failure         |    400    |
 		
-@PostFail 
+			
+@NegativeTest 
 Scenario Outline: to test the functinality when user send the header as null 
 
 	Given i want to set header in request "<header>"
@@ -141,7 +143,7 @@ Scenario Outline: to test the functinality when user send the header as null
 		|header        | responseStatusCode | responseMessage |
 		|x-api-key:null|           403      | Forbidden       |  
 		
-@PostFail 
+@NegativeTest 
 Scenario Outline: to test the functinality when user send the invalid header 
 
 	Given i want to set header in request "<header>"
@@ -151,11 +153,39 @@ Scenario Outline: to test the functinality when user send the invalid header
 	And i want to check the "<responseMessage>" in the response 
 	
 	Examples: 
-		|header                                        | responseStatusCode | responseMessage |
-		|x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CVY|           403      | Forbidden       |   
+		|header                                 | responseStatusCode | responseMessage |
+		|x-api-key:DTUDHv9UVG8cVT3qmhXXXXXXXxYYY|           403      | Forbidden       |   
+
 		 
+@NegativeTest
+Scenario Outline: to test the functinality when user send the invalid EndPoint url
+
+	Given i want to set url in request "<invaildEndPointUrl>"
+		
+	When i want to send the request 
+	Then i want to check "<responseStatusCode>" is the output 	
+	 
+	Examples: 
+		|invaildEndPointUrl                                                | responseStatusCode | 
+		|/developer/microservices/mli/dolphin/api/myAgent/ReportTrigger/v1 |           404     |    
 		
 		
+ #@PositiveTest 
+ # Scenario Outline: to test the functinality when user send the valid request with category M 
+ 
+#	Given i want to change the cotegory in request 
+	
+#		|   inputdata                    |actionType|
+#		|{"	"proposalNo": "521485692""}  |removeData|
+		
+#	When i want to send the request 
+#	Then i want to check "<responseStatusCode>" is the output 
+#	And i want to check the respone time and response type 
+#	And  i want to check the "<responseMessage>" and "<medicalReportOutPut>" and "<kickoutMsg>" in the response 
+	
+#	Examples: 
+#		| responseStatusCode | responseMessage |medicalReportOutPut|kickoutMsg|
+#		|           200      | Success         |    MANUW          |Insured life cover exceeds 2 crore|
 		
 														
 														
