@@ -15,20 +15,9 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 "com.MLI_DOLPHIN.stepDefination" }, plugin = { "pretty",
 				"html:target/cucumber-reports" }, dryRun = false, monochrome = true
-
-<<<<<<< HEAD
 )
 
 public class OauthToken extends AbstractTestNGCucumberTests {
-=======
-@CucumberOptions(features ="src/test/java/com/MLI_DOLPHIN/featurefile", tags ="@OauthApI,@IFSC_MICR_API,@PostFail1",
-                  glue = {"com.MLI_DOLPHIN.stepDefination"},
-                  plugin = { "pretty", "html:target/cucumber-reports" },
-                  dryRun = false, monochrome = true
-                  
-		         )
->>>>>>> mymoney
-
 	@BeforeClass
 	public static void SetUp() {
 		Logger logger = Logger.getLogger("Dolphin logger");
