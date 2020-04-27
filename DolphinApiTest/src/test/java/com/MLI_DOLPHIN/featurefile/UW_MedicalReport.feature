@@ -57,7 +57,7 @@ And  i want to check the "<responseMessage>" and "<medicalReportOutPut>" and "<k
 
 Examples: 
 	| responseStatusCode | responseMessage |medicalReportOutPut|kickoutMsg|
-	|           200      | Success         |    SPA          |     |
+	|           200      | Success         |    SPA            |          |
 
 @PositiveTest 
 Scenario Outline:
@@ -170,25 +170,37 @@ Scenario Outline: to test the functinality when user send the invalid EndPoint u
 		|/developer/microservices/mli/dolphin/api/myAgent/ReportTrigger/v1 |           404     |    
 		
 		
- #@PositiveTest 
- # Scenario Outline: to test the functinality when user send the valid request with category M 
+ @PositiveTest 
+  Scenario Outline: to test the functinality when user send the category as null
  
-#	Given i want to change the cotegory in request 
+	Given i want to change the cotegory in request 
 	
-#		|   inputdata                    |actionType|
-#		|{"	"proposalNo": "521485692""}  |removeData|
+		|   inputdata      |actionType|
+		|{"category": ""}  |changeData|
 		
-#	When i want to send the request 
-#	Then i want to check "<responseStatusCode>" is the output 
-#	And i want to check the respone time and response type 
-#	And  i want to check the "<responseMessage>" and "<medicalReportOutPut>" and "<kickoutMsg>" in the response 
-	
-#	Examples: 
-#		| responseStatusCode | responseMessage |medicalReportOutPut|kickoutMsg|
-#		|           200      | Success         |    MANUW          |Insured life cover exceeds 2 crore|
+	When i want to send the request 
+	Then i want to check "<responseStatusCode>" is the output 
+    And i want to check the "<responseMessage>" in the response	
+    
+	Examples: 
+		| responseStatusCode | responseMessage |
+		|           200      |  Failure        |
 		
 														
+ @PositiveTest 
+  Scenario Outline: to test the functinality when user remove the payload field and send the request 
+	Given i want to change the cotegory in request 
+	
+		|   inputdata      |actionType|
+		|{"category": ""}  |changeData|
+		
+	When i want to send the request 
+	Then i want to check "<responseStatusCode>" is the output 
+    And i want to check the "<responseMessage>" in the response	
 														
+	Examples: 
+		| responseStatusCode | responseMessage |
+		|           200      | Success         |
 														
 														
 														
