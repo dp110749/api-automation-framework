@@ -170,7 +170,7 @@ Scenario Outline: to test the functinality when user send the invalid EndPoint u
 		|/developer/microservices/mli/dolphin/api/myAgent/ReportTrigger/v1 |           404     |    
 		
 		
- @PositiveTest 
+ @NegativeTest 
   Scenario Outline: to test the functinality when user send the category as null
  
 	Given i want to change the cotegory in request 
@@ -187,7 +187,7 @@ Scenario Outline: to test the functinality when user send the invalid EndPoint u
 		|           200      |  Failure        |
 		
 														
- @PositiveTest 
+ @NegativeTest 
   Scenario Outline: to test the functinality when user remove the payload field and send the request 
 	Given i want to change the cotegory in request 
 	
