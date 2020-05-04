@@ -277,8 +277,6 @@
 
 				</configuration>
 			</plugin>
-
-
 			<!-- New changes for cucumber reports -->
 			<plugin>
 				<groupId>net.masterthought</groupId>
@@ -305,7 +303,6 @@
 
 		</plugins>
 	</build>
-
-
+	
 
 </project>
