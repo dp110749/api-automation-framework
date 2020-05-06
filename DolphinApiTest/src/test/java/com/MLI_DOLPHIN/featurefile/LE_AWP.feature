@@ -5,8 +5,8 @@ Background:
 
 	Given Set the request url and header for AWP Service 
 	
-	    | requestFile |  illustrationurl                                              | header  |
-		| LE_AWP.json | /developer/microservices/mli/api/life-engage/illustration/awp | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | 
+	    | requestFile |  illustrationurl          |                                            header  |
+		| LE_AWP.json | /developer/leillustration | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | 
 		
 		
 		#   When  I Send the POST request 
@@ -25,8 +25,8 @@ Scenario Outline: To test the functionality for illustration generator
 Scenario Outline: To test the functionality when send bad request 
 	Given I remove the field from payload and send request
 	
-    	|   testData   |oparationToperform|  	
-    	|{"agentId": "719707"}|removeData|
+    	|   testData          |oparationToperform|  	
+    	|{"agentId": "719707"}|        removeData|
     	
 	When Send the post request 
 	Then I try Validate the response status code "<statusCode>" 
@@ -70,8 +70,8 @@ Scenario Outline: To test the functionality to generate premium for AWP
 	And i want to validate success message "<responseMessage>"
 	
 	Examples:
-	| url                                                      |statuscode|responseMessage|
-	| /developer/microservices/mli/api/life-engage/premium/awp |200       |Success        |
+	| url                  |statuscode|responseMessage|
+	| /developer/lepremium |200       |Success        |
 	
 @NegativeTest	
 Scenario Outline: To test the functionality when user send wrong url for AWP premium
@@ -89,8 +89,8 @@ Scenario Outline: To test the functionality when user send wrong url for AWP pre
 @NegativeTest	
 Scenario Outline:To test the functionality of AWP premiunm service when user send invalid inputdata in request 
 	Given I want to set the input data in request 
-	    |oparationType|inputData          |                              url|
-		|changeData   |{"nameOfInsured": "Akassh","agentId": "9s7www07"}|/developer/microservices/mli/api/life-engage/premium/awp|
+	    |oparationType|inputData                                        |                 url|
+		|changeData   |{"nameOfInsured": "Akassh","agentId": "9s7www07"}|/developer/lepremium|
 	When Send the post request	
 	Then I try Validate the response status code "<statuscode>" 
 	And I want to validate the response time and request type response app id 
