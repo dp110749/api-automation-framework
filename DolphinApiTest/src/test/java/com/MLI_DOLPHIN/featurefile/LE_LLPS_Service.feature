@@ -6,8 +6,8 @@ Background:
 
 	Given : set the request url header and request body 
 	
-		|url_illustation                                               |url_premium                                               |header                                              |requestfile   |
-		|/developer/microservices/mli/api/life-engage/illustration/lpps |/developer/microservices/mli/api/life-engage/premium/lpps| x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | LE_LLPS.json |
+		|url_illustation           |url_premium         |header                                              |requestfile   |
+		|/developer/leillustration |/developer/lepremium| x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | LE_LLPS.json |
 
 @PositiveTest		
 Scenario Outline: 
