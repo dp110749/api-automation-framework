@@ -13,8 +13,8 @@ Scenario Outline: To test the functionality of LE FTSP API when we pass the vali
     And I try to validate response  message  discription "Illustration generated" and correlation id "31873127329799381273192121"
       
     Examples:    
-    | TestName                |             URL                                                |  Headers                                         | RequestBody                        | StatusCode |
-    |LE Iiiustration generator| /developer/microservices/mli/api/life-engage/illustration/ftsp |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |      
+    | TestName                |             URL           |  Headers                                         | RequestBody                        | StatusCode |
+    |LE Iiiustration generator| /developer/leillustration |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |      
 
     Scenario Outline: To test the functionality of LE FTSP API when we pass the Mandatory 
                        parameter(Insured Name ) as empty
@@ -27,8 +27,8 @@ Scenario Outline: To test the functionality of LE FTSP API when we pass the vali
     And I try to validate response  message  discription "Faliure" and correlation id "31873127329799381273192121"
       
     Examples:    
-    | TestName                |             URL                                                |  Headers                                         | RequestBody                        | StatusCode |insuredNameKey|insuredValue|
-    |LE Iiiustration generator| /developer/microservices/mli/api/life-engage/illustration/ftsp |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |nameOfInsured|              |     
+    | TestName                |             URL           |  Headers                                         | RequestBody                        | StatusCode |insuredNameKey|insuredValue|
+    |LE Iiiustration generator| /developer/leillustration |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |nameOfInsured|              |     
     
      Scenario Outline: To test the functionality of LE FTSP API when we pass the Mandatory 
                        parameter(X -Correlation id ) as empty        
@@ -41,7 +41,7 @@ Scenario Outline: To test the functionality of LE FTSP API when we pass the vali
       
     Examples:    
     | TestName                |             URL                                                |  Headers                                         | RequestBody                        | StatusCode |XcorrelationIdKey|XcorrelationIDValue|
-    |LE Iiiustration generator| /developer/microservices/mli/api/life-engage/illustration/ftsp |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |X-Correlation-ID |                   |     
+    |LE Iiiustration generator| /developer/microservices/mli/api/life-engage/illustration/fts |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |X-Correlation-ID |                   |     
  
   
     Scenario Outline: To test the functionality of LE FTSP API when we send the valid request 
@@ -55,8 +55,8 @@ Scenario Outline: To test the functionality of LE FTSP API when we pass the vali
     And I try to validate response  message  discription "Success" and correlation id "31873127329799381273192121"
       
     Examples:    
-    | TestName                |             URL                                                |  Headers                                         | RequestBody                        | StatusCode |
-    |LE Iiiustration generator| /developer/microservices/mli/api/life-engage/premium/ftsp |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |      
+    | TestName                |             URL      |  Headers                                         | RequestBody                        | StatusCode |
+    |LE Iiiustration generator| /developer/lepremium |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |      
   
   
               
