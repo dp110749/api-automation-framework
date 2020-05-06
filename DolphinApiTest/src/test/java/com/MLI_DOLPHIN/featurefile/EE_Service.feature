@@ -3,8 +3,8 @@ Feature: To test the functionality of EE
 Background: 
 	Given :set the url request and header 
 	
-		|url                                                                    |header                                    |requestFile      | 
-		|/developer/microservices/mli/dolphin/api/ee/AutoUWMS/executionEngine/v1|x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| EE_Service.json |
+		|url               |header                                    |requestFile      |           
+		|r/execution-engine|x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| EE_Service.json |
 
 @PositiveTest		
 Scenario Outline: to test functionality when user send the valid request 
