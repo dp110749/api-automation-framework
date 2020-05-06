@@ -1,0 +1,109 @@
+package com.MLI_DOLPHIN.stepDefination;
+
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.hamcrest.Matchers;
+import com.MLI_DOLPHIN.baseclass.WebservicesMethod;
+import com.MLI_DOLPHIN.specs.SpecificationFactory;
+import com.MLI_DOLPHIN.utilities.ReusableFunction;
+import cucumber.api.DataTable;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import io.restassured.response.Response;
+import junit.framework.Assert;
+
+public class LE_PWPService {
+	private final static Logger logger = Logger.getLogger(LE_PWPService.class.getName());
+	public String illustrationUrl;
+	public String premiumUrl;
+	public String headers;
+	public String requestFile;
+	public String requestBody;
+	public Response responseBody;
+	public String responseStatusCode;
+	public String testData;
+	public String oparationToperform;
+	
+	@Given("^Set the url header and request$")
+	public void set_the_url_header_and_request(DataTable initialData) throws Throwable {
+
+		List<String>  listOfdata= initialData.asList(String.class);
+		List<List<String>>  numOfRow= initialData.raw();
+		
+		int secondRow=listOfdata.size()/numOfRow.size();
+		for(int i=secondRow;i<listOfdata.size();i++){
+			illustrationUrl=listOfdata.get(i);
+			i++;
+			premiumUrl=listOfdata.get(i);
+			i++;
+			headers=listOfdata.get(i);
+			i++;
+			requestFile=listOfdata.get(i);
+			break;
+		}
+		requestBody=ReusableFunction.readJsonFile(requestFile);
+	
+	}
+
+	@Then("^: Send the request$")
+	public void send_the_request() throws Throwable {
+		responseBody = WebservicesMethod.POST_METHOD(illustrationUrl, requestBody,
+				ReusableFunction.requestHeaders(headers));
+		logger.info("Response Body is ::" + responseBody.prettyPrint());
+	}
+
+	@Then("^: I want to validate the response \"([^\"]*)\"$")
+	public void i_want_to_validate_the_response(String statusCode) throws Throwable {
+		responseStatusCode = String.valueOf(responseBody.getStatusCode());
+		Assert.assertEquals(statusCode, responseStatusCode);
+		logger.info("Varification of status code is successfully pass:");
+
+	}
+
+	@Then("^: I want to validate the response app id and response time$")
+	public void i_want_to_validate_the_response_app_id_and_response_time() throws Throwable {
+		SpecificationFactory.getGenericResponseSpec();
+		logger.info("Validation of app id and response time successfully pass.");
+	}
+
+	@Then("^: I want to validate the response message \"([^\"]*)\"$")
+	public void i_want_to_validate_the_response_message(String responseMessage) throws Throwable {
+		if(responseMessage.equalsIgnoreCase("Success") || responseMessage.contains("Fail")){
+			responseBody.then().root("msgInfo").body("msg", Matchers.equalTo(responseMessage));
+			logger.info("varification of response message successfully");
+
+		} else if (responseMessage.equalsIgnoreCase("Bad Request")){
+			responseBody.then().body("error", Matchers.equalToIgnoringCase(responseMessage));
+//			String a=responseBody.getBody().asString();
+//			boolean s=a.contains(responseMessage);
+//			System.out.println("---------"+s);
+			logger.info("User Send the  bad request.");
+		}else{
+			logger.info("response message does not match");
+		}	
+		
+	}
+
+	@Then("^: I want to validate illustration genrate or not$")
+	public void i_want_to_validate_illustration_genrate_or_not() throws Throwable {
+		responseBody.then().root("payload").body("illustrationPdfBase64", Matchers.notNullValue());
+		logger.info("Illustration is generated successfully");
+
+	}
+
+	@Given("^: Set the input test data$")
+	public void set_the_input_test_data(DataTable inputTestData) throws Throwable {
+		List<String> listTestData=inputTestData.asList(String.class);
+		List<List<String>> numOfRow=inputTestData.raw();
+		int firstRow=listTestData.size()/numOfRow.size();
+		for(int i=firstRow;i<listTestData.size();i++){
+			testData=listTestData.get(i);
+			i++;
+			oparationToperform=listTestData.get(i);
+			break;
+		}
+		requestBody=ReusableFunction.getSpecificRequest(requestBody, testData, oparationToperform);		
+	}
+
+
+}

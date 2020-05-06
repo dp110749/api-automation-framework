@@ -11,16 +11,17 @@ import com.MLI_DOLPHIN.utilities.ReusableFunction;
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
-
 @CucumberOptions(features = "src/test/java/com/MLI_DOLPHIN/featurefile",
 
+		// @UW_MedicalReportService
+		// tags =
+		// "@OauthApI,@IFSC_MICR_API,@MYMONEY_API,@LE_IllustrationGenerator,@LE_AWPService,@EE_ServiceTest,@LE_LLPSService",
+		// glue = {
 
-//@UW_MedicalReportService
-		tags = "@OauthApI,@IFSC_MICR_API,@MYMONEY_API,@LE_IllustrationGenerator,@LE_AWPService,@EE_ServiceTest,@LE_LLPSService", glue = {
+		tags = "@LE_PWPService", glue = {
 
 				"com.MLI_DOLPHIN.stepDefination" }, plugin = { "pretty",
-						"html:target/cucumber-reports" }, dryRun = false, monochrome = true) 
-
+						"html:target/cucumber-reports" }, dryRun = false, monochrome = true)
 
 public class OauthToken extends AbstractTestNGCucumberTests {
 	@BeforeClass

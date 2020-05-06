@@ -1,0 +1,41 @@
+{
+    "metadata": {
+        "X-Correlation-ID": "31873127329799381273192",
+        "X-App-ID": "IBPS"
+    },
+"payload":{
+"partnerCareRiderRequired":"No",
+"nameOfInsured":"Akash",
+"ageOfInsured":"27",
+"genderOfInsured":"M",
+"nameOfPayer":"Akash",
+"ageOfPayer":"27",
+"genderOfPayer":"M",
+"isNri":"No",
+"policyHolderStateName":"Haryana",
+"maxLifeRegisteredStateName":"Haryana",
+"isLIEqualsPH":"Yes",
+"policyTerm":"12",
+"premiumPayingTerm":"5",
+"paymentModeName":"Quarterly",
+"committedPremium":"200000",
+"objectiveOfInsurance":"Individual Policy",
+"channel":"SPARC",
+"channelId":"9094",
+"productCode":"78",
+"productName":"Max Life Platinum Wealth Plan",
+"productGroup":"ULIP",
+"surrenderOption":"No",
+"surrenderOptionAmountArray":[],
+"agentId":"719707",
+"coverMultiple":"10",
+"growthSuperFund":"0",
+"conservativeFund":"0",
+"growthFund":"0",
+"secureFund":"0",
+"balancedFund":"0",
+"highGrowthFund":"0",
+"dfaOption":"Yes",
+"stpOption":"No"
+}
+}
