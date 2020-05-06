@@ -11,7 +11,7 @@ Feature: POST: Oauth API Test
 
      Examples:
       |    TestName  |        URL       |  Headers                                                                                 | RequestBody          | StatusCode |
-      | OauthApitest | /developer/auth `|x-client-id: 53jt873l753mcudrhqmuh3g5u8,x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| OauthApiRequest.json |    200     |
+      | OauthApitest | /developer/auth  |x-client-id: 53jt873l753mcudrhqmuh3g5u8,x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| OauthApiRequest.json |    200     |
 
   @postfail
   Scenario Outline: POST: Test the Oauth Api with invalid credential
