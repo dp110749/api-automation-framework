@@ -17,8 +17,8 @@ Scenario Outline: To test the functionality of Mymoney Api when we pass the vali
    
     Examples:
     
-      | TestName        |             URL                            |  Headers                                         | RequestBody  | StatusCode |
-      | MyMoney API TEST| /developer/microservices/mli/qc/mymoney/v1 |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| MyMoney.json |    200     |
+      | TestName        |             URL    |  Headers                                         | RequestBody  | StatusCode |
+      | MyMoney API TEST| /developer/mymoney |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| MyMoney.json |    200     |
       
 @PostFail
 Scenario Outline: To test the functionality of Mymoney Api when we pass the mandatory 
@@ -32,8 +32,8 @@ Scenario Outline: To test the functionality of Mymoney Api when we pass the mand
    
     Examples:
     
-      | TestName        |             URL                            |  Headers                                         | RequestBody  |policyNumberkey|policyNumValue| StatusCode|
-      | MyMoney API TEST| /developer/microservices/mli/qc/mymoney/v1 |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| MyMoney.json |    policyNo   |              |200        |
+      | TestName        |             URL    |  Headers                                         | RequestBody  |policyNumberkey|policyNumValue| StatusCode|
+      | MyMoney API TEST| /developer/mymoney |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| MyMoney.json |    policyNo   |              |200        |
   
 @PostFail
 Scenario Outline: To test the functionality of Mymoney Api when we pass the wrong  
@@ -47,8 +47,8 @@ Scenario Outline: To test the functionality of Mymoney Api when we pass the wron
    
     Examples:
     
-      | TestName        |             URL                            |  Headers                                         | RequestBody  |policyNumberkey|policyNumValue| StatusCode|
-      | MyMoney API TEST| /developer/microservices/mli/qc/mymoney/v1 |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| MyMoney.json |    policyNo   | 101070000    |200        |
+      | TestName        |             URL    |  Headers                                         | RequestBody  |policyNumberkey|policyNumValue| StatusCode|
+      | MyMoney API TEST| /developer/mymoney |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| MyMoney.json |    policyNo   | 101070000    |200        |
      
                 
 @PostFail1
@@ -61,8 +61,8 @@ Scenario Outline: To test the functionality of Mymoney Api when we pass the head
     And I want to validate if myMoney api response body contains specific string "Forbidden"   
     Examples:
     
-      | TestName        |             URL                            |  Headers     | RequestBody  |  StatusCode|   
-      | MyMoney API TEST| /developer/microservices/mli/qc/mymoney/v1 |x-api-key:null| MyMoney.json |    403     |
+      | TestName        |             URL   |  Headers     | RequestBody  |  StatusCode|   
+      | MyMoney API TEST|/developer/mymoney |x-api-key:null| MyMoney.json |    403     |
 
       
    
