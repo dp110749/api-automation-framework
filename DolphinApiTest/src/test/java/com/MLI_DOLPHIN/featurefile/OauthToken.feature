@@ -11,8 +11,8 @@ Feature: POST: Oauth API Test
     And I try to verify the response value "payload" is "token" and successmessage "User Token generated successfully"
 
      Examples:
-      |    TestName  |        URL            |  Headers                                                                                 | RequestBody          | StatusCode |
-      | OauthApitest | /developer/auth-token |x-client-id: 53jt873l753mcudrhqmuh3g5u8,x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| OauthApiRequest.json |    200     |
+      |    TestName  |        URL       |  Headers                                                                                 | RequestBody          | StatusCode |
+      | OauthApitest | /developer/auth  |x-client-id: 53jt873l753mcudrhqmuh3g5u8,x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| OauthApiRequest.json |    200     |
 
   @postfail
   Scenario Outline: POST: Test the Oauth Api with invalid credential
@@ -23,8 +23,8 @@ Feature: POST: Oauth API Test
     And I try to verify the response message "Wrong credentials"
  
       Examples:
-      |    TestName  |        URL            |  Headers                                                                                 | RequestBody          | Jsonkey  | value   |StatusCode|          
-      | OauthApitest | /developer/auth-token |x-client-id: 53jt873l753mcudrhqmuh3g5u8,x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| OauthApiRequest.json | password |  ibps@1234|200    |
+      |    TestName  |        URL        |  Headers                                                                                 | RequestBody          | Jsonkey  | value     |StatusCode|          
+      | OauthApitest | /developer/auth   |x-client-id: 53jt873l753mcudrhqmuh3g5u8,x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| OauthApiRequest.json | password |  ibps@1234|200        |
  
 
   @postfail
@@ -35,7 +35,7 @@ Feature: POST: Oauth API Test
      Then I try to verify the status code is "<StatusCode>"
      
       Examples:
-      |    TestName  |        URL            |  Headers                              | RequestBody          | StatusCode|          
-      | OauthApitest | /developer/auth-token |x-client-id: 53jt873l753mcudrhqmuh3g5u8| OauthApiRequest.json | 403      |
+      |    TestName  |        URL      |  Headers                              | RequestBody          | StatusCode|          
+      | OauthApitest | /developer/auth |x-client-id: 53jt873l753mcudrhqmuh3g5u8| OauthApiRequest.json | 403      |
 
  
