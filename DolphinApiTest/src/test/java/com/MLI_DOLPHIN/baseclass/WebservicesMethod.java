@@ -18,7 +18,7 @@ public class WebservicesMethod extends BaseClass{
 				.logPayloadResponseInfo())
 				.headers(headers)
 				.contentType(ContentType.JSON)
-				.header("auth-token",gettoken.getAccessToken())
+				.header("Authorization",gettoken.getAccessToken())
 				.log().all()
 				.when()
 				.body(Requestbody)
@@ -44,7 +44,7 @@ public class WebservicesMethod extends BaseClass{
 		return given()
 				.contentType(ContentType.JSON)				
 				.header(headerKey,headerValue)
-				.header("auth-token",gettoken.getAccessToken())
+				.header("Authorization",gettoken.getAccessToken())
 				.spec(SpecificationFactory
 				.logPayloadResponseInfo()).log().all()
 				.when()
