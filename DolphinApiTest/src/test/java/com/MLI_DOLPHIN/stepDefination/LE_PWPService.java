@@ -3,9 +3,13 @@ package com.MLI_DOLPHIN.stepDefination;
 import java.util.List;
 import org.apache.log4j.Logger;
 import org.hamcrest.Matchers;
+import org.json.simple.JSONObject;
+
 import com.MLI_DOLPHIN.baseclass.WebservicesMethod;
 import com.MLI_DOLPHIN.specs.SpecificationFactory;
 import com.MLI_DOLPHIN.utilities.ReusableFunction;
+import com.google.gson.JsonObject;
+
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -45,7 +49,7 @@ public class LE_PWPService {
 	
 	}
 
-	@Then("^: Send the request$")
+	@Then("^: Send the request for illustation$")
 	public void send_the_request() throws Throwable {
 		responseBody = WebservicesMethod.POST_METHOD(illustrationUrl, requestBody,
 				ReusableFunction.requestHeaders(headers));
@@ -74,9 +78,6 @@ public class LE_PWPService {
 
 		} else if (responseMessage.equalsIgnoreCase("Bad Request")){
 			responseBody.then().body("error", Matchers.equalToIgnoringCase(responseMessage));
-//			String a=responseBody.getBody().asString();
-//			boolean s=a.contains(responseMessage);
-//			System.out.println("---------"+s);
 			logger.info("User Send the  bad request.");
 		}else{
 			logger.info("response message does not match");
@@ -104,6 +105,35 @@ public class LE_PWPService {
 		}
 		requestBody=ReusableFunction.getSpecificRequest(requestBody, testData, oparationToperform);		
 	}
+	
+	@Then("^: Send the request for premium$")
+	public void send_the_request_for_premium() throws Throwable {
+		responseBody = WebservicesMethod.POST_METHOD(premiumUrl, requestBody,
+				ReusableFunction.requestHeaders(headers));
+		logger.info("Response Body is ::" + responseBody.prettyPrint());
+	
+	}
+	@Then("^: I want to validate the premium amount should not be null$")
+	public void premium_amount_should_not_be_null() throws Throwable {
+		responseBody.then().root("payload").body("premiumAmount.biInstallmentPremiumTotalWithoutGST", Matchers.notNullValue())
+		.and()
+		.body("premiumAmount.biInstallmentPremiumBasePlanWithGST", Matchers.notNullValue())
+		.and()
+		.body("premiumAmount.biInstallmentPremium", Matchers.notNullValue())
+		;
+		logger.info("Premium is generated successfully");
 
-
+	}
+	@Given("^: Set the request url \"([^\"]*)\"$")
+	public void set_the_request_url(String inputUrl) throws Throwable {
+	     premiumUrl=inputUrl;
+	}
+	@Given("^: Set the input test data in request \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void set_the_input_test_data_in_request(String apiKey, String apiValue) throws Throwable {
+     JSONObject requestInjsonObject= ReusableFunction.createJSONObject(requestBody);
+     JSONObject updatedRequest=ReusableFunction.replacekeyInJSONObject(requestInjsonObject, apiKey, apiValue);
+     requestBody=  updatedRequest.toString();
+ 	
+	}
+	
 }

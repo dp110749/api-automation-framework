@@ -14,16 +14,12 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(features = "src/test/java/com/MLI_DOLPHIN/featurefile",
 
 		// @UW_MedicalReportService
-		// tags =
-		// "@OauthApI,@IFSC_MICR_API,@MYMONEY_API,@LE_IllustrationGenerator,@LE_AWPService,@EE_ServiceTest,@LE_LLPSService",
-		// glue = {
-
-		tags = "@LE_PWPService", glue = {
-
+		 tags = "@OauthApI,@IFSC_MICR_API,@MYMONEY_API,@LE_IllustrationGenerator,@LE_AWPService,@EE_ServiceTest,@LE_LLPSService,@LE_PWPService",
+		 glue = {
 				"com.MLI_DOLPHIN.stepDefination" }, plugin = { "pretty",
 						"html:target/cucumber-reports" }, dryRun = false, monochrome = true)
 
-public class OauthToken extends AbstractTestNGCucumberTests {
+public class OauthToken  extends AbstractTestNGCucumberTests{
 	@BeforeClass
 	public static void SetUp() {
 		Logger logger = Logger.getLogger("Dolphin logger");

@@ -1,5 +1,5 @@
 @LE_PWPService 
-Feature: test the functionality of premium and illustration generator 
+Feature: test the functionality of premium and illustration generator for PWP
 
 Background: 
 	Given Set the url header and request 
@@ -11,7 +11,7 @@ Background:
 Scenario Outline: 
 	send the vaild request and verify illustration generated or not 
 
-	Then : Send the request 
+	Then : Send the request for illustation
 	Then : I want to validate the response "<statusCode>" 
 	And : I want to validate the response app id and response time 
 	And : I want to validate the response message "<responseMessage>" 
@@ -20,7 +20,7 @@ Scenario Outline:
 	Examples: 
 		|statusCode|responseMessage|
 		|200       |Success        |
-		
+@NegativeTest		
 Scenario Outline: 
 	send the invaild request when user remove the field request
 
@@ -29,29 +29,103 @@ Scenario Outline:
 		| inputData           | oprationType|
 		| {"ageOfPayer":"27"}| removeData  |
 		
-	Then : Send the request 
+	Then : Send the request for illustation
 	Then : I want to validate the response "<statusCode>"  
 	And : I want to validate the response message "<responseMessage>" 	
 	
 	Examples: 
 		|statusCode|responseMessage|
 		|400       |Bad Request    |
-@NegativeTest12		
+@NegativeTest	
 Scenario Outline: 
-	validate the when user send the mandotary field as null
+	validate the response when user send the mandotary field as null
 
 	Given : Set the input test data 
 	
 		| inputData           | oprationType |
 		| {"productCode":""}  | changeData  |
 		
-	Then : Send the request 
+	Then : Send the request for illustation
 	Then : I want to validate the response "<statusCode>" 
 	And : I want to validate the response message "<responseMessage>" 
 	
 	Examples: 
 		|statusCode|responseMessage|
 		|200       |Failed    |
+		
+@PositiveTest	
+Scenario Outline: 
+	to check the premium is generated or not 
+	Then : Send the request for premium
+	Then : I want to validate the response "<statusCode>"
+	And : I want to validate the response app id and response time 
+	And : I want to validate the response message "<responseMessage>"
+	And : I want to validate the premium amount should not be null 
+	
+	Examples: 
+		|statusCode|responseMessage |
+		|200       |Success         |
+		 
+@NegativeTest	
+Scenario Outline: 
+	validate the response when user send the mandotary field as null
+
+	Given : Set the input test data 
+	
+		| inputData           | oprationType |
+		| {"productCode":""}  | changeData  |		
+	Then : Send the request for premium
+	Then : I want to validate the response "<statusCode>" 
+	And : I want to validate the response message "<responseMessage>" 
+	
+	Examples: 
+		|statusCode|responseMessage|
+		|200       |Failed    |
+		
+ @NegativeTest		
+Scenario Outline: 
+	send the invaild request when user remove the field request
+
+	Given : Set the input test data 
+	
+		| inputData           | oprationType|
+		| {"ageOfPayer":"27"}| removeData  |
+		
+	Then : Send the request for premium
+	Then : I want to validate the response "<statusCode>"  
+	And : I want to validate the response message "<responseMessage>" 	
+	
+	Examples: 
+		|statusCode|responseMessage|
+		|400       |Bad Request    |
+ 
+@NegativeTest		
+Scenario Outline: 
+	send the  request with invalid url 
+
+	Given : Set the request url "<invaildUrl>" 
+			
+	Then : Send the request for premium
+	Then : I want to validate the response "<statusCode>"  
+	And : I want to validate the response message "<responseMessage>" 	
+	
+	Examples: 
+		|statusCode|responseMessage|                  invaildUrl                            |
+		|400       |Bad Request    |developer/microservices/mli/api/life-engage/premium/awp |
+		
+@NegativeTest		
+Scenario Outline: 
+	send the  request with X-Correlation-ID as null
+
+	Given : Set the input test data in request "<apiKey>" and "<apiValue>"
+			
+	Then : Send the request for premium
+	Then : I want to validate the response "<statusCode>"  
+	And : I want to validate the response message "<responseMessage>" 	
+	
+	Examples: 
+		|statusCode|responseMessage|apiKey           | apiValue |
+		|400       |Bad Request    |X-Correlation-ID |          |
 		
 		
 		
