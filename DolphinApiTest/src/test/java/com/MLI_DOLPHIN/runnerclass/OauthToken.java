@@ -11,6 +11,7 @@ import com.MLI_DOLPHIN.utilities.ReusableFunction;
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
+
 @CucumberOptions(features = "src/test/java/com/MLI_DOLPHIN/featurefile",
 
 		// @UW_MedicalReportService
@@ -20,6 +21,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 						"html:target/cucumber-reports" }, dryRun = false, monochrome = true)
 
 public class OauthToken  extends AbstractTestNGCucumberTests{
+
 	@BeforeClass
 	public static void SetUp() {
 		Logger logger = Logger.getLogger("Dolphin logger");
