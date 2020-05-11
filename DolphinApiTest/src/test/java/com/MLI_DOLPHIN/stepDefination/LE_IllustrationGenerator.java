@@ -129,7 +129,7 @@ public class LE_IllustrationGenerator {
 		logger.info("Response body is ::" + responseOFbody.body().prettyPrint());
 
 	}
-/*	@Then("^I try to validate the generated premium is partA \"([^\"]*)\" and premium partB \"([^\"]*)\" and premium partC \"([^\"]*)\"$")
+	@Then("^I try to validate the generated premium is partA \"([^\"]*)\" and premium partB \"([^\"]*)\" and premium partC \"([^\"]*)\"$")
 	public void i_try_to_validate_the_generated_premium_is_partA_and_premium_partB_and_premium_partC(String premiumA, String premiumB, String premiumC) throws Throwable {
 	
 		responseOFbody.then().rootPath("payload")
@@ -139,5 +139,5 @@ public class LE_IllustrationGenerator {
 		logger.info("Varification of LE Premium Amount successfully pass.");
 	}      
 
-*/
+
 	}
