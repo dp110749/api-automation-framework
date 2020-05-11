@@ -1,0 +1,38 @@
+{
+    "metadata": {
+        "X-App-ID": "IBPS",
+        "X-Correlation-ID": "31873127329799381273192"
+        
+    },
+    "payload": {
+        "agentId": "719sss707",
+        "termPlusRiderRequired": "Yes",
+        "genderOfPayer": "M",
+        "policyTerm": "16",
+        "committedPremium": "300000",
+        "channel": "SPARC",
+        "surrenderOption": "No",
+        "addRiderSumInsured": "1600000",
+        "productName": "Max Life Assured Wealth Plan",
+        "isLIEqualsPH": "Yes",
+        "policyHolderStateName": "Haryana",
+        "ageOfPayer": "27",
+        "termPlusRiderSumInsured": "800000",
+        "ageOfInsured": "27",
+        "channelId": "9094",
+        "surrenderOptionAmountArray": [],
+        "maxLifeRegisteredStateName": "Haryana",
+        "isNri": "No",
+        "premiumPayingTerm": "8",
+        "nameOfPayer": "Akash",
+        "productCode": "128",
+        "genderOfInsured": "M",
+        "productGroup": "Traditional",
+        "objectiveOfInsurance": "Individual Policy",
+        "wopPlusRiderRequired": "Yes",
+        "termPlusRiderTermYears": "8",
+        "nameOfInsured": "Akash",
+        "addRiderRequired": "Yes",
+        "paymentModeName": "Annual"
+    }
+}

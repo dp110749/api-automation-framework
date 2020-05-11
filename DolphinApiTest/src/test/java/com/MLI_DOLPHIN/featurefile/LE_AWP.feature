@@ -5,6 +5,7 @@ Background:
 
 	Given Set the request url and header for AWP Service 
 	
+
 	    | requestFile |  illustrationurl          |               header                               |
 		| LE_AWP.json | /developer/leillustration | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | 
 		
@@ -25,8 +26,8 @@ Scenario Outline: To test the functionality for illustration generator
 Scenario Outline: To test the functionality when send bad request 
 	Given I remove the field from payload and send request
 	
-    	|   testData   |oparationToperform|  	
-    	|{"agentId": "719707"}|removeData|
+    	|   testData          |oparationToperform|  	
+    	|{"agentId": "719707"}|        removeData|
     	
 	When Send the post request 
 	Then I try Validate the response status code "<statusCode>" 
@@ -89,6 +90,7 @@ Scenario Outline: To test the functionality when user send wrong url for AWP pre
 @NegativeTest	
 Scenario Outline:To test the functionality of AWP premiunm service when user send invalid inputdata in request 
 	Given I want to set the input data in request 
+
 	    |oparationType|inputData                                        |        url         |
 		|changeData   |{"nameOfInsured": "Akassh","agentId": "9s7www07"}|/developer/lepremium|
 	When Send the post request	
