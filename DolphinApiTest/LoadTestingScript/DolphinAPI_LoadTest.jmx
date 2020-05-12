@@ -87,8 +87,8 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">2</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">10</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
+        <stringProp name="ThreadGroup.num_threads">50</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">20</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
@@ -747,6 +747,7 @@
       &quot;isNRI&quot;: &quot;No&quot;,&#xd;
       &quot;policyHolderStateName&quot;: &quot;RAJASTHAN&quot;,&#xd;
       &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+      &quot;paymentModeCode&quot;:&quot;6001&quot;,&#xd;
       &quot;isLIEqualsPH&quot;: &quot;Yes&quot;,&#xd;
       &quot;isDefenceChannelCasePayor&quot;:&quot;No&quot;,&#xd;
       &quot;isDefenceChannelCaseProposer&quot;:&quot;No&quot;,&#xd;
@@ -842,6 +843,7 @@
       &quot;isNRI&quot;: &quot;No&quot;,&#xd;
       &quot;policyHolderStateName&quot;: &quot;RAJASTHAN&quot;,&#xd;
       &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+      &quot;paymentModeCode&quot;:&quot;6001&quot;,&#xd;
       &quot;isLIEqualsPH&quot;: &quot;Yes&quot;,&#xd;
       &quot;isDefenceChannelCasePayor&quot;:&quot;No&quot;,&#xd;
       &quot;isDefenceChannelCaseProposer&quot;:&quot;No&quot;,&#xd;
