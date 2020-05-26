@@ -21,7 +21,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 				"com.MLI_DOLPHIN.stepDefination" }, plugin = { "pretty",
 						"html:target/cucumber-reports" }, dryRun = false, monochrome = true)
 
-public class OauthToken  extends AbstractTestNGCucumberTests{
+public class TestRunnerClass  extends AbstractTestNGCucumberTests{
 
 	@BeforeClass
 	public static void SetUp() {
