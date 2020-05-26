@@ -6,7 +6,7 @@ import com.MLI_DOLPHIN.utilities.GetToken;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class WebservicesMethod extends BaseClass{
+public class WebservicesMethod {
 	
 	public static GetToken gettoken;
     /*This fun is used to send the post Request..*/

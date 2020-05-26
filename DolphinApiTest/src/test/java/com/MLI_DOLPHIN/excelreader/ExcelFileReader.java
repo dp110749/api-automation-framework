@@ -8,9 +8,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.MLI_DOLPHIN.baseclass.BaseClass;
-
-public class ExcelFileReader extends BaseClass {
+public class ExcelFileReader {
 
 	public static File file;
 	public static FileInputStream fileinputstream;
@@ -23,8 +21,7 @@ public class ExcelFileReader extends BaseClass {
 	
 	public static void getFileName(String FileName) {
 		File folder = new File(driveLocation + "/src/test/resources/");
-		File[] listOfFiles = folder.listFiles();
-		logger.info("messate pr");
+		File[] listOfFiles = folder.listFiles();		
 		for (int i = 0; i < listOfFiles.length; i++) {
 			if (listOfFiles[i].getName().contains("UAT")) {
 				System.out.println("File " + listOfFiles[i].getName());

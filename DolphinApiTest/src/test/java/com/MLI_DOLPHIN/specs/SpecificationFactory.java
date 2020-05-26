@@ -7,16 +7,10 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.lessThan;
-import static org.testng.Assert.assertNotEquals;
 import java.util.concurrent.TimeUnit;
-import org.apache.commons.math3.optimization.general.NonLinearConjugateGradientOptimizer;
-import org.omg.CosNaming.NamingContextPackage.NotEmpty;
-import org.testng.Assert;
-import com.MLI_DOLPHIN.baseclass.BaseClass;
 import com.MLI_DOLPHIN.utilities.ReusableFunction;
-import com.sun.istack.NotNull;
 
-public class SpecificationFactory extends BaseClass {
+public class SpecificationFactory {
 
 /*This function is use to validate the response 
  * 1: Response type and 

@@ -8,19 +8,15 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Properties;
-
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import com.MLI_DOLPHIN.baseclass.BaseClass;
 import com.MLI_DOLPHIN.baseclass.WebservicesMethod;
-import com.MLI_DOLPHIN.stepDefination.LE_IllustrationGenerator;
 import com.google.common.base.Splitter;
-
 import io.restassured.response.Response;
 
-public class ReusableFunction extends BaseClass {
+public class ReusableFunction {
 
 	// convert the request in form of key and value
 	public static Map<String, String> requestHeaders;
