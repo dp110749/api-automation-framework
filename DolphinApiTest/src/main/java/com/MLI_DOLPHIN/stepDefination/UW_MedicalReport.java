@@ -2,10 +2,7 @@ package com.MLI_DOLPHIN.stepDefination;
 
 import java.util.List;
 import org.apache.log4j.Logger;
-import org.apache.log4j.spi.RootCategory;
 import org.hamcrest.Matchers;
-import org.hamcrest.core.StringStartsWith;
-
 import com.MLI_DOLPHIN.baseclass.WebservicesMethod;
 import com.MLI_DOLPHIN.specs.SpecificationFactory;
 import com.MLI_DOLPHIN.utilities.ReusableFunction;
