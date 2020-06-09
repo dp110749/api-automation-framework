@@ -1,11 +1,10 @@
 {
     "metadata": {
-      "X-Correlation-ID": "54654",
-      "X-App-ID": "IBPS"
+      "X-App-ID": "IBPS",
+      "X-Correlation-ID": "1234567890"
     },
     "payload": {
       "bankIfscCode": "SBIN0011558",
       "bankMicrCode": ""
     }
 }
-

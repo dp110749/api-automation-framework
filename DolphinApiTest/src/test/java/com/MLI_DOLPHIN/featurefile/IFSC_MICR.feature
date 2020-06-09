@@ -8,7 +8,7 @@ Scenario Outline: To test the functionality of IFSC MICR Api when we pass the va
     Given I want to set the initial End Point URL as "<URL>" for test case "<TestName>"
     When I set header as "<Headers>"
     When I hit the API with requestbody and Post method "<RequestBody>"
-    Then I try to verify rsponse status code is "<StatusCode>" 
+    Then I try to verify response status code is "<StatusCode>" 
     And I try to validate the response time response type and response app id
     And I want to validate if response body contains specific string "bnkmicrCode" and "bnkIfscCode"
    
@@ -23,7 +23,7 @@ Scenario Outline: To test the functionality of IFSC MICR Api when we pass the va
     Given I want to set the initial End Point URL as "<URL>" for test case "<TestName>"
     When I set header as "<Headers>"
     When I hit the API with requestbody "<RequestBody>" with passing the micrcode "<jsonKey>" value "<micrCode>" and replacing the value of ifsc "<keyOfIfsc>" and "<ifscValue>" 
-    Then I try to verify rsponse status code is "<StatusCode>" 
+    Then I try to verify response status code is "<StatusCode>" 
     And I try to validate the response time response type and response app id
     And I want to validate if response body contains specific string "bnkmicrCode" and "bnkIfscCode"
    
@@ -38,7 +38,7 @@ Scenario Outline: To test the functionality of IFSC MICR Api when we pass the
     Given I want to set the initial End Point URL as "<URL>" for test case "<TestName>"
     When I set header as "<Headers>"
     When I hit the API with requestbody "<RequestBody>" with passing the micrcode "<jsonKey>" value "<micrCode>" and replacing the value of ifsc "<keyOfIfsc>" and "<ifscValue>" 
-    Then I try to verify rsponse status code is "<StatusCode>" 
+    Then I try to verify response status code is "<StatusCode>" 
     And I try to validate the response time response type and response app id
     And I want to validate if response body contains specific string "Mandatory Parameter is missing"
    
@@ -55,7 +55,7 @@ Scenario Outline: To test the functionality of IFSC MICR Api when we pass the va
     Given I want to set the initial End Point URL as "<URL>" for test case "<TestName>"
     When I set header as "<Headers>"
     When I hit the API with requestbody and Post method "<RequestBody>" jsonkey is "<jsonKey>" and micr Code "<micrCode>"
-    Then I try to verify rsponse status code is "<StatusCode>" 
+    Then I try to verify response status code is "<StatusCode>" 
     And I try to validate the response time response type and response app id
     And I want to validate if response body contains specific string "msgDescription" and "Either MICR or IFSC should be present"
    
@@ -70,7 +70,7 @@ Scenario Outline: To test the functionality of IFSC MICR Api when we pass the He
     Given I want to set the initial End Point URL as "<URL>" for test case "<TestName>"
     When I set header as "<Headers>"
     When I hit the API with requestbody and Post method "<RequestBody>"
-    Then I try to verify rsponse status code is "<StatusCode>" 
+    Then I try to verify response status code is "<StatusCode>" 
     And I want to validate if response body contains specific string "Forbidden"
    
     Examples:

@@ -19,13 +19,13 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 		// @UW_MedicalReportService
 //		 tags = "@OauthApI,@IFSC_MICR_API,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest",
 
-         tags = "@LE_FTSP_IllustrationGenerator",
+         tags = "@OauthApI,@IFSC_MICR_API,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest",
     
 		 glue = {
 				"com.MLI_DOLPHIN.stepDefination" }, plugin = { "pretty",
 						"html:target/cucumber-reports" }, dryRun = false, monochrome = true)
 
-public class TestRunnerClass  extends AbstractTestNGCucumberTests{
+public class TestRunnerClass extends AbstractTestNGCucumberTests{
 
 	@BeforeClass
 	public static void SetUp() {
