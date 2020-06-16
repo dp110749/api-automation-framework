@@ -37,7 +37,7 @@ public class ExcelFileReader {
 				FilePath = driveLocation + "/PROD_TESTDATA.xlsx";
 				// System.out.println("Complete path of excel prod"+FilePath);
 			} else if (listOfFiles[i].isDirectory()) {
-				System.out.println("Directory is not contains related files" + listOfFiles[i].getName());
+				System.out.println("Directory does not contain related files" + listOfFiles[i].getName());
 			}
 		}
 	}
