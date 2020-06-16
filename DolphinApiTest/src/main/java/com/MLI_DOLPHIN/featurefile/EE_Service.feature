@@ -7,7 +7,7 @@ Background:
 		|/developer/execution-engine|x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| EE_Service.json |
 
 @PositiveTest		
-Scenario Outline: to test functionality when user send the valid request 
+Scenario Outline: to test the functionality when user send the valid request 
 	When :i want to send the request 
 	Then :i want to validate the response "<statuscode>" 
 	And  :i want to validate the "<status>" of job 
