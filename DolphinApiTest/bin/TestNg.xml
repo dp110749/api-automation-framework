@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="DolphinAPISuite">
+	<!-- <listeners>
+		<listener class-name="com.MLI_DOLPHIN.utilities.listner"></listener>
+	</listeners>  -->
+	<test thread-count="5" name="FunctionalAPITest">
+		<classes>
+ 			<class name="com.MLI_DOLPHIN.runnerclass.OauthToken"></class>
+<!--  		<class name="com.MLI_DOLPHIN.dolphinTest.TC_LE_FTSPTest"></class>  	
+			<class name="com.MLI_DOLPHIN.dolphinTest.TC_OauthApi_TokenGenerator"></class>
+			 
+ -->
+		</classes>
+	</test> <!-- Test -->
+
+</suite>
