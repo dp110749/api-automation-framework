@@ -28,7 +28,7 @@ Scenario Outline: To test the functionality of LE FTSP API when we pass the vali
       
     Examples:    
     | TestName                |             URL           |  Headers                                         | RequestBody                        | StatusCode |insuredNameKey|insuredValue|
-    |LE Illustration generator| /developer/leillustration |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |nameOfInsured |              |     
+    |LE Illustration generator| /developer/leillustration |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |nameOfInsured |            |     
     
      Scenario Outline: To test the functionality of LE FTSP API when we pass the Mandatory 
                        parameter(X -Correlation id ) as empty        
@@ -40,7 +40,7 @@ Scenario Outline: To test the functionality of LE FTSP API when we pass the vali
     And I try to validate response  message  discription "Faliure" and correlation id ""
       
     Examples:    
-    | TestName                |             URL                                                |  Headers                                         | RequestBody                        | StatusCode |XcorrelationIdKey|XcorrelationIDValue|
+    | TestName                |             URL           |  Headers                                         | RequestBody                        | StatusCode |XcorrelationIdKey|XcorrelationIDValue|
     |LE Illustration generator| /developer/leillustration |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |X-Correlation-ID |                   |     
  
   
@@ -58,7 +58,3 @@ Scenario Outline: To test the functionality of LE FTSP API when we pass the vali
     | TestName                |             URL      |  Headers                                         | RequestBody                        | StatusCode |
     |LE Illustration generator| /developer/lepremium |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |      
   
-  
-              
-    
-    

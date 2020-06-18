@@ -13,7 +13,7 @@ Background:
 		| x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | /developer/microservices/mli/dolphin/api/medicalReport/ReportTrigger/v1 |UW_MedicalReport.json|
 		
 @PositiveTest 
-Scenario Outline: to test the functinality when user send the valid request with category T+M+B 
+Scenario Outline: to test the functionality when user send the valid request with category T+M+B 
 
 	When i want to send the request 
 	Then i want to check "<responseStatusCode>" is the output 
@@ -25,7 +25,7 @@ Scenario Outline: to test the functinality when user send the valid request with
 		|        200         | Success         |    MANUW          |Insured life cover exceeds 2 crore|
 		
 @PositiveTest 
-Scenario Outline: to test the functinality when user send the valid request with category T+M 
+Scenario Outline: to test the functionality when user send the valid request with category T+M 
 
 Given i want to change the cotegory in request 
 
@@ -43,7 +43,7 @@ Examples:
 				
 
 @PositiveTest 
-Scenario Outline: to test the functinality when user send the valid request with category B+T
+Scenario Outline: to test the functionality when user send the valid request with category B+T
  
 Given i want to change the cotegory in request 
 
@@ -79,7 +79,7 @@ Examples:
 										
 				
 @PositiveTest 
-Scenario Outline: to test the functinality when user send the valid request with category T 
+Scenario Outline: to test the functionality when user send the valid request with category T 
 
 Given i want to change the cotegory in request 
 
@@ -96,7 +96,7 @@ Given i want to change the cotegory in request
 	 |           200      | Success         |    SPA            |          |
 						
  @PositiveTest 
-  Scenario Outline: to test the functinality when user send the valid request with category M 
+  Scenario Outline: to test the functionality when user send the valid request with category M 
  
 	Given i want to change the cotegory in request 
 	
@@ -113,7 +113,7 @@ Given i want to change the cotegory in request
 		|           200      | Success         |    MANUW          |Insured life cover exceeds 2 crore|
 
  @NegativeTest
-  Scenario Outline: to test the functinality when user send the invalid category 
+  Scenario Outline: to test the functionality when user send the invalid category 
  
 	Given i want to change the cotegory in request 
 	
@@ -131,7 +131,7 @@ Given i want to change the cotegory in request
 		
 			
 @NegativeTest 
-Scenario Outline: to test the functinality when user send the header as null 
+Scenario Outline: to test the functionality when user send the header as null 
 
 	Given i want to set header in request "<header>"
 		
@@ -144,7 +144,7 @@ Scenario Outline: to test the functinality when user send the header as null
 		|x-api-key:null|           403      | Forbidden       |  
 		
 @NegativeTest 
-Scenario Outline: to test the functinality when user send the invalid header 
+Scenario Outline: to test the functionality when user send the invalid header 
 
 	Given i want to set header in request "<header>"
 		
@@ -158,7 +158,7 @@ Scenario Outline: to test the functinality when user send the invalid header
 
 		 
 @NegativeTest
-Scenario Outline: to test the functinality when user send the invalid EndPoint url
+Scenario Outline: to test the functionality when user send the invalid EndPoint url
 
 	Given i want to set url in request "<invaildEndPointUrl>"
 		
@@ -171,7 +171,7 @@ Scenario Outline: to test the functinality when user send the invalid EndPoint u
 		
 		
  @PositiveTest 
-  Scenario Outline: to test the functinality when user send the category as null
+  Scenario Outline: to test the functionality when user send the category as null
  
 	Given i want to change the cotegory in request 
 	
@@ -188,7 +188,7 @@ Scenario Outline: to test the functinality when user send the invalid EndPoint u
 		
 														
  @PositiveTest 
-  Scenario Outline: to test the functinality when user remove the payload field and send the request 
+  Scenario Outline: to test the functionality when user remove the payload field and send the request 
 	Given i want to change the cotegory in request 
 	
 		|   inputdata      |actionType|
