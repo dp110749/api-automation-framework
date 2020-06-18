@@ -32,7 +32,7 @@ public class LE_FTSP_IllustrationGenerator {
 	
 	@Description("To test when user send the valid request illustration should be generate:")
 	@Step("Passing two parameter endurl {0} and test case name {1}")
-	@Given("^I wnat to set the request end Point url for \"([^\"]*)\" for test case \"([^\"]*)\"$")
+	@Given("^I want to set the request end Point url for \"([^\"]*)\" for test case \"([^\"]*)\"$")
 	public void i_want_to_set_the_request_end_Point_url_for_for_test_case(String Url, String testCaseName) throws Throwable {
 		ENDPOINTURL=Url;
 		logger.info(testCaseName+"::Test Execution is started");
