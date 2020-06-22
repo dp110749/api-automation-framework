@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "X-App-ID": "IBPS",
+        "X-Correlation-ID": "25478965874"
+    },
+    "payload": {
+        "isInsuredGreaterFlag": "Y",
+        "dobProposerFlag": "N",
+        "dobInsuredFlag": "N",
+        "insuredGenderFlag": "N",
+        "proposerGenderFlag": "N",
+        "propEduFlag": "N",
+        "posvRespNegFlag": "N",
+        "eiaRespFlag": "N",
+        "appRcvdPriorFlag": "N",
+        "diffAppCustDateFlag": "N",
+        "payPanFailFlag": "N",
+        "propPanFailFlag": "N",
+        "polSplitFlag": "N",
+        "insBusIoFlag": "N",
+        "propBusIoFlag": "N",
+        "insBusFlag": "N",
+        "propBusFlag": "N",
+        "insNatFlag": "N",
+        "propNatFlag": "N",
+        "praChangeFlag": "N",
+        "craChangeFlag": "N",
+        "psmResFlag": "N",
+        "productName": "U2NIF5",
+        "exactIncome": "3234342",
+        "clientType": "Proposer",
+        "mobileNo1": "1234544",
+        "isPoliticallyExposed": "No",
+        "channel": "Agency",
+        "agentContactNumber": "113343432",
+        "replacementPolicySale": "No",
+        "sessionID": "123434",
+        "processInstanceId": "NB-0000000120-Dolphin",
+        "isPayorClientIdChange":"N",
+        "isNEFTChange":"N"
+    }
+}
