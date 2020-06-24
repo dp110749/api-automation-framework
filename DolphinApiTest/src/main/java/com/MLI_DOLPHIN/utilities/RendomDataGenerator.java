@@ -17,6 +17,11 @@ public class RendomDataGenerator {
 		String generatedString =RandomStringUtils.randomNumeric(16);
 			return(generatedString); 		
 	}
+	/*This is function is used to generate 9 number */
+	public static String Random_numberGenerator9(){
+		String generatedString =RandomStringUtils.randomNumeric(9);
+			return(generatedString); 		
+	}
 	public static String rendom_numberGenerator(){
 		String generatedString =RandomStringUtils.randomNumeric(2);
 			return(generatedString); 		

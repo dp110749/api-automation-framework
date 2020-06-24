@@ -15,9 +15,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 
-public class DiscrepancyRuleEngine {
+public class TPAIntegration {
 
-	private final static Logger logger = Logger.getLogger(DiscrepancyRuleEngine.class.getName());
+	private final static Logger logger = Logger.getLogger(TPAIntegration.class.getName());
 	
 	private String header;
 	private String url;
@@ -32,8 +32,8 @@ public class DiscrepancyRuleEngine {
 	private String msgCode;
 	private String msg;
 
-	@Given("^set the input request testdata$")
-	public void set_the_input_request_testdata(DataTable presetData) throws Throwable {
+	@Given("^set input request testdata$")
+	public void set_input_request_testdata(DataTable presetData) throws Throwable {
 
 		List<String> listOfSetData = presetData.asList(String.class);
 		List<List<String>> rowNum = presetData.raw();
@@ -54,15 +54,15 @@ public class DiscrepancyRuleEngine {
 		requestBody = ReusableFunction.readJsonFile(requestFile);
 	}
 
-	@When("^i want to send the request for Discrepancy Rule Engine$")
-	public void i_want_to_send_the_request_for_Discrepancy_Rule_Engine() throws Throwable {
+	@When("^i want to send the request for TPA Integration$")
+	public void i_want_to_send_the_request_for_TPA_Integration() throws Throwable {
 		responseBody = WebservicesMethod.POST_METHOD(url, requestBody,
 				ReusableFunction.requestHeaders(header));
 		logger.info("Response Body is ::" + responseBody.prettyPrint());
 	}
 
-	@Then("^Lets validate response code \"([^\"]*)\"$")
-	public void Lets_validate_response_code(String expResponseCode) throws Throwable {
+	@Then("^Validate response code \"([^\"]*)\"$")
+	public void Validate_response_code(String expResponseCode) throws Throwable {
 		Thread.sleep(2000);
 		actualResponseCode = String.valueOf(responseBody.getStatusCode());
 		if (actualResponseCode.equals(expResponseCode)) {
@@ -76,14 +76,14 @@ public class DiscrepancyRuleEngine {
 		}
 	}
 
-	@Then("^Lets validate response appId response time$")
-	public void Lets_validate_response_appId_response_time() throws Throwable {
+	@Then("^Validate response appId response time$")
+	public void Validate_response_appId_response_time() throws Throwable {
 		SpecificationFactory.getGenericResponseSpec();
 		logger.info("Validation of response appId and response time successfully passed");
 	}
 
-	@Then("^Lets validate the response message \"([^\"]*)\"$")
-	public void Lets_validate_the_response_message(String arg1) throws Throwable {
+	@Then("^Validate the response message \"([^\"]*)\"$")
+	public void Validate_the_response_message(String arg1) throws Throwable {
 
 	}
 
@@ -98,8 +98,8 @@ public class DiscrepancyRuleEngine {
 		}
 	}*/
 
-	@Given("^:Set testdata$")
-	public void set_testdata(DataTable inputTestData) throws Throwable {
+	@Given("^:Set testdata for TPA Integration$")
+	public void set_testdata_for_TPA_Integration(DataTable inputTestData) throws Throwable {
 		List<String> listOfTestData = inputTestData.asList(String.class);
 		List<List<String>> numOfRow = inputTestData.raw();
 		getSecondRowData = listOfTestData.size() / numOfRow.size();
@@ -117,53 +117,45 @@ public class DiscrepancyRuleEngine {
 			if (requestBody.length() > 0) {
 				responseBody = WebservicesMethod.POST_METHOD(testUrl, requestBody,
 						ReusableFunction.requestHeaders(header));
-//				System.out.println("------------" + responseBody.prettyPrint());
+				System.out.println("------------" + responseBody.prettyPrint());
 			} else {
 				logger.info("send request is invaild ");
 			}
 			
 			if (msgCode.equals("400")) {
-
-				responseBody.then().root("response").body("msgInfo.msgCode", Matchers.equalToIgnoringCase(msgCode)).and()
-				.body("msgInfo.msg", Matchers.equalTo(msg));
-				logger.info("verify error msg for invaild input data.");
+				responseBody.then().root("msgInfo").body("msgCode", Matchers.equalToIgnoringCase(msgCode)).and()
+						.body("msg", Matchers.equalTo(msg));
+				logger.info("verify error msg for send invaild input data.");
 			} else if (msgCode.equals("")) {
 				responseBody.then().body("error", Matchers.equalToIgnoringCase(msg));
 				logger.info("Verify bad request ");
 			} else {
-				logger.info("No response received from api or expected response not matched.");
+				logger.info("No  response received from api.");
 			}
 		}		
 	} 
 	
-	@Given("^:Set the header values \"([^\"]*)\"$")
-	public void set_the_header_values(String inputHeader) throws Throwable {
+	@Given("^:Set the header values for TPA Integration \"([^\"]*)\"$")
+	public void set_the_header_values_for_TPA_Integration(String inputHeader) throws Throwable {
           header =inputHeader;
 	}
 	
-	@Given("^:Set the x-correlation-ID data into request \"([^\"]*)\" and \"([^\"]*)\"$")
-	public void set_the_input_test_data_in_request(String apiKey, String apiValue) throws Throwable {
+	@Given("^:Set the x-correlation-ID data for TPA Integration into request \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void set_the_input_test_data_for_TPA_Integration_in_request(String apiKey, String apiValue) throws Throwable {
      JSONObject requestInjsonObject= ReusableFunction.createJSONObject(requestBody);
      JSONObject updatedRequest=ReusableFunction.replacekeyInJSONObject(requestInjsonObject, apiKey, apiValue);
      requestBody=  updatedRequest.toString();
  	
 	}
 	
-	@Given("^:Set the proposerGenderFlag data into request \"([^\"]*)\" and \"([^\"]*)\"$")
-	public void set_the_input_testdata_in_request(String apiKey, String apiValue) throws Throwable {
-		JSONObject requestInjsonObject= ReusableFunction.createJSONObject(requestBody);
-	    JSONObject updatedRequest=ReusableFunction.replacekeyInJSONObject(requestInjsonObject, apiKey, apiValue);
+	@Given("^:Set the ProductName data into request \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void set_the_input_testdata_for_TPA_Integration_in_request(String apiKey1, String apiValue1) throws Throwable {
+     JSONObject requestInjsonObject= ReusableFunction.createJSONObject(requestBody);
+     JSONObject updatedRequest=ReusableFunction.replacekeyInJSONObject(requestInjsonObject, apiKey1, apiValue1);
      requestBody=  updatedRequest.toString();
  	
 	}
 	
-	@Given("^:Set the dobProposerFlag data into request \"([^\"]*)\" and \"([^\"]*)\"$")
-	public void set_the_input_testdatadobProposerFlag_in_request(String apiKey, String apiValue) throws Throwable {
-		JSONObject requestInjsonObject= ReusableFunction.createJSONObject(requestBody);
-	    JSONObject updatedRequest=ReusableFunction.replacekeyInJSONObject(requestInjsonObject, apiKey, apiValue);
-     requestBody=  updatedRequest.toString();
- 	
-	}
 	/*@When("^i want to send the request for Discrepancy Rule Engine$")
 	public void i_want_to_send_the_request_for_discrepancy_rule_engine() throws Throwable {
 		responseBody = WebservicesMethod.POST_METHOD(url, requestBody,
