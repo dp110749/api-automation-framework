@@ -1,7 +1,11 @@
 package com.MLI_DOLPHIN.stepDefination;
 
-import java.util.List;
+import static org.testng.Assert.fail;
 
+import java.util.List;
+import java.util.Map;
+
+import com.MLI_DOLPHIN.utilities.RendomDataGenerator;
 import org.apache.log4j.Logger;
 import org.hamcrest.Matchers;
 import org.json.simple.JSONObject;
@@ -13,7 +17,9 @@ import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import io.restassured.response.ResponseBody;
 
 public class TPAIntegration {
 
@@ -24,8 +30,11 @@ public class TPAIntegration {
 	private String requestFile;
 	private String requestBody;
 	private String testData;
+	private String ProposalNo;
+	private String newProposal;
 	private String operationType;
 	private Response responseBody;
+	private String random_number;
 	private String actualResponseCode;
 	private int getSecondRowData;
 	private String testUrl;
@@ -44,18 +53,71 @@ public class TPAIntegration {
 /*			System.out.println("-------------------------------------------"+listOfSetData.get(i));*/
 			url = listOfSetData.get(i);
 			i++;
-			/*url = listOfSetData.get(i);
-			i++;*/
 			header = listOfSetData.get(i);
 			i++;
 			requestFile = listOfSetData.get(i);
 			break;
 		}
 		requestBody = ReusableFunction.readJsonFile(requestFile);
+		
+		random_number = RendomDataGenerator.Random_numberGenerator9();
+		logger.info("Random Proposal number generated" );
+	
+	
+//	"Set new proposal number for TPA Integration$ by using random number and using the same in each scenario"
+		operationType="changeData";	
+		String thesuperfirst = "{";
+		String theFirst = "ProposalNo";
+		String firstSecond = "\"" + theFirst + "\"";
+		String theFifth = random_number;
+		String theSixth = "\"" + theFifth + "\"";
+		String Colon = ":";
+		String theseventh = "}";
+		String finalone = thesuperfirst + firstSecond + Colon + theSixth + theseventh ;
+
+// 		inserting new random number in Request for Proposal no
+		requestBody = ReusableFunction.getSpecificRequest(requestBody, finalone, operationType);
+//		System.out.println("------------" + responseBody.prettyPrint());
+//		logger.info("Random Proposal number inserted into RESPONSE BODY::" );
+		
+		
 	}
 
-	@When("^i want to send the request for TPA Integration$")
-	public void i_want_to_send_the_request_for_TPA_Integration() throws Throwable {
+	
+/*	@Given("^i want to get the random Proposal number for TPA Integration$")
+	public void i_want_to_get_the_random_Proposal_number_for_TPA_Integration() throws Throwable {
+		random_number = RendomDataGenerator.Random_numberGenerator9();
+		logger.info("Random Proposal number generated ::" );
+	
+	
+	@Then("^Set new proposal number for TPA Integration$")
+	public void Set_new_proposal_number_for_TPA_Integration(DataTable inputTestData) throws Throwable {
+		operationType="changeData";
+		
+		String thesuperfirst = "{";
+		String theFirst = "ProposalNo";
+		String firstSecond = "\"" + theFirst + "\"";
+		String theFifth = random_number;
+		String theSixth = "\"" + theFifth + "\"";
+		String Colon = ":";
+		String theseventh = "}";
+		String finalone = thesuperfirst + firstSecond + Colon + theSixth + theseventh ;
+		logger.info("Random Proposal number after variable setting" + finalone );
+		
+		newProposal1 = "{";
+		newProposal2 = "ProposalNo":" random_number";
+		newProposal3 = { "ProposalNo":"AAAA"}
+		requestBody = ReusableFunction.getSpecificRequest(requestBody, finalone, operationType);
+		System.out.println("------------" + responseBody.prettyPrint());
+		logger.info("Random Proposal number inserted into RESPONSE BODY::" );
+		
+	}
+*/
+	
+	
+	
+	@When("^Send the request for TPA Integration$")
+	public void Send_the_request_for_TPA_Integration() throws Throwable {
 		responseBody = WebservicesMethod.POST_METHOD(url, requestBody,
 				ReusableFunction.requestHeaders(header));
 		logger.info("Response Body is ::" + responseBody.prettyPrint());
@@ -64,17 +126,48 @@ public class TPAIntegration {
 	@Then("^Validate response code \"([^\"]*)\"$")
 	public void Validate_response_code(String expResponseCode) throws Throwable {
 		Thread.sleep(2000);
-		actualResponseCode = String.valueOf(responseBody.getStatusCode());
+		actualResponseCode = String.valueOf(responseBody.getStatusCode());		
 		if (actualResponseCode.equals(expResponseCode)) {
 			Assert.assertEquals(actualResponseCode, expResponseCode);
 			logger.info("Validated response code is ==" + actualResponseCode);
-		} else if (actualResponseCode.equals(expResponseCode)) {
+		} /*else if (actualResponseCode.equals(expResponseCode)) {
 			Assert.assertEquals(actualResponseCode, expResponseCode);
 			logger.info("Validated response code is ==" + actualResponseCode);
-		} else {
-			logger.info("Service not returning any response code");
+		}*/ else {
+			logger.info("Response Code is not matching with the expected Code : FAILED");
+			Assert.assertEquals(actualResponseCode, expResponseCode);		
 		}
 	}
+	
+
+	@Then("^Validate message code \"([^\"]*)\"$")
+	public void Validate_message_code(String expMessageCode) throws Throwable {
+		Thread.sleep(2000);
+//		JsonPath jsonPathEvaluator = responseBody.jsonPath();
+		 
+		 // Then simply query the JsonPath object to get a String value of the node
+		 // specified by JsonPath: msgCode (Note: You should not put $. in the Java code)
+	//	String actualMessageCode = jsonPathEvaluator.get("msgCode");
+		
+	//	Response response = doGetRequest("https://jsonplaceholder.typicode.com/users/1");
+
+		Map<String, String> firstlevel = responseBody.jsonPath().getMap("msgInfo");
+		String actualMessageCode = firstlevel.get("msgCode");
+		System.out.println(firstlevel.get("msgCode"));
+				
+		if (actualMessageCode.equals(expMessageCode)) {
+			Assert.assertEquals(actualMessageCode, expMessageCode);
+			logger.info("Validated response code is ==" + actualMessageCode);
+		} /*else if (actualResponseCode.equals(expResponseCode)) {
+			Assert.assertEquals(actualResponseCode, expResponseCode);
+			logger.info("Validated response code is ==" + actualResponseCode);
+		}*/ else {
+			logger.info("Message Code is not matching with the expected Code : FAILED");
+			Assert.assertEquals(actualMessageCode, expMessageCode);		
+		}
+	}
+
+	
 
 	@Then("^Validate response appId response time$")
 	public void Validate_response_appId_response_time() throws Throwable {
@@ -82,7 +175,7 @@ public class TPAIntegration {
 		logger.info("Validation of response appId and response time successfully passed");
 	}
 
-	@Then("^Validate the response message \"([^\"]*)\"$")
+	@Then("^Validate response message \"([^\"]*)\"$")
 	public void Validate_the_response_message(String arg1) throws Throwable {
 
 	}
@@ -117,44 +210,53 @@ public class TPAIntegration {
 			if (requestBody.length() > 0) {
 				responseBody = WebservicesMethod.POST_METHOD(testUrl, requestBody,
 						ReusableFunction.requestHeaders(header));
-				System.out.println("------------" + responseBody.prettyPrint());
+//				System.out.println("------------" + responseBody.prettyPrint());
 			} else {
-				logger.info("send request is invaild ");
+				logger.info("sent request is invaild ");
+	//			assert
 			}
 			
 			if (msgCode.equals("400")) {
 				responseBody.then().root("msgInfo").body("msgCode", Matchers.equalToIgnoringCase(msgCode)).and()
 						.body("msg", Matchers.equalTo(msg));
-				logger.info("verify error msg for send invaild input data.");
+				logger.info("verify the error msg due to sending invaild input data: RESULT AS PER EXPECTATION");
+	//			logger.info("Response Body : " + responseBody.prettyPrint());
 			} else if (msgCode.equals("")) {
 				responseBody.then().body("error", Matchers.equalToIgnoringCase(msg));
 				logger.info("Verify bad request ");
+	//			logger.info("Response Body : " + responseBody.prettyPrint());
 			} else {
-				logger.info("No  response received from api.");
+				logger.info("Unexpected response received from api.");
+	//			logger.info("Response Body : " + responseBody.prettyPrint());
+				
 			}
+			logger.info("Response Body : " + responseBody.prettyPrint());
 		}		
 	} 
 	
-	@Given("^:Set the header values for TPA Integration \"([^\"]*)\"$")
-	public void set_the_header_values_for_TPA_Integration(String inputHeader) throws Throwable {
+	@Given("^:Set header values for TPA Integration \"([^\"]*)\"$")
+	public void set_header_values_for_TPA_Integration(String inputHeader) throws Throwable {
           header =inputHeader;
 	}
 	
-	@Given("^:Set the x-correlation-ID data for TPA Integration into request \"([^\"]*)\" and \"([^\"]*)\"$")
+/*	@Given("^:Set the x-correlation-ID data for TPA Integration into request \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void set_the_input_test_data_for_TPA_Integration_in_request(String apiKey, String apiValue) throws Throwable {
      JSONObject requestInjsonObject= ReusableFunction.createJSONObject(requestBody);
      JSONObject updatedRequest=ReusableFunction.replacekeyInJSONObject(requestInjsonObject, apiKey, apiValue);
      requestBody=  updatedRequest.toString();
  	
 	}
-	
-	@Given("^:Set the ProductName data into request \"([^\"]*)\" and \"([^\"]*)\"$")
-	public void set_the_input_testdata_for_TPA_Integration_in_request(String apiKey1, String apiValue1) throws Throwable {
+*/	
+	@Given("^:Set the Input Value for TPA Integration in request \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void set_the_input_value_for_TPA_Integration_in_request(String apiKey, String apiValue) throws Throwable {
      JSONObject requestInjsonObject= ReusableFunction.createJSONObject(requestBody);
-     JSONObject updatedRequest=ReusableFunction.replacekeyInJSONObject(requestInjsonObject, apiKey1, apiValue1);
+     JSONObject updatedRequest=ReusableFunction.replacekeyInJSONObject(requestInjsonObject, apiKey, apiValue);
      requestBody=  updatedRequest.toString();
  	
 	}
+	
+	
+	
 	
 	/*@When("^i want to send the request for Discrepancy Rule Engine$")
 	public void i_want_to_send_the_request_for_discrepancy_rule_engine() throws Throwable {

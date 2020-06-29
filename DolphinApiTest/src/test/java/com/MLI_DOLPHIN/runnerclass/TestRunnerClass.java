@@ -19,7 +19,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 		// @UW_MedicalReportService
 //		 tags = "@OauthApI,@IFSC_MICR_API,@TPAIntegrationTest,@DiscrepancyRuleEngineTest,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@UW_MedicalReportService,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest",
 
-         tags = "@DiscrepancyRuleEngineTest",
+         tags = "@OauthApI,@IFSC_MICR_API,@TPAIntegrationTest,@DiscrepancyRuleEngineTest,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@UW_MedicalReportService,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest",
     
 		 glue = {
 				"com.MLI_DOLPHIN.stepDefination" }, plugin = { "pretty",

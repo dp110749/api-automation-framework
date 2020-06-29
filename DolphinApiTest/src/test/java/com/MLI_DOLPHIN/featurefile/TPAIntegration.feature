@@ -10,73 +10,100 @@ Background:
 @PositiveTestTPA1 
 Scenario Outline: 
 	To test the functionality when user send the valid request for TPA Integration 
-
-	When i want to send the request for TPA Integration 
-	Then Validate response code "<msgCode>" 
-	And Validate response appId response time 
-	And Validate the response message "<msg>" 
+#  Given i want to get the random Proposal number for TPA Integration
+#  Given Set new proposal number for TPA Integration
+	When Send the request for TPA Integration
+Then Validate response message "<msg>"
+And Validate message code "<msgCode>"
+And Validate response code "<msgCode>"
 
 Examples: 
 		|msgCode |msg     |
-		|400     |Failure |
+		|200     |Success |
 
-		
+
 @NegativeTestTPA1 
 Scenario: 
 To test the functionality when user send the invalid request for TPA Integration 
 Given :Set testdata for TPA Integration
 	|testData               | operationType | testurl                    |msgCode |msg      |
-	|{ "FirstName":"AAAA"}  | changeData    | /developer/tpa-integration | 200    | Success |
+	|{ "ProposalNo":""}     | changeData    | /developer/tpa-integration | 400    | Failure |
 	|{ "FirstName":""}      | removeData    | /developer/tpa-integration | 400    | Failure |
 	|{ "DateOfBirth":"568"} | changeData    | /developer/tpa-integration | 400    | Failure |
+		
 				
+
+@PositiveTestTPA2 
+Scenario Outline: 
+To test the functionality when user send the valid request for TPA Integration 
+Given :Set the Input Value for TPA Integration in request "<apiKey>" and "<apiValue>"
+When Send the request for TPA Integration
+Then Validate response message "<msg>"
+And Validate message code "<msgCode>"
+And Validate response code "<msgCode>"
+
+ Examples: 
+	|msgCode|msg     |apiKey     |apiValue|			
+	|200    |Success |ProductName|Y       |			
+
+				
+@NegativeTestTPA2				
 Scenario Outline: 
 	 To test the functionality when user send the null header for TPA Integration
 			 
 	Given :Set header values for TPA Integration "<header>" 
-	When i want to send the request for TPA Integration 
-	Then Lets validate response code "<msgCode>" 
-	And Validate response appId response time 
-	And Validate the response message "<msg>" 
-	
+	When Send the request for TPA Integration 
+	Then Validate response message "<message>"
+#	And Validate message code "<msgCode>" 
+	 
 	Examples: 
-		|header         |msgCode |msg      |
+		|header         |msgCode |message  |
 		|x-api-key:null |        |Forbidden|
-				
-Scenario Outline: 
-To test the functionality when user send the x-correlation-ID as null for TPA Integration 		
-Given :Set the x-correlation-ID data for TPA Integration into request "<apiKey>" and "<apiValue>" 
-When i want to send the request for TPA Integration
-Then Validate response code "<msgCode>" 
-And Validate the response message "<msg>" 
 
-Examples: 
-	|msgCode |msg     |apiKey           | apiValue |
-	|400     |Failure |X-Correlation-ID |          |
-				
-				
-@PositiveTestTPA2 
+@PositiveTestTPA3 
 Scenario Outline: 
 To test the functionality when user send the valid request for TPA Integration 
-Given :Set the ProductName data into request "<apiKey>" and "<apiValue>"
-When i want to send the request for TPA Integration 
-Then Validate response code "<msgCode>" 
-And Validate the response message "<msg>" 
+Given :Set the Input Value for TPA Integration in request "<apiKey>" and "<apiValue>"
+When Send the request for TPA Integration
+Then Validate response message "<msg>"
+And Validate message code "<msgCode>"
 
  Examples: 
-	|msgCode|msg     |apikey     |apivalue|			
-	|200    |Success |ProductName|Y       |			
+	|msgCode|msg     |apiKey     |apiValue|			
+	|200    |Success |SmokerClass|false   |			
+
 				
+@NegativeTestTPA3				
+Scenario Outline: 
+To test the functionality when user send the x-correlation-ID as null for TPA Integration 		
+Given :Set the Input Value for TPA Integration in request "<apiKey>" and "<apiValue>" 
+When Send the request for TPA Integration
+Then Validate response message "<msg>"
+And Validate message code "<msgCode>" 
+
+Examples: 
+	|msgCode|msg     |apiKey           | apiValue |
+	|400    |Failure |X-Correlation-ID |          |
+								
 				
-@NegativeTestTPA2
+@NegativeTestTPA4
 Scenario: 
 	To test the functionality when user send the invalid request for TPA Integration 
  Given :Set testdata for TPA Integration
 	
 		|testData                         | operationType|testUrl                     |msgCode |msg          |
-#		|{ "HouseNoAptNameSociety": "*&"} | changeData   | /developer/tpa-integration | 500    | Failed      |
 		|{ "HouseNoAptNameSociety": "" }  | changeData   | /developer/tpa-integration | 400    | Failure     |
-#		|{ "HouseNoAptNameSociety": "24"} | removeData   | /developer/tpa-integration |        | Bad Request |
 						
+
+@NegativeTestTPA5
+Scenario: 
+	To test the functionality when user send the invalid request for TPA Integration 
+ Given :Set testdata for TPA Integration
+	
+		|testData               | operationType|testUrl                     |msgCode |msg          |
+		|{ "PinCode": "000000"} | changeData   | /developer/tpa-integration | 400    | Failure     |
+		|{ "PinCode": "" }      | removeData   | /developer/tpa-integration | 400    | Failure     |
+		|{ "PinCode": "rctv"}   | changeData   | /developer/tpa-integration | 400    | Failure     |
 						
- 
+
+						
