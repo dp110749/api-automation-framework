@@ -36,7 +36,7 @@ public class ReusableFunction {
 
 	}
 
-	// This function is usesd interchange the request body
+	// This function is used interchange the request body
 	public static String getSpecificRequest(String requestBody, String inputData,String opationType) {
 		JSONParser parser = new JSONParser();
 		Object obj = null;

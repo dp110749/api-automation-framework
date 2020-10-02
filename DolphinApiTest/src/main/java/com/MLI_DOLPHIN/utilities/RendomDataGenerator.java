@@ -1,6 +1,8 @@
 package com.MLI_DOLPHIN.utilities;
 import org.apache.commons.lang3.RandomStringUtils;
+
 import com.github.javafaker.Faker;
+
 
 public class RendomDataGenerator {
 	
@@ -13,6 +15,11 @@ public class RendomDataGenerator {
 	/*This is function is used to generate 16 number */
 	public static String Rendom_numberGenerator(){
 		String generatedString =RandomStringUtils.randomNumeric(16);
+			return(generatedString); 		
+	}
+	/*This is function is used to generate 9 number */
+	public static String Random_numberGenerator9(){
+		String generatedString =RandomStringUtils.randomNumeric(9);
 			return(generatedString); 		
 	}
 	public static String rendom_numberGenerator(){

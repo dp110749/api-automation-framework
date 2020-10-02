@@ -7,7 +7,9 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+
 import com.MLI_DOLPHIN.utilities.ReusableFunction;
+
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
@@ -16,13 +18,15 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 
 		// @UW_MedicalReportService
-		 tags = "@OauthApI,@IFSC_MICR_API,@MYMONEY_API,@LE_IllustrationGenerator,@LE_AWPService,@EE_ServiceTest,@LE_LLPSService,@LE_PWPService,@FYPP_PremiumTest",
+//		 tags = "@OauthApI,@IFSC_MICR_API,@TPAIntegrationTest,@DiscrepancyRuleEngineTest,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@UW_MedicalReportService,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest",
 
+         tags = "@OauthApI,@IFSC_MICR_API,@TPAIntegrationTest,@DiscrepancyRuleEngineTest,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@UW_MedicalReportService,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest",
+    
 		 glue = {
 				"com.MLI_DOLPHIN.stepDefination" }, plugin = { "pretty",
 						"html:target/cucumber-reports" }, dryRun = false, monochrome = true)
 
-public class TestRunnerClass  extends AbstractTestNGCucumberTests{
+public class TestRunnerClass extends AbstractTestNGCucumberTests{
 
 	@BeforeClass
 	public static void SetUp() {

@@ -72,8 +72,8 @@ public class Ifsc_Micr {
 
 	}
 
-	@Then("^I try to verify rsponse status code is \"([^\"]*)\"$")
-	public void i_try_to_verify_rsponse_status_code_is(String statusCode) throws Throwable {
+	@Then("^I try to verify response status code is \"([^\"]*)\"$")
+	public void i_try_to_verify_response_status_code_is(String statusCode) throws Throwable {
 		Assert.assertEquals(statusCode, STATUS_CODE);
 		logger.info("Varification of response status ");
 	}

@@ -1,4 +1,4 @@
-@LE_LLPSService 
+@LE_LPPSService 
 Feature:  
 	To test the functionality of LE LLPS Service of premium and illustration generator 
 
@@ -7,7 +7,7 @@ Background:
 	Given : set the request url header and request body 
 	
 		|url_illustation           |url_premium         |header                                              |requestfile   |
-		|/developer/leillustration |/developer/lepremium| x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | LE_LLPS.json |
+		|/developer/leillustration |/developer/lepremium| x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | LE_LPPS.json |
 
 @PositiveTest		
 Scenario Outline: 
@@ -145,4 +145,3 @@ Scenario Outline:
 		
 		
 		
-	

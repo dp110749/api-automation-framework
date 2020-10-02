@@ -68,8 +68,8 @@ public class MyMoney {
 		
 	}
 
-	@Then("^I try to verify mymoney rsponse status code is \"([^\"]*)\"$")
-	public void i_try_to_verify_mymoney_rsponse_status_code_is(String statusCode) throws Throwable {
+	@Then("^I try to verify mymoney response status code is \"([^\"]*)\"$")
+	public void i_try_to_verify_mymoney_response_status_code_is(String statusCode) throws Throwable {
 		Assert.assertEquals(statusCode, STATUS_CODE);
 		logger.info("Varification of response status ");
 	}

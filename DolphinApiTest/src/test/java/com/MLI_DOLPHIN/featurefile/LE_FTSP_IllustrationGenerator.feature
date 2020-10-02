@@ -1,10 +1,10 @@
-@LE_IllustrationGenerator
-Feature: POST: LE FTSP service for Illustation generator and premium generator 
+@LE_FTSP_IllustrationGenerator
+Feature: POST: LE FTSP service for Illustration generator and premium generator 
 Description:The Purpose of this api to generate the illustration of FTSP product
 
 Scenario Outline: To test the functionality of LE FTSP API when we pass the valid 
           Request
-    Given I wnat to set the request end Point url for "<URL>" for test case "<TestName>"
+    Given I want to set the request end Point url for "<URL>" for test case "<TestName>"
     When I set the header "<Headers>"
     When I send the complete request body for "<RequestBody>"
     Then I verify the response status code "<StatusCode>"
@@ -14,12 +14,12 @@ Scenario Outline: To test the functionality of LE FTSP API when we pass the vali
       
     Examples:    
     | TestName                |             URL           |  Headers                                         | RequestBody                        | StatusCode |
-    |LE Iiiustration generator| /developer/leillustration |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |      
+    |LE Illustration generator| /developer/leillustration |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |      
 
     Scenario Outline: To test the functionality of LE FTSP API when we pass the Mandatory 
                        parameter(Insured Name ) as empty
          
-    Given I wnat to set the request end Point url for "<URL>" for test case "<TestName>"
+    Given I want to set the request end Point url for "<URL>" for test case "<TestName>"
     When I set the header "<Headers>"
     When I send the complete request body for "<RequestBody>" and pass the name of insured as empty key is "<insuredNameKey>" and value "<insuredValue>"
     Then I verify the response status code "<StatusCode>"
@@ -28,11 +28,11 @@ Scenario Outline: To test the functionality of LE FTSP API when we pass the vali
       
     Examples:    
     | TestName                |             URL           |  Headers                                         | RequestBody                        | StatusCode |insuredNameKey|insuredValue|
-    |LE Iiiustration generator| /developer/leillustration |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |nameOfInsured|              |     
+    |LE Illustration generator| /developer/leillustration |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |nameOfInsured |            |     
     
      Scenario Outline: To test the functionality of LE FTSP API when we pass the Mandatory 
                        parameter(X -Correlation id ) as empty        
-    Given I wnat to set the request end Point url for "<URL>" for test case "<TestName>"
+    Given I want to set the request end Point url for "<URL>" for test case "<TestName>"
     When I set the header "<Headers>"
     When I send the complete request body for "<RequestBody>" and pass the name of insured as empty key is "<XcorrelationIdKey>" and value "<XcorrelationIDValue>"
     Then I verify the response status code "<StatusCode>"
@@ -40,13 +40,13 @@ Scenario Outline: To test the functionality of LE FTSP API when we pass the vali
     And I try to validate response  message  discription "Faliure" and correlation id ""
       
     Examples:    
-    | TestName                |             URL                                                |  Headers                                         | RequestBody                        | StatusCode |XcorrelationIdKey|XcorrelationIDValue|
-    |LE Iiiustration generator| /developer/microservices/mli/api/life-engage/illustration/fts |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |X-Correlation-ID |                   |     
+    | TestName                |             URL           |  Headers                                         | RequestBody                        | StatusCode |XcorrelationIdKey|XcorrelationIDValue|
+    |LE Illustration generator| /developer/leillustration |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |X-Correlation-ID |                   |     
  
   
     Scenario Outline: To test the functionality of LE FTSP API when we send the valid request 
                       for premiunm generator.       
-    Given I wnat to set the request end Point url for "<URL>" for test case "<TestName>"
+    Given I want to set the request end Point url for "<URL>" for test case "<TestName>"
     When I set the header "<Headers>"
     When I send the complete request body for "<RequestBody>"
     Then I verify the response status code "<StatusCode>"
@@ -56,9 +56,5 @@ Scenario Outline: To test the functionality of LE FTSP API when we pass the vali
       
     Examples:    
     | TestName                |             URL      |  Headers                                         | RequestBody                        | StatusCode |
-    |LE Iiiustration generator| /developer/lepremium |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |      
+    |LE Illustration generator| /developer/lepremium |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| LE_FTSP_IllustrationGenerator.json |    200     |      
   
-  
-              
-    
-    

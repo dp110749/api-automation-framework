@@ -1,0 +1,39 @@
+{
+   "metadata":{
+      "X-Correlation-ID": "HealthSOAtest12345",
+      "X-App-ID":"IBPS"
+   },
+   "payload":{
+      "CRMLeadID":"123",
+      "EquoteNumber":"123",
+      "ProposalNo":"123565474186246",
+      "ProductName":"U2NIF5",
+      "StatusCodeDisplayText":"NewLead",
+      "FirstName":"Raj",
+      "MiddleName":"Amabads",
+      "LastName":"ghodake",
+      "DateOfBirth":"13/12/1990",
+      "Gender":"Male",
+      "EmailId":"rghodake@mdindia.com",
+      "MobileNo1":"7020071377",
+      "MobileNo2":"7020071377",
+      "PanNumber":"bhwpg1243r",
+      "HouseNoAptNameSociety":"Espace",
+      "RoadAreaSector":"Nagar Road",
+      "CityDistrict":"Pune",
+      "PinCode":"411014",
+      "StateUT":"maharashtra",
+      "NomineeFirstName":"Raj",
+      "NomineeMiddleName":"A",
+      "NomineeLastName":"ghodake",
+      "NomineeDob":"13/12/1990",
+      "SmokerClass":"true",
+	  "MedicalCategory": "BLOOD UREA",
+	  "ServiceType": "Center Visit",
+      "PreferredLabId": "1",
+      "PreferredTestDate": "",
+      "PreferredTestTime": "",
+      "DiscrepancyMsg": "",
+	  "packageId": "151"
+   }
+}

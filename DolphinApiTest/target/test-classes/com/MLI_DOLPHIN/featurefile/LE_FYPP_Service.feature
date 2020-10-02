@@ -28,7 +28,7 @@ Given :Set testing data
 
 	|inputData              | oparationType|url                        |msgCode |Responsemessage   |
 	|{ "productCode": "21"} | changeData   | /developer/leillustration | 500    | Failed           |
-	|{ "productCode": ""}   | changeData   | /developer/leillustration | 500    | Failed           |
+	|{ "productCode": "" }  | changeData   | /developer/leillustration | 500    | Failed           |
 	|{ "productCode": "24"} | removeData   | /developer/leillustration |        | Bad Request      |
 				
 Scenario Outline: 

@@ -2,6 +2,7 @@ package com.MLI_DOLPHIN.utilities;
 import com.MLI_DOLPHIN.baseclass.WebservicesMethod;
 import com.MLI_DOLPHIN.excelreader.ExcelFileReader;
 
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class GetToken{
@@ -21,7 +22,9 @@ public class GetToken{
 			
 			e.printStackTrace();
 		}
+		
 		access_token = responseBody.then().extract().path("payload.token");
+		
 		return access_token;
 	}
 	

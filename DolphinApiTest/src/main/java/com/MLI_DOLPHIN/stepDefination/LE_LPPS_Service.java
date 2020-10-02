@@ -16,9 +16,9 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 
-public class LE_LLPS_Service {
+public class LE_LPPS_Service {
 
-	private final static Logger logger = Logger.getLogger(LE_LLPS_Service.class.getName());
+	private final static Logger logger = Logger.getLogger(LE_LPPS_Service.class.getName());
 	public String illustrationUrl;
 	public String premiumUrl;
 	public String header;

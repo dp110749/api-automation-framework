@@ -3,7 +3,6 @@ package com.MLI_DOLPHIN.stepDefination;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import org.apache.log4j.Logger;
-import org.codehaus.groovy.transform.EqualsAndHashCodeASTTransformation;
 import org.hamcrest.Matchers;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -19,7 +18,7 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 
-public class LE_IllustrationGenerator {
+public class LE_FTSP_IllustrationGenerator {
 	
 	public String RESPONSEBODY;
 	public String STATUSCODE;
@@ -29,12 +28,12 @@ public class LE_IllustrationGenerator {
 	public String FILE_PATH;
 	public String HEADER;
 	public Response responseOFbody;
-	private final static Logger logger = Logger.getLogger(LE_IllustrationGenerator.class.getName());
+	private final static Logger logger = Logger.getLogger(LE_FTSP_IllustrationGenerator.class.getName());
 	
 	@Description("To test when user send the valid request illustration should be generate:")
 	@Step("Passing two parameter endurl {0} and test case name {1}")
-	@Given("^I wnat to set the request end Point url for \"([^\"]*)\" for test case \"([^\"]*)\"$")
-	public void i_wnat_to_set_the_request_end_Point_url_for_for_test_case(String Url, String testCaseName) throws Throwable {
+	@Given("^I want to set the request end Point url for \"([^\"]*)\" for test case \"([^\"]*)\"$")
+	public void i_want_to_set_the_request_end_Point_url_for_for_test_case(String Url, String testCaseName) throws Throwable {
 		ENDPOINTURL=Url;
 		logger.info(testCaseName+"::Test Execution is started");
 	}
@@ -45,7 +44,7 @@ public class LE_IllustrationGenerator {
 	}
 		
 	@When("^I send the complete request body for \"([^\"]*)\"$")
-	@Step("Passing the resuest path to read json request {0} ")
+	@Step("Passing the request path to read json request {0} ")
 	public  void i_send_the_complete_request_body_for(String requestBodyPath) throws Throwable {
 /*		if (requestBodyPath != null && !requestBodyPath.isEmpty()) {
 			JSONParser jsonParser = new JSONParser();
@@ -129,15 +128,15 @@ public class LE_IllustrationGenerator {
 		logger.info("Response body is ::" + responseOFbody.body().prettyPrint());
 
 	}
-	@Then("^I try to validate the generated premium is partA \"([^\"]*)\" and premium partB \"([^\"]*)\" and premium partC \"([^\"]*)\"$")
+/*	@Then("^I try to validate the generated premium is partA \"([^\"]*)\" and premium partB \"([^\"]*)\" and premium partC \"([^\"]*)\"$")
 	public void i_try_to_validate_the_generated_premium_is_partA_and_premium_partB_and_premium_partC(String premiumA, String premiumB, String premiumC) throws Throwable {
 	
 		responseOFbody.then().rootPath("payload")
 				.body("premiumAmount.Part A", Matchers.hasItem(premiumA))
 		                      .and().body("Part B", Matchers.hasItem(premiumB))
 		                      .and().body("Part C", Matchers.hasItem(premiumC));
-		logger.info("Varification of LE Premium Amount successfully pass.");
+		logger.info("Verification of LE Premium Amount successfully pass.");
 	}      
 
-
+*/
 	}
