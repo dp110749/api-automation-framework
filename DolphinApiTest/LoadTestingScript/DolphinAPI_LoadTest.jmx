@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.3">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Dolphin_API_Test" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -37,7 +37,7 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="false">
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
         <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
           <collectionProp name="Arguments.arguments"/>
         </elementProp>
@@ -47,24 +47,40 @@
         <stringProp name="HTTPSampler.contentEncoding"></stringProp>
         <stringProp name="HTTPSampler.path"></stringProp>
         <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
-        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+        <stringProp name="HTTPSampler.response_timeout">5000</stringProp>
       </ConfigTestElement>
       <hashTree/>
       <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
         <collectionProp name="HeaderManager.headers">
           <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json </stringProp>
+          </elementProp>
+          <elementProp name="x-api-key" elementType="Header">
+            <stringProp name="Header.name">x-api-key</stringProp>
+            <stringProp name="Header.value">DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
             <stringProp name="Header.name">Authorization</stringProp>
             <stringProp name="Header.value">${access_token}</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">x-client-id 	</stringProp>
+            <stringProp name="Header.value">53jt873l753mcudrhqmuh3g5u8</stringProp>
           </elementProp>
         </collectionProp>
       </HeaderManager>
       <hashTree/>
-      <SampleTimeout guiclass="SampleTimeoutGui" testclass="SampleTimeout" testname="Sample Timeout" enabled="true">
-        <stringProp name="InterruptTimer.timeout">10000</stringProp>
+      <SampleTimeout guiclass="SampleTimeoutGui" testclass="SampleTimeout" testname="Sample Timeout" enabled="false">
+        <stringProp name="InterruptTimer.timeout">15000</stringProp>
       </SampleTimeout>
       <hashTree/>
-      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+      <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+        <stringProp name="ConstantTimer.delay">1000</stringProp>
+      </ConstantTimer>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
         <collectionProp name="HeaderManager.headers">
           <elementProp name="" elementType="Header">
             <stringProp name="Header.name">Content-Type</stringProp>
@@ -81,20 +97,30 @@
         </collectionProp>
       </HeaderManager>
       <hashTree/>
+      <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
+        <stringProp name="maximumValue">1000</stringProp>
+        <stringProp name="minimumValue">1</stringProp>
+        <stringProp name="outputFormat">USER_000</stringProp>
+        <boolProp name="perThread">true</boolProp>
+        <stringProp name="randomSeed"></stringProp>
+        <stringProp name="variableName">PERTHREAD</stringProp>
+      </RandomVariableConfig>
+      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">2</stringProp>
+          <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">50</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">20</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">25</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get_AccessToken" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET_ACCESS_TOKEN" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -103,7 +129,7 @@
                 <stringProp name="Argument.value">{&#xd;
     &quot;metadata&quot;: {&#xd;
         &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
-        &quot;X-Correlation-ID&quot;: &quot;31873127329799381273192&quot;&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;&#xd;
     },&#xd;
     &quot;payload&quot;: {&#xd;
         &quot;username&quot;: &quot;ibps&quot;,&#xd;
@@ -114,9 +140,9 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">${Token_EndPoint}</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -125,8 +151,8 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">15000</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
@@ -135,40 +161,49 @@
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="false">
-            <boolProp name="XPath.negate">false</boolProp>
-            <stringProp name="XPath.xpath">200</stringProp>
-            <boolProp name="XPath.validate">false</boolProp>
-            <boolProp name="XPath.whitespace">false</boolProp>
-            <boolProp name="XPath.tolerant">false</boolProp>
-            <boolProp name="XPath.namespace">false</boolProp>
-          </XPathAssertion>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">x-client-id </stringProp>
+                <stringProp name="Header.value">53jt873l753mcudrhqmuh3g5u8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">x-api-key</stringProp>
+                <stringProp name="Header.value">DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json </stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
+              <stringProp name="-202516509">Success</stringProp>
               <stringProp name="49586">200</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">16</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-            <stringProp name="ConstantTimer.delay">1500</stringProp>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="false">
+            <stringProp name="ConstantTimer.delay">5000</stringProp>
           </ConstantTimer>
           <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="false">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">Key</stringProp>
+            <stringProp name="RegexExtractor.regex"></stringProp>
+            <stringProp name="RegexExtractor.template"></stringProp>
+            <stringProp name="RegexExtractor.default"></stringProp>
+            <stringProp name="RegexExtractor.match_number"></stringProp>
+          </RegexExtractor>
+          <hashTree/>
         </hashTree>
-        <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion" enabled="false">
-          <stringProp name="JSON_PATH">$.</stringProp>
-          <stringProp name="EXPECTED_VALUE"></stringProp>
-          <boolProp name="JSONVALIDATION">false</boolProp>
-          <boolProp name="EXPECT_NULL">false</boolProp>
-          <boolProp name="INVERT">false</boolProp>
-          <boolProp name="ISREGEX">true</boolProp>
-        </JSONPathAssertion>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="IfscMicr" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="IFSC_MICR" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -190,11 +225,11 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/developer/micrifsc</stringProp>
+          <stringProp name="HTTPSampler.path">/developer/validation</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -230,7 +265,7 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="AadharMasking" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="AADHAR_MASKING" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -285,7 +320,7 @@
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="MyMoney" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="MY_MONEY" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -293,7 +328,7 @@
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
     &quot;metadata&quot;: {&#xd;
-        &quot;X-Correlation-ID&quot;: &quot;101507887&quot;,&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
         &quot;X-App-ID&quot;: &quot;IBPS&quot;&#xd;
     },&#xd;
     &quot;payload&quot;: {&#xd;
@@ -305,9 +340,9 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/developer/mymoney</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -316,18 +351,19 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">15000</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
+              <stringProp name="-202516509">Success</stringProp>
               <stringProp name="49586">200</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">1</intProp>
+            <intProp name="Assertion.test_type">16</intProp>
           </ResponseAssertion>
           <hashTree/>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
@@ -335,7 +371,7 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Pan_Dob_Validation" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PAN_DOB_VALIDATION" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -409,7 +445,7 @@
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="BACK_FLOW" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="BACK_FLOW" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -536,9 +572,9 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/developer/backflow</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -566,7 +602,7 @@
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_AWP_IllustrationGenerator" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE__ILLUSTRATION_AWP" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -614,9 +650,9 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/developer/leillustration</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -625,8 +661,8 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">10000</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
@@ -636,15 +672,16 @@
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">1</intProp>
+            <intProp name="Assertion.test_type">16</intProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_AWP_PremiumGenerator" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_AWP_PremiumGenerator" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -692,9 +729,9 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/developer/lepremium</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -703,8 +740,8 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">10000</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
@@ -714,15 +751,16 @@
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">1</intProp>
+            <intProp name="Assertion.test_type">16</intProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_FYPP_PremiumGenerator" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_FYPP_PremiumGenerator" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -788,9 +826,9 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/developer/lepremium</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -799,18 +837,19 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">10000</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">1</intProp>
+            <intProp name="Assertion.test_type">16</intProp>
           </ResponseAssertion>
           <hashTree/>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
@@ -818,7 +857,7 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_FYPP_IllustrationGenerator" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_ILLUSTRATION_FYPP" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -884,9 +923,9 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/developer/leillustration</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -895,8 +934,8 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">10000</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
@@ -906,171 +945,16 @@
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">1</intProp>
+            <intProp name="Assertion.test_type">16</intProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_PPS_IllustrationGenerator" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-    &quot;metadata&quot;: {&#xd;
-        &quot;X-Correlation-ID&quot;: &quot;31873127329799381273192&quot;,&#xd;
-        &quot;X-App-ID&quot;: &quot;IBPS&quot;&#xd;
-    },&#xd;
-&quot;payload&quot;:{&#xd;
-&quot;addRiderRequired&quot;:&quot;Yes&quot;,&#xd;
-&quot;addRiderSumInsured&quot;:&quot;300000&quot;,&#xd;
-&quot;wopPlusRiderRequired&quot;:&quot;Yes&quot;,&#xd;
-&quot;termPlusRiderRequired&quot;:&quot;Yes&quot;,&#xd;
-&quot;termPlusRiderSumInsured&quot;:&quot;300000&quot;,&#xd;
-&quot;termPlusRiderTermYears&quot;:&quot;20&quot;,&#xd;
-&quot;nameOfInsured&quot;:&quot;Akash&quot;,&#xd;
-&quot;ageOfInsured&quot;:&quot;27&quot;,&#xd;
-&quot;genderOfInsured&quot;:&quot;M&quot;,&#xd;
-&quot;nameOfPayer&quot;:&quot;Akash&quot;,&#xd;
-&quot;ageOfPayer&quot;:&quot;27&quot;,&#xd;
-&quot;genderOfPayer&quot;:&quot;M&quot;,&#xd;
-&quot;isNri&quot;:&quot;No&quot;,&#xd;
-&quot;policyHolderStateName&quot;:&quot;Haryana&quot;,&#xd;
-&quot;maxLifeRegisteredStateName&quot;:&quot;Haryana&quot;,&#xd;
-&quot;isLIEqualsPH&quot;:&quot;Yes&quot;,&#xd;
-&quot;policyTerm&quot;:&quot;48&quot;,&#xd;
-&quot;premiumPayingTerm&quot;:&quot;20&quot;,&#xd;
-&quot;paymentModeName&quot;:&quot;Semi-Annual&quot;,&#xd;
-&quot;committedPremium&quot;:&quot;20000&quot;,&#xd;
-&quot;objectiveOfInsurance&quot;:&quot;Individual Policy&quot;,&#xd;
-&quot;channel&quot;:&quot;SPARC&quot;,&#xd;
-&quot;channelId&quot;:&quot;9094&quot;,&#xd;
-&quot;productCode&quot;:&quot;27&quot;,&#xd;
-&quot;productName&quot;:&quot;Max Life Life Perfect Partner Super&quot;,&#xd;
-&quot;productGroup&quot;:&quot;Traditional&quot;,&#xd;
-&quot;surrenderOption&quot;:&quot;Yes&quot;,&#xd;
-&quot;surrenderOptionAmountArray&quot;:[],&#xd;
-&quot;agentId&quot;:&quot;719707&quot;&#xd;
-}&#xd;
-}&#xd;
-</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/developer/microservices/mli/api/life-engage/illustration/lpps</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-            <stringProp name="ConstantTimer.delay">1000</stringProp>
-          </ConstantTimer>
-          <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="49586">200</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">1</intProp>
-          </ResponseAssertion>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_PPS_PremiumGenerator" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-    &quot;metadata&quot;: {&#xd;
-        &quot;X-Correlation-ID&quot;: &quot;31873127329799381273192&quot;,&#xd;
-        &quot;X-App-ID&quot;: &quot;IBPS&quot;&#xd;
-    },&#xd;
-&quot;payload&quot;:{&#xd;
-&quot;addRiderRequired&quot;:&quot;Yes&quot;,&#xd;
-&quot;addRiderSumInsured&quot;:&quot;300000&quot;,&#xd;
-&quot;wopPlusRiderRequired&quot;:&quot;Yes&quot;,&#xd;
-&quot;termPlusRiderRequired&quot;:&quot;Yes&quot;,&#xd;
-&quot;termPlusRiderSumInsured&quot;:&quot;300000&quot;,&#xd;
-&quot;termPlusRiderTermYears&quot;:&quot;20&quot;,&#xd;
-&quot;nameOfInsured&quot;:&quot;Akash&quot;,&#xd;
-&quot;ageOfInsured&quot;:&quot;27&quot;,&#xd;
-&quot;genderOfInsured&quot;:&quot;M&quot;,&#xd;
-&quot;nameOfPayer&quot;:&quot;Akash&quot;,&#xd;
-&quot;ageOfPayer&quot;:&quot;27&quot;,&#xd;
-&quot;genderOfPayer&quot;:&quot;M&quot;,&#xd;
-&quot;isNri&quot;:&quot;No&quot;,&#xd;
-&quot;policyHolderStateName&quot;:&quot;Haryana&quot;,&#xd;
-&quot;maxLifeRegisteredStateName&quot;:&quot;Haryana&quot;,&#xd;
-&quot;isLIEqualsPH&quot;:&quot;Yes&quot;,&#xd;
-&quot;policyTerm&quot;:&quot;48&quot;,&#xd;
-&quot;premiumPayingTerm&quot;:&quot;20&quot;,&#xd;
-&quot;paymentModeName&quot;:&quot;Semi-Annual&quot;,&#xd;
-&quot;committedPremium&quot;:&quot;20000&quot;,&#xd;
-&quot;objectiveOfInsurance&quot;:&quot;Individual Policy&quot;,&#xd;
-&quot;channel&quot;:&quot;SPARC&quot;,&#xd;
-&quot;channelId&quot;:&quot;9094&quot;,&#xd;
-&quot;productCode&quot;:&quot;27&quot;,&#xd;
-&quot;productName&quot;:&quot;Max Life Life Perfect Partner Super&quot;,&#xd;
-&quot;productGroup&quot;:&quot;Traditional&quot;,&#xd;
-&quot;surrenderOption&quot;:&quot;Yes&quot;,&#xd;
-&quot;surrenderOptionAmountArray&quot;:[],&#xd;
-&quot;agentId&quot;:&quot;719707&quot;&#xd;
-}&#xd;
-}&#xd;
-</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/developer/microservices/mli/api/life-engage/premium/fypp</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="49586">200</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">1</intProp>
-          </ResponseAssertion>
-          <hashTree/>
-          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-            <stringProp name="ConstantTimer.delay">1000</stringProp>
-          </ConstantTimer>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_PWP_PremiumGeneratorGenerator" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_PWP_PremiumGeneratorGenerator" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1122,9 +1006,9 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/developer/lepremium</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -1133,18 +1017,19 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">10000</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">1</intProp>
+            <intProp name="Assertion.test_type">16</intProp>
           </ResponseAssertion>
           <hashTree/>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
@@ -1152,7 +1037,7 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_PWP_IllustrationGenerator" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE__ILLUSTRATION_PWP" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1204,9 +1089,9 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/developer/leillustration</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -1215,18 +1100,19 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">10000</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">1</intProp>
+            <intProp name="Assertion.test_type">16</intProp>
           </ResponseAssertion>
           <hashTree/>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
@@ -1234,7 +1120,7 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_LPPS_PremiumGenerator" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_LPPS_PremiumGenerator" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1282,9 +1168,9 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/developer/lepremium</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -1293,18 +1179,19 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">10000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">15000</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">1</intProp>
+            <intProp name="Assertion.test_type">16</intProp>
           </ResponseAssertion>
           <hashTree/>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
@@ -1312,7 +1199,7 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_LPPS_IllustrationGenerator" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_ILLUSTRATION_LPPS" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1360,9 +1247,9 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/developer/leillustration</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -1371,18 +1258,19 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">10000</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">1</intProp>
+            <intProp name="Assertion.test_type">16</intProp>
           </ResponseAssertion>
           <hashTree/>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
@@ -1390,7 +1278,7 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_FTSP_PremiumGenerator" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_FTSP_PremiumGenerator" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1471,9 +1359,9 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/developer/lepremium</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -1482,18 +1370,19 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">10000</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">1</intProp>
+            <intProp name="Assertion.test_type">16</intProp>
           </ResponseAssertion>
           <hashTree/>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
@@ -1501,7 +1390,191 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_FTSP_IllustrationGenerator" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_ILLUSTRATION" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;metadata&quot;: {&#xd;
+    &quot;X-Correlation-ID&quot;: &quot;31873127329799381273192&quot;,&#xd;
+    &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+    &quot;ProposalNumber&quot;: &quot;602378715&quot;&#xd;
+  },&#xd;
+  &quot;payload&quot;: {&#xd;
+    &quot;addRiderRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;addRiderSumAssured&quot;: &quot;&quot;,&#xd;
+    &quot;wopPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;termPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;termPlusRiderSumAssured&quot;: &quot;&quot;,&#xd;
+    &quot;termPlusRiderTermYears&quot;: &quot;&quot;,&#xd;
+    &quot;nameOfInsured&quot;: &quot;kkkkk&quot;,&#xd;
+    &quot;ageOfInsured&quot;: &quot;28&quot;,&#xd;
+    &quot;genderOfInsured&quot;: &quot;F&quot;,&#xd;
+    &quot;nameOfPayer&quot;: &quot;kkkkk&quot;,&#xd;
+    &quot;ageOfPayer&quot;: &quot;28&quot;,&#xd;
+    &quot;genderOfPayer&quot;: &quot;F&quot;,&#xd;
+    &quot;isNri&quot;: &quot;No&quot;,&#xd;
+    &quot;policyHolderStateName&quot;: &quot;RAJASTHAN&quot;,&#xd;
+    &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+    &quot;isLIEqualsPH&quot;: &quot;C&quot;,&#xd;
+    &quot;policyTerm&quot;: &quot;20&quot;,&#xd;
+    &quot;premiumPayingTerm&quot;: &quot;10&quot;,&#xd;
+    &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
+    &quot;committedPremium&quot;: &quot;200000.00&quot;,&#xd;
+    &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+    &quot;channel&quot;: &quot;X&quot;,&#xd;
+    &quot;productCode&quot;: &quot;128&quot;,&#xd;
+    &quot;productName&quot;: &quot;Max Life Assured Wealth Plan&quot;,&#xd;
+    &quot;productGroup&quot;: &quot;Traditional&quot;,&#xd;
+    &quot;surrenderOption&quot;: &quot;No&quot;,&#xd;
+    &quot;agentId&quot;: &quot;&quot;,&#xd;
+    &quot;edc&quot;: &quot;2020-07-13&quot;,&#xd;
+    &quot;solveOption&quot;: &quot;SA&quot;,&#xd;
+    &quot;sumAssured&quot;: &quot;6587155.96&quot;,&#xd;
+    &quot;isCATChannel&quot;: &quot;N&quot;,&#xd;
+    &quot;emrRate&quot;: &quot;&quot;,&#xd;
+    &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+    &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+    &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
+    &quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+    &quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+    &quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+    &quot;wopPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;wopPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+    &quot;isDefenseChannelCase&quot;: &quot;&quot;&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/leillustration</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">12000</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_PREMIUM" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;metadata&quot;: {&#xd;
+    &quot;X-Correlation-ID&quot;: &quot;31873127329799381273192&quot;,&#xd;
+    &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+    &quot;ProposalNumber&quot;: &quot;602378715&quot;&#xd;
+  },&#xd;
+  &quot;payload&quot;: {&#xd;
+    &quot;addRiderRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;addRiderSumAssured&quot;: &quot;&quot;,&#xd;
+    &quot;wopPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;termPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;termPlusRiderSumAssured&quot;: &quot;&quot;,&#xd;
+    &quot;termPlusRiderTermYears&quot;: &quot;&quot;,&#xd;
+    &quot;nameOfInsured&quot;: &quot;kkkkk&quot;,&#xd;
+    &quot;ageOfInsured&quot;: &quot;28&quot;,&#xd;
+    &quot;genderOfInsured&quot;: &quot;F&quot;,&#xd;
+    &quot;nameOfPayer&quot;: &quot;kkkkk&quot;,&#xd;
+    &quot;ageOfPayer&quot;: &quot;28&quot;,&#xd;
+    &quot;genderOfPayer&quot;: &quot;F&quot;,&#xd;
+    &quot;isNri&quot;: &quot;No&quot;,&#xd;
+    &quot;policyHolderStateName&quot;: &quot;RAJASTHAN&quot;,&#xd;
+    &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+    &quot;isLIEqualsPH&quot;: &quot;C&quot;,&#xd;
+    &quot;policyTerm&quot;: &quot;20&quot;,&#xd;
+    &quot;premiumPayingTerm&quot;: &quot;10&quot;,&#xd;
+    &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
+    &quot;committedPremium&quot;: &quot;200000.00&quot;,&#xd;
+    &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+    &quot;channel&quot;: &quot;X&quot;,&#xd;
+    &quot;productCode&quot;: &quot;128&quot;,&#xd;
+    &quot;productName&quot;: &quot;Max Life Assured Wealth Plan&quot;,&#xd;
+    &quot;productGroup&quot;: &quot;Traditional&quot;,&#xd;
+    &quot;surrenderOption&quot;: &quot;No&quot;,&#xd;
+    &quot;agentId&quot;: &quot;&quot;,&#xd;
+    &quot;edc&quot;: &quot;2020-07-13&quot;,&#xd;
+    &quot;solveOption&quot;: &quot;SA&quot;,&#xd;
+    &quot;sumAssured&quot;: &quot;6587155.96&quot;,&#xd;
+    &quot;isCATChannel&quot;: &quot;N&quot;,&#xd;
+    &quot;emrRate&quot;: &quot;&quot;,&#xd;
+    &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+    &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+    &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
+    &quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+    &quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+    &quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+    &quot;wopPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+    &quot;wopPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+    &quot;isDefenseChannelCase&quot;: &quot;&quot;&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/lepremium</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">15000</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-202516509">Success</stringProp>
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_ILLUSTRATION_FTSP" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1582,9 +1655,9 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/developer/leillustration</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -1632,18 +1705,17 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="MEDICAL_Report" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="MEDICAL_REPORT" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&#xd;
-    {&#xd;
+                <stringProp name="Argument.value">{&#xd;
     &quot;request&quot;: {&#xd;
-        &quot;header&quot;: {&#xd;
-            &quot;soaCorrelationId&quot;: &quot;25478965874&quot;,&#xd;
-            &quot;soaAppId&quot;: &quot;TPP&quot;&#xd;
+        &quot;metadata&quot;: {&#xd;
+            &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
+            &quot;X-App-ID&quot;: &quot;IBPS&quot;&#xd;
         },&#xd;
         &quot;payload&quot;: {&#xd;
             &quot;proposalNo&quot;: &quot;521485692&quot;,&#xd;
@@ -1651,59 +1723,60 @@
             &quot;productCode&quot;: &quot;TNOTP2&quot;,&#xd;
             &quot;occupation&quot;: &quot;Salaried&quot;,&#xd;
             &quot;education&quot;: &quot;Graduate&quot;,&#xd;
-            &quot;fsa&quot;: &quot;200000&quot;,&#xd;
+            &quot;fsa&quot;: &quot;20000&quot;,&#xd;
             &quot;creditScore&quot;: &quot;650&quot;,&#xd;
-            &quot;estimatedIncome&quot;: &quot;800000&quot;,&#xd;
+            &quot;estimatedIncome&quot;: &quot;80000&quot;,&#xd;
             &quot;bse500&quot;: &quot;Yes&quot;,&#xd;
-            &quot;declaredIncome&quot;: &quot;1000000&quot;,&#xd;
-            &quot;afyp&quot;: &quot;100000&quot;,&#xd;
+            &quot;declaredIncome&quot;: &quot;100000&quot;,&#xd;
+            &quot;afyp&quot;: &quot;10000&quot;,&#xd;
             &quot;panNumber&quot;: &quot;Yes&quot;,&#xd;
             &quot;neftPresent&quot;: &quot;Yes&quot;,&#xd;
             &quot;pepFlag&quot;: &quot;No&quot;,&#xd;
             &quot;nationality&quot;: &quot;Indian&quot;,&#xd;
             &quot;modeOfPayment&quot;: &quot;cash&quot;,&#xd;
             &quot;age&quot;: &quot;40&quot;,&#xd;
-            &quot;exShowroomPrice&quot;: &quot;1000000&quot;,&#xd;
+            &quot;exShowroomPrice&quot;: &quot;100000&quot;,&#xd;
             &quot;parentsInsurance&quot;: &quot;0&quot;,&#xd;
-            &quot;spouseInsurance&quot;: &quot;50000&quot;,&#xd;
-            &quot;idv&quot;: &quot;250000&quot;,&#xd;
-            &quot;actualIncome&quot;: &quot;500000&quot;,&#xd;
+            &quot;spouseInsurance&quot;: &quot;5000&quot;,&#xd;
+            &quot;idv&quot;: &quot;25000&quot;,&#xd;
+            &quot;actualIncome&quot;: &quot;50000&quot;,&#xd;
             &quot;category&quot;: &quot;T+M+B&quot;,&#xd;
-            &quot;sumAssured&quot;:&quot;200000&quot;,&#xd;
-            &quot;smokerClass&quot;:&quot;No&quot;,&#xd;
-            &quot;currentBucket&quot;: &quot;CBMA&quot;&#xd;
+            &quot;sumAssured&quot;: &quot;20000&quot;,&#xd;
+            &quot;smokerClass&quot;: &quot;No&quot;,&#xd;
+            &quot;customerClasification&quot;: &quot;Priority&quot;,&#xd;
+            &quot;currentBucket&quot;: &quot;CBMA&quot;,&#xd;
+            &quot;previousUrmuOutput&quot;: &quot;N&quot;&#xd;
         }&#xd;
     }&#xd;
-}&#xd;
- &#xd;
-</stringProp>
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/developer/microservices/mli/dolphin/api/medicalReport/ReportTrigger/v1</stringProp>
+          <stringProp name="HTTPSampler.path">/developer/medicalreport</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">15000</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">1</intProp>
+            <intProp name="Assertion.test_type">16</intProp>
           </ResponseAssertion>
           <hashTree/>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
@@ -1711,62 +1784,63 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="MY_Agent" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="MY_AGENT" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-&quot;metadata&quot;:{&#xd;
-&quot;X-Correlation-ID&quot;:&quot;1234567890&quot;,&#xd;
-&quot;X-App-ID&quot;:&quot;DOLPHIN&quot;&#xd;
-},&#xd;
-&quot;payload&quot;:{&#xd;
-&quot;agentId1&quot;:&quot;100766&quot;,&#xd;
-&quot;spNo1&quot;:&quot;&quot;,&#xd;
-&quot;agentId2&quot;:&quot;&quot;,&#xd;
-&quot;spNo2&quot;:&quot;&quot;,&#xd;
-&quot;twoAgents&quot;:&quot;n&quot;,&#xd;
-&quot;channel&quot;:&quot;A&quot;,&#xd;
-&quot;branchCode&quot;:&quot;&quot;,&#xd;
-&quot;type&quot;:&quot;DetailsBySerials&quot;,&#xd;
-&quot;transTrackingId&quot;:&quot;&quot;,&#xd;
-&quot;customerSignDate&quot;:&quot;2019-01-10&quot;,&#xd;
-&quot;insuranceStatus&quot;:&quot;aaa&quot;,&#xd;
-&quot;splitRatio&quot;:&quot;100&quot;,&#xd;
-&quot;productType&quot;:&quot;AML&quot;,&#xd;
-&quot;customerPan&quot;:&quot;AFXPY1455K&quot;&#xd;
-}&#xd;
-}&#xd;
-</stringProp>
+    &quot;metadata&quot;: {&#xd;
+        &quot;proposalNumber&quot;: null,&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;31873127329799381273192&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;agentId1&quot;: &quot;934384&quot;,&#xd;
+        &quot;spNo1&quot;: &quot;&quot;,&#xd;
+        &quot;agentId2&quot;: &quot;&quot;,&#xd;
+        &quot;spNo2&quot;: &quot;&quot;,&#xd;
+        &quot;customerPan&quot;: &quot;8816850567&quot;,&#xd;
+        &quot;twoAgents&quot;: &quot;n&quot;,&#xd;
+        &quot;channel&quot;: &quot;E&quot;,&#xd;
+        &quot;branchCode&quot;: &quot;EDEL1&quot;,&#xd;
+        &quot;type&quot;: &quot;CertificationDetailsRequest&quot;,&#xd;
+        &quot;transTrackingId&quot;: &quot;&quot;,&#xd;
+        &quot;customerSignDate&quot;: &quot;2020-09-24&quot;,&#xd;
+        &quot;insuranceStatus&quot;: &quot;IP&quot;,&#xd;
+        &quot;splitRatio&quot;: &quot;100&quot;,&#xd;
+        &quot;productType&quot;: &quot;ULIP&quot;&#xd;
+    }&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/developer/microservices/mli/dolphin/api/myAgent/validate</stringProp>
+          <stringProp name="HTTPSampler.path">/developer/myagent</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">15000</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
+              <stringProp name="-202516509">Success</stringProp>
               <stringProp name="49586">200</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">1</intProp>
+            <intProp name="Assertion.test_type">16</intProp>
           </ResponseAssertion>
           <hashTree/>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
@@ -1774,7 +1848,7 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EXECUTION_ENG" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EXECUTION_ENG" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -2408,9 +2482,9 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${Base_url}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/developer/execution-engine</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -2438,7 +2512,1571 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_ILLUSTRATION_OSP" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;31873127329799381273192&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;transactionID&quot;:&quot;9e59098a45f549e894&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
+       &quot;ageOfInsured&quot;: &quot;25&quot;,&#xd;
+      &quot;nameOfInsured&quot;: &quot;Harshit&quot;,&#xd;
+      &quot;isNRI&quot;: &quot;No&quot;,&#xd;
+      &quot;policyHolderStateName&quot;: &quot;ASSAM&quot;,&#xd;
+      &quot;maxLifeRegisteredStateName&quot;: &quot;KERALA&quot;,&#xd;
+      &quot;premiumPayingTermPolicyDetails&quot;:&quot;5&quot;,&#xd;
+       &quot;policyTerm&quot;: &quot;10&quot;,&#xd;
+       &quot;productCode&quot;: &quot;100&quot;,&#xd;
+       &quot;productTypePolicyDetails&quot;:&quot;ULIP&quot;,&#xd;
+       &quot;edcpolicyDetails&quot;:&quot;2020-01-29&quot;,&#xd;
+       &quot;deathBenefitOption&quot;:&quot;Variant 1&quot;,&#xd;
+       &quot;paymentModeName&quot;: &quot;Quarterly&quot;,&#xd;
+       &quot;committedPremium&quot;: &quot;50000&quot;,&#xd;
+       &quot;isRequiredSurrenderOption&quot;: &quot;Yes&quot;,&#xd;
+       &quot;amountSurrenderOption&quot;:[],&#xd;
+       &quot;coverMultipleFeeType&quot;:&quot;10&quot;,&#xd;
+      &quot;growthFund&quot;: &quot;0&quot;,&#xd;
+      &quot;growthSuperFund&quot;: &quot;0&quot;,&#xd;
+      &quot;conservativeFund&quot;: &quot;0&quot;,&#xd;
+      &quot;secureFund&quot;: &quot;0&quot;,&#xd;
+      &quot;balancedFund&quot;: &quot;100&quot;,&#xd;
+      &quot;highGrowthFund&quot;: &quot;0&quot;,&#xd;
+      &quot;dfaOption&quot;: &quot;No&quot;,&#xd;
+      &quot;stpOption&quot;: &quot;No&quot; ,&#xd;
+      &quot;channel&quot;: &quot;&quot;, &#xd;
+      &quot;productName&quot;: &quot;Max Life Online Savings Plan&quot;,&#xd;
+      &quot;productCodeProductDetails&quot;:&quot;100&quot;,&#xd;
+      &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
+       &quot;objectiveOfInsurance&quot;: &quot;Individual Policy&quot;,&#xd;
+      &quot;channelId&quot;: &quot;&quot;,&#xd;
+      &quot;channelName&quot;: &quot;Company Website&quot;, &#xd;
+      &quot;agentId&quot;: &quot;&quot;&#xd;
+     &#xd;
+    }&#xd;
+ &#xd;
+}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/leillustration</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_ILLUSTRATION_OSP" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;31873127329799381273192&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;transactionID&quot;:&quot;9e59098a45f549e894&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
+       &quot;ageOfInsured&quot;: &quot;25&quot;,&#xd;
+      &quot;nameOfInsured&quot;: &quot;Harshit&quot;,&#xd;
+      &quot;isNRI&quot;: &quot;No&quot;,&#xd;
+      &quot;policyHolderStateName&quot;: &quot;ASSAM&quot;,&#xd;
+      &quot;maxLifeRegisteredStateName&quot;: &quot;KERALA&quot;,&#xd;
+      &quot;premiumPayingTermPolicyDetails&quot;:&quot;5&quot;,&#xd;
+       &quot;policyTerm&quot;: &quot;10&quot;,&#xd;
+       &quot;productCode&quot;: &quot;100&quot;,&#xd;
+       &quot;productTypePolicyDetails&quot;:&quot;ULIP&quot;,&#xd;
+       &quot;edcpolicyDetails&quot;:&quot;2020-01-29&quot;,&#xd;
+       &quot;deathBenefitOption&quot;:&quot;Variant 1&quot;,&#xd;
+       &quot;paymentModeName&quot;: &quot;Quarterly&quot;,&#xd;
+       &quot;committedPremium&quot;: &quot;50000&quot;,&#xd;
+       &quot;isRequiredSurrenderOption&quot;: &quot;Yes&quot;,&#xd;
+       &quot;amountSurrenderOption&quot;:[],&#xd;
+       &quot;coverMultipleFeeType&quot;:&quot;10&quot;,&#xd;
+      &quot;growthFund&quot;: &quot;0&quot;,&#xd;
+      &quot;growthSuperFund&quot;: &quot;0&quot;,&#xd;
+      &quot;conservativeFund&quot;: &quot;0&quot;,&#xd;
+      &quot;secureFund&quot;: &quot;0&quot;,&#xd;
+      &quot;balancedFund&quot;: &quot;100&quot;,&#xd;
+      &quot;highGrowthFund&quot;: &quot;0&quot;,&#xd;
+      &quot;dfaOption&quot;: &quot;No&quot;,&#xd;
+      &quot;stpOption&quot;: &quot;No&quot; ,&#xd;
+      &quot;channel&quot;: &quot;&quot;, &#xd;
+      &quot;productName&quot;: &quot;Max Life Online Savings Plan&quot;,&#xd;
+      &quot;productCodeProductDetails&quot;:&quot;100&quot;,&#xd;
+      &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
+       &quot;objectiveOfInsurance&quot;: &quot;Individual Policy&quot;,&#xd;
+      &quot;channelId&quot;: &quot;&quot;,&#xd;
+      &quot;channelName&quot;: &quot;Company Website&quot;, &#xd;
+      &quot;agentId&quot;: &quot;&quot;&#xd;
+     &#xd;
+    }&#xd;
+ &#xd;
+}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/lepremium</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_ILLUSTRATION_SPS" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;31873127329799381273192&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;transactionID&quot;:&quot;9e59098a45f549e894&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;Harshit&quot;,&#xd;
+      &quot;ageOfPayer&quot;: &quot;25&quot;,&#xd;
+      &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
+      &quot;nameOfInsured&quot;: &quot;Harshit&quot;,&#xd;
+      &quot;vestingAgeOfInsured&quot;: &quot;&quot;,&#xd;
+      &quot;ageOfInsured&quot;: &quot;25&quot;,&#xd;
+      &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
+      &quot;isNRI&quot;: &quot;No&quot;,&#xd;
+      &quot;childAge&quot;: &quot;17&quot;,&#xd;
+      &quot;policyHolderStateName&quot;: &quot;HARYANA&quot;,&#xd;
+      &quot;maxLifeRegisteredStateName&quot;: &quot;RAJASTHAN&quot;,&#xd;
+      &quot;isLIEqualsPH&quot;: &quot;Yes&quot;,&#xd;
+      &quot;isDefenceChannelCasePayor&quot;:&quot;No&quot;,&#xd;
+      &quot;isDefenceChannelCaseProposer&quot;:&quot;No&quot;,&#xd;
+      &quot;policyTerm&quot;: &quot;10&quot;,&#xd;
+      &quot;vestingAgepolicyTerm&quot;:&quot;&quot;,&#xd;
+      &quot;annuityOption&quot;: &quot;&quot;,&#xd;
+      &quot;edcpolicyDetails&quot;:&quot;2020-01-29&quot;,&#xd;
+      &quot;paymentModeName&quot;: &quot;Quarterly&quot;,&#xd;
+      &quot;committedPremium&quot;: &quot;50000&quot;,&#xd;
+      &quot;isRequiredSurrenderOption&quot;: &quot;Yes&quot;,&#xd;
+      &quot;maximiseOptionInvPension&quot; : &quot;&quot;,&#xd;
+      &quot;productCode&quot;: &quot;36&quot;,&#xd;
+      &quot;preserveOptionOptionPension&quot;:&quot;&quot;,&#xd;
+      &quot;productName&quot;: &quot;Max Life Shiksha Plus Super&quot;,&#xd;
+      &quot;growthFund&quot;: &quot;0&quot;,&#xd;
+      &quot;growthSuperFund&quot;: &quot;0&quot;,&#xd;
+      &quot;conservativeFund&quot;: &quot;0&quot;,&#xd;
+      &quot;secureFund&quot;: &quot;0&quot;,&#xd;
+      &quot;balancedFund&quot;: &quot;0&quot;,&#xd;
+      &quot;highGrowthFund&quot;: &quot;0&quot;,&#xd;
+      &quot;amountSurrenderOption&quot;:[],&#xd;
+      &quot;saveMoreTomOptionReqd&quot;:&quot;&quot;,&#xd;
+      &quot;dfaOption&quot;: &quot;Yes&quot;,&#xd;
+      &quot;stpOption&quot;: &quot;No&quot;,&#xd;
+      &quot;channel&quot;: &quot;SPARC&quot;,&#xd;
+      &quot;channelId&quot;: &quot;9094&quot;,&#xd;
+      &quot;productCodeProductDetails&quot;:&quot;36&quot;,&#xd;
+      &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
+      &quot;objectiveOfInsurance&quot;: &quot;Individual Policy&quot;,&#xd;
+      &quot;agentId&quot;: &quot;719707&quot;&#xd;
+     &#xd;
+    }&#xd;
+ &#xd;
+}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/leillustration</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_SPS_Premium" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;31873127329799381273192&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;transactionID&quot;:&quot;9e59098a45f549e894&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;Harshit&quot;,&#xd;
+      &quot;ageOfPayer&quot;: &quot;25&quot;,&#xd;
+      &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
+      &quot;nameOfInsured&quot;: &quot;Harshit&quot;,&#xd;
+      &quot;vestingAgeOfInsured&quot;: &quot;&quot;,&#xd;
+      &quot;ageOfInsured&quot;: &quot;25&quot;,&#xd;
+      &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
+      &quot;isNRI&quot;: &quot;No&quot;,&#xd;
+      &quot;childAge&quot;: &quot;17&quot;,&#xd;
+      &quot;policyHolderStateName&quot;: &quot;HARYANA&quot;,&#xd;
+      &quot;maxLifeRegisteredStateName&quot;: &quot;RAJASTHAN&quot;,&#xd;
+      &quot;isLIEqualsPH&quot;: &quot;Yes&quot;,&#xd;
+      &quot;isDefenceChannelCasePayor&quot;:&quot;No&quot;,&#xd;
+      &quot;isDefenceChannelCaseProposer&quot;:&quot;No&quot;,&#xd;
+      &quot;policyTerm&quot;: &quot;10&quot;,&#xd;
+      &quot;vestingAgepolicyTerm&quot;:&quot;&quot;,&#xd;
+      &quot;annuityOption&quot;: &quot;&quot;,&#xd;
+      &quot;edcpolicyDetails&quot;:&quot;2020-01-29&quot;,&#xd;
+      &quot;paymentModeName&quot;: &quot;Quarterly&quot;,&#xd;
+      &quot;committedPremium&quot;: &quot;50000&quot;,&#xd;
+      &quot;isRequiredSurrenderOption&quot;: &quot;Yes&quot;,&#xd;
+      &quot;maximiseOptionInvPension&quot; : &quot;&quot;,&#xd;
+      &quot;productCode&quot;: &quot;36&quot;,&#xd;
+      &quot;preserveOptionOptionPension&quot;:&quot;&quot;,&#xd;
+      &quot;productName&quot;: &quot;Max Life Shiksha Plus Super&quot;,&#xd;
+      &quot;growthFund&quot;: &quot;0&quot;,&#xd;
+      &quot;growthSuperFund&quot;: &quot;0&quot;,&#xd;
+      &quot;conservativeFund&quot;: &quot;0&quot;,&#xd;
+      &quot;secureFund&quot;: &quot;0&quot;,&#xd;
+      &quot;balancedFund&quot;: &quot;0&quot;,&#xd;
+      &quot;highGrowthFund&quot;: &quot;0&quot;,&#xd;
+      &quot;amountSurrenderOption&quot;:[],&#xd;
+      &quot;saveMoreTomOptionReqd&quot;:&quot;&quot;,&#xd;
+      &quot;dfaOption&quot;: &quot;Yes&quot;,&#xd;
+      &quot;stpOption&quot;: &quot;No&quot;,&#xd;
+      &quot;channel&quot;: &quot;SPARC&quot;,&#xd;
+      &quot;channelId&quot;: &quot;9094&quot;,&#xd;
+      &quot;productCodeProductDetails&quot;:&quot;36&quot;,&#xd;
+      &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
+      &quot;objectiveOfInsurance&quot;: &quot;Individual Policy&quot;,&#xd;
+      &quot;agentId&quot;: &quot;719707&quot;&#xd;
+     &#xd;
+    }&#xd;
+ &#xd;
+}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/lepremium</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Discripency_Rule_Eng" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;25478965874&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;isInsuredGreaterFlag&quot;: &quot;Y&quot;,&#xd;
+        &quot;dobProposerFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;dobInsuredFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;insuredGenderFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;proposerGenderFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;propEduFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;posvRespNegFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;eiaRespFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;appRcvdPriorFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;diffAppCustDateFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;payPanFailFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;propPanFailFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;polSplitFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;insBusIoFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;propBusIoFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;insBusFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;propBusFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;insNatFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;propNatFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;praChangeFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;craChangeFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;psmResFlag&quot;: &quot;N&quot;,&#xd;
+        &quot;productName&quot;: &quot;U2NIF5&quot;,&#xd;
+        &quot;exactIncome&quot;: &quot;3234342&quot;,&#xd;
+        &quot;clientType&quot;: &quot;Proposer&quot;,&#xd;
+        &quot;mobileNo1&quot;: &quot;1234544&quot;,&#xd;
+        &quot;isPoliticallyExposed&quot;: &quot;No&quot;,&#xd;
+        &quot;channel&quot;: &quot;Agency&quot;,&#xd;
+        &quot;agentContactNumber&quot;: &quot;113343432&quot;,&#xd;
+        &quot;replacementPolicySale&quot;: &quot;No&quot;,&#xd;
+        &quot;sessionID&quot;: &quot;123434&quot;,&#xd;
+        &quot;processInstanceId&quot;: &quot;NB-0000000120-Dolphin&quot;,&#xd;
+        &quot;isPayorClientIdChange&quot;:&quot;N&quot;,&#xd;
+        &quot;isNEFTChange&quot;:&quot;N&quot;,&#xd;
+        &quot;great2L50kpannotvalid&quot;:&quot;N&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/discrepancy-rule-engine</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="VALIDATION" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+      &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+      &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+      &quot;bankIfscCode&quot;: &quot;SBIN0011558&quot;,                         &#xd;
+      &quot;bankMicrCode&quot;: &quot;&quot;&#xd;
+    }&#xd;
+}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/validations</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">15000</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-202516509">Success</stringProp>
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DISCREPANCY" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;proposalNumber&quot;: &quot;600440613&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;discrepancy&quot;: {&#xd;
+            &quot;sourceName&quot;: &quot;DOLPHIN&quot;,&#xd;
+            &quot;status&quot;: &quot;QC Discrepancy Marked&quot;,&#xd;
+            &quot;subStatus&quot;: &quot;Discrepancy Resolution Pending&quot;,&#xd;
+            &quot;proposerName&quot;: &quot;Plan&quot;,&#xd;
+            &quot;insuredName&quot;: &quot;Insured&quot;,&#xd;
+            &quot;payorName&quot;: &quot;Plan&quot;,&#xd;
+            &quot;mobile1&quot;: &quot;8802668929&quot;,&#xd;
+            &quot;mobile2&quot;: &quot;9805018992&quot;,&#xd;
+            &quot;emailId&quot;: &quot;testemailfordolphinscripts@gmail.com&quot;,&#xd;
+            &quot;channelName&quot;: &quot;&quot;,&#xd;
+            &quot;goCode&quot;: &quot;&quot;,&#xd;
+            &quot;agentId1&quot;: &quot;&quot;,&#xd;
+            &quot;agentId2&quot;: &quot;&quot;,&#xd;
+            &quot;agentId3&quot;: &quot;&quot;,&#xd;
+            &quot;leadID&quot;: &quot;&quot;,&#xd;
+            &quot;equoteNumber&quot;: &quot;&quot;,&#xd;
+            &quot;proposalNumber&quot;: &quot;600440613&quot;,&#xd;
+            &quot;ageOfLifeInsured&quot;: &quot;29&quot;,&#xd;
+            &quot;genderOfLifeInsured&quot;: &quot;M&quot;,&#xd;
+            &quot;employerEmployeeGroup&quot;: &quot;&quot;,&#xd;
+            &quot;employeeDiscount&quot;: &quot;&quot;,&#xd;
+            &quot;existingCustomerDiscount&quot;: &quot;false&quot;,&#xd;
+            &quot;appliedAnnualisedPremium&quot;: &quot;&quot;,&#xd;
+            &quot;appliedCoverMultiple&quot;: &quot;10&quot;,&#xd;
+            &quot;appliedSmokerClass&quot;: &quot;N&quot;,&#xd;
+            &quot;appliedDeathBenefitOption&quot;: &quot;L&quot;,&#xd;
+            &quot;appliedPremiumBackOption&quot;: &quot;&quot;,&#xd;
+            &quot;appliedIncomePeriod&quot;: &quot;&quot;,&#xd;
+            &quot;premiumPaymentMethod&quot;: &quot;CHQE&quot;,&#xd;
+            &quot;appliedPremiumPaymentTerm&quot;: &quot;15&quot;,&#xd;
+            &quot;appliedPolicyTerm&quot;: &quot;15&quot;,&#xd;
+            &quot;appliedSumAssured&quot;: &quot;1000000.00&quot;,&#xd;
+            &quot;appliedLifeStage&quot;: &quot;Married with children&quot;,&#xd;
+            &quot;baseAppliedIncome&quot;: &quot;750000&quot;,&#xd;
+            &quot;basePlanName&quot;: &quot;UFIPFR&quot;,&#xd;
+            &quot;baseModalPremium&quot;: &quot;100000.00&quot;,&#xd;
+            &quot;baseGst&quot;: &quot;0&quot;,&#xd;
+            &quot;initialPremiumRecieved&quot;: &quot;100000&quot;,&#xd;
+            &quot;dispNegWC&quot;: &quot;&quot;,&#xd;
+            &quot;rider&quot;: [&#xd;
+                {&#xd;
+                    &quot;riderName&quot;: &quot;UFIPPR&quot;,&#xd;
+                    &quot;riderSumAssured&quot;: &quot;100000.00&quot;,&#xd;
+                    &quot;riderModalPremium&quot;: &quot;0.00&quot;,&#xd;
+                    &quot;riderGst&quot;: &quot;0&quot;,&#xd;
+                    &quot;emr&quot;: &quot;&quot;,&#xd;
+                    &quot;multExtra&quot;: &quot;&quot;,&#xd;
+                    &quot;flatExtra&quot;: &quot;&quot;,&#xd;
+                    &quot;durationOfFlatExtra&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;riderName&quot;: &quot;UFIPRR&quot;,&#xd;
+                    &quot;riderSumAssured&quot;: &quot;1000000.00&quot;,&#xd;
+                    &quot;riderModalPremium&quot;: &quot;0.00&quot;,&#xd;
+                    &quot;riderGst&quot;: &quot;0&quot;,&#xd;
+                    &quot;emr&quot;: &quot;&quot;,&#xd;
+                    &quot;multExtra&quot;: &quot;&quot;,&#xd;
+                    &quot;flatExtra&quot;: &quot;&quot;,&#xd;
+                    &quot;durationOfFlatExtra&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;proposerRequirements&quot;: [&#xd;
+                {&#xd;
+                    &quot;requirementId&quot;: &quot;1005&quot;,&#xd;
+                    &quot;orderedRequirement&quot;: &quot;Copy of PAN required for Proposer&quot;,&#xd;
+                    &quot;requirementOrderDate&quot;: &quot;Sep 30 2020 3:27PM&quot;,&#xd;
+                    &quot;requirementStatus&quot;: &quot;Ordered&quot;,&#xd;
+                    &quot;requirementComments&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;requirementId&quot;: &quot;1005&quot;,&#xd;
+                    &quot;orderedRequirement&quot;: &quot;Copy of PAN required for Proposer&quot;,&#xd;
+                    &quot;requirementOrderDate&quot;: &quot;Sep 30 2020 3:27PM&quot;,&#xd;
+                    &quot;requirementStatus&quot;: &quot;Ordered&quot;,&#xd;
+                    &quot;requirementComments&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;requirementId&quot;: &quot;1028&quot;,&#xd;
+                    &quot;orderedRequirement&quot;: &quot;Copy of PAN required for Proposer&quot;,&#xd;
+                    &quot;requirementOrderDate&quot;: &quot;Sep 30 2020 3:27PM&quot;,&#xd;
+                    &quot;requirementStatus&quot;: &quot;Ordered&quot;,&#xd;
+                    &quot;requirementComments&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;insuredRequirements&quot;: [&#xd;
+                {&#xd;
+                    &quot;requirementId&quot;: &quot;&quot;,&#xd;
+                    &quot;orderedRequirement&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementOrderDate&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementStatus&quot;: &quot;&quot;,&#xd;
+                    &quot;requirememtTileId&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementComments&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;requirementId&quot;: &quot;&quot;,&#xd;
+                    &quot;orderedRequirement&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementOrderDate&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementStatus&quot;: &quot;&quot;,&#xd;
+                    &quot;requirememtTileId&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementComments&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;payerRequirements&quot;: [&#xd;
+                {&#xd;
+                    &quot;requirementId&quot;: &quot;&quot;,&#xd;
+                    &quot;orderedRequirement&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementOrderDate&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementStatus&quot;: &quot;&quot;,&#xd;
+                    &quot;requirememtTileId&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementComments&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;requirementId&quot;: &quot;&quot;,&#xd;
+                    &quot;orderedRequirement&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementOrderDate&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementStatus&quot;: &quot;&quot;,&#xd;
+                    &quot;requirememtTileId&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementComments&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;employerEmployeeGroup &quot;: &quot;&quot;,&#xd;
+            &quot;premiumPaymentMode&quot;: &quot;12&quot;&#xd;
+        }&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/discrepancy</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">15000</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-202516509">Success</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="UNDER_WRITING " enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;underWriting&quot;: {&#xd;
+            &quot;sourceName&quot;: &quot;Dolphin&quot;,&#xd;
+            &quot;status&quot;: &quot;&quot;,&#xd;
+            &quot;subStatus&quot;: &quot;&quot;,&#xd;
+            &quot;proposerName&quot;: &quot;Mohammed Aashkaar&quot;,&#xd;
+            &quot;insuredName&quot;: &quot;Akash Yadav&quot;,&#xd;
+            &quot;payorName&quot;: &quot;Rohit Mewar&quot;,&#xd;
+            &quot;mobile1&quot;: &quot;9090808070&quot;,&#xd;
+            &quot;mobile2&quot;: &quot;9090808080&quot;,&#xd;
+            &quot;emailId&quot;: &quot;&quot;,&#xd;
+            &quot;channelName&quot;: &quot;&quot;,&#xd;
+            &quot;goCode&quot;: &quot;&quot;,&#xd;
+            &quot;agentId1&quot;: &quot;&quot;,&#xd;
+            &quot;agentId2&quot;: &quot;&quot;,&#xd;
+            &quot;agentId3&quot;: &quot;&quot;,&#xd;
+            &quot;leadID&quot;: &quot;&quot;,&#xd;
+            &quot;equoteNumber&quot;: &quot;0987&quot;,&#xd;
+            &quot;proposalNumber&quot;: &quot;123456&quot;,&#xd;
+            &quot;ageOfLifeInsured&quot;: &quot;27&quot;,&#xd;
+            &quot;genderOfLifeInsured&quot;: &quot;M&quot;,&#xd;
+            &quot;employerEmployeeGroup &quot;: &quot;&quot;,&#xd;
+            &quot;employeeDiscount&quot;: &quot;&quot;,&#xd;
+            &quot;existingCustomerDiscount&quot;: &quot;&quot;,&#xd;
+            &quot;appliedAnnualisedPremium&quot;: &quot;&quot;,&#xd;
+            &quot;appliedCoverMultiple&quot;: &quot;&quot;,&#xd;
+            &quot;appliedSmokerClass&quot;: &quot;&quot;,&#xd;
+            &quot;appliedDeathBenefitOption&quot;: &quot;&quot;,&#xd;
+            &quot;appliedPremiumBackOption&quot;: &quot;&quot;,&#xd;
+            &quot;appliedIncomePeriod&quot;: &quot;&quot;,&#xd;
+            &quot;premiumPaymentMethod&quot;: &quot;&quot;,&#xd;
+            &quot;appliedPremiumPaymentTerm&quot;: &quot;&quot;,&#xd;
+            &quot;appliedPolicyTerm&quot;: &quot;&quot;,&#xd;
+            &quot;appliedSumAssured&quot;: &quot;&quot;,&#xd;
+            &quot;appliedLifeStage&quot;: &quot;&quot;,&#xd;
+            &quot;baseAppliedIncome&quot;: &quot;&quot;,&#xd;
+            &quot;basePlanName&quot;: &quot;Assured Wealth Plan&quot;,&#xd;
+            &quot;baseModalPremium&quot;: &quot;&quot;,&#xd;
+            &quot;baseGst&quot;: &quot;&quot;,&#xd;
+            &quot;initialPremiumRecieved&quot;: &quot;&quot;,&#xd;
+            &quot;rider&quot;: [&#xd;
+                {&#xd;
+                    &quot;riderName&quot;: &quot;&quot;,&#xd;
+                    &quot;riderSumAssured&quot;: &quot;&quot;,&#xd;
+                    &quot;riderModalPremium&quot;: &quot;&quot;,&#xd;
+                    &quot;riderGst&quot;: &quot;&quot;,&#xd;
+                    &quot;emr&quot;: &quot;&quot;,&#xd;
+                    &quot;multExtra&quot;: &quot;&quot;,&#xd;
+                    &quot;flatExtra&quot;: &quot;&quot;,&#xd;
+                    &quot;durationOfFlatExtra&quot;: &quot;&quot;,&#xd;
+                    &quot;premiumPaymentMode&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;revisedAnnualisedPremium&quot;: &quot;&quot;,&#xd;
+            &quot;revisedCoverMultiple&quot;: &quot;&quot;,&#xd;
+            &quot;approvedSmokerClass&quot;: &quot;&quot;,&#xd;
+            &quot;revisedDeathBenefitOption&quot;: &quot;&quot;,&#xd;
+            &quot;revisedPremiumBackOption&quot;: &quot;&quot;,&#xd;
+            &quot;approvedIncomePeriod&quot;: &quot;&quot;,&#xd;
+            &quot;approvedPremiumPaymentTerm&quot;: &quot;&quot;,&#xd;
+            &quot;revisedLifeStage&quot;: &quot;&quot;,&#xd;
+            &quot;revisedSumAssured&quot;: &quot;&quot;,&#xd;
+            &quot;revisedAppliedIncome&quot;: &quot;&quot;,&#xd;
+            &quot;baseRevisedModalPremium&quot;: &quot;&quot;,&#xd;
+            &quot;baseRevisedGst&quot;: &quot;&quot;,&#xd;
+            &quot;baseCoverageDecision&quot;: &quot;&quot;,&#xd;
+            &quot;approvedPolicyTerm&quot;: &quot;&quot;,&#xd;
+            &quot;emr&quot;: &quot;&quot;,&#xd;
+            &quot;multExtra&quot;: &quot;&quot;,&#xd;
+            &quot;flatExtra&quot;: &quot;&quot;,&#xd;
+            &quot;durationOfFlatExtra&quot;: &quot;&quot;,&#xd;
+            &quot;revisedTotalPremium&quot;: &quot;&quot;,&#xd;
+            &quot;riderApprovedSumAssured&quot;: &quot;&quot;,&#xd;
+            &quot;riderRevisedModalPremium&quot;: &quot;&quot;,&#xd;
+            &quot;riderRevisedGst&quot;: &quot;&quot;,&#xd;
+            &quot;riderCoverageDecision&quot;: &quot;&quot;,&#xd;
+            &quot;counterOfferReason&quot;: {&#xd;
+                &quot;reason1&quot;: &quot;qwe&quot;,&#xd;
+                &quot;reason2&quot;: &quot;ewq&quot;,&#xd;
+                &quot;reason3&quot;: &quot;qwe&quot;,&#xd;
+                &quot;reason4&quot;: &quot;ewq&quot;&#xd;
+            },&#xd;
+            &quot;declineReason&quot;: {&#xd;
+                &quot;reason1&quot;: &quot;qwe&quot;,&#xd;
+                &quot;reason2&quot;: &quot;ewq&quot;,&#xd;
+                &quot;reason3&quot;: &quot;qwe&quot;,&#xd;
+                &quot;reason4&quot;: &quot;ewq&quot;&#xd;
+            },&#xd;
+            &quot;postponeReason&quot;: {&#xd;
+                &quot;reason1&quot;: &quot;qwe&quot;,&#xd;
+                &quot;reason2&quot;: &quot;ewq&quot;,&#xd;
+                &quot;reason3&quot;: &quot;qwe&quot;,&#xd;
+                &quot;reason4&quot;: &quot;ewq&quot;,&#xd;
+                &quot;postponeRevisitingDate&quot;: &quot;&quot;&#xd;
+            },&#xd;
+            &quot;reasonForCancellation&quot;: {&#xd;
+                &quot;reason1&quot;: &quot;qwe&quot;,&#xd;
+                &quot;reason2&quot;: &quot;ewq&quot;,&#xd;
+                &quot;reason3&quot;: &quot;qwe&quot;,&#xd;
+                &quot;reason4&quot;: &quot;ewq&quot;&#xd;
+            },&#xd;
+            &quot;testCategory&quot;: &quot;&quot;,&#xd;
+            &quot;medicalDiscrepancy&quot;: &quot;&quot;,&#xd;
+            &quot;dispNegWC&quot;: &quot;&quot;,&#xd;
+            &quot;questionare&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;reason1&quot;,&#xd;
+                    &quot;reason&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;reason1&quot;,&#xd;
+                    &quot;reason&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ]&#xd;
+        }&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/underwriting</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">15000</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-202516509">Success</stringProp>
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PSM" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;DOLPHIN&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;ageOfInsured&quot;: &quot;46&quot;,&#xd;
+        &quot;channel&quot;: &quot;F&quot;,&#xd;
+        &quot;income&quot;: &quot;5300000&quot;,&#xd;
+        &quot;lifeStage&quot;: &quot;SINGLE WITH CHILDREN&quot;,&#xd;
+        &quot;need&quot;: &quot;PROTECTION&quot;,&#xd;
+        &quot;planGroup&quot;: &quot;U2NF20&quot;,&#xd;
+        &quot;isForm2&quot;: &quot;Y&quot;,&#xd;
+        &quot;isInsuredAgeLessThan18&quot;: &quot;Y&quot;,&#xd;
+        &quot;isPayorRiderTaken&quot;: &quot;Y&quot;,&#xd;
+        &quot;isPremHalfOfIncome&quot;: &quot;Y&quot;,&#xd;
+        &quot;balanceFund&quot;: &quot;N&quot;,&#xd;
+        &quot;conservativeFund&quot;: &quot;N&quot;,&#xd;
+        &quot;dfa&quot;: &quot;N&quot;,&#xd;
+        &quot;diversifiedEquityFund&quot;: &quot;N&quot;,&#xd;
+        &quot;dynamicBondFund&quot;: &quot;N&quot;,&#xd;
+        &quot;growthFund&quot;: &quot;N&quot;,&#xd;
+        &quot;growthSuperFund&quot;: &quot;N&quot;,&#xd;
+        &quot;highGrowthFund&quot;: &quot;N&quot;,&#xd;
+        &quot;irpScore&quot;: &quot;8&quot;,&#xd;
+        &quot;lifeCycleBased&quot;: &quot;N&quot;,&#xd;
+        &quot;moneyMarketFund&quot;: &quot;N&quot;,&#xd;
+        &quot;pensionMaxFund&quot;: &quot;N&quot;,&#xd;
+        &quot;pensionPreFund&quot;: &quot;N&quot;,&#xd;
+        &quot;secureFund&quot;: &quot;N&quot;,&#xd;
+        &quot;stp&quot;: &quot;Y&quot;,&#xd;
+        &quot;triggerBased&quot;: &quot;N&quot;,&#xd;
+        &quot;productFamily&quot;: &quot;ULIP&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/psm</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">15000</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-202516509">Success</stringProp>
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TPA_HISTORY" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;tpaName&quot;: &quot;MEDPLUS&quot;,&#xd;
+        &quot;dateAndTime&quot;: &quot;2020-06-19 12:00:00&quot;,&#xd;
+        &quot;gridReceived&quot;: &quot;Medical&quot;,&#xd;
+        &quot;status&quot;: &quot;completed&quot;,&#xd;
+        &quot;comments&quot;: &quot;Uday Testing&quot;,&#xd;
+        &quot;policyNumber&quot;: &quot;329693543&quot;&#xd;
+    }&#xd;
+}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/tpa-history</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">15000</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-202516509">Success</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DEDUPE" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;DOLPHIN&quot;,&#xd;
+        &quot;proposalNumber&quot;: &quot;12345678&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;firstName&quot;: &quot;ANIL&quot;,&#xd;
+        &quot;gender&quot;: &quot;F&quot;,&#xd;
+        &quot;panNo&quot;: &quot;BVDPS1118J&quot;,&#xd;
+        &quot;mobileNo&quot;: &quot;&quot;,&#xd;
+        &quot;emailId&quot;: &quot;&quot;,&#xd;
+        &quot;dob&quot;: &quot;01-01-1982&quot;,&#xd;
+        &quot;prevPolicy&quot;: &quot;&quot;,&#xd;
+        &quot;lastName&quot;: &quot;KUMAR&quot;,&#xd;
+        &quot;udiNumber&quot;: &quot;&quot;,&#xd;
+        &quot;eaiNumber&quot;: &quot;&quot;,&#xd;
+        &quot;ckycNumber&quot;: &quot;&quot;,&#xd;
+        &quot;bankAccNumber&quot;: &quot;&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/dev-dolphin-dedupe</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">15000</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-202516509">Success</stringProp>
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="COMMUNI ATION" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;HealthSOAtest12345&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;proposalNumber&quot;: &quot;600439061&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;productType&quot;: &quot;ULIP&quot;,&#xd;
+        &quot;docId&quot;: &quot;QCCT_CET&quot;,&#xd;
+        &quot;email&quot;: {&#xd;
+            &quot;email&quot;: &quot;Yes&quot;,&#xd;
+            &quot;agentEmail&quot;: &quot;Abhishek4.Roy@axisbank.com&quot;,&#xd;
+            &quot;customerEmail&quot;: &quot;pradeeptamaharana500@gmail.com&quot;&#xd;
+        },&#xd;
+        &quot;sms&quot;: {&#xd;
+            &quot;sms&quot;: &quot;Yes&quot;,&#xd;
+            &quot;agentSms&quot;: &quot;9932622587&quot;,&#xd;
+            &quot;customerSms&quot;: &quot;9069030358&quot;&#xd;
+        },&#xd;
+        &quot;caseStatus&quot;: &quot;Qc Discrepancy Marked&quot;,&#xd;
+        &quot;workItem&quot;: &quot;Discrepancy Resolution Pending&quot;,&#xd;
+        &quot;addInfoMed&quot;: {&#xd;
+            &quot;addInfoMed&quot;: &quot;No&quot;,&#xd;
+            &quot;addInfoMedDetails&quot;: [&#xd;
+                {&#xd;
+                    &quot;addInfoName&quot;: &quot;&quot;,&#xd;
+                    &quot;addInfoReason&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;addInfoName&quot;: &quot;&quot;,&#xd;
+                    &quot;addInfoReason&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;addInfoMedQuestionnaire&quot;: [&#xd;
+                {&#xd;
+                    &quot;questionnaireName&quot;: &quot;&quot;,&#xd;
+                    &quot;questionnaireReason&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;questionnaireName&quot;: &quot;&quot;,&#xd;
+                    &quot;questionnaireReason&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ]&#xd;
+        },&#xd;
+        &quot;addInfoNonMed&quot;: {&#xd;
+            &quot;addInfoNonMed&quot;: &quot;No&quot;,&#xd;
+            &quot;addInfoNonMedDetails&quot;: [&#xd;
+                {&#xd;
+                    &quot;addInfoName&quot;: &quot;&quot;,&#xd;
+                    &quot;addInfoReason&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;addInfoName&quot;: &quot;&quot;,&#xd;
+                    &quot;addInfoReason&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;addInfoNonMedQuestionnaire&quot;: [&#xd;
+                {&#xd;
+                    &quot;questionnaireName&quot;: &quot;&quot;,&#xd;
+                    &quot;questionnaireReason&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;questionnaireName&quot;: &quot;&quot;,&#xd;
+                    &quot;questionnaireReason&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ]&#xd;
+        },&#xd;
+        &quot;discrepancy&quot;: {&#xd;
+            &quot;discrepancyStatus&quot;: &quot;No&quot;,&#xd;
+            &quot;discrepancyDetails&quot;: [&#xd;
+                {&#xd;
+                    &quot;discrepancyName&quot;: &quot;&quot;,&#xd;
+                    &quot;discrepancyReason&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementName&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementStatus&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;discrepancyName&quot;: &quot;&quot;,&#xd;
+                    &quot;discrepancyReason&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementName&quot;: &quot;&quot;,&#xd;
+                    &quot;requirementStatus&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ]&#xd;
+        },&#xd;
+        &quot;counterOffer&quot;: {&#xd;
+            &quot;counterOffer&quot;: &quot;No&quot;,&#xd;
+            &quot;counterOfferReason&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;&quot;,&#xd;
+                    &quot;reason&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;&quot;,&#xd;
+                    &quot;reason&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ]&#xd;
+        },&#xd;
+        &quot;premiumAwaited&quot;: {&#xd;
+            &quot;premiumAwaited&quot;: &quot;No&quot;,&#xd;
+            &quot;premiumAwaitedReason&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;&quot;,&#xd;
+                    &quot;reason&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;&quot;,&#xd;
+                    &quot;reason&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ]&#xd;
+        },&#xd;
+        &quot;ulip3Pm&quot;: {&#xd;
+            &quot;ulip3Pm&quot;: &quot;Yes&quot;,&#xd;
+            &quot;ulip3PmStatus&quot;: &quot;Yes&quot;&#xd;
+        },&#xd;
+        &quot;posv&quot;: {&#xd;
+            &quot;posv&quot;: &quot;Yes&quot;,&#xd;
+            &quot;posvStatus&quot;: &quot;Positive&quot;&#xd;
+        },&#xd;
+        &quot;finalProposal&quot;: {&#xd;
+            &quot;finalProposalStatus&quot;: &quot;Accepted&quot;,&#xd;
+            &quot;proposalDeclined&quot;: {&#xd;
+                &quot;proposalDeclined&quot;: &quot;No&quot;,&#xd;
+                &quot;declinedReason&quot;: [&#xd;
+                    {&#xd;
+                        &quot;name&quot;: &quot;&quot;,&#xd;
+                        &quot;reason&quot;: &quot;&quot;&#xd;
+                    },&#xd;
+                    {&#xd;
+                        &quot;name&quot;: &quot;&quot;,&#xd;
+                        &quot;reason&quot;: &quot;&quot;&#xd;
+                    }&#xd;
+                ]&#xd;
+            },&#xd;
+            &quot;proposalPostponed&quot;: {&#xd;
+                &quot;proposalPostponed&quot;: &quot;No&quot;,&#xd;
+                &quot;postponedReason&quot;: [&#xd;
+                    {&#xd;
+                        &quot;name&quot;: &quot;&quot;,&#xd;
+                        &quot;reason&quot;: &quot;&quot;&#xd;
+                    },&#xd;
+                    {&#xd;
+                        &quot;name&quot;: &quot;&quot;,&#xd;
+                        &quot;reason&quot;: &quot;&quot;&#xd;
+                    }&#xd;
+                ]&#xd;
+            },&#xd;
+            &quot;proposalCancelled&quot;: {&#xd;
+                &quot;proposalCancelled&quot;: &quot;No&quot;,&#xd;
+                &quot;cancelledReason&quot;: [&#xd;
+                    {&#xd;
+                        &quot;name&quot;: &quot;&quot;,&#xd;
+                        &quot;reason&quot;: &quot;&quot;&#xd;
+                    },&#xd;
+                    {&#xd;
+                        &quot;name&quot;: &quot;&quot;,&#xd;
+                        &quot;reason&quot;: &quot;&quot;&#xd;
+                    }&#xd;
+                ]&#xd;
+            },&#xd;
+            &quot;proposalIssued&quot;: {&#xd;
+                &quot;proposalIssued&quot;: &quot;Yes&quot;,&#xd;
+                &quot;issuedStatus&quot;: &quot;issued&quot;&#xd;
+            }&#xd;
+        },&#xd;
+        &quot;agentID&quot;: &quot;655393&quot;,&#xd;
+        &quot;agentName&quot;: &quot;Mr. Abhishek Roy&quot;,&#xd;
+        &quot;agentMobileNumber&quot;: &quot;9932622587&quot;,&#xd;
+        &quot;agentEmailId&quot;: &quot;Abhishek4.Roy@axisbank.com&quot;,&#xd;
+        &quot;proposalNumber&quot;: &quot;600439061&quot;,&#xd;
+        &quot;proposerTitle&quot;: &quot;Mr.&quot;,&#xd;
+        &quot;proposerFirstName&quot;: &quot;Pradeepta&quot;,&#xd;
+        &quot;proposerLastName&quot;: &quot;Maharana&quot;,&#xd;
+        &quot;proposerDob&quot;: &quot;1921-09-30&quot;,&#xd;
+        &quot;proposerMobileNumber1&quot;: &quot;9069030358&quot;,&#xd;
+        &quot;proposerMobileNumber2&quot;: &quot;9678543424&quot;,&#xd;
+        &quot;proposerEmailId1&quot;: &quot;pradeeptamaharana500@gmail.com&quot;,&#xd;
+        &quot;proposerEmailId2&quot;: &quot;pradeeptamaharana500@gmail.com&quot;,&#xd;
+        &quot;insuredTitle&quot;: &quot;Mr.&quot;,&#xd;
+        &quot;insuredFirstName&quot;: &quot;ALOK&quot;,&#xd;
+        &quot;insuredLastName&quot;: &quot;SINGH&quot;,&#xd;
+        &quot;planCode&quot;: &quot;U2NF20&quot;,&#xd;
+        &quot;basePlanName&quot;: &quot;Max Life Fast Track Super Regular Pay&quot;,&#xd;
+        &quot;appliedSumAssured&quot;: &quot;250100.00&quot;,&#xd;
+        &quot;appliedPolicyTerm&quot;: &quot;20&quot;,&#xd;
+        &quot;appliedPremiumPaymentTerm&quot;: &quot;20&quot;,&#xd;
+        &quot;firstApproach&quot;: &quot;&quot;,&#xd;
+        &quot;deathBenefit&quot;: {&#xd;
+            &quot;deathBenefitOption&quot;: &quot;Yes&quot;,&#xd;
+            &quot;appliedDeathBenefit&quot;: &quot;L&quot;&#xd;
+        },&#xd;
+        &quot;riders&quot;: {&#xd;
+            &quot;ridersStatus&quot;: &quot;No&quot;,&#xd;
+            &quot;riderInfo&quot;: [&#xd;
+                {&#xd;
+                    &quot;currentStatus&quot;: &quot;&quot;,&#xd;
+                    &quot;riderName&quot;: &quot;&quot;,&#xd;
+                    &quot;riderTerm&quot;: &quot;&quot;,&#xd;
+                    &quot;riderAppiledModalPremium&quot;: &quot;&quot;,&#xd;
+                    &quot;riderAppiledSumAssured&quot;: &quot;&quot;,&#xd;
+                    &quot;riderAppliedGst&quot;: &quot;&quot;,&#xd;
+                    &quot;riderRevisedModalPremium&quot;: &quot;&quot;,&#xd;
+                    &quot;riderApprovedSumAssured&quot;: &quot;&quot;,&#xd;
+                    &quot;riderRevisedGst&quot;: &quot;&quot;,&#xd;
+                    &quot;riderCoverageDecision&quot;: &quot;&quot;,&#xd;
+                    &quot;riderEmr&quot;: &quot;&quot;,&#xd;
+                    &quot;riderMultExtra&quot;: &quot;&quot;,&#xd;
+                    &quot;riderFlatExtra&quot;: &quot;&quot;,&#xd;
+                    &quot;riderDurationOfFlatExtra&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;currentStatus&quot;: &quot;&quot;,&#xd;
+                    &quot;riderName&quot;: &quot;&quot;,&#xd;
+                    &quot;riderTerm&quot;: &quot;&quot;,&#xd;
+                    &quot;riderAppiledModalPremium&quot;: &quot;&quot;,&#xd;
+                    &quot;riderAppiledSumAssured&quot;: &quot;&quot;,&#xd;
+                    &quot;riderAppliedGst&quot;: &quot;&quot;,&#xd;
+                    &quot;riderRevisedModalPremium&quot;: &quot;&quot;,&#xd;
+                    &quot;riderApprovedSumAssured&quot;: &quot;&quot;,&#xd;
+                    &quot;riderRevisedGst&quot;: &quot;&quot;,&#xd;
+                    &quot;riderCoverageDecision&quot;: &quot;&quot;,&#xd;
+                    &quot;riderEmr&quot;: &quot;&quot;,&#xd;
+                    &quot;riderMultExtra&quot;: &quot;&quot;,&#xd;
+                    &quot;riderFlatExtra&quot;: &quot;&quot;,&#xd;
+                    &quot;riderDurationOfFlatExtra&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ]&#xd;
+        },&#xd;
+        &quot;paymentMethod&quot;: &quot;DD&quot;,&#xd;
+        &quot;irpShortage&quot;: &quot;15&quot;,&#xd;
+        &quot;shortPremiumAmount&quot;: &quot;&quot;,&#xd;
+        &quot;refundAmount&quot;: &quot;&quot;,&#xd;
+        &quot;funds&quot;: [&#xd;
+            {&#xd;
+                &quot;fundName&quot;: &quot;UEBL1&quot;,&#xd;
+                &quot;fundPercentage&quot;: &quot;10&quot;&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;fundName&quot;: &quot;UECN1&quot;,&#xd;
+                &quot;fundPercentage&quot;: &quot;10&quot;&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;fundName&quot;: &quot;UEDB1&quot;,&#xd;
+                &quot;fundPercentage&quot;: &quot;10&quot;&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;fundName&quot;: &quot;UEGR1&quot;,&#xd;
+                &quot;fundPercentage&quot;: &quot;10&quot;&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;fundName&quot;: &quot;UEHGW&quot;,&#xd;
+                &quot;fundPercentage&quot;: &quot;10&quot;&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;fundName&quot;: &quot;UEPEQ&quot;,&#xd;
+                &quot;fundPercentage&quot;: &quot;50&quot;&#xd;
+            }&#xd;
+        ],&#xd;
+        &quot;replacementPolicy&quot;: {&#xd;
+            &quot;replacementPolicy&quot;: &quot;No&quot;,&#xd;
+            &quot;replacementPolicyNumbers&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;&quot;,&#xd;
+                    &quot;policyNumber&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;&quot;,&#xd;
+                    &quot;policyNumber&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ]&#xd;
+        },&#xd;
+        &quot;pendingRequirement&quot;: {&#xd;
+            &quot;pendingRequirement&quot;: &quot;No&quot;,&#xd;
+            &quot;pendingList&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;&quot;,&#xd;
+                    &quot;pendingList&quot;: &quot;&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;&quot;,&#xd;
+                    &quot;pendingList&quot;: &quot;&quot;&#xd;
+                }&#xd;
+            ]&#xd;
+        },&#xd;
+        &quot;ckycNumber&quot;: &quot;&quot;,&#xd;
+        &quot;appliedAnnualisedPremium&quot;: &quot;25010&quot;,&#xd;
+        &quot;appliedCoverMultiple&quot;: &quot;10&quot;,&#xd;
+        &quot;appliedSmokerClass&quot;: &quot;N&quot;,&#xd;
+        &quot;appliedPremiumBackOption&quot;: &quot;&quot;,&#xd;
+        &quot;appliedIncomePeriod&quot;: &quot;500000&quot;,&#xd;
+        &quot;appliedLifeStage&quot;: &quot;Married with no children&quot;,&#xd;
+        &quot;revisedAnnualisedPremium&quot;: &quot;&quot;,&#xd;
+        &quot;revisedTotalPremium&quot;: &quot;&quot;,&#xd;
+        &quot;revisedCoverMultiple&quot;: &quot;&quot;,&#xd;
+        &quot;approvedSmokerClass&quot;: &quot;&quot;,&#xd;
+        &quot;revisedDeathBenefitOption&quot;: &quot;&quot;,&#xd;
+        &quot;approvedPremiumPaymentTerm&quot;: &quot;&quot;,&#xd;
+        &quot;approvedPolicyTerm&quot;: &quot;&quot;,&#xd;
+        &quot;psmOutage&quot;: {&#xd;
+            &quot;psmOutage&quot;: &quot;No&quot;,&#xd;
+            &quot;psmOutageReason&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;&quot;,&#xd;
+                    &quot;reason&quot;: &quot;FAIL&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;&quot;,&#xd;
+                    &quot;reason&quot;: &quot;Wrong Input&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;&quot;,&#xd;
+                    &quot;reason&quot;: &quot;Wrong Input&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;&quot;,&#xd;
+                    &quot;reason&quot;: &quot;Wrong Input&quot;&#xd;
+                }&#xd;
+            ]&#xd;
+        },&#xd;
+        &quot;baseCoverageDecision&quot;: &quot;&quot;,&#xd;
+        &quot;postponeRevisitingDate&quot;: &quot;&quot;,&#xd;
+        &quot;medicalRequirementGenerationDate&quot;: &quot;&quot;,&#xd;
+        &quot;addInfoDate&quot;: &quot;&quot;,&#xd;
+        &quot;loginDate&quot;: &quot;&quot;,&#xd;
+        &quot;submittedDate&quot;: &quot;&quot;,&#xd;
+        &quot;baseAppiledFaceAmount&quot;: &quot;250100.00&quot;,&#xd;
+        &quot;baseModalPremium&quot;: &quot;2084.17&quot;,&#xd;
+        &quot;baseGst&quot;: &quot;0.00&quot;,&#xd;
+        &quot;revisedSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;baseRevisedModalPremium&quot;: &quot;&quot;,&#xd;
+        &quot;baseRevisedGst&quot;: &quot;&quot;,&#xd;
+        &quot;totalPremium&quot;: &quot;2084.17&quot;,&#xd;
+        &quot;initialPremiumReceived&quot;: &quot;300000&quot;,&#xd;
+        &quot;emr&quot;: &quot;&quot;,&#xd;
+        &quot;multExtra&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtra&quot;: &quot;&quot;,&#xd;
+        &quot;durationOfFlatExtra&quot;: &quot;&quot;,&#xd;
+        &quot;paymentMode&quot;: &quot;01&quot;,&#xd;
+        &quot;tppCaseStatus&quot;: &quot;&quot;,&#xd;
+        &quot;tppWorkItemDescription&quot;: &quot;Discrepancy Resolution Pending&quot;,&#xd;
+        &quot;testCategory&quot;: &quot;&quot;,&#xd;
+        &quot;tppProposerOrederedRequirement&quot;: &quot;&quot;,&#xd;
+        &quot;tpaRequirement&quot;: &quot;&quot;,&#xd;
+        &quot;tppInsuredOrderedRequirement&quot;: &quot;&quot;,&#xd;
+        &quot;applicationNumber&quot;: &quot;600439061&quot;,&#xd;
+        &quot;equote&quot;: &quot;&quot;,&#xd;
+        &quot;vrm&quot;: &quot;&quot;,&#xd;
+        &quot;vrmEmail&quot;: &quot;&quot;,&#xd;
+        &quot;adhaarAuthFailDate&quot;: &quot;&quot;,&#xd;
+        &quot;otpNach&quot;: &quot;&quot;,&#xd;
+        &quot;channelCode&quot;: &quot;X&quot;,&#xd;
+        &quot;leadId&quot;: &quot;&quot;,&#xd;
+        &quot;ospNach&quot;: &quot;&quot;,&#xd;
+        &quot;tomNach&quot;: &quot;&quot;,&#xd;
+        &quot;update1&quot;: &quot;&quot;,&#xd;
+        &quot;update2&quot;: &quot;&quot;,&#xd;
+        &quot;salutation&quot;: &quot;&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/communication</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">15000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">15000</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-202516509">Success</stringProp>
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
       </hashTree>
+      <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Aggregate Graph" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
       <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
@@ -2475,7 +4113,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
