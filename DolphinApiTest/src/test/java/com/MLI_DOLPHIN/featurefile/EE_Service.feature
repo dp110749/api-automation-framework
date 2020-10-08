@@ -32,8 +32,8 @@ Scenario Outline: to test functionality when user send invaild request url
 	Then :i want to validate the response "<statuscode>" 
 	
 	Examples: 
-		|requestUrl                                             |statuscode|
-		|/developer/microservices/mli/dolphin/api/ee/AutoUWMS/v1|404       |
+		|requestUrl                      |statuscode|
+		|/developer/sasasexecution-engine|403       |
 
 #@NegativeTest1		
 #Scenario Outline: to test functionality when user remove the PolicyAgentCustomerInfo field and send the request
