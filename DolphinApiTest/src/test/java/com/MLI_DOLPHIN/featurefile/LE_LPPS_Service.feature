@@ -47,8 +47,8 @@ Scenario Outline:
 	
 	Examples: 
 	
-		|url                                                 |urltype            |statusCode   |
-		|developer/microservices/mli/api/life-engage/premium |illustrationurl    |  404        | 		
+		|url                      |urltype            |statusCode   |
+		|developer/leaaillustration |illustrationurl    |  403        | 		
 
 @NegativeTest		
 Scenario Outline: 
@@ -65,9 +65,9 @@ Scenario Outline:
 	Examples: 
 	
 		| statusCode  | responseMessage|
-		|  400        | Bad Request    |		
+		|  200        | Bad Request    |		
 		
-@PositiveTest		
+@PositiveTest5		
 Scenario Outline: 
 	To test the functionality when user send the request for premium generator 
 		
@@ -96,9 +96,9 @@ Scenario Outline:
 	Examples:  
 	
 		| statusCode  | responseMessage|
-		|  200        |Failed        |
+		|  200        |Failed          |
 
-@NegativeTest		
+@NegativeTest	
 Scenario Outline: 
 	To test the functionality when user send the request with ageOfInsured as empty 
 	
@@ -112,7 +112,7 @@ Scenario Outline:
 	Examples: 
 	
 		| statusCode  | responseMessage|
-		|  400        | Bad Request    |		
+		|  200        | Bad Request    |		
 
 @NegativeTest		
 Scenario Outline: 
@@ -123,8 +123,8 @@ Scenario Outline:
 	
 	Examples: 
 	
-		|url                                                 |urltype       |statusCode   |
-		|developer/microservices/mli/api/life-engage/premis  |premiumurl    |  404        | 		
+		|url                  |urltype       |statusCode   |
+		|developer/aqremiums  |premiumurl    |  403        | 		
 		
 			
 		#Scenario Outline: 
