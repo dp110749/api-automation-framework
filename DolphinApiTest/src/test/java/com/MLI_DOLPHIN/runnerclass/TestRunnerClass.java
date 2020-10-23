@@ -18,10 +18,10 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 //		 tags = "@OauthApI,@IFSC_MICR_API,@TPAIntegrationTest,@DiscrepancyRuleEngineTest,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@UW_MedicalReportService,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest",
 
 //         tags = "@OauthApI,@IFSC_MICR_API,@TPAIntegrationTest,@DiscrepancyRuleEngineTest,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@UW_MedicalReportService,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest",
-         tags = "@LE_LPPSService", 
+         tags = "@DedupeAllScenarios",
 		 glue = {
 				"com.MLI_DOLPHIN.stepDefination" }, plugin = { "pretty",
-						"html:target/cucumber-reports" }, dryRun = false, monochrome = true)
+						"html:target/cucumber-reports" ,"json:target/cucumber.json"}, dryRun = false, monochrome = true)
 
 public class TestRunnerClass extends AbstractTestNGCucumberTests{
 
