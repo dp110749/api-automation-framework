@@ -20,6 +20,7 @@ public class DiscrepancyRuleEngine {
 	private final static Logger logger = Logger.getLogger(DiscrepancyRuleEngine.class.getName());
 	
 	private String header;
+	
 	private String url;
 	private String requestFile;
 	private String requestBody;
