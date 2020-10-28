@@ -19,7 +19,8 @@ Scenario Outline:
 	Examples: 
 		|msgCode |msg     |
 		|200     |Success |
-		
+	
+	@NegativeTest	
 Scenario: 
 	To test the functionality when pass the mandotary parameter as empty 
 
@@ -29,7 +30,7 @@ Scenario:
 		|{"panNo":"ACKPK5279R"}   | changeData       | /developer/dev-dolphin-dedupe | 200    | Success |
 		|{ "dob":""}              | changeData       | /developer/dev-dolphin-dedupe | 500    | Failure |
 		|{"firstName":"ANIL"}     | removeData       | /developer/dev-dolphin-dedupe | 500    | Failure |
-@Test 
+@NegativeTest
 Scenario Outline: 
 	To test the functionality of Api when pass the Correlation as null
 	
