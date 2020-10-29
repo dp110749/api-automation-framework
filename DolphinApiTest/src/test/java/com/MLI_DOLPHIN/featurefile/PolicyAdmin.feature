@@ -3,8 +3,8 @@ Feature: To test the functionality of policy admin for create and update
 Background: 
 	Given set pre set of data 
 	
-		|jsonFile        |url                   |header|
-		|PolicyAdmin.json|/developer/policyadmin|x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY|
+	    |url                    |header                                             |jsonFile        |
+		|/developer/policyadmin |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |PolicyAdmin.json|
 	Scenario Outline:
 	When I want to send the request for policyAdmin
 	Then I want to validate the response code "<reponseCode>"
