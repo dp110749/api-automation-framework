@@ -1,37 +1,37 @@
 {
-	"request": {
-		"metadata": {
-			"X-Correlation-ID":"1234567890",
-            "X-App-ID":"TPP"
-
-		},
-		"payload": {
-			"proposalNo": "521485692",
-			"goCode": "W0003",
-			"productCode": "TNOTP2",
-			"occupation": "Salaried",
-			"education": "Graduate",
-			"fsa": "200000",
-			"creditScore": "650",
-			"estimatedIncome": "800000",
-			"bse500": "Yes",
-			"declaredIncome": "1000000",
-			"afyp": "100000",
-			"panNumber": "Yes",
-			"neftPresent": "Yes",
-			"pepFlag": "No",
-			"nationality": "Indian",
-			"modeOfPayment": "cash",
-			"age": "40",
-			"exShowroomPrice": "1000000",
-			"parentsInsurance": "0",
-			"spouseInsurance": "50000",
-			"idv": "250000",
-			"actualIncome": "500000",
-			"category": "T+M+B",
-			"sumAssured":"200000",
-			"smokerClass":"No",
-			"currentBucket": "CBMA"
-		}
-	}
+    "request": {
+        "metadata": {
+            "X-Correlation-ID": "600461032-D89DD633DFB95D4",
+            "X-App-ID": "IBPS"
+        },
+        "payload": {
+            "occupation": "Profsnl",
+            "education": "PRO",
+            "modeOfPayment": "CHQE",
+            "actualIncome": "",
+            "goCode": "AMRG1",
+            "sumAssured": "5000000.00",
+            "afyp": "500000.0",
+            "exShowroomPrice": "",
+            "spouseInsurance": "",
+            "smokerClass": "No",
+            "creditScore": "",
+            "declaredIncome": "1200000",
+            "panNumber": "CHGPD8457F",
+            "proposalNo": "600461032",
+            "productCode": "U2NIF5",
+            "nationality": "Indian",
+            "fsa": "5000000",
+            "pepFlag": "No",
+            "currentBucket": "NCMA",
+            "previousUrmuOutput": "N",
+            "idv": "http://www.google.com:80/",
+            "parentsInsurance": "",
+            "category": "T",
+            "estimatedIncome": "",
+            "neftPresent": "No",
+            "age": "38",
+            "bse500": "No"
+        }
+    }
 }

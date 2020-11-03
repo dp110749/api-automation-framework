@@ -4,8 +4,8 @@ Feature: To check the functionality of TPA Integration service
 Background: 
 
 	Given set input request testdata 
-		|url                       |header                                             | requestFile        | 
-		|developer/tpa-integration |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | TPAIntegration.json|
+		|url                     |header                                             | requestFile        | 
+		|developer/medicalreport |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | TPAIntegration.json|
 		
 @PositiveTestTPA1 
 Scenario Outline: 
@@ -26,10 +26,10 @@ Examples:
 Scenario: 
 To test the functionality when user send the invalid request for TPA Integration 
 Given :Set testdata for TPA Integration
-	|testData               | operationType | testurl                    |msgCode |msg      |
-	|{ "ProposalNo":""}     | changeData    | /developer/tpa-integration | 400    | Failure |
-	|{ "FirstName":""}      | removeData    | /developer/tpa-integration | 400    | Failure |
-	|{ "DateOfBirth":"568"} | changeData    | /developer/tpa-integration | 400    | Failure |
+	|testData               | operationType | testurl                  |msgCode |msg      |
+	|{ "ProposalNo":""}     | changeData    | /developer/medicalreport | 400    | Failure |
+	|{ "FirstName":""}      | removeData    | /developer/medicalreport | 400    | Failure |
+	|{ "DateOfBirth":"568"} | changeData    | /developer/medicalreport | 400    | Failure |
 		
 				
 
@@ -91,8 +91,8 @@ Scenario:
 	To test the functionality when user send the invalid request for TPA Integration 
  Given :Set testdata for TPA Integration
 	
-		|testData                         | operationType|testUrl                     |msgCode |msg          |
-		|{ "HouseNoAptNameSociety": "" }  | changeData   | /developer/tpa-integration | 400    | Failure     |
+		|testData                         | operationType|testUrl                   |msgCode |msg          |
+		|{ "HouseNoAptNameSociety": "" }  | changeData   | /developer/medicalreport | 400    | Failure     |
 						
 
 @NegativeTestTPA5
@@ -100,10 +100,10 @@ Scenario:
 	To test the functionality when user send the invalid request for TPA Integration 
  Given :Set testdata for TPA Integration
 	
-		|testData               | operationType|testUrl                     |msgCode |msg          |
-		|{ "PinCode": "000000"} | changeData   | /developer/tpa-integration | 400    | Failure     |
-		|{ "PinCode": "" }      | removeData   | /developer/tpa-integration | 400    | Failure     |
-		|{ "PinCode": "rctv"}   | changeData   | /developer/tpa-integration | 400    | Failure     |
+		|testData               | operationType|testUrl                   |msgCode |msg          |
+		|{ "PinCode": "000000"} | changeData   | /developer/medicalreport | 400    | Failure     |
+		|{ "PinCode": "" }      | removeData   | /developer/medicalreport | 400    | Failure     |
+		|{ "PinCode": "rctv"}   | changeData   | /developer/medicalreport | 400    | Failure     |
 						
 
 						
