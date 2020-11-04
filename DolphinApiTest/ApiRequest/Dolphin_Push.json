@@ -1,0 +1,2365 @@
+{
+    "metadata": {
+        "X-Correlation-ID": "1b1e2e72-3583-4121-9c80-3afe17b5f9f3",
+        "X-App-ID": "IBPS",
+        "xappID": "Dolphin",
+        "xcorrelationID": "1b1e2e72-3583-4121-9c80-3afe17b5f9f3"
+    },
+    "payload": {
+        "inputRequest": {
+            "request": {
+                "metadata": {},
+                "requestData": {
+                    "requestPayload": {
+                        "proposalDetails": {
+                            "id": "5f7c2e0846e0fb0001d3114a",
+                            "transactionId": 1500052626,
+                            "version": "v3",
+                            "applicationDetails": {
+                                "createdTime": 1601973720000,
+                                "updatedTime": 1601975520000,
+                                "applicationStatus": "Initiated",
+                                "stage": "6",
+                                "policyNumber": "330328741",
+                                "formType": "self",
+                                "backendHandlerType": "POLICY_PROCESSING_FRONTFLOW_HANDLER",
+                                "posvJourneyStatus": "POSV_RECEIVED",
+                                "policyProcessingJourneyStatus": "PUSHED_TO_STREAM"
+                            },
+                            "sourcingDetails": {
+                                "isAgentValidated": false,
+                                "agentId": "782058",
+                                "agentJoiningDate": 1546387440000,
+                                "agentStatus": "Active",
+                                "agentLocation": "",
+                                "agentRole": "OSP",
+                                "agentMobileNumber": 0,
+                                "agentCode": "782058",
+                                "agentEmail": "",
+                                "goCABrokerCode": "KSLM1",
+                                "agentLicenseStartdate": 1554163200000,
+                                "reportingManagerCode": "",
+                                "reportingManagerName": "",
+                                "spStatus": "",
+                                "ssnCode": "",
+                                "specifiedPersonName": "Mr. Naveen Kumar S .",
+                                "specifiedPersonCode": "MAX006013",
+                                "regionalAdvisorId": "",
+                                "agentValidated": false,
+                                "agentName": "Mr. Naveen Kumar S .",
+                                "persistency": "100",
+                                "specifiedPersonDetails": {
+                                    "spName": "Mr. Naveen Kumar S .",
+                                    "amlStatus": false,
+                                    "amlTrainingExpirationDate": "",
+                                    "ulipStatus": false,
+                                    "ulipTrainingExpirationDate": ""
+                                },
+                                "sourcingBranchCode": "KSLM1",
+                                "regionalAdvisorName": "",
+                                "regionalAdvisorIdType": "",
+                                "branchBusinessCode": ""
+                            },
+                            "channelDetails": {
+                                "branchCode": "",
+                                "branchName": "",
+                                "channel": "K",
+                                "originalChannel": ""
+                            },
+                            "partyInformation": [
+                                {
+                                    "partyType": "Proposer",
+                                    "basicDetails": {
+                                        "firstName": "Bharti",
+                                        "lastName": "Sharma ",
+                                        "gender": "M",
+                                        "dob": 481919400000,
+                                        "fatherName": "Father ",
+                                        "motherName": "Mother ",
+                                        "residentialStatus": "indian",
+                                        "nationalityDetails": {
+                                            "nationality": "indian",
+                                            "nriDetails": {
+                                                "passportNumber": "",
+                                                "typeOfVisa": "",
+                                                "passportIssuingCountry": "",
+                                                "currentCountryOfResidence": "",
+                                                "countryVisitedFrequently": [],
+                                                "countryOfBirth": "",
+                                                "uidIssuingCountry": "",
+                                                "issuingCountry": "",
+                                                "countryOfResidenceAsPerTaxLaw": "",
+                                                "FTINDetails": {
+                                                    "isFTINExist": false,
+                                                    "multipleFTINDetailsForNRI": [
+                                                        {
+                                                            "ftinNumber": "",
+                                                            "ftinIssuingCountry": ""
+                                                        }
+                                                    ],
+                                                    "typeOfForeignIdentification": "",
+                                                    "identificationNumber": ""
+                                                },
+                                                "applicationSource": "",
+                                                "passportExpiryDate": -62135769600000
+                                            }
+                                        },
+                                        "marriageDetails": {
+                                            "maritalStatus": "Married",
+                                            "maidenName": "",
+                                            "spouseAnnualIncome": "",
+                                            "totalInsuranceCoverOnSpouse": "",
+                                            "isPregnant": false,
+                                            "pregnantSince": "",
+                                            "pregnant": false,
+                                            "anyComplicationToPregnancy": false,
+                                            "pregnancyComplicationDetails": ""
+                                        },
+                                        "education": "Graduate",
+                                        "occupation": "Self Employed",
+                                        "annualIncome": "200000",
+                                        "areBothAddressSame": true,
+                                        "address": [
+                                            {
+                                                "proofType": "Driving License",
+                                                "addressType": "Current",
+                                                "addressDetails": {
+                                                    "houseNo": "12312edsfss",
+                                                    "area": "12312edsfss",
+                                                    "landmark": "",
+                                                    "city": "GURUGRAM",
+                                                    "state": "HARYANA",
+                                                    "pinCode": "122010",
+                                                    "country": "India",
+                                                    "village": ""
+                                                }
+                                            },
+                                            {
+                                                "proofType": "Driving License",
+                                                "addressType": "Permanent",
+                                                "addressDetails": {
+                                                    "houseNo": "12312edsfss",
+                                                    "area": "12312edsfss",
+                                                    "landmark": "",
+                                                    "city": "GURUGRAM",
+                                                    "state": "HARYANA",
+                                                    "pinCode": "122010",
+                                                    "country": "India",
+                                                    "village": ""
+                                                }
+                                            }
+                                        ],
+                                        "preferredLanguageOfCommunication": "Hindi",
+                                        "nachOcrStatus": "Not_Initiated",
+                                        "businessType": "",
+                                        "bdmId": "",
+                                        "enrollerId": "",
+                                        "finderId": "",
+                                        "companyName": "",
+                                        "middleName": ""
+                                    },
+                                    "personalIdentification": {
+                                        "phone": [
+                                            {
+                                                "phoneNumber": "7042970921",
+                                                "stdIsdCode": "",
+                                                "phoneType": "mobileNumber"
+                                            },
+                                            {
+                                                "phoneNumber": "9650479781",
+                                                "stdIsdCode": "",
+                                                "phoneType": "alternateMobileNo"
+                                            },
+                                            {
+                                                "phoneNumber": "",
+                                                "stdIsdCode": "",
+                                                "phoneType": "alternateLandlineNo"
+                                            },
+                                            {
+                                                "phoneNumber": "",
+                                                "stdIsdCode": "",
+                                                "phoneType": "communicationAlternateLandlineNo"
+                                            },
+                                            {
+                                                "phoneNumber": "9650479781",
+                                                "stdIsdCode": "",
+                                                "phoneType": "communicationAlternateMobileNo"
+                                            }
+                                        ],
+                                        "aadhaarDetails": {
+                                            "aadhaarExist": false,
+                                            "aadhaarValidated": false,
+                                            "aadhaarNumber": "",
+                                            "isAadhaarValidated": false,
+                                            "isAadhaarExist": false,
+                                            "aadhaarOCRFlag": false,
+                                            "aadhaarValidationType": "",
+                                            "prePopulationByAadhaarOtp": false,
+                                            "prePopulationByAadhaarOcr": false,
+                                            "reasonForDontHaveAadhaar": {
+                                                "reason": "",
+                                                "neverAppliedState": ""
+                                            }
+                                        },
+                                        "enrollment": {
+                                            "enrollmentNo": ""
+                                        },
+                                        "email": "kartik.bisaria@kelltontech.com",
+                                        "panDetails": {
+                                            "panNumber": "APCPB1546B",
+                                            "isPANExist": false,
+                                            "isPanValidated": true,
+                                            "creditScore": "000-1",
+                                            "incomeRange": "000-1",
+                                            "panValidationService": "CIBIL",
+                                            "panValidated": true,
+                                            "dobValidated": true,
+                                            "panexist": false,
+                                            "isDobValidated": true,
+                                            "PANOcrFlag": false
+                                        }
+                                    },
+                                    "bse500Company": "",
+                                    "BSE500Company": ""
+                                },
+                                {
+                                    "partyType": "Insured",
+                                    "basicDetails": {
+                                        "firstName": "",
+                                        "lastName": "",
+                                        "gender": "",
+                                        "fatherName": "",
+                                        "nationalityDetails": {
+                                            "nationality": "indian",
+                                            "nriDetails": {
+                                                "passportNumber": "",
+                                                "typeOfVisa": "",
+                                                "passportIssuingCountry": "",
+                                                "currentCountryOfResidence": "",
+                                                "countryVisitedFrequently": [],
+                                                "countryOfBirth": "",
+                                                "uidIssuingCountry": "",
+                                                "issuingCountry": "",
+                                                "countryOfResidenceAsPerTaxLaw": "",
+                                                "FTINDetails": {
+                                                    "isFTINExist": false,
+                                                    "multipleFTINDetailsForNRI": [
+                                                        {
+                                                            "ftinNumber": "",
+                                                            "ftinIssuingCountry": ""
+                                                        }
+                                                    ],
+                                                    "typeOfForeignIdentification": "",
+                                                    "identificationNumber": ""
+                                                },
+                                                "applicationSource": "india",
+                                                "passportExpiryDate": -62135769600000
+                                            }
+                                        },
+                                        "marriageDetails": {
+                                            "maritalStatus": "",
+                                            "maidenName": "",
+                                            "spouseAnnualIncome": "",
+                                            "totalInsuranceCoverOnSpouse": "",
+                                            "isPregnant": false,
+                                            "pregnantSince": "",
+                                            "pregnant": false,
+                                            "anyComplicationToPregnancy": false,
+                                            "pregnancyComplicationDetails": ""
+                                        },
+                                        "annualIncome": "",
+                                        "areBothAddressSame": false,
+                                        "address": [
+                                            {
+                                                "addressType": "Current",
+                                                "addressDetails": {
+                                                    "houseNo": "",
+                                                    "area": "",
+                                                    "landmark": "",
+                                                    "city": "",
+                                                    "state": "",
+                                                    "pinCode": "",
+                                                    "country": ""
+                                                }
+                                            },
+                                            {
+                                                "addressType": "Permanent",
+                                                "addressDetails": {
+                                                    "houseNo": "",
+                                                    "area": "",
+                                                    "landmark": "",
+                                                    "city": "",
+                                                    "state": "",
+                                                    "pinCode": ""
+                                                }
+                                            }
+                                        ],
+                                        "dobProofType": "",
+                                        "relationshipWithProposer": "",
+                                        "relationshipWithProposerWhenOther": "",
+                                        "businessType": "",
+                                        "bdmId": "",
+                                        "enrollerId": "",
+                                        "finderId": "",
+                                        "companyName": "",
+                                        "middleName": ""
+                                    },
+                                    "personalIdentification": {
+                                        "phone": [
+                                            {
+                                                "phoneNumber": "",
+                                                "stdIsdCode": "",
+                                                "phoneType": ""
+                                            }
+                                        ],
+                                        "aadhaarDetails": {
+                                            "aadhaarExist": false,
+                                            "aadhaarValidated": false,
+                                            "aadhaarNumber": "",
+                                            "isAadhaarValidated": false,
+                                            "isAadhaarExist": false,
+                                            "aadhaarOCRFlag": false,
+                                            "aadhaarValidationType": "",
+                                            "prePopulationByAadhaarOtp": false,
+                                            "prePopulationByAadhaarOcr": false,
+                                            "reasonForDontHaveAadhaar": {
+                                                "reason": "",
+                                                "neverAppliedState": ""
+                                            }
+                                        },
+                                        "enrollment": {
+                                            "enrollmentNo": ""
+                                        },
+                                        "panDetails": {
+                                            "panNumber": "",
+                                            "isPANExist": false,
+                                            "isPanValidated": false,
+                                            "creditScore": "",
+                                            "incomeRange": "",
+                                            "panValidated": false,
+                                            "dobValidated": false,
+                                            "panexist": false,
+                                            "isDobValidated": false,
+                                            "PANOcrFlag": false
+                                        }
+                                    },
+                                    "bse500Company": "",
+                                    "BSE500Company": ""
+                                },
+                                {
+                                    "partyType": "Payor",
+                                    "basicDetails": {
+                                        "firstName": "",
+                                        "lastName": "",
+                                        "gender": "M",
+                                        "nationalityDetails": {
+                                            "nationality": "indian",
+                                            "nriDetails": {
+                                                "passportNumber": "",
+                                                "typeOfVisa": "",
+                                                "passportIssuingCountry": "",
+                                                "currentCountryOfResidence": "",
+                                                "countryVisitedFrequently": [],
+                                                "countryOfBirth": "",
+                                                "uidIssuingCountry": "",
+                                                "issuingCountry": "",
+                                                "countryOfResidenceAsPerTaxLaw": "",
+                                                "FTINDetails": {
+                                                    "isFTINExist": false,
+                                                    "multipleFTINDetailsForNRI": [
+                                                        {
+                                                            "ftinNumber": "",
+                                                            "ftinIssuingCountry": ""
+                                                        }
+                                                    ],
+                                                    "typeOfForeignIdentification": "",
+                                                    "identificationNumber": ""
+                                                },
+                                                "applicationSource": "india"
+                                            }
+                                        },
+                                        "occupation": "",
+                                        "annualIncome": "",
+                                        "areBothAddressSame": false,
+                                        "address": [
+                                            {
+                                                "addressType": "Current",
+                                                "addressDetails": {
+                                                    "houseNo": "",
+                                                    "area": "",
+                                                    "landmark": "",
+                                                    "city": "",
+                                                    "state": "",
+                                                    "pinCode": "",
+                                                    "country": "",
+                                                    "village": ""
+                                                }
+                                            }
+                                        ],
+                                        "relationshipWithProposer": "",
+                                        "businessType": "",
+                                        "bdmId": "",
+                                        "enrollerId": "",
+                                        "finderId": "",
+                                        "companyName": "",
+                                        "middleName": ""
+                                    },
+                                    "personalIdentification": {
+                                        "phone": [
+                                            {
+                                                "phoneNumber": "",
+                                                "stdIsdCode": "",
+                                                "phoneType": ""
+                                            }
+                                        ],
+                                        "aadhaarDetails": {
+                                            "aadhaarExist": false,
+                                            "aadhaarValidated": false,
+                                            "aadhaarNumber": "",
+                                            "isAadhaarValidated": false,
+                                            "isAadhaarExist": false,
+                                            "aadhaarOCRFlag": false,
+                                            "aadhaarValidationType": "",
+                                            "prePopulationByAadhaarOtp": false,
+                                            "prePopulationByAadhaarOcr": false,
+                                            "reasonForDontHaveAadhaar": {
+                                                "reason": "",
+                                                "neverAppliedState": ""
+                                            }
+                                        },
+                                        "enrollment": {
+                                            "enrollmentNo": ""
+                                        },
+                                        "email": "",
+                                        "panDetails": {
+                                            "panNumber": "",
+                                            "isPANExist": false,
+                                            "isPanValidated": false,
+                                            "panValidated": false,
+                                            "dobValidated": false,
+                                            "panexist": false,
+                                            "isDobValidated": false,
+                                            "PANOcrFlag": false
+                                        }
+                                    },
+                                    "bankDetails": {
+                                        "bankAccountNumber": "",
+                                        "bankName": "",
+                                        "bankBranch": ""
+                                    }
+                                }
+                            ],
+                            "productDetails": [
+                                {
+                                    "needOfInsurance": "Retirement",
+                                    "lifeStage": "Married with children",
+                                    "objectiveOfInsurance": "Individual Policy",
+                                    "productType": "Traditional",
+                                    "nomineeUnderSection": "",
+                                    "productInfo": {
+                                        "productId": "27",
+                                        "productName": "Max Life Life Perfect Partner Super",
+                                        "sumAssuredOption": "",
+                                        "sumAssured": "",
+                                        "sumAssuredAvailable": "",
+                                        "maturityAge": "",
+                                        "policyTerm": "40",
+                                        "premiumPaymentTerm": "7",
+                                        "dividendOption": "Cash",
+                                        "dividendAdjustment": "",
+                                        "modeOfPayment": "Annual",
+                                        "effectiveDateOfCoverage": "2020-10-06T08:43:30.228Z",
+                                        "desiredAnnualIncome": 0,
+                                        "annualIncome": 0,
+                                        "planCode": "LPPS07",
+                                        "riderDetails": [
+                                            {
+                                                "isRiderRequired": false,
+                                                "riderInfo": "",
+                                                "amount": 0.0,
+                                                "riderTerm": "",
+                                                "riderSumAssured": 0.0,
+                                                "riderModalPremium": 0.0,
+                                                "riderRequired": false
+                                            },
+                                            {
+                                                "isRiderRequired": false,
+                                                "riderInfo": "",
+                                                "amount": 0.0,
+                                                "riderTerm": "",
+                                                "riderSumAssured": 0.0,
+                                                "riderModalPremium": 0.0,
+                                                "riderRequired": false
+                                            },
+                                            {
+                                                "isRiderRequired": false,
+                                                "riderInfo": "",
+                                                "amount": 0.0,
+                                                "riderTerm": "",
+                                                "riderSumAssured": 0.0,
+                                                "riderModalPremium": 0.0,
+                                                "riderRequired": false
+                                            },
+                                            {
+                                                "isRiderRequired": false,
+                                                "riderInfo": "",
+                                                "amount": 0.0,
+                                                "riderTerm": "",
+                                                "riderSumAssured": 0.0,
+                                                "riderModalPremium": 0.0,
+                                                "riderRequired": false
+                                            },
+                                            {
+                                                "isRiderRequired": false,
+                                                "riderInfo": "",
+                                                "amount": 0.0,
+                                                "riderTerm": "",
+                                                "riderSumAssured": 0.0,
+                                                "riderModalPremium": 0.0,
+                                                "riderRequired": false
+                                            },
+                                            {
+                                                "isRiderRequired": false,
+                                                "riderInfo": "",
+                                                "amount": 0.0,
+                                                "riderTerm": "",
+                                                "riderSumAssured": 0.0,
+                                                "riderModalPremium": 0.0,
+                                                "riderRequired": false
+                                            },
+                                            {
+                                                "isRiderRequired": false,
+                                                "riderInfo": "",
+                                                "amount": 0.0,
+                                                "riderTerm": "",
+                                                "riderSumAssured": 0.0,
+                                                "riderModalPremium": 0.0,
+                                                "riderRequired": false
+                                            },
+                                            {
+                                                "isRiderRequired": false,
+                                                "riderInfo": "",
+                                                "amount": 0.0,
+                                                "riderTerm": "",
+                                                "riderSumAssured": 0.0,
+                                                "riderModalPremium": 0.0,
+                                                "riderRequired": false
+                                            }
+                                        ],
+                                        "fundSelection": {
+                                            "isFundAllocated": false,
+                                            "isSTPAllocated": false,
+                                            "isDFAAllocated": false,
+                                            "fundInfo": [
+                                                {
+                                                    "fundName": "growthFund",
+                                                    "fundValue": 0
+                                                },
+                                                {
+                                                    "fundName": "growthSuperFund",
+                                                    "fundValue": 0
+                                                },
+                                                {
+                                                    "fundName": "highGrowthFund",
+                                                    "fundValue": 0
+                                                },
+                                                {
+                                                    "fundName": "conservativeFund",
+                                                    "fundValue": 0
+                                                },
+                                                {
+                                                    "fundName": "balancedFund",
+                                                    "fundValue": 0
+                                                },
+                                                {
+                                                    "fundName": "secureFund",
+                                                    "fundValue": 0
+                                                }
+                                            ],
+                                            "stpallocated": false,
+                                            "dfaallocated": false,
+                                            "fundAllocated": false,
+                                            "lifecyclePortfolioStrategy": false,
+                                            "triggerBasedPortfolioStrategy": false,
+                                            "fund1": "",
+                                            "fund2": "",
+                                            "triggerPercentage": ""
+                                        },
+                                        "secondAnnuitantDob": "0001-01-01T00:00:00.000+0000",
+                                        "secondAnnuitantName": "",
+                                        "secondAnnuitantSex": "",
+                                        "annuityOption": "",
+                                        "customerDiscount": "no",
+                                        "incomePeriod": "",
+                                        "premiumBackOption": "",
+                                        "lifeStageEventBenefit": "",
+                                        "saveTommorow": false,
+                                        "smoker": false,
+                                        "isSmoker": false,
+                                        "premiumType": "",
+                                        "premiumCommitment": "50000",
+                                        "childDob": -62135769600000,
+                                        "vestingAge": "",
+                                        "isSaveMoreTomorrow": false,
+                                        "productIllustrationResponse": {
+                                            "cabriderSumAssured": "0",
+                                            "cabriderPremium": "0",
+                                            "cabriderTerm": "0",
+                                            "coverageTerm": "40",
+                                            "coverMultiple": "10",
+                                            "sumAssured": 280379.07,
+                                            "modeOfPayment": "Annual",
+                                            "modalPremium": 50000.0,
+                                            "premiumPaymentTerm": "7",
+                                            "requiredModalPremium": "50000",
+                                            "totalRequiredModalPremium": "52250",
+                                            "serviceTax": "2250",
+                                            "afyp": "50000",
+                                            "effectiveDate": 1601942400000,
+                                            "riderSumAssured": 0.0,
+                                            "riderModalPremium": 0.0,
+                                            "riderServiceTax": "2250",
+                                            "atp": 0.0,
+                                            "initialPremiumPaid": "52250",
+                                            "guaranteedDeathBenefit": "550000",
+                                            "annualPremium": "50000",
+                                            "baseModalPremium": "0",
+                                            "serviceTaxInclCessBaseModalPrem": "0",
+                                            "firstYearADDRiderPremiumSummary": "0",
+                                            "firstYearTermPlusRiderPremiumSummary": "0",
+                                            "firstYearWOPPlusRiderPremiumSummary": "0",
+                                            "addRiderSumAssured": "0",
+                                            "addRiderTerm": "0",
+                                            "termPlusRiderSumAssured": "0",
+                                            "termPlusRiderTerm": "0",
+                                            "wopPlusRiderTerm": "0",
+                                            "wopPlusRiderSumAssured": "0",
+                                            "firstYearPartnerCareRiderPremiumSummary": "0",
+                                            "partnerCareRiderTerm": "0",
+                                            "partnerCareRiderSumAssured": "0",
+                                            "firstYearAccidentCoverRiderPremiumSummary": "0",
+                                            "accidentCoverRiderTerm": "0",
+                                            "accidentCoverRiderSumAssured": "0",
+                                            "firstYearAcceleratedCriticalIllnessRiderPremiumSummary": "0",
+                                            "acceleratedCriticalIllnessRiderTerm": "0",
+                                            "acceleratedCriticalIllnessRiderSumAssured": "0",
+                                            "employeeDiscount": "",
+                                            "agentDiscount": "",
+                                            "webDiscount": "",
+                                            "customerDiscount": "",
+                                            "deathBenefit": "",
+                                            "incomePeriod": "0",
+                                            "premiumBackOption": "",
+                                            "lifeStageEventBenefit": "",
+                                            "coverageString": "1,35,280379,1,50000.00,M,c1",
+                                            "CABRiderPremium": "0",
+                                            "CABRiderTerm": "0",
+                                            "CABRiderSumAssured": "0",
+                                            "covideRiderPremium": "0.00",
+                                            "covideRiderSumAssured": "0.00",
+                                            "covideRiderTerm": "0"
+                                        },
+                                        "existingProductType": "Traditional",
+                                        "deathBenefit": "",
+                                        "variant": "",
+                                        "incomePayoutFrequency": ""
+                                    }
+                                }
+                            ],
+                            "medicalInfo": {
+                                "height": "",
+                                "familyDetails": [
+                                    {
+                                        "type": "Proposer",
+                                        "familyMember": "",
+                                        "diagnosisAge": "",
+                                        "condition": ""
+                                    },
+                                    {
+                                        "type": "Insured",
+                                        "familyMember": "",
+                                        "diagnosisAge": "",
+                                        "condition": ""
+                                    }
+                                ],
+                                "questionSet": [
+                                    {
+                                        "question": "",
+                                        "userSelectedValue": ""
+                                    },
+                                    {
+                                        "question": "",
+                                        "userSelectedValue": ""
+                                    }
+                                ]
+                            },
+                            "employmentDetails": {
+                                "partiesInformation": [
+                                    {
+                                        "partyType": "Proposer",
+                                        "partyDetails": {
+                                            "annualIncome": "",
+                                            "industryDetails": {
+                                                "industryType": "Defence",
+                                                "industryInfo": {
+                                                    "professionalDiver": false,
+                                                    "basedAtOffshore": false,
+                                                    "workingInsideMine": false,
+                                                    "postedOnDefenceLocation": false,
+                                                    "flying": false,
+                                                    "isPostedOnDefenceLocation": false,
+                                                    "isProfessionalDiver": false,
+                                                    "isBasedAtOffshore": false,
+                                                    "isFlying": false,
+                                                    "typeOfAirCraft": "",
+                                                    "navyAreaWorking": "",
+                                                    "isWorkingInsideMine": false,
+                                                    "anyIllnessRelatedToOccupation": false,
+                                                    "natureOfRole": "Combat Role",
+                                                    "diveLocation": ""
+                                                }
+                                            },
+                                            "nameOfEmployer": "",
+                                            "natureOfDuties": "",
+                                            "placeOfPosting": "",
+                                            "rank": "",
+                                            "branchOfArmedForces": "",
+                                            "areYouInvolvedinhazardousActivities": "",
+                                            "panOrForm60": "",
+                                            "panNumber": "",
+                                            "section139ACheck": "",
+                                            "percentageShare": 0,
+                                            "organisationType": "Govt",
+                                            "jobTitle": "",
+                                            "hazardousActivitiesDetails": ""
+                                        }
+                                    },
+                                    {
+                                        "partyType": "Insured",
+                                        "partyDetails": {
+                                            "annualIncome": "",
+                                            "industryDetails": {
+                                                "industryInfo": {
+                                                    "professionalDiver": false,
+                                                    "basedAtOffshore": false,
+                                                    "workingInsideMine": false,
+                                                    "postedOnDefenceLocation": false,
+                                                    "flying": false,
+                                                    "isPostedOnDefenceLocation": false,
+                                                    "isProfessionalDiver": false,
+                                                    "isBasedAtOffshore": false,
+                                                    "isFlying": false,
+                                                    "typeOfAirCraft": "",
+                                                    "navyAreaWorking": "",
+                                                    "isWorkingInsideMine": false,
+                                                    "anyIllnessRelatedToOccupation": false,
+                                                    "natureOfRole": "",
+                                                    "diveLocation": ""
+                                                }
+                                            },
+                                            "nameOfEmployer": "",
+                                            "natureOfDuties": "",
+                                            "placeOfPosting": "",
+                                            "rank": "",
+                                            "branchOfArmedForces": "",
+                                            "areYouInvolvedinhazardousActivities": "",
+                                            "panOrForm60": "",
+                                            "panNumber": "",
+                                            "section139ACheck": "",
+                                            "percentageShare": 0,
+                                            "organisationType": "",
+                                            "jobTitle": "",
+                                            "hazardousActivitiesDetails": ""
+                                        }
+                                    }
+                                ],
+                                "existingEIANumber": "",
+                                "existingEIANumberRepositoryName": "",
+                                "preferredInsuranceRepositoryName": "",
+                                "pepDetails": {
+                                    "isPayorPep": false,
+                                    "isLIPEP": false,
+                                    "isFamilyMemberPEP": false,
+                                    "specifyFamilyMembers": "",
+                                    "roleOthers": "",
+                                    "portfolioHandled": "",
+                                    "pepEverPostedInForeignOffice": "",
+                                    "foreignOfficeDetails": "",
+                                    "incomeSources": "",
+                                    "pepConvicted": "",
+                                    "convictionDetails": "",
+                                    "payorPep": false,
+                                    "lipep": false,
+                                    "familyMemberPEP": false,
+                                    "proposerPEP": false,
+                                    "liorNomineePEP": false,
+                                    "isProposerPEP": false,
+                                    "isLIOrNomineePEP": false,
+                                    "politicalExperience": "",
+                                    "affiliationsToPoliticalparty": "",
+                                    "roleInPoliticalParty": "",
+                                    "partyInPower": ""
+                                },
+                                "eiaexist": false,
+                                "politicallyExposed": false,
+                                "eianumberExist": false,
+                                "isEIAExist": false,
+                                "isEIANumberExist": false,
+                                "newEIANumber": "",
+                                "isPoliticallyExposed": false
+                            },
+                            "nomineeDetails": {
+                                "partyDetails": [
+                                    {
+                                        "relationshipWithProposer": "Brother",
+                                        "salutation": "",
+                                        "firstName": "Nominee",
+                                        "middleName": "",
+                                        "lastName": "",
+                                        "fatherOrHusbandName": "",
+                                        "dob": 481919400000,
+                                        "gender": "M",
+                                        "appointeeDetails": {
+                                            "guardianIsYour": ""
+                                        },
+                                        "percentageShare": 0,
+                                        "reasonForNomination": "",
+                                        "nomineeChildName": "",
+                                        "nomineeNationality": {
+                                            "nationality": ""
+                                        },
+                                        "nomineeAddress": [
+                                            {
+                                                "addressDetails": {
+                                                    "houseNo": "",
+                                                    "area": "",
+                                                    "landmark": "",
+                                                    "city": "",
+                                                    "state": "",
+                                                    "pinCode": "",
+                                                    "country": "",
+                                                    "village": ""
+                                                }
+                                            }
+                                        ],
+                                        "nomineePhoneDetails": [
+                                            {
+                                                "stdIsdCode": "",
+                                                "phoneType": "nomineeMobileNumber"
+                                            },
+                                            {
+                                                "stdIsdCode": "",
+                                                "phoneType": "nomineeAlternateMobileNo"
+                                            },
+                                            {
+                                                "phoneType": "nomineeAlternateLandlineNo"
+                                            }
+                                        ],
+                                        "nomineeBankDetails": {
+                                            "bankDetails": [
+                                                {}
+                                            ]
+                                        },
+                                        "nomineePanDetails": {
+                                            "isPANExist": false,
+                                            "isPanValidated": false,
+                                            "panValidated": false,
+                                            "dobValidated": false,
+                                            "panexist": false,
+                                            "isDobValidated": false,
+                                            "PANOcrFlag": false
+                                        },
+                                        "nomineeIdentityDetails": {
+                                            "isAddressProofSame": false,
+                                            "addressProofSame": false,
+                                            "chargeableIncome": false,
+                                            "incomeExceedLimit": false,
+                                            "taxableIncome": false,
+                                            "itOtherIncome": false,
+                                            "nri": false,
+                                            "applicableIncome": false,
+                                            "isChargeableIncome": false,
+                                            "isIncomeExceedLimit": false,
+                                            "isTaxableIncome": false,
+                                            "isItOtherIncome": false,
+                                            "isNRI": false,
+                                            "isApplicableIncome": false
+                                        }
+                                    }
+                                ]
+                            },
+                            "bank": {
+                                "chequeDetails": {
+                                    "chequeResponse": false
+                                },
+                                "paymentRenewedBy": "ECS",
+                                "sameAsBankDetails": "true",
+                                "bankDetails": [
+                                    {
+                                        "bankAccountNumber": "99999999999999",
+                                        "accountHolderName": "NameName",
+                                        "micr": "515002206",
+                                        "ifsc": "SBIN0000845",
+                                        "bankName": "STATE BANK OF INDIA",
+                                        "bankBranch": "HINDUPUR",
+                                        "typeOfAccount": "Savings Account",
+                                        "bankInfoType": "NEFT",
+                                        "bankAccOpeningDate": 946684800000
+                                    },
+                                    {
+                                        "bankAccountNumber": "99999999999999",
+                                        "accountHolderName": "NameName",
+                                        "micr": "515002206",
+                                        "ifsc": "SBIN0000845",
+                                        "bankName": "STATE BANK OF INDIA",
+                                        "bankBranch": "HINDUPUR",
+                                        "typeOfAccount": "Savings Account",
+                                        "bankInfoType": "ECS",
+                                        "bankAccOpeningDate": 946684800000
+                                    }
+                                ],
+                                "accountForBankDetails": ""
+                            },
+                            "ckycDetails": {
+                                "mothersFirstName": "",
+                                "mothersLastName": "",
+                                "doYouHaveCKYCNumber": "",
+                                "ckycNumber": "",
+                                "addressProofType": "",
+                                "pleaseSpecify": "",
+                                "addressProofExpiryDate": "",
+                                "idProofType": "",
+                                "idProofnumber": "",
+                                "idProofExpiryDate": "",
+                                "nriCityOfBirth": ""
+                            },
+                            "lifeStyleDetails": [
+                                {
+                                    "partyType": "Proposer",
+                                    "travelAndAdventure": {
+                                        "doYouParticipateInHazardousActivities": "no",
+                                        "travelOrResideAbroad": "no",
+                                        "hazardousActivitiesDetails": {
+                                            "parachuting": "",
+                                            "handGliding": "",
+                                            "scubaDiving": "",
+                                            "mountaineering": "",
+                                            "carRacing": "",
+                                            "flying": "",
+                                            "others": "",
+                                            "othersDetails": "",
+                                            "hazardousActivityExtent": ""
+                                        },
+                                        "travelOrResideAbroadDetails": {
+                                            "CICountryTobeVisited": [],
+                                            "city": "",
+                                            "purpose": "",
+                                            "purposeOthers": "",
+                                            "durationOfStay": "",
+                                            "cicountryTobeVisited": []
+                                        }
+                                    },
+                                    "heightAndWeight": {
+                                        "heightMetric": "CM",
+                                        "height": "165",
+                                        "weight": "60",
+                                        "weightChangeReason": "",
+                                        "weightChangeReasonOthers": ""
+                                    },
+                                    "habit": {
+                                        "tobaccoNicotine": {
+                                            "consumeSubstance": "",
+                                            "consumptionDetails": [
+                                                {
+                                                    "type": "",
+                                                    "frequency": "",
+                                                    "quantity": "",
+                                                    "numberOfYears": ""
+                                                },
+                                                {
+                                                    "type": "",
+                                                    "frequency": "",
+                                                    "quantity": "",
+                                                    "numberOfYears": ""
+                                                }
+                                            ]
+                                        },
+                                        "liquor": {
+                                            "consumeSubstance": "",
+                                            "consumptionDetails": [
+                                                {
+                                                    "type": "",
+                                                    "frequency": "",
+                                                    "quantity": "",
+                                                    "numberOfYears": ""
+                                                },
+                                                {
+                                                    "type": "",
+                                                    "frequency": "",
+                                                    "quantity": "",
+                                                    "numberOfYears": ""
+                                                }
+                                            ]
+                                        },
+                                        "drugs": {
+                                            "consumeSubstance": "",
+                                            "consumptionDetails": [
+                                                {
+                                                    "type": "",
+                                                    "frequency": "",
+                                                    "quantity": "",
+                                                    "numberOfYears": ""
+                                                },
+                                                {
+                                                    "type": "",
+                                                    "frequency": "",
+                                                    "quantity": "",
+                                                    "numberOfYears": ""
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "health": {
+                                        "neverBeenDiagnosedOrTreated": "",
+                                        "diagnosedOrTreatedDetails": {
+                                            "cardio": {
+                                                "highBloodPressure": "",
+                                                "chestPain": "",
+                                                "heartAttack": "",
+                                                "stroke": "",
+                                                "anyOtherHeartCondition": "",
+                                                "specifyDetails": " ",
+                                                "highBloodPressureDetails": {
+                                                    "whenWasItDiagnosed": "",
+                                                    "medicationDetails": "",
+                                                    "followupAfterLastConsultation": "",
+                                                    "lastReading": ""
+                                                }
+                                            },
+                                            "hormonal": {
+                                                "highBloodSugar": "",
+                                                "diabetes": "",
+                                                "thyroid": "",
+                                                "anyOtherHormonalDisorder": "",
+                                                "specifyDetails": "",
+                                                "highBloodSugarAndDiabetesDetails": {
+                                                    "whenWasItDiagnosed": "",
+                                                    "medicationDetails": "",
+                                                    "followStrictDiet": "",
+                                                    "followupapappAfterLastConsultation": "",
+                                                    "lastReading": "",
+                                                    "everHadNumbnessOrTingling": ""
+                                                }
+                                            },
+                                            "respiratory": {
+                                                "asthma": "",
+                                                "anyOtherRespiratoryDisorder": "",
+                                                "tuberculosis": "",
+                                                "specifyDetails": "",
+                                                "asthmaDetails": {
+                                                    "whenWasItDiagnosed": "",
+                                                    "symptomsDetails": "",
+                                                    "howOftenSymptomsOccur": "",
+                                                    "medicationDetails": "",
+                                                    "haveYouTakenSteriods": ""
+                                                },
+                                                "respiratoryDisorderDetails": {
+                                                    "whenWasItDiagnosed": "",
+                                                    "symptomsDetails": "",
+                                                    "howOftenSymptomsOccur": "",
+                                                    "medicationDetails": "",
+                                                    "haveYouTakenSteriods": ""
+                                                }
+                                            },
+                                            "bloodAndCellular": {
+                                                "cancer": "",
+                                                "tumorAndMalignantGrowth": "",
+                                                "leukemia": "",
+                                                "anyBloodDisorder": "",
+                                                "specifyDetails": ""
+                                            },
+                                            "digestiveAndRegulatory": {
+                                                "stomachOrintestinalDisorder": "",
+                                                "jaundiceOrliverDisorder": "",
+                                                "anyKidneyDisorders": "",
+                                                "specifyDetails": ""
+                                            },
+                                            "mentalAndPsychiatric": {
+                                                "mentalOrPsychiatricAilment": "",
+                                                "nervousSystemDisease": "",
+                                                "specifyDetails": ""
+                                            },
+                                            "neuralOrSkeletalOrMuscular": {
+                                                "anyAilmentOfBonesOrjoints": "",
+                                                "anyDisorderOfSpine": "",
+                                                "anyDisorderOfMuscle": "",
+                                                "anyDisorderOfENT": "",
+                                                "specifyDetails": ""
+                                            },
+                                            "infectiousOrContagious": {
+                                                "hepatitisB": "",
+                                                "hepatitisC": "",
+                                                "hivInfection": "",
+                                                "aidsRelated": "",
+                                                "anySTDDisease": "",
+                                                "anyGynaecologicalDisorder": "",
+                                                "specifyDetails": ""
+                                            },
+                                            "otherMedicalConditions": {
+                                                "anyCongenitalAnomaly": "",
+                                                "anyCongenitalAnomalyDetails": "",
+                                                "otherMedicalCondition": "",
+                                                "otherMedicalConditionDetails": ""
+                                            },
+                                            "hospitalizationAndAbsenceFromWork": {
+                                                "everBeenhospitalized": "",
+                                                "everBeenhospitalizedDetails": "",
+                                                "everBeenAbsentFromWork": "",
+                                                "everBeenAbsentFromWorkDetails": ""
+                                            }
+                                        }
+                                    },
+                                    "familyOrCriminalHistory": {
+                                        "familyDiagnosedWithDiseasesBefore60": "",
+                                        "anyCriminalCharges": "no",
+                                        "specifyDetails": "",
+                                        "familyDiagnosedWithDiseasesDetails": [
+                                            {
+                                                "familyMember": "",
+                                                "ageAtDiagnosis": "",
+                                                "medicalProblem": ""
+                                            }
+                                        ]
+                                    },
+                                    "insuranceDetails": {
+                                        "isLICIPolicyExist": false,
+                                        "isLIPolicyRejected": false,
+                                        "liciPolicyDetails": [
+                                            {
+                                                "liissued": false,
+                                                "isLIIssued": false,
+                                                "totalSumAssuredForLI": "",
+                                                "totalSumAssuredForCI": "",
+                                                "nameOfInsuranceCompany": "",
+                                                "policyNumber": "",
+                                                "totalSumAssured": "",
+                                                "policyStatus": "",
+                                                "typeOfPolicy": ""
+                                            }
+                                        ],
+                                        "licipolicyExist": false,
+                                        "lipolicyRejected": false
+                                    },
+                                    "parentsDetails": {
+                                        "totalInsuranceCover": "",
+                                        "annualIncome": ""
+                                    }
+                                },
+                                {
+                                    "partyType": "Insured",
+                                    "travelAndAdventure": {
+                                        "doYouParticipateInHazardousActivities": "",
+                                        "travelOrResideAbroad": "",
+                                        "hazardousActivitiesDetails": {
+                                            "parachuting": "",
+                                            "handGliding": "",
+                                            "scubaDiving": "",
+                                            "mountaineering": "",
+                                            "carRacing": "",
+                                            "flying": "",
+                                            "others": "",
+                                            "othersDetails": "Other hazardousActivities will be captured",
+                                            "hazardousActivityExtent": ""
+                                        },
+                                        "travelOrResideAbroadDetails": {
+                                            "CICountryTobeVisited": [],
+                                            "city": "",
+                                            "purpose": "",
+                                            "purposeOthers": "",
+                                            "durationOfStay": "",
+                                            "cicountryTobeVisited": []
+                                        }
+                                    },
+                                    "heightAndWeight": {
+                                        "heightMetric": "CM",
+                                        "weightChangeReason": "",
+                                        "weightChangeReasonOthers": ""
+                                    },
+                                    "habit": {
+                                        "tobaccoNicotine": {
+                                            "consumeSubstance": "",
+                                            "consumptionDetails": [
+                                                {
+                                                    "type": "",
+                                                    "frequency": "",
+                                                    "quantity": "",
+                                                    "numberOfYears": ""
+                                                },
+                                                {
+                                                    "type": "",
+                                                    "frequency": "",
+                                                    "quantity": "",
+                                                    "numberOfYears": ""
+                                                }
+                                            ]
+                                        },
+                                        "liquor": {
+                                            "consumeSubstance": "",
+                                            "consumptionDetails": [
+                                                {
+                                                    "type": "",
+                                                    "frequency": "",
+                                                    "quantity": "",
+                                                    "numberOfYears": ""
+                                                },
+                                                {
+                                                    "type": "",
+                                                    "frequency": "",
+                                                    "quantity": "",
+                                                    "numberOfYears": ""
+                                                }
+                                            ]
+                                        },
+                                        "drugs": {
+                                            "consumeSubstance": "",
+                                            "consumptionDetails": [
+                                                {
+                                                    "type": "",
+                                                    "frequency": "",
+                                                    "quantity": "",
+                                                    "numberOfYears": ""
+                                                },
+                                                {
+                                                    "type": "",
+                                                    "frequency": "",
+                                                    "quantity": "",
+                                                    "numberOfYears": ""
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "health": {
+                                        "neverBeenDiagnosedOrTreated": "",
+                                        "diagnosedOrTreatedDetails": {
+                                            "cardio": {
+                                                "highBloodPressure": "",
+                                                "chestPain": "",
+                                                "heartAttack": "",
+                                                "stroke": "",
+                                                "anyOtherHeartCondition": "",
+                                                "specifyDetails": "",
+                                                "highBloodPressureDetails": {
+                                                    "whenWasItDiagnosed": "",
+                                                    "medicationDetails": "",
+                                                    "followupAfterLastConsultation": "",
+                                                    "lastReading": ""
+                                                }
+                                            },
+                                            "hormonal": {
+                                                "highBloodSugar": "",
+                                                "diabetes": "",
+                                                "thyroid": "",
+                                                "anyOtherHormonalDisorder": "",
+                                                "specifyDetails": "",
+                                                "highBloodSugarAndDiabetesDetails": {
+                                                    "whenWasItDiagnosed": "",
+                                                    "medicationDetails": "",
+                                                    "followStrictDiet": "",
+                                                    "followupapappAfterLastConsultation": "",
+                                                    "lastReading": "",
+                                                    "everHadNumbnessOrTingling": ""
+                                                }
+                                            },
+                                            "respiratory": {
+                                                "asthma": "",
+                                                "anyOtherRespiratoryDisorder": "",
+                                                "tuberculosis": "",
+                                                "specifyDetails": "",
+                                                "asthmaDetails": {
+                                                    "whenWasItDiagnosed": "",
+                                                    "symptomsDetails": "",
+                                                    "howOftenSymptomsOccur": "",
+                                                    "medicationDetails": "",
+                                                    "haveYouTakenSteriods": ""
+                                                },
+                                                "respiratoryDisorderDetails": {
+                                                    "whenWasItDiagnosed": "",
+                                                    "symptomsDetails": "",
+                                                    "howOftenSymptomsOccur": "",
+                                                    "medicationDetails": "",
+                                                    "haveYouTakenSteriods": ""
+                                                }
+                                            },
+                                            "bloodAndCellular": {
+                                                "cancer": "",
+                                                "tumorAndMalignantGrowth": "",
+                                                "leukemia": "",
+                                                "anyBloodDisorder": "",
+                                                "specifyDetails": ""
+                                            },
+                                            "digestiveAndRegulatory": {
+                                                "stomachOrintestinalDisorder": "",
+                                                "jaundiceOrliverDisorder": "",
+                                                "anyKidneyDisorders": "",
+                                                "specifyDetails": ""
+                                            },
+                                            "mentalAndPsychiatric": {
+                                                "mentalOrPsychiatricAilment": "",
+                                                "nervousSystemDisease": "",
+                                                "specifyDetails": ""
+                                            },
+                                            "neuralOrSkeletalOrMuscular": {
+                                                "anyAilmentOfBonesOrjoints": "",
+                                                "anyDisorderOfSpine": "",
+                                                "anyDisorderOfMuscle": "",
+                                                "anyDisorderOfENT": "",
+                                                "specifyDetails": ""
+                                            },
+                                            "infectiousOrContagious": {
+                                                "hepatitisB": "",
+                                                "hepatitisC": "",
+                                                "hivInfection": "",
+                                                "aidsRelated": "",
+                                                "anySTDDisease": "",
+                                                "anyGynaecologicalDisorder": "",
+                                                "specifyDetails": ""
+                                            },
+                                            "otherMedicalConditions": {
+                                                "anyCongenitalAnomaly": "",
+                                                "anyCongenitalAnomalyDetails": "",
+                                                "otherMedicalCondition": "",
+                                                "otherMedicalConditionDetails": ""
+                                            },
+                                            "hospitalizationAndAbsenceFromWork": {
+                                                "everBeenhospitalized": "",
+                                                "everBeenhospitalizedDetails": "",
+                                                "everBeenAbsentFromWork": "",
+                                                "everBeenAbsentFromWorkDetails": ""
+                                            }
+                                        }
+                                    },
+                                    "familyOrCriminalHistory": {
+                                        "familyDiagnosedWithDiseasesBefore60": "",
+                                        "anyCriminalCharges": "",
+                                        "specifyDetails": "",
+                                        "familyDiagnosedWithDiseasesDetails": [
+                                            {
+                                                "familyMember": "",
+                                                "ageAtDiagnosis": "",
+                                                "medicalProblem": ""
+                                            }
+                                        ]
+                                    },
+                                    "insuranceDetails": {
+                                        "isLICIPolicyExist": false,
+                                        "isLIPolicyRejected": false,
+                                        "liciPolicyDetails": [
+                                            {
+                                                "liissued": false,
+                                                "isLIIssued": false,
+                                                "totalSumAssuredForLI": "",
+                                                "totalSumAssuredForCI": "",
+                                                "nameOfInsuranceCompany": "",
+                                                "policyNumber": "",
+                                                "totalSumAssured": "",
+                                                "policyStatus": "",
+                                                "typeOfPolicy": ""
+                                            }
+                                        ],
+                                        "licipolicyExist": false,
+                                        "lipolicyRejected": false
+                                    },
+                                    "parentsDetails": {
+                                        "totalInsuranceCover": "",
+                                        "annualIncome": ""
+                                    }
+                                }
+                            ],
+                            "irp": {
+                                "willngnssForFinRisk": "",
+                                "invstmntAppealingUrfolio": "",
+                                "feelUncmfrtblWhenInvstmntGoDwn": "",
+                                "dscribeUrSavngshbts": "",
+                                "recommendedFund": [
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth",
+                                    "secures",
+                                    "balanced",
+                                    "highgrowth"
+                                ],
+                                "irpq1": "",
+                                "irpq2": "",
+                                "irpq3": "",
+                                "irpq4": "",
+                                "IRPQ1": "",
+                                "IRPQ2": "",
+                                "IRPQ3": "",
+                                "IRPQ4": ""
+                            },
+                            "paymentDetails": {
+                                "receipt": [
+                                    {
+                                        "paymentType": "",
+                                        "paymentReferenceCode": "",
+                                        "proposerName": "Bharti Sharma ",
+                                        "premiumMode": "cheque",
+                                        "modeOfPayment": "Annual",
+                                        "isSICheck": false,
+                                        "yblPaymentDetails": {
+                                            "paymentConfirmationCode": "",
+                                            "directDebitDetails": {
+                                                "directDebitRenewals": "no",
+                                                "initialPremium": "",
+                                                "renewalPremium": ""
+                                            }
+                                        },
+                                        "sicheck": false,
+                                        "termAccepted": true,
+                                        "isTermAccepted": true,
+                                        "paymentChequeDetails": {
+                                            "chequeNumber": 123456,
+                                            "chequeDate": 1601490600000,
+                                            "chequeAmount": 52250.0,
+                                            "chequePayableAt": "Local",
+                                            "chequeBankName": "asdfasfas",
+                                            "chequeMicr": 123412412
+                                        },
+                                        "demandDraftDetails": {
+                                            "demandDraftNumber": "",
+                                            "demandDraftDate": -62135769600000,
+                                            "demandDraftAmount": 0.0,
+                                            "demandDraftPayableAt": "",
+                                            "demandDraftBankName": "",
+                                            "demandDraftMicr": 0
+                                        },
+                                        "isSIOpted": "false",
+                                        "cardType": ""
+                                    }
+                                ]
+                            },
+                            "underwritingServiceDetails": {
+                                "dedupeDetails": [
+                                    {
+                                        "clientType": "Proposer",
+                                        "clientId": "",
+                                        "previousPolicyNumber": "",
+                                        "dedupeFlag": "PR",
+                                        "policyStatus": ""
+                                    }
+                                ],
+                                "medicalGridDetails": {
+                                    "result": "NON MEDICAL",
+                                    "kickOutMsg": ""
+                                },
+                                "proposalFormRuleDetails": {
+                                    "kickoutMsg": "",
+                                    "resultFlag": "PASS"
+                                },
+                                "cibilDetails": {
+                                    "bureauResponse": [
+                                        {
+                                            "scoreName": "CIBILTUSC3",
+                                            "scoreDate": "06102020",
+                                            "score": "000-1"
+                                        },
+                                        {
+                                            "scoreName": "CIBILTUIE2",
+                                            "scoreDate": "06102020",
+                                            "score": "000-1"
+                                        }
+                                    ],
+                                    "trlScore": "-3",
+                                    "affulentOrNot": "Y"
+                                },
+                                "financialGridDetails": {
+                                    "underwritingResult": "#PASS",
+                                    "kickOutMsg": ""
+                                },
+                                "msaFsaDetails": {
+                                    "valueOfMSA": 550000.0,
+                                    "valueOfFSA": 550000.0,
+                                    "valueOfAFYP": 50000.0,
+                                    "valueOfDD": 0.0,
+                                    "valueOfSUC": 550000.0
+                                },
+                                "underwritingStatus": {
+                                    "medicalGridStatus": "NON MEDICAL",
+                                    "financialGridStatus": "#PASS",
+                                    "requiredDocuments": [
+                                        {
+                                            "requiredForMproUi": false,
+                                            "tileId": "4017",
+                                            "requirementId": "1018",
+                                            "requirementName": "Signed Benefit Illustration",
+                                            "omnidocsName": "",
+                                            "brmsId": "",
+                                            "documentName": "Illustration",
+                                            "documentType": "pdf",
+                                            "policyNumber": "330328741",
+                                            "channelName": "K",
+                                            "transactionId": 1500052626,
+                                            "documentRepositoryStatus": "Omnidocs",
+                                            "mproDocumentId": "ILLUS_Pr",
+                                            "omnidocsINI": "Illustrations",
+                                            "s3Filepath": "NB/B2B/mPRO/K/1500052626/Illustration_1.pdf",
+                                            "physicalDocumentType": "DOCUMENT",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": true,
+                                            "documentRequestInfo": [
+                                                {
+                                                    "documentType": "pdf",
+                                                    "documentName": "Illustration_1"
+                                                }
+                                            ],
+                                            "numberOfPages": 1,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "tileId": "4005",
+                                            "requirementId": "110",
+                                            "requirementName": "Fact Finder",
+                                            "documentName": "Fact Finder",
+                                            "documentType": "pdf",
+                                            "policyNumber": "330328741",
+                                            "channelName": "K",
+                                            "transactionId": 1500052626,
+                                            "documentRepositoryStatus": "Omnidocs",
+                                            "mproDocumentId": "FF_Pr",
+                                            "omnidocsINI": "Fact Finder",
+                                            "s3Filepath": "NB/B2B/mPRO/K/1500052626/Fact Finder_1.pdf",
+                                            "physicalDocumentType": "DOCUMENT",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": true,
+                                            "documentRequestInfo": [
+                                                {
+                                                    "documentType": "pdf",
+                                                    "documentName": "Fact Finder_1"
+                                                }
+                                            ],
+                                            "numberOfPages": 1,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "documentName": "PROPOSAL_FORM",
+                                            "documentType": "pdf",
+                                            "policyNumber": "330328741",
+                                            "channelName": "K",
+                                            "transactionId": 1500052626,
+                                            "documentRepositoryStatus": "Omnidocs",
+                                            "mproDocumentId": "PROPOSAL_FORM_PDF",
+                                            "omnidocsINI": "Proposal Form",
+                                            "s3Filepath": "NB/B2B/mPRO/K/1500052626/PROPOSAL_FORM_1.pdf",
+                                            "physicalDocumentType": "DOCUMENT",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": true,
+                                            "documentRequestInfo": [
+                                                {
+                                                    "documentType": "pdf",
+                                                    "documentName": "PROPOSAL_FORM_1"
+                                                }
+                                            ],
+                                            "numberOfPages": 1,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "tileId": "4003",
+                                            "requirementId": "106",
+                                            "requirementName": "Photograph of Proposer",
+                                            "documentName": "Photograph of Proposer",
+                                            "documentType": "png",
+                                            "policyNumber": "330328741",
+                                            "channelName": "K",
+                                            "transactionId": 1500052626,
+                                            "documentRepositoryStatus": "Omnidocs",
+                                            "mproDocumentId": "Photo_Pr",
+                                            "omnidocsINI": "Photo-Proposer",
+                                            "s3Filepath": "NB/B2B/mPRO/K/1500052626/Photograph of Proposer_1.png",
+                                            "physicalDocumentType": "DOCUMENT",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": true,
+                                            "documentRequestInfo": [
+                                                {
+                                                    "documentType": "png",
+                                                    "documentName": "Photograph of Proposer_1"
+                                                }
+                                            ],
+                                            "numberOfPages": 1,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": true,
+                                            "tileId": "4001",
+                                            "requirementId": "101",
+                                            "documentName": "Communication Address Proof",
+                                            "documentType": "pdf",
+                                            "policyNumber": "330328741",
+                                            "channelName": "K",
+                                            "transactionId": 1500052626,
+                                            "documentRepositoryStatus": "Omnidocs",
+                                            "mproDocumentId": "Comm_Add_Pr",
+                                            "omnidocsINI": "Proof of Address",
+                                            "s3Filepath": "NB/B2B/mPRO/K/1500052626/Communication Address Proof_1.pdf",
+                                            "physicalDocumentType": "DOCUMENT",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": true,
+                                            "documentRequestInfo": [
+                                                {
+                                                    "documentType": "pdf",
+                                                    "documentName": "Communication Address Proof_1"
+                                                }
+                                            ],
+                                            "numberOfPages": 1,
+                                            "isRequiredForMproUi": true
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "tileId": "4002",
+                                            "requirementId": "104",
+                                            "documentName": "Identity Proof or DOB proof- Proposer",
+                                            "documentType": "pdf",
+                                            "policyNumber": "330328741",
+                                            "channelName": "K",
+                                            "transactionId": 1500052626,
+                                            "documentRepositoryStatus": "Omnidocs",
+                                            "mproDocumentId": "ID_Pr",
+                                            "omnidocsINI": "Proof of Identity-Proposer",
+                                            "s3Filepath": "NB/B2B/mPRO/K/1500052626/Identity Proof or DOB proof- Proposer_2.pdf",
+                                            "physicalDocumentType": "FLAG",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": true,
+                                            "documentRequestInfo": [
+                                                {
+                                                    "documentType": "pdf",
+                                                    "documentName": "Identity Proof or DOB proof- Proposer_1"
+                                                },
+                                                {
+                                                    "documentType": "pdf",
+                                                    "documentName": "Identity Proof or DOB proof- Proposer_2"
+                                                }
+                                            ],
+                                            "numberOfPages": 2,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "tileId": "4004",
+                                            "requirementId": "1021",
+                                            "documentName": "Copy of PAN card",
+                                            "documentType": "pdf",
+                                            "policyNumber": "330328741",
+                                            "channelName": "K",
+                                            "transactionId": 1500052626,
+                                            "documentRepositoryStatus": "Omnidocs",
+                                            "mproDocumentId": "PAN_F60_Pr",
+                                            "omnidocsINI": "PAN",
+                                            "s3Filepath": "NB/B2B/mPRO/K/1500052626/Copy of PAN card_1.pdf",
+                                            "physicalDocumentType": "FLAG",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": true,
+                                            "documentRequestInfo": [
+                                                {
+                                                    "documentType": "pdf",
+                                                    "documentName": "Copy of PAN card_1"
+                                                }
+                                            ],
+                                            "numberOfPages": 1,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": true,
+                                            "tileId": "4019",
+                                            "requirementId": "1020",
+                                            "documentName": "Cancelled Cheque with name Required for NEFT",
+                                            "documentType": "pdf",
+                                            "policyNumber": "330328741",
+                                            "channelName": "K",
+                                            "transactionId": 1500052626,
+                                            "documentRepositoryStatus": "Omnidocs",
+                                            "mproDocumentId": "CHQ_Pr",
+                                            "omnidocsINI": "Cancelled Cheque with name Required for NEFT",
+                                            "s3Filepath": "NB/B2B/mPRO/K/1500052626/Cancelled Cheque with name Required for NEFT_1.pdf",
+                                            "physicalDocumentType": "DOCUMENT",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": true,
+                                            "documentRequestInfo": [
+                                                {
+                                                    "documentType": "pdf",
+                                                    "documentName": "Cancelled Cheque with name Required for NEFT_1"
+                                                }
+                                            ],
+                                            "numberOfPages": 1,
+                                            "isRequiredForMproUi": true
+                                        },
+                                        {
+                                            "requiredForMproUi": true,
+                                            "tileId": "4013",
+                                            "requirementId": "132",
+                                            "documentName": "ECS Mandate Form",
+                                            "documentType": "pdf",
+                                            "policyNumber": "330328741",
+                                            "channelName": "K",
+                                            "transactionId": 1500052626,
+                                            "documentRepositoryStatus": "Omnidocs",
+                                            "mproDocumentId": "NACH_Pr",
+                                            "omnidocsINI": "ECS Mandate Form",
+                                            "s3Filepath": "NB/B2B/mPRO/K/1500052626/ECS Mandate Form_1.pdf",
+                                            "physicalDocumentType": "DOCUMENT",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": true,
+                                            "documentRequestInfo": [
+                                                {
+                                                    "documentType": "pdf",
+                                                    "documentName": "ECS Mandate Form_1"
+                                                }
+                                            ],
+                                            "numberOfPages": 1,
+                                            "isRequiredForMproUi": true
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "tileId": "4005",
+                                            "requirementId": "111",
+                                            "documentName": "Investor risk profile",
+                                            "transactionId": 0,
+                                            "mproDocumentId": "IRP_Pr",
+                                            "omnidocsINI": "Investor risk profile",
+                                            "physicalDocumentType": "FLAG",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": true,
+                                            "numberOfPages": 0,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "tileId": "4023",
+                                            "requirementId": "",
+                                            "documentName": "Annuity Form required",
+                                            "transactionId": 0,
+                                            "mproDocumentId": "AF_Pr",
+                                            "omnidocsINI": "Annuity Form required",
+                                            "physicalDocumentType": "FLAG",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": true,
+                                            "numberOfPages": 0,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": true,
+                                            "tileId": "",
+                                            "requirementId": "",
+                                            "documentName": "Name Change Declaration",
+                                            "transactionId": 0,
+                                            "mproDocumentId": "Pre_Amend_Pr",
+                                            "omnidocsINI": "Customer Letter",
+                                            "physicalDocumentType": "DOCUMENT",
+                                            "type": "StandardDoc_NonMandatory",
+                                            "mProDocumentStatus": false,
+                                            "numberOfPages": 0,
+                                            "isRequiredForMproUi": true
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "tileId": "",
+                                            "requirementId": "",
+                                            "documentName": "Vernacular Declaration",
+                                            "transactionId": 0,
+                                            "mproDocumentId": "Ver_Dec_Pr",
+                                            "omnidocsINI": "Vernacular Declaration",
+                                            "physicalDocumentType": "FLAG",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": false,
+                                            "numberOfPages": 0,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "tileId": "4015",
+                                            "requirementId": "135",
+                                            "documentName": "HUF PAN Card",
+                                            "transactionId": 0,
+                                            "mproDocumentId": "HUF_PAN_Pr",
+                                            "omnidocsINI": "HUF PAN Card",
+                                            "physicalDocumentType": "FLAG",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": false,
+                                            "numberOfPages": 0,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "tileId": "4015",
+                                            "requirementId": "145",
+                                            "documentName": "HUF addendum Form A",
+                                            "transactionId": 0,
+                                            "mproDocumentId": "HUF_ADD_Pr",
+                                            "omnidocsINI": "HUF addendum Form A",
+                                            "physicalDocumentType": "FLAG",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": false,
+                                            "numberOfPages": 0,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "tileId": "4023",
+                                            "requirementId": "1038",
+                                            "documentName": "ADM Confidential Report",
+                                            "transactionId": 0,
+                                            "mproDocumentId": "ADMC_Pr",
+                                            "omnidocsINI": "Sales Manager Report",
+                                            "physicalDocumentType": "FLAG",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": false,
+                                            "numberOfPages": 0,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "tileId": "",
+                                            "requirementId": "",
+                                            "documentName": " Life Insured photo with Agent",
+                                            "transactionId": 0,
+                                            "mproDocumentId": "LIPA_Pr",
+                                            "omnidocsINI": " LA Photo with Agent",
+                                            "physicalDocumentType": "FLAG",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": false,
+                                            "numberOfPages": 0,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "tileId": "4023",
+                                            "requirementId": "1038",
+                                            "documentName": "Office Head confidentiality report",
+                                            "transactionId": 0,
+                                            "mproDocumentId": "OHR_Pr",
+                                            "omnidocsINI": "Sales Manager Report",
+                                            "physicalDocumentType": "FLAG",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": false,
+                                            "numberOfPages": 0,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "tileId": "",
+                                            "requirementId": "",
+                                            "documentName": "BSE500",
+                                            "transactionId": 0,
+                                            "mproDocumentId": "BSE500_Pr",
+                                            "omnidocsINI": "BSE500",
+                                            "physicalDocumentType": "FLAG",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": false,
+                                            "numberOfPages": 0,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "documentName": "Credit Score",
+                                            "documentType": "pdf",
+                                            "policyNumber": "330328741",
+                                            "channelName": "K",
+                                            "transactionId": 1500052626,
+                                            "documentRepositoryStatus": "Omnidocs",
+                                            "mproDocumentId": "CS_Pr",
+                                            "omnidocsINI": "Credit Score",
+                                            "s3Filepath": "NB/B2B/mPRO/K/1500052626/Credit Score_3.pdf",
+                                            "physicalDocumentType": "DOCUMENT",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": true,
+                                            "documentRequestInfo": [
+                                                {
+                                                    "documentType": "pdf",
+                                                    "documentName": "Credit Score_1"
+                                                },
+                                                {
+                                                    "documentType": "pdf",
+                                                    "documentName": "Credit Score_2"
+                                                },
+                                                {
+                                                    "documentType": "pdf",
+                                                    "documentName": "Credit Score_3"
+                                                }
+                                            ],
+                                            "numberOfPages": 3,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "documentName": "CKYC",
+                                            "documentType": "pdf",
+                                            "policyNumber": "330328741",
+                                            "channelName": "K",
+                                            "transactionId": 1500052626,
+                                            "documentRepositoryStatus": "Omnidocs",
+                                            "mproDocumentId": "CKYC_PDF",
+                                            "omnidocsINI": "CKYC Addendum",
+                                            "s3Filepath": "NB/B2B/mPRO/K/1500052626/CKYC_1.pdf",
+                                            "physicalDocumentType": "DOCUMENT",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": true,
+                                            "documentRequestInfo": [
+                                                {
+                                                    "documentType": "pdf",
+                                                    "documentName": "CKYC_1"
+                                                }
+                                            ],
+                                            "numberOfPages": 1,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "documentName": "PAYMENT_RECEIPT",
+                                            "documentType": "pdf",
+                                            "policyNumber": "330328741",
+                                            "channelName": "K",
+                                            "transactionId": 1500052626,
+                                            "documentRepositoryStatus": "Omnidocs",
+                                            "mproDocumentId": "PAYMENT_RECEIPT_PDF",
+                                            "omnidocsINI": "Payment acknowledgment",
+                                            "s3Filepath": "NB/B2B/mPRO/K/1500052626/PAYMENT_RECEIPT_1.pdf",
+                                            "physicalDocumentType": "DOCUMENT",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": true,
+                                            "documentRequestInfo": [
+                                                {
+                                                    "documentType": "pdf",
+                                                    "documentName": "PAYMENT_RECEIPT_1"
+                                                }
+                                            ],
+                                            "numberOfPages": 1,
+                                            "isRequiredForMproUi": false
+                                        },
+                                        {
+                                            "requiredForMproUi": false,
+                                            "documentName": "PF kick out message",
+                                            "documentType": "pdf",
+                                            "policyNumber": "330328741",
+                                            "channelName": "K",
+                                            "transactionId": 1500052626,
+                                            "documentRepositoryStatus": "Omnidocs",
+                                            "mproDocumentId": "PF_Rule_Pr",
+                                            "omnidocsINI": "PF Kick out message",
+                                            "s3Filepath": "NB/B2B/mPRO/K/1500052626/PF kick out message_1.pdf",
+                                            "physicalDocumentType": "DOCUMENT",
+                                            "type": "StandardDoc",
+                                            "mProDocumentStatus": true,
+                                            "documentRequestInfo": [
+                                                {
+                                                    "documentType": "pdf",
+                                                    "documentName": "PF kick out message_1"
+                                                }
+                                            ],
+                                            "numberOfPages": 1,
+                                            "isRequiredForMproUi": false
+                                        }
+                                    ]
+                                },
+                                "brmsDocList": {
+                                    "docList": "Permanent Address Proof ,Communication Address Proof ,ID Proof,DOB Proof,Recent Photo,PAN or Form 60,Cancelled Cheque,NACH,Aadhar/VID,IRP (if product is ULIP),Fact Finder ,Self attested Copy of PassportProposer,Email Indemnity letter,Authorised signatory's sign & stamp on Proposal form ,Authorised signatory's sign & stamp on Id proof,Authorised signatory's sign & stamp on CRA & PRA adress proof ,Authorised signatory's sign & stamp on e mail indemnity letter,Copy of all email communication between Agent and NRI emodel customer ,Illustration ,EIA FORM,Annuity Form required,Preissuance Amendment,Vernacular Declaration,HUF PAN,HUF ADDENDUM,ADM Confidential Report,Life Insured photo with Agent,Office Head Report,BSE500",
+                                    "docCodes": "Perm_Add,Comm_Add,ID,DOB,Photo,PAN_F60,CHQ,NACH,AADHAR,IRP,FF,Pport,IND_LET,A_PROP_FORM,A_ID,A_ADD,A_IND_LET,NRI_EMODEL,ILLUS,EIA,AF,Pre_Amend,Ver_Dec,HUF_PAN,HUF_ADD,ADMC,LIPA,OHR,BSE500",
+                                    "insured": "N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N",
+                                    "payor": "N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N",
+                                    "proposer": "N,Y,Y,N,Y,Y,Y,Y,N,Y,N,N,N,N,N,N,N,N,Y,N,Y,NM,Y,Y,Y,Y,Y,Y,Y"
+                                },
+                                "medicalShedulingDetails": {
+                                    "preferredDate": -62135769600000,
+                                    "visitType": "",
+                                    "labDetails": {
+                                        "labId": "",
+                                        "name": "",
+                                        "address": ""
+                                    },
+                                    "labIndex": ""
+                                },
+                                "miscellaneousRuleStatus": {
+                                    "status": "Y",
+                                    "kickOutMsg": "Partial Match"
+                                }
+                            },
+                            "posvDetails": {
+                                "posvStatus": {
+                                    "overallProductStatus": "Y",
+                                    "overallHealthStatus": "Y",
+                                    "generatedOTPDate": 1601975405000,
+                                    "submittedOTPDate": 1601975410000
+                                },
+                                "posvQuestions": [
+                                    {
+                                        "questionId": "P1",
+                                        "questionType": "Primary",
+                                        "category": "PRODUCT",
+                                        "answerType": "radio",
+                                        "answer": "Y",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "P2",
+                                        "questionType": "Primary",
+                                        "category": "PRODUCT",
+                                        "answerType": "radio",
+                                        "answer": "Y",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "P3",
+                                        "questionType": "Primary",
+                                        "category": "PRODUCT",
+                                        "answerType": "radio",
+                                        "answer": "Y",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "P4",
+                                        "questionType": "Primary",
+                                        "category": "PRODUCT",
+                                        "answerType": "radio",
+                                        "answer": "Y",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "H1",
+                                        "questionType": "Reflexive",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "H2",
+                                        "questionType": "Reflexive",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "H3",
+                                        "questionType": "Reflexive",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "H4",
+                                        "questionType": "Reflexive",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "H5",
+                                        "questionType": "Reflexive",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "H6",
+                                        "questionType": "Reflexive",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "H7",
+                                        "questionType": "Reflexive",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "H8",
+                                        "questionType": "Reflexive",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "H9",
+                                        "questionType": "Reflexive",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "H10",
+                                        "questionType": "Reflexive",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "H11",
+                                        "questionType": "Reflexive",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "H14",
+                                        "questionType": "Reflexive",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "H15",
+                                        "questionType": "Reflexive",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "NA"
+                                    },
+                                    {
+                                        "questionId": "H12A",
+                                        "questionType": "Primary",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "H12"
+                                    },
+                                    {
+                                        "questionId": "H12B",
+                                        "questionType": "Primary",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "H12"
+                                    },
+                                    {
+                                        "questionId": "H12C",
+                                        "questionType": "Primary",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "H12"
+                                    },
+                                    {
+                                        "questionId": "H12",
+                                        "questionType": "Reflexive",
+                                        "category": "Health",
+                                        "answerType": "radio",
+                                        "answer": "N",
+                                        "parentId": "NA"
+                                    }
+                                ]
+                            },
+                            "form60Details": {
+                                "identityProofName": "",
+                                "identityProofNumber": "",
+                                "identityProofExpiryDate": "",
+                                "identityProofIssuingAuthority": "",
+                                "isAddressProofSame": true,
+                                "addressProofName": "",
+                                "addressProofNumber": "",
+                                "addressProofIssuingAuthority": "",
+                                "addressProofSame": true,
+                                "chargeableIncome": false,
+                                "incomeExceedLimit": false,
+                                "taxableIncome": false,
+                                "itOtherIncome": false,
+                                "nri": false,
+                                "applicableIncome": false,
+                                "detailsOfDontHavePan": "",
+                                "panAcknowledgementNo": "",
+                                "isChargeableIncome": false,
+                                "isIncomeExceedLimit": false,
+                                "isTaxableIncome": false,
+                                "isItOtherIncome": false,
+                                "isNRI": false,
+                                "isApplicableIncome": false
+                            },
+                            "additionalFlags": {
+                                "screen1": "half",
+                                "screen2": "full",
+                                "screen4": "full",
+                                "screen5": "half",
+                                "screen6": "half",
+                                "payorDiffFromPropser": false,
+                                "emailSent": false,
+                                "illustrationGeneratedOnScreen2": false,
+                                "illustrationGenerated": false,
+                                "personalInfoEdited": false,
+                                "permAddressEdited": false,
+                                "commAddressEdited": false,
+                                "paymentDone": false,
+                                "currentActiveScreen": 6,
+                                "isIllustrationGenerated": false,
+                                "isEmailSent": false,
+                                "isifscMicrValidated": false,
+                                "isDedupeValidated": "false",
+                                "screen3": "full",
+                                "isPayorDiffFromPropser": false,
+                                "isIllustrationGeneratedOnScreen2": false,
+                                "isPaymentDone": false,
+                                "preIssuanceVerificationNumber": "",
+                                "requestSource": "MPRO",
+                                "agentKnowsProposerSince": "Years",
+                                "agentKnowsProposerUnitType": "9",
+                                "emailBIStatus": "SENT",
+                                "proposerPreviousPolicyNumber": "",
+                                "isPersonalInfoEdited": false,
+                                "isPermAddressEdited": false,
+                                "isCommAddressEdited": false,
+                                "stpFlag": "N",
+                                "photoVerified": true,
+                                "stpIdDobproof": true,
+                                "stpAddressProf": false,
+                                "stpNach": false,
+                                "cancelledChequeNeft": true
+                            },
+                            "bancaDetails": {
+                                "customerClassification": "",
+                                "addonType": "",
+                                "panavailable": false,
+                                "micravailable": false,
+                                "isPANAvailable": false,
+                                "isMICRAvailable": false,
+                                "referenceId": "",
+                                "primaryId": 0
+                            },
+                            "salesStoriesProductDetails": {
+                                "primaryTransactionId": 0,
+                                "secondaryMongoId": "",
+                                "secondaryTransactionId": 0,
+                                "isSalesProduct": "no"
+                            },
+                            "pasaDetails": {
+                                "isPasaEligible": "No",
+                                "isPasaApplied": "No",
+                                "sumAssured": 0.0,
+                                "pasaProducts": [
+                                    {
+                                        "productId": "",
+                                        "productName": "",
+                                        "productType": "",
+                                        "premiumBackOption": "",
+                                        "lifeStageEventBenefit": "",
+                                        "deathBenefit": ""
+                                    }
+                                ]
+                            },
+                            "psmDetails": {
+                                "isExistingLICover": "No",
+                                "existingLICover": "",
+                                "recommendedProducts": [
+                                    "Max Life Life Perfect Partner Super",
+                                    "Max Life Guaranteed Income Plan",
+                                    "Forever Young Pension Plan",
+                                    "Max Life Monthly Income Advantage Plan",
+                                    "Max Life Fast Track Super Plan",
+                                    "Secure Capital Builder Super",
+                                    "Max Life Savings Advantage Plan",
+                                    "Max Life Flexi Wealth Plus Plan",
+                                    "Max Life Smart Wealth Plan"
+                                ],
+                                "recommendedProductName": "27 Max Life Life Perfect Partner Super"
+                            },
+                            "productSuitabilityDetails": [
+                                {
+                                    "questionId": "PSM1",
+                                    "answer": "NA",
+                                    "question": "Life to be insured is a minor and Waiver of Premium rider is not opted with base product. Do you still wish to proceed without Waiver of Premium rider?"
+                                },
+                                {
+                                    "questionId": "PSM2",
+                                    "answer": "Yes",
+                                    "question": "The annual premium is greater than 50% of your annual income. Do you wish to proceed?"
+                                },
+                                {
+                                    "questionId": "PSM3",
+                                    "answer": "Yes",
+                                    "question": "The product opted Max Life Life Perfect Partner Super is different from recommended products as per the need analysis. Do you still wish to proceed?"
+                                },
+                                {
+                                    "questionId": "PSM_YBL",
+                                    "answer": "NA",
+                                    "question": "The premium payment term of the proposer is going beyond age of 60 years. Do you wish to proceed?"
+                                }
+                            ],
+                            "neoAdditionalDetails": {
+                                "crmLeadId": "",
+                                "influenceChannel": "",
+                                "eqouteNumber": ""
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
