@@ -4,8 +4,8 @@ Feature: To check the functionality of Discrepancy Rule Engine service
 Background: 
 
 	Given set the input request testdata 
-		|url                                 |header                                             | requestFile               | 
-		|/developer/discrepancy-rule-engine  |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | DiscrepancyRuleEngine.json|
+		|url                     |header                                             | requestFile               | 
+		|/developer/discrepancy  |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | DiscrepancyRuleEngine.json|
 		
 @PositiveTestDiscrepancy1 
 Scenario Outline: 
@@ -24,10 +24,10 @@ Scenario Outline:
 Scenario: 
 To test the functionality when user send the invalid request for Discrepancy Rule Engine 
 Given :Set testdata
-	|testData                      | operationType | testurl                            |msgCode|msg     |
-	|{ "isInsuredGreaterFlag":"A"} | changeData    | /developer/discrepancy-rule-engine |400    |Failure |
-	|{ "isInsuredGreaterFlag":""}  | removeData    | /developer/discrepancy-rule-engine |400    |Failure |
-	|{ "isInsuredGreaterFlag":"2"} | changeData    | /developer/discrepancy-rule-engine |400    |Failure |
+	|testData                      | operationType | testurl                |msgCode|msg     |
+	|{ "isInsuredGreaterFlag":"A"} | changeData    | /developer/discrepancy |400    |Failure |
+	|{ "isInsuredGreaterFlag":""}  | removeData    | /developer/discrepancy |400    |Failure |
+	|{ "isInsuredGreaterFlag":"2"} | changeData    | /developer/discrepancy |400    |Failure |
 	
 									
 @PositiveTestDiscrepancy2 
@@ -86,16 +86,16 @@ Scenario:
 	To test the functionality when user send the invalid request for Discrepancy Rule Engine 
  Given :Set testdata 
 	
-		|testData               | operationType|testUrl                             |msgCode |msg     |
-		|{ "productName": "" }  | changeData   | /developer/discrepancy-rule-engine | 400    | Failure|
+		|testData               | operationType|testUrl                 |msgCode |msg     |
+		|{ "productName": "" }  | changeData   | /developer/discrepancy | 400    | Failure|
 						
 @NegativeTestDiscrepancy5
 Scenario: 
 	To test the functionality when user send the invalid request for Discrepancy Rule Engine 
  Given :Set testdata 
 	
-		|testData               | operationType|testUrl                             |msgCode |msg      |
-		|{ "propNatFlag": "*&"} | changeData   | /developer/discrepancy-rule-engine | 400    | Failure |
-		|{ "propNatFlag": "" }  | changeData   | /developer/discrepancy-rule-engine | 400    | Failure |
-		|{ "propNatFlag": "24"} | changeData   | /developer/discrepancy-rule-engine | 400    | Failure |
+		|testData               | operationType|testUrl                 |msgCode |msg      |
+		|{ "propNatFlag": "*&"} | changeData   | /developer/discrepancy | 400    | Failure |
+		|{ "propNatFlag": "" }  | changeData   | /developer/discrepancy | 400    | Failure |
+		|{ "propNatFlag": "24"} | changeData   | /developer/discrepancy | 400    | Failure |
 
