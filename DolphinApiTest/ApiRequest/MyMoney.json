@@ -1,10 +1,10 @@
 {
     "metadata": {
-        "X-Correlation-ID": "101507887",
-        "X-App-ID": "IBPS"
+      "X-Correlation-ID": "0efef9-dhdf9-sdjk5-sjbj5",
+      "X-App-ID": "IBPS"
     },
     "payload": {
-        "policyNo": "101072759",
-        "premiumAmount": "50000"
+      "policyNo": "329989917",
+      "premiumAmount" : "250001"
     }
 }

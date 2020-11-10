@@ -14,10 +14,11 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(features = "src/test/java/com/MLI_DOLPHIN/featurefile",
 
 //          tags = "@MyAgentAllScenarios",
-//		 tags ="@OauthApI,@IFSC_MICR_API,@TPAIntegrationTest,@DiscrepancyRuleEngineTest,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@UW_MedicalReportService,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest,@Test2,@DedupeAllScenarios,@PolicyadminAllScenarios,@MyAgentAllScenarios",
+		 tags ="@OauthApI,@IFSC_MICR_API,@TPAIntegrationTest,@DiscrepancyRuleEngineTest,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@UW_MedicalReportService,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest,@Test2,@DedupeAllScenarios,@PolicyadminAllScenarios,@MyAgentAllScenarios,@UW_MedicalReportService",
 				 
           glue = { "com.MLI_DOLPHIN.stepDefination" }, plugin = { "pretty",
 				"html:target/cucumber-reports", "json:target/cucumber.json" }, dryRun = false, monochrome = true)
+
 
 public class TestRunnerClass extends AbstractTestNGCucumberTests {
 
