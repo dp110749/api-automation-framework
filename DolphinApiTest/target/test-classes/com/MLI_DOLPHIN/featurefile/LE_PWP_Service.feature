@@ -35,7 +35,7 @@ Scenario Outline:
 	
 	Examples: 
 		|statusCode|responseMessage|
-		|200       |Bad Request    |
+		|400       |Bad Request    |
 @NegativeTest	
 Scenario Outline: 
 	validate the response when user send the mandotary field as null
@@ -93,11 +93,11 @@ Scenario Outline:
 		
 	Then : Send the request for premium
 	Then : I want to validate the response "<statusCode>"  
-#	And : I want to validate the response message "<responseMessage>" 	
+	And : I want to validate the response message "<responseMessage>" 	
 	
 	Examples: 
 		|statusCode|responseMessage|
-		|200       |Bad Request    |
+		|400       |Bad Request    |
  
 @NegativeTest		
 Scenario Outline: 
@@ -110,8 +110,8 @@ Scenario Outline:
 	And : I want to validate the response message "<responseMessage>" 	
 	
 	Examples: 
-		|statusCode|responseMessage|   invaildUrl           |
-		|403       |Forbidden      |/developersss/lepremium |
+		|statusCode|responseMessage|                  invaildUrl                            |
+		|400       |Bad Request    |developer/microservices/mli/api/life-engage/premium/awp |
 		
 @NegativeTest		
 Scenario Outline: 
@@ -124,8 +124,8 @@ Scenario Outline:
 	And : I want to validate the response message "<responseMessage>" 	
 	
 	Examples: 
-		|statusCode|responseMessage|apiKey    | apiValue |
-		|200       |Forbidden      |x-api-key |          |
+		|statusCode|responseMessage|apiKey           | apiValue |
+		|400       |Bad Request    |X-Correlation-ID |          |
 		
 		
 		
