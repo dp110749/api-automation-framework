@@ -1,0 +1,22 @@
+{
+    "metadata": {
+        "X-Correlation-ID": "120202921",
+        "X-App-ID": "Dolphin"
+    },
+    "payload": {
+        "agentId1": "447660",
+        "spNo1": "",
+        "agentId2": "",
+        "spNo2": "",
+        "customerPan": "BXTPS5347D",
+        "twoAgents": "n",
+        "channel": "A",
+        "branchCode": "",
+        "type": "DetailsBySerials",
+        "transTrackingId": "",
+        "customerSignDate": "2020-09-28",
+        "insuranceStatus": "Individual Policy",
+        "splitRatio": "100",
+        "productType": "ULIP"
+    }
+}
