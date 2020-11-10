@@ -26,7 +26,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 				"com.MLI_DOLPHIN.stepDefination" }, plugin = { "pretty",
 						"html:target/cucumber-reports" }, dryRun = false, monochrome = true)
 */
-		tags = "@PositiveTest_MR_8",
+		tags = "@OauthApI,@IFSC_MICR_API,@TPAIntegrationTest,@DiscrepancyRuleEngineTest,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@UW_MedicalReportService,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest,@DedupeAllScenarios,@DolphinPushTest2,@Policyadmin",
 //		tags="@Policyadmin",
 		glue = { "com.MLI_DOLPHIN.stepDefination" }, plugin = { "pretty", "html:target/cucumber-reports",
 				"json:target/cucumber.json" }, dryRun = false, monochrome = true)

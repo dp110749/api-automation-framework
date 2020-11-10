@@ -1,4 +1,4 @@
-@Test2 
+@DolphinPushTest2 
 Feature: To Test the Functionality of Dolphin Push MS Service 
 
 Background: 
