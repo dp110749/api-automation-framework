@@ -7,7 +7,7 @@
   "payload": {
     "transactionId": "9e59098a45f549e894",
     "addRiderIsRequired": "Yes",
-    "addRiderSumAssured": "60000",
+    "addRiderSumAssured": "120000",
     "termPlusRiderRequired": "Yes",
     "termPlusRiderSumAssured": "400000",
     "wopPlusRiderRequired": "Yes",
@@ -30,7 +30,7 @@
     "edc": "2020-05-30",
     "paymentModeName": "06",
     "spCode": "122609",
-    "committedPremium": "60000",
+    "committedPremium": "120000",
     "surrenderOption": "Yes",
     "agentId": "100766",
     "objectiveOfInsurance": "IP",

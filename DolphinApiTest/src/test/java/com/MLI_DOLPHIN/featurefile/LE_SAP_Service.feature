@@ -15,15 +15,15 @@ And I want to validate the calaculated Sumassured"<OutPutSumAssurred>"
 
 Examples:
 |ResponseCode|ResponseMsgCode|ResponseMessage|OutPutSumAssurred |
-|200         | 200           | Success       |270120.3656349269 |
+|200         | 200           | Success       |550998.5931169256 |
 
 @SAP_forPremiumCalculation_02
 Scenario: To test the functionality when user send the new premium value
 Given pass the set of test data 
-|TestData                      |OparationType   |ResponseCode|ResponseMsgCode|ResponseMesg|OutPutData          |
-|{"committedPremium": "90000"} | changeData     | 200        |200            |Success     | 405180.54845239036 |
-|{"committedPremium": ""}      | changeData     | 200        |500            |Failure     |                    |
-|{"committedPremium": ""}      | removeData     | 200        |               |Bad Request |                    |
+|TestData                       |OparationType   |ResponseCode|ResponseMsgCode|ResponseMesg|OutPutData          |
+|{"committedPremium": "150000"} | changeData     | 200        |200            |Success     | 688748.241396157   |
+|{"committedPremium": ""}       | changeData     | 200        |500            |Failure     |                    |
+|{"committedPremium": ""}       | removeData     | 200        | 500           |Failure     |                    |
 
 @SAP_Positive_02	
 Scenario Outline:To Test Illustration for SAP
