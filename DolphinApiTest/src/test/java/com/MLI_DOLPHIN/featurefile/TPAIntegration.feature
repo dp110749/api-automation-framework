@@ -102,8 +102,8 @@ Scenario:
 	
 		|testData               | operationType|testUrl                   |msgCode |msg          |
 		|{ "PinCode": "000000"} | changeData   | /developer/medicalreport | 400    | Failure     |
-		|{ "PinCode": "" }      | removeData   | /developer/medicalreport | 400    | Failure     |
-		|{ "PinCode": "rctv"}   | changeData   | /developer/medicalreport | 400    | Failure     |
+		|{ "PinCode": "" }      | changeData   | /developer/medicalreport | 400    | Failure     |
+		|{ "PinCode": ""}       | removeData   | /developer/medicalreport | 400    |Failure      |
 						
 
 						
