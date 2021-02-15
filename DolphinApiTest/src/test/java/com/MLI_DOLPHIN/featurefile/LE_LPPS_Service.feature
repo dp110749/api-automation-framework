@@ -50,22 +50,22 @@ Scenario Outline:
 		|url                      |urltype            |statusCode   |
 		|developer/leaaillustration |illustrationurl    |  403        | 		
 
-@NegativeTest		
+@NegativeTes		
 Scenario Outline: 
 	To test the functionality when user remove the paylod field and send the request 
 
 	Given : I want to set inputdata in request 
-		|inputData                | oparationType |
-		|{"nameOfInsured":"Akash"}| removeData    |
+		|inputData          | oparationType |
+		|{"channel": "K"}   | removeData    |
 		
 		
 	When :I want to send the request 
 	Then :I want to validate the response code "<statusCode>" 
-	And :I want to validate the response error message "<responseMessage>" 
+	And :I want to validate the response message "<responseMessage>"
 	Examples: 
 	
 		| statusCode  | responseMessage|
-		|  200        | Bad Request    |		
+		|  200        | Failed         |		
 		
 @PositiveTest5		
 Scenario Outline: 
@@ -104,17 +104,17 @@ Scenario Outline:
 	
 	Given : i want set the data for testing 
 		|inputData            |oparationToperform|
-		|{"ageOfInsured":"27"}| removeData       |
+		|{"ageOfInsured":"33"}| removeData       |
 		
 	When :I want to send the request for premium 
 	Then :I want to validate the response code "<statusCode>" 
-	And :I want to validate the response error message "<responseMessage>" 
+	And :I want to validate the response message "<responseMessage>"
 	Examples: 
 	
 		| statusCode  | responseMessage|
-		|  200        | Bad Request    |		
+		|  200        | Failed         |		
 
-@NegativeTest		
+@NegativeTest0000		
 Scenario Outline: 
 	To test the functionality when user send invalid url for premium 
 	Given : I want to set invalid url "<url>" and url type "<urltype>" 
