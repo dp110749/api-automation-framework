@@ -29,7 +29,7 @@ Given :Set testing data
 	|inputData              | oparationType|url                        |msgCode |Responsemessage   |
 	|{ "productCode": "21"} | changeData   | /developer/leillustration | 500    | Failure          |
 	|{ "productCode": ""}   | changeData   | /developer/leillustration | 500    | Failed           |
-	|{ "productCode": "24"} | removeData   | /developer/leillustration |        | Bad Request      |
+	|{ "productCode": ""}   | removeData   | /developer/leillustration | 500    | Failed      |
 				
 Scenario Outline: 
 	: To test the functionality when user send the null header for illustration generator
@@ -78,7 +78,7 @@ Scenario:
 		|inputData              | oparationType|url                   |msgCode |Responsemessage   |
 		|{ "productCode": "21"} | changeData   | /developer/lepremium | 500    | Failure           |
 		|{ "productCode": "" }  | changeData   | /developer/lepremium | 500    | Failed           |
-		|{ "productCode": "24"} | removeData   | /developer/lepremium |        | Bad Request      |
+		|{ "productCode": ""}   | removeData   | /developer/lepremium | 500    | Failed     |
 						
 						
  
