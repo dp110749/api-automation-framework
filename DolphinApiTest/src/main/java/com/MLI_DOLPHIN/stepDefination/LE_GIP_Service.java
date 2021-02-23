@@ -82,6 +82,7 @@ public void i_want_to_validate_the_responseMsgCode_for_GIP() throws Throwable {
 
 @Then("^I want to validate the responseMessage for GIP$")
 public void i_want_to_validate_the_responseMessage_for_GIP() throws Throwable {
+	
 	responseBody.then().root("msgInfo").body("msg", Matchers.equalTo(expResponseMessage));
 	logger.info("Validation of response message is successfull.");
 
@@ -115,7 +116,8 @@ public void i_want_to_validate_response_Error_Msg() throws Throwable {
 	responseBody.then().body("message", Matchers.equalTo(expResponseMessage));
 	logger.info("Validation of error message is.."+expResponseMessage);
 	}else if(expResponseMessage.equalsIgnoreCase("Bad Request")){
-		responseBody.then().body("error", Matchers.equalTo(expResponseMessage));
+//		responseBody.then().body("error", Matchers.equalTo(expResponseMessage));
+		responseBody.then().root("msgInfo").body("msg", Matchers.equalTo(expResponseMessage));
 		logger.info("Validation of error message is successfull ."+expResponseMessage);
 	}
 }
@@ -173,7 +175,8 @@ public void pass_the_set_of_test_data(DataTable setOfTestData) throws Throwable 
 		    logger.info("Validation of response Msg Code is successfull");
 			
 		}else if(expResponseMessage.equals("Bad Request")){
-			responseBody.then().body("error", Is.is(expResponseMessage));
+//			responseBody.then().body("error", Is.is(expResponseMessage));
+			
 			logger.info("Validation of bas request successfull..");
 		}else{
 			responseBody.then().body("errorMessage", Is.is(expResponseMessage));

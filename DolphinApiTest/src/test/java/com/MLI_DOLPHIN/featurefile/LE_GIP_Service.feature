@@ -40,8 +40,8 @@ Given I want to set the test data in GIP request
 |TestData                       |OparationType   |ResponseCode|ResponseMsgCode|ResponseMesg|OutPutData                             |
 |{"committedPremium": "150000"} | changeData     | 200        |200            |Success     | 2406041                               |
 |{"productName": "Assurd Wealth Plan"}|changeData |200        |               |Unknown product name||
-|{"committedPremium": "90000"}  | changeData     | 200        |500            |Failure     | Minimum Premium allowed is Rs. 100000 |
-|{"committedPremium": ""}       | removeData     | 200        |               |Bad Request |                                       |
+|{"productName": "Max Life Guaranteed Income Plan","committedPremium": "90000"}  | changeData     | 200        |500            |Failure     | Minimum Premium allowed is Rs. 100000 |
+|{"committedPremium": ""}       | removeData     | 200        | 500              | Failure|                                       |
 
 
 @GIP_NegativeTest_02
