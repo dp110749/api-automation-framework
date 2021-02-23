@@ -58,7 +58,7 @@ Scenario: To test the functionality when user send wrong product name for WLS
 Given Set the input request data for WLS
 
 |inputData                                  |oparationType|responseCode |responseMessage|
-|{"productName": "Max Life Super Term Plan"}|changeData   |200          |Bad Request    |
+|{"productName": "Max Life Super Term Plan"}|changeData   |200          |Failed         |
 When I want to send the request
 Then I want to validate the response code and message 
 
@@ -76,7 +76,7 @@ Scenario: Validate the response when user remove the field from the request for 
 Given Set the input request data for WLS
 
 |inputData                         |oparationType|responseCode |responseMessage |
-|{"committedPremium": "2000000.00"}|removeData   |200          |Bad Request     |
+|{"committedPremium": "2000000.00"}|removeData   |200          |Success     |
 When I want to send the request
 Then I want to validate the response code and message 
 

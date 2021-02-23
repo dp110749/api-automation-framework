@@ -65,7 +65,7 @@ public class LE_WLS_Service {
 
 	@Then("^I want to validate the response message for WLS\"([^\"]*)\"$")
 	public void i_want_to_validate_the_response_message(String responseMessage) throws Throwable {
-		if(responseMessage.contains("Success")){
+		if(responseMessage.contains("Success")||responseMessage.contains("Fail")||responseMessage.contains("Bad Request")){
 	    responseBody.then().root("msgInfo").body("msg", Is.is(responseMessage));
 	    logger.info("Validation of response message successfull.");
 		}else if(responseMessage.contains("Bad Request")){
