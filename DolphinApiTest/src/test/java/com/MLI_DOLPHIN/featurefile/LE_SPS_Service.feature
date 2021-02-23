@@ -62,10 +62,11 @@ Scenario: To test the functionality when user send bad request(remove the filed 
 Scenario Outline:To test the functionality when user send bad request(pass correlation ID)
    Given I want to set the correlatinKey"<Key>" and value"<Value>" in the request
    When I want send the request
-   Then I want to validate the response error message"<message>" 
+ #  Then I want to validate the response error message"<message>"
+And I want to validate the response message"<message>"  
  Examples:
  |Key               |Value |message       |
- |X-Correlation-ID  |      | Bad Request  | 
+ |X-Correlation-ID  |      | 400          | 
  
  @NegativeTest_6
  Scenario Outline: To test the functionality when user send the valid request for illustration

@@ -26,7 +26,7 @@ Scenario: To test the functionality of myAgent Service the with multiple data
 		|TestData              |oparationType |responseData                   |msg                                              | msgCode  |
 		|{"agentId1":"117249"} | changeData   | Ravi Rajpal                   | Agent Valid                                     | 200      |  
 		|{"agentId1":"447660"} | changeData   | Salzina Cruzinha Fernandes    | Agent Valid                                     | 200      | 	
-		|{"agentId1":"655393"} |changeData    | null                          | Agent Not Valid : Agent channel does not match  | 200      |		
+		|{"agentId1":"655393"} |changeData    | null                          | Agent655393 Not Valid : Agent channel does not match  | 200      |		
  
 @negativeTest		
 Scenario: To test the functionality of myAgent when pass Invalid Agent_ID
