@@ -82,7 +82,8 @@ public class LE_FGEP_Service {
 			logger.info("validation of response message is successfull..");
 	
 		}else if(responseMsg.equals("Bad Request")){
-			responseBody.then().body("error", Matchers.equalTo(responseMsg));
+//			responseBody.then().body("error", Matchers.equalTo(responseMsg));
+			responseBody.then().root("msgInfo").body("msg", Matchers.equalTo(responseMsg));
 			logger.info("validation of response message is successfull..");
 
 		}

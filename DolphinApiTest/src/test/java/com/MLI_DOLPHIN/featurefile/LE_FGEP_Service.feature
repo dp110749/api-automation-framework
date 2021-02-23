@@ -5,6 +5,7 @@ Given  Set the preRequest test data for FGEP product
 |EndPointUrl          |         Header                                      |RequestFile           |
 |/developer/lepremium | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY  | LE_FGEP_Service.json |
 
+@Test0001
 Scenario Outline:To test the functionality of premium generator og FGEP
 When I want to send the request for FGEP 
 Then I want to validate the responseCode for FGEP"<ResponseCode>"
@@ -15,8 +16,8 @@ And I want to validate the AFYP"<AFYP>"
 And I want to validate the response time for FGEP
 
 Examples:  
-|ResponseCode |ResponseMSG |ResponseMSGCode |SummAssuerd         |AFYP              |
-|200          |Success     |200             |377839.4635687189   |51783.54807692308 |
+|ResponseCode |ResponseMSG |ResponseMSGCode |SummAssuerd         |AFYP               |
+|200          |Success     |200             |944598.6589217972   |129200.36538461539 |
 
 @FGEP_PositiveIllustrationGenerator_01
 Scenario Outline: To Test the functionality of illustration generator for FGEP
