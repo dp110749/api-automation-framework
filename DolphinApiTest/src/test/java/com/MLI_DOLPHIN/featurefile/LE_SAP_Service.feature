@@ -42,8 +42,8 @@ Examples:
 Scenario Outline:To test the functionality when user send correlation ID as null for SAP
 Given To Set the correlatinKey"<Key>" and value"<Value>" in the request for SAP
 When I want send the request for SAP
-Then I want to validate the responseMessage"<message>"  
-
+#Then I want to validate the responseMessage"<message>"  
+And I want to validate the responseMessage"<message>"
 Examples:
  |Key               |Value |message      |
  |X-Correlation-ID  |      |Bad Request  | 

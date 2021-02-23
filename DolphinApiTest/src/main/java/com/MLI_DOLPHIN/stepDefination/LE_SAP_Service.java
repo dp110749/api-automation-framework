@@ -74,7 +74,7 @@ public class LE_SAP_Service {
 
 	@Then("^I want to validate the responseMessage\"([^\"]*)\"$")
 	public void i_want_to_validate_the_responseMessage(String expResponseMessage) throws Throwable {
-		if(expResponseMessage.equals("Success")){
+		if(expResponseMessage.equals("Success")||expResponseMessage.contains("Fail")||expResponseMessage.contains("Bad Request")){
 		responseBody.then().root("msgInfo").body("msg", Is.is(expResponseMessage));
 	    logger.info("Validation of response Msg is successfull");
 		}else if(expResponseMessage.equalsIgnoreCase("Bad Request")){
