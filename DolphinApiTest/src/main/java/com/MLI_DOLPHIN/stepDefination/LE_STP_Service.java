@@ -83,28 +83,31 @@ public class LE_STP_Service {
     	expOutPutData=listOfSetData.get(i);
     	i++;
     	expAFYP=listOfSetData.get(i);
+    	logger.info("Test data is :: "+testData+ "Opraration Type :: "+oparationType+ "response MsgCode is::"+expResponseMSgCode+ "");
     	
     	requestBody =ReusableFunction.getSpecificRequest(requestBody, testData, oparationType);
     	responseBody=WebservicesMethod.POST_METHOD(endPointUrl, requestBody, ReusableFunction.requestHeaders(headers));
 		logger.info("Response Body is :"+responseBody.prettyPrint());
-		if(expResponseMessage.equalsIgnoreCase("Successful")){
+		if(expResponseMSgCode.equalsIgnoreCase("200")){
 		    responseBody.then().root("msgInfo").body("msgCode", Matchers.equalTo(expResponseMSgCode))
 		    .and()
-		    .body("msgCode", Matchers.equalTo(expResponseMessage));		    
+		    .body("msg", Matchers.equalTo(expResponseMessage));		    
 		    responseBody.then().root("payload").body("premiumAmount.sumAssusred", Matchers.equalTo(expOutPutData))
 		    .and()
 		    .body("premiumAmount.AFYP", Matchers.equalTo(expAFYP));
 		    logger.info("Validation of successfull response with valid data for STP");
 
-		}else if(expResponseMessage.equalsIgnoreCase("Failed")){
+		}else if(expResponseMSgCode.equalsIgnoreCase("500")){
 		    responseBody.then().root("msgInfo").body("msgCode", Matchers.equalTo(expResponseMSgCode))
 		    .and()
 		    .body("msg", Matchers.equalTo(expResponseMessage));
             logger.info("Validation of message Code and message is successful..");
 		    
-		}else if (expResponseMessage.equalsIgnoreCase("Bad Request")){
-		    responseBody.then().body("error", Matchers.equalTo(expResponseMessage));
-            logger.info("Validation of response for bad request is successful");
+		}else if (expResponseMSgCode.equalsIgnoreCase("400")){
+		    responseBody.then().root("msgInfo").body("msgCode", Matchers.equalTo(expResponseMSgCode))
+		    .and()
+		    .body("msg", Matchers.equalTo(expResponseMessage));
+            logger.info("Validation of message Code and message is successful..");
 		 }else{
 			logger.info("Api not returning any response..."); 
 		 }
@@ -207,8 +210,9 @@ public class LE_STP_Service {
 
 	@Then("^I want to validate the bad request message$")
 	public void i_want_to_validate_the_bad_request_message() throws Throwable {
-      responseBody.then().body("error", Matchers.equalTo(expResponseMessage));
-      logger.info("Validation of response maessage is" +expResponseMessage+"Successful..");
+		responseBody.then().root("msgInfo").body("msgCode", Matchers.equalTo(expResponseMSgCode))
+		.and().body("msg", Matchers.equalTo(expResponseMessage));
+		logger.info("Validation of expected response Msg is :" + expResponseMessage + " Successfull");
 		
 	}
 

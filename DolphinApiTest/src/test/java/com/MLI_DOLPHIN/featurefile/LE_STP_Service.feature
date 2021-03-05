@@ -40,7 +40,7 @@ Given I want to set multiple set of data for STP
 |{"sumAssured": "4000000.00"} |changeData      |200    |Success    |4000000.00        |7520        |
 |{"sumAssured": "2800000.00"} |changeData      |200    |Success    |2800000.00        |5264        |
 |{"sumAssured": ""}           |changeData      |500    |Failed     |null              |null        |
-|{"sumAssured": ""}           |removeData      |null   |Bad Request|null              |null        |
+|{"sumAssured": ""}           |removeData      |500    |Failed     |null              |null        |
 
 @illustration_002
 Scenario Outline: To test the functionality of illustration generator with multiple set of data for STP
@@ -112,7 +112,7 @@ Scenario Outline: To test the functionality of STP when pass correlationId
 Given To Set the correlatinKey"<Key>" and value"<Value>" for STP 
 Given I want to set output data for STP
 |ResponseCode|ResponseMsgCode|ResponseMessage   |OutPutSumAssurred |
-|200         |   null        | Bad Request      |   null           |
+|200         |   400        | Bad Request       |   null           |
 
 When I want to send the request for STP
 Then I want to validate response code for STP 
