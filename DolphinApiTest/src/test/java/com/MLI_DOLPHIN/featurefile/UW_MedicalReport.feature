@@ -22,7 +22,7 @@ Scenario Outline: to test the functionality when user send the valid request wit
 	
 	Examples: 
 		| responseStatusCode | responseMessage |medicalReportOutPut|kickoutMsg                                               |
-		|        200         | Success         |    URMU           |Kickout Msg-1: Insured8month pregnant with URMU REQUIRED;|
+		|        200         | Success         |    MANUW           |Kickout Msg-1: #PASS,Kickout Msg-2: ; Insured life cover exceeds 2 crore,Kickout Msg-3: #PASS|
 		
 @PositiveTest_MR_2
 Scenario Outline: to test the functionality when user send the valid request with category T+M 
@@ -39,7 +39,7 @@ And  i want to check the "<responseMessage>" and "<medicalReportOutPut>" and "<k
 
 Examples: 
 	| responseStatusCode | responseMessage |medicalReportOutPut|kickoutMsg                                               |
-	|           200      | Success         |    URMU           |Kickout Msg-1: Insured8month pregnant with URMU REQUIRED;|
+	|           200      | Success         |    MANUW          |Kickout Msg-1: #PASS,Kickout Msg-2: ; Insured life cover exceeds 2 crore|
 				
 
 @PositiveTest_MR_3 
@@ -56,8 +56,8 @@ And i want to check the respone time and response type
 And  i want to check the "<responseMessage>" and "<medicalReportOutPut>" and "<kickoutMsg>" in the response 
 
 Examples: 
-	| responseStatusCode | responseMessage |medicalReportOutPut|kickoutMsg|
-	|           200      | Success         |    SPA            |          |
+	| responseStatusCode | responseMessage |medicalReportOutPut  |kickoutMsg|
+	|           200      | Success         |    MANUW            |Kickout Msg-1: #PASS,Kickout Msg-2: #PASS |
 
 @PositiveTest_MR_4 
 Scenario Outline:
@@ -75,7 +75,7 @@ And  i want to check the "<responseMessage>" and "<medicalReportOutPut>" and "<k
 
 Examples: 
 	| responseStatusCode | responseMessage |medicalReportOutPut|kickoutMsg                        |
-	|           200      | Success         |    MANUW          |Insured life cover exceeds 2 crore|
+	|           200      | Success         |    MANUW          |Kickout Msg-1: ; Insured life cover exceeds 2 crore,Kickout Msg-2: #PASS|
 										
 				
 @PositiveTest_MR_5 
@@ -93,7 +93,7 @@ Given i want to change the cotegory in request
 
   Examples: 
 	 | responseStatusCode | responseMessage |medicalReportOutPut|kickoutMsg                                               |
-	 |           200      | Success         |    URMU           |Kickout Msg-1: Insured8month pregnant with URMU REQUIRED;|
+	 |           200      | Success         |    MANUW           |Kickout Msg-1: #PASS|
 						
  @PositiveTest_MR_6 
   Scenario Outline: to test the functionality when user send the valid request with category M 
@@ -110,7 +110,7 @@ Given i want to change the cotegory in request
 	
 	Examples: 
 		| responseStatusCode | responseMessage |medicalReportOutPut|kickoutMsg                        |
-		|           200      | Success         |    MANUW          |Insured life cover exceeds 2 crore|
+		|           200      | Success         |    MANUW          |Kickout Msg-1: ; Insured life cover exceeds 2 crore |
 
  @NegativeTest_MR_1
   Scenario Outline: to test the functionality when user send the invalid category 
@@ -167,7 +167,7 @@ Scenario Outline: to test the functionality when user send the invalid EndPoint 
 	 
 	Examples: 
 		|invaildEndPointUrl                        |responseStatusCode | 
-		|/developer/microservices/medicalreport/v1 |           404     |    
+		|/developer/microservices/medicalreport/v1 |           301     |    
 		
 		
  @PositiveTest_MR_7 
