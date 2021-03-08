@@ -7,7 +7,7 @@ Background:
 		|illustrationUrl            |premiumUrl           |header                                              | requestFile        | 
 		| /developer/leillustration |/developer/lepremium | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | LE_FYPPService.json|
 		
-@PositiveTest 
+@PositiveTest
 Scenario Outline: 
 	To test the functionality when user send the valid request for illustration generator 
 
@@ -21,15 +21,15 @@ Scenario Outline:
 		|StatusCode|responseMessage|
 		|200       | Success       |
 		
-@NegativeTest 
+@NegativeTest
 Scenario: 
 To test the functionality when user send the invalid request for illustration generator 
 Given :Set testing data 
 
 	|inputData              | oparationType|url                        |msgCode |Responsemessage   |
-	|{ "productCode": "21"} | changeData   | /developer/leillustration | 500    | Failed           |
+	|{ "productCode": "21"} | changeData   | /developer/leillustration | 500    | Failure          |
 	|{ "productCode": ""}   | changeData   | /developer/leillustration | 500    | Failed           |
-	|{ "productCode": "24"} | removeData   | /developer/leillustration |        | Bad Request      |
+	|{ "productCode": ""}   | removeData   | /developer/leillustration | 500    | Failed      |
 				
 Scenario Outline: 
 	: To test the functionality when user send the null header for illustration generator
@@ -56,7 +56,7 @@ Examples:
 	|400       |Bad Request    |X-Correlation-ID |          |
 				
 				
-@PositiveTest 
+@PositiveTest
 Scenario Outline: 
 To test the functionality when user send the valid request for premium generator 
 
@@ -70,15 +70,15 @@ Examples:
 	|StatusCode|premiumAmountpartA|premiumAmountPartB|msgCode|Msg|			
 	| 200      |500000            |Part B-4%         |200    | Success|			
 				
-@NegativeTest 
+@NegativeTest
 Scenario: 
 	To test the functionality when user send the invalid request for premium generator 
 	Given :Set testing data 
 	
 		|inputData              | oparationType|url                   |msgCode |Responsemessage   |
-		|{ "productCode": "21"} | changeData   | /developer/lepremium | 500    | Failed           |
+		|{ "productCode": "21"} | changeData   | /developer/lepremium | 500    | Failure           |
 		|{ "productCode": "" }  | changeData   | /developer/lepremium | 500    | Failed           |
-		|{ "productCode": "24"} | removeData   | /developer/lepremium |        | Bad Request      |
+		|{ "productCode": ""}   | removeData   | /developer/lepremium | 500    | Failed     |
 						
 						
  

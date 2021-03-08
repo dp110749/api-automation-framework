@@ -1,5 +1,4 @@
 package com.MLI_DOLPHIN.runnerclass;
-
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.reset;
 import org.apache.log4j.Level;
@@ -13,17 +12,12 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(features = "src/test/java/com/MLI_DOLPHIN/featurefile",
 
+//tags="@OauthApI",
+	 tags ="@OauthApI,@IFSC_MICR_API,@TPAIntegrationTest,@DiscrepancyRuleEngineTest,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@UW_MedicalReportService,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest,@Dolphin_Push_Test,@DedupeAllScenarios,@PolicyadminAllScenarios,@MyAgentAllScenarios,@SPSTest,@AllTestOf_SAP,@AllScenariosOfWLS,@AllScenarios_Test_For_GIP,@AllTestScenarioForFGEP,@AllTest_of_STP",
+          glue = { "com.MLI_DOLPHIN.stepDefination" }, plugin = { "pretty",
+				"html:target/cucumber-reports", "json:target/cucumber.json" }, dryRun = false, monochrome = true)
 
-		// @UW_MedicalReportService
-//		 tags = "@OauthApI,@IFSC_MICR_API,@TPAIntegrationTest,@DiscrepancyRuleEngineTest,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@UW_MedicalReportService,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest",
-
-         tags = "@OauthApI,@IFSC_MICR_API,@TPAIntegrationTest,@DiscrepancyRuleEngineTest,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@UW_MedicalReportService,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest",
-    
-		 glue = {
-				"com.MLI_DOLPHIN.stepDefination" }, plugin = { "pretty",
-						"html:target/cucumber-reports" }, dryRun = false, monochrome = true)
-
-public class TestRunnerClass extends AbstractTestNGCucumberTests{
+public class TestRunnerClass extends AbstractTestNGCucumberTests {
 
 	@BeforeClass
 	public static void SetUp() {
@@ -31,7 +25,7 @@ public class TestRunnerClass extends AbstractTestNGCucumberTests{
 		PropertyConfigurator.configure("log4j.properties");
 		logger.setLevel(Level.DEBUG);
 		// Setting the Base Url
-		baseURI = ReusableFunction.readPropertiesFile().getProperty("BASE_URI");
+	 	baseURI = ReusableFunction.readPropertiesFile().getProperty("BASE_URI");
 	}
 
 	@AfterClass

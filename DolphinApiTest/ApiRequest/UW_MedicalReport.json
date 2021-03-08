@@ -1,37 +1,38 @@
 {
-	"request": {
-		"metadata": {
-			"X-Correlation-ID":"1234567890",
-            "X-App-ID":"TPP"
-
-		},
-		"payload": {
-			"proposalNo": "521485692",
-			"goCode": "W0003",
-			"productCode": "TNOTP2",
-			"occupation": "Salaried",
-			"education": "Graduate",
-			"fsa": "200000",
-			"creditScore": "650",
-			"estimatedIncome": "800000",
-			"bse500": "Yes",
-			"declaredIncome": "1000000",
-			"afyp": "100000",
-			"panNumber": "Yes",
-			"neftPresent": "Yes",
-			"pepFlag": "No",
-			"nationality": "Indian",
-			"modeOfPayment": "cash",
-			"age": "40",
-			"exShowroomPrice": "1000000",
-			"parentsInsurance": "0",
-			"spouseInsurance": "50000",
-			"idv": "250000",
-			"actualIncome": "500000",
-			"category": "T+M+B",
-			"sumAssured":"200000",
-			"smokerClass":"No",
-			"currentBucket": "CBMA"
-		}
-	}
+    "request": {
+        "metadata": {
+            "X-Correlation-ID": "25478965874",
+            "X-App-ID": "IBPS"
+        },
+        "payload": {
+            "proposalNo": "521485692",
+            "goCode": "W0003",
+            "productCode": "TNOTP2",
+            "occupation": "Salaried",
+            "education": "Graduate",
+            "fsa": "20000",
+            "creditScore": "650",
+            "estimatedIncome": "80000",
+            "bse500": "Yes",
+            "declaredIncome": "100000",
+            "afyp": "10000",
+            "panNumber": "Yes",
+            "neftPresent": "Yes",
+            "pepFlag": "No",
+            "nationality": "Indian",
+            "modeOfPayment": "cash",
+            "age": "40",
+            "exShowroomPrice": "100000",
+            "parentsInsurance": "0",
+            "spouseInsurance": "5000",
+            "idv": "25000",
+            "actualIncome": "50000",
+            "category": "T+M+B",
+            "sumAssured": "20000",
+            "smokerClass": "No",
+            "customerClasification": "Priority",
+            "currentBucket": "CBMA",
+            "previousUrmuOutput": "N"
+        }
+    }
 }

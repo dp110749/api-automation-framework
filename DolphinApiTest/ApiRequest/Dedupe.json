@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "X-Correlation-ID": "12113123",
+        "X-App-ID": "DOLPHIN",
+        "proposalNumber": "12345678"
+    },
+    "payload": {
+        "firstName": "ANIL",
+        "gender": "F",
+        "panNo": "BVDPS1118J",
+        "mobileNo": "",
+        "emailId": "",
+        "dob": "01-01-1982",
+        "prevPolicy": "",
+        "lastName": "KUMAR",
+        "udiNumber": "",
+        "eaiNumber": "",
+        "ckycNumber": "",
+        "bankAccNumber": ""
+    }
+}

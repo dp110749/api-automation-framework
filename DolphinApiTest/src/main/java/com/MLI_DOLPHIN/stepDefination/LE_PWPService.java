@@ -115,11 +115,11 @@ public class LE_PWPService {
 	}
 	@Then("^: I want to validate the premium amount should not be null$")
 	public void premium_amount_should_not_be_null() throws Throwable {
-		responseBody.then().root("payload").body("premiumAmount.biInstallmentPremiumTotalWithoutGST", Matchers.notNullValue())
+		responseBody.then().root("payload").body("premiumAmount.sumAssured", Matchers.notNullValue())
 		.and()
-		.body("premiumAmount.biInstallmentPremiumBasePlanWithGST", Matchers.notNullValue())
-		.and()
-		.body("premiumAmount.biInstallmentPremium", Matchers.notNullValue())
+		.body("premiumAmount.modalPremium", Matchers.notNullValue())
+//		.and()
+//		.body("premiumAmount.biInstallmentPremium", Matchers.notNullValue())
 		;
 		logger.info("Premium is generated successfully");
 

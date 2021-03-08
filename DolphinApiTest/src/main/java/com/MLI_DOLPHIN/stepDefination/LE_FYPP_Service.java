@@ -116,6 +116,7 @@ public class LE_FYPP_Service {
 			if (requestBody.length() > 0) {
 				responseBody = WebservicesMethod.POST_METHOD(testUrl, requestBody,
 						ReusableFunction.requestHeaders(header));
+				logger.info("Response data ...."+responseBody.prettyPrint());
 			} else {
 				logger.info("send request is invaild ");
 			}

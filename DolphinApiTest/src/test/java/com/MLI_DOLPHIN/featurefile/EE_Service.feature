@@ -4,7 +4,7 @@ Background:
 	Given :set the url request and header 
 	
 		|url                        |header                                            |requestFile      |           
-		|/developer/execution-engine|x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| EE_Service.json |
+		|/developer/autounderwriting|x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| EE_Service.json |
 
 @PositiveTest		
 Scenario Outline: to test functionality when user send the valid request 
@@ -15,7 +15,7 @@ Scenario Outline: to test functionality when user send the valid request
 		|statuscode|status | 
 		|200       |success|
 		
-@NegativeTest		
+@NegativeTest0001			
 Scenario Outline: to test functionality when user send header as null 
 	Given : i want to set the "<header>" 
 	When :i want to send the request 
@@ -23,7 +23,7 @@ Scenario Outline: to test functionality when user send header as null
 	
 	Examples: 
 		|header        |statuscode|
-		|x-api-key:null|403       |
+		|x-api-key:null|200       |
 		
 @NegativeTest		
 Scenario Outline: to test functionality when user send invaild request url 
@@ -32,8 +32,8 @@ Scenario Outline: to test functionality when user send invaild request url
 	Then :i want to validate the response "<statuscode>" 
 	
 	Examples: 
-		|requestUrl                                             |statuscode|
-		|/developer/microservices/mli/dolphin/api/ee/AutoUWMS/v1|404       |
+		|requestUrl                      |statuscode|
+		|/developer/asautounderwriting   |403       |
 
 #@NegativeTest1		
 #Scenario Outline: to test functionality when user remove the PolicyAgentCustomerInfo field and send the request

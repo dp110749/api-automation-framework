@@ -47,27 +47,27 @@ Scenario Outline:
 	
 	Examples: 
 	
-		|url                                                 |urltype            |statusCode   |
-		|developer/microservices/mli/api/life-engage/premium |illustrationurl    |  404        | 		
+		|url                      |urltype            |statusCode   |
+		|developer/leaaillustration |illustrationurl    |  403        | 		
 
-@NegativeTest		
+@NegativeTes		
 Scenario Outline: 
 	To test the functionality when user remove the paylod field and send the request 
 
 	Given : I want to set inputdata in request 
-		|inputData                | oparationType |
-		|{"nameOfInsured":"Akash"}| removeData    |
+		|inputData          | oparationType |
+		|{"channel": "K"}   | removeData    |
 		
 		
 	When :I want to send the request 
 	Then :I want to validate the response code "<statusCode>" 
-	And :I want to validate the response error message "<responseMessage>" 
+	And :I want to validate the response message "<responseMessage>"
 	Examples: 
 	
 		| statusCode  | responseMessage|
-		|  400        | Bad Request    |		
+		|  200        | Failed         |		
 		
-@PositiveTest		
+@PositiveTest5		
 Scenario Outline: 
 	To test the functionality when user send the request for premium generator 
 		
@@ -96,25 +96,25 @@ Scenario Outline:
 	Examples:  
 	
 		| statusCode  | responseMessage|
-		|  200        |Failed        |
+		|  200        |Failed          |
 
-@NegativeTest		
+@NegativeTest	
 Scenario Outline: 
 	To test the functionality when user send the request with ageOfInsured as empty 
 	
 	Given : i want set the data for testing 
 		|inputData            |oparationToperform|
-		|{"ageOfInsured":"27"}| removeData       |
+		|{"ageOfInsured":"33"}| removeData       |
 		
 	When :I want to send the request for premium 
 	Then :I want to validate the response code "<statusCode>" 
-	And :I want to validate the response error message "<responseMessage>" 
+	And :I want to validate the response message "<responseMessage>"
 	Examples: 
 	
 		| statusCode  | responseMessage|
-		|  400        | Bad Request    |		
+		|  200        | Failed         |		
 
-@NegativeTest		
+@NegativeTest0000		
 Scenario Outline: 
 	To test the functionality when user send invalid url for premium 
 	Given : I want to set invalid url "<url>" and url type "<urltype>" 
@@ -123,8 +123,8 @@ Scenario Outline:
 	
 	Examples: 
 	
-		|url                                                 |urltype       |statusCode   |
-		|developer/microservices/mli/api/life-engage/premis  |premiumurl    |  404        | 		
+		|url                  |urltype       |statusCode   |
+		|developer/aqremiums  |premiumurl    |  403        | 		
 		
 			
 		#Scenario Outline: 

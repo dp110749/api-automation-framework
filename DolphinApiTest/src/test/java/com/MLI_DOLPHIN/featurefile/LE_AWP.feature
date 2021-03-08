@@ -22,20 +22,20 @@ Scenario Outline: To test the functionality for illustration generator
 	Examples: 
 		|statusCode|messageCode|
 		|  200     |Success|
-@NegativeTest		
+@NegativeTest00001		
 Scenario Outline: To test the functionality when send bad request 
 	Given I remove the field from payload and send request
 	
     	|   testData          |oparationToperform|  	
-    	|{"agentId": "719707"}|        removeData|
+    	|{"sumAssured": "6587155.96"} |        removeData|
     	
 	When Send the post request 
 	Then I try Validate the response status code "<statusCode>" 
-	And i want to validate response error message "<messageCode>" 
-	
+#	And i want to validate response error message "<messageCode>" 
+	And i want to validate success message "<messageCode>"
 	Examples: 
-		|Oparation |statusCode|messageCode|
-		|removeData|  400     |Bad Request|
+		 |statusCode|messageCode |
+		 |  200     |Failure     |
 		
 @NegativeTest		
 Scenario: To test the functionality when user send invalid inputdata in request 
@@ -80,24 +80,24 @@ Scenario Outline: To test the functionality when user send wrong url for AWP pre
 	Given I want to set request url "<url>" 
 	When Send the post request  
 	Then I try Validate the response status code "<statuscode>"
-	And i want to validate error message "<responseMessage>" 
+#	And i want to validate error message "<responseMessage>" 
 	
 	Examples:
-	| url                                                      |statuscode| responseMessage    |
-	| /developer/microservices/mli/api/life-engage/premium     |404       | Not Found          |
+	| url                    |statuscode| 
+	| /developer/premium     |403       | 
 	
 	
-@NegativeTest	
+@NegativeTest
 Scenario Outline:To test the functionality of AWP premiunm service when user send invalid inputdata in request 
 	Given I want to set the input data in request 
 
 	    |oparationType|inputData                                        |        url         |
 		|changeData   |{"nameOfInsured": "Akassh","agentId": "9s7www07"}|/developer/lepremium|
 	When Send the post request	
-	Then I try Validate the response status code "<statuscode>" 
+	Then I try Validate the response status code"<statuscode>" 
 	And I want to validate the response time and request type response app id 
 #	And I want to validate the illustration generated or not for valid  request 
-	And i want to validate success message "<responseMessage>" 
+	And i want to validate success message"<responseMessage>" 
 	
 	Examples:
       |statuscode| responseMessage    |

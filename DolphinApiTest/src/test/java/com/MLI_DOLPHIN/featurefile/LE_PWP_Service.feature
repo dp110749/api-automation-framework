@@ -27,7 +27,7 @@ Scenario Outline:
 	Given : Set the input test data 
 	
 		| inputData           | oprationType|
-		| {"ageOfPayer":"27"}| removeData  |
+		| {"ageOfInsured":"27"}| removeData  |
 		
 	Then : Send the request for illustation
 	Then : I want to validate the response "<statusCode>"  
@@ -35,7 +35,7 @@ Scenario Outline:
 	
 	Examples: 
 		|statusCode|responseMessage|
-		|400       |Bad Request    |
+		|200       |Failed    |
 @NegativeTest	
 Scenario Outline: 
 	validate the response when user send the mandotary field as null
@@ -53,7 +53,7 @@ Scenario Outline:
 		|statusCode|responseMessage|
 		|200       |Failed    |
 		
-@PositiveTest	
+@PositiveTest00000	
 Scenario Outline: 
 	to check the premium is generated or not 
 	Then : Send the request for premium
@@ -89,15 +89,15 @@ Scenario Outline:
 	Given : Set the input test data 
 	
 		| inputData           | oprationType|
-		| {"ageOfPayer":"27"}| removeData  |
+		| {"ageOfInsured":"27"}| removeData  |
 		
 	Then : Send the request for premium
 	Then : I want to validate the response "<statusCode>"  
-	And : I want to validate the response message "<responseMessage>" 	
+#	And : I want to validate the response message "<responseMessage>" 	
 	
 	Examples: 
 		|statusCode|responseMessage|
-		|400       |Bad Request    |
+		|200       |Failed         |
  
 @NegativeTest		
 Scenario Outline: 
@@ -110,8 +110,8 @@ Scenario Outline:
 	And : I want to validate the response message "<responseMessage>" 	
 	
 	Examples: 
-		|statusCode|responseMessage|                  invaildUrl                            |
-		|400       |Bad Request    |developer/microservices/mli/api/life-engage/premium/awp |
+		|statusCode|responseMessage|   invaildUrl           |
+		|403       |Forbidden      |/developersss/lepremium |
 		
 @NegativeTest		
 Scenario Outline: 
@@ -124,8 +124,8 @@ Scenario Outline:
 	And : I want to validate the response message "<responseMessage>" 	
 	
 	Examples: 
-		|statusCode|responseMessage|apiKey           | apiValue |
-		|400       |Bad Request    |X-Correlation-ID |          |
+		|statusCode|responseMessage|apiKey    | apiValue |
+		|200       |Forbidden      |x-api-key |          |
 		
 		
 		

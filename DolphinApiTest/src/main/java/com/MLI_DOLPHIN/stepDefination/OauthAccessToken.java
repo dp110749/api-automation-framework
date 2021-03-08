@@ -80,8 +80,8 @@ public class OauthAccessToken {
 	public void i_try_to_verify_the_response_value_is_and_successmessage(String jsonPayload, String responseValue,
 			String responseMessage) throws Throwable {
 
-		responseBody.then().spec(SpecificationFactory.getGenericResponseSpec()).and().root(jsonPayload)
-				.body(responseValue, Matchers.notNullValue()).and().root("msgInfo")
+//		responseBody.then().spec(SpecificationFactory.getGenericResponseSpec()).and().root(jsonPayload)
+		responseBody.then().root(jsonPayload).body(responseValue, Matchers.notNullValue()).and().root("msgInfo")
 				.body("msgDescription", Matchers.comparesEqualTo(responseMessage.trim()));
 
 	}

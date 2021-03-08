@@ -119,9 +119,7 @@ public class Ifsc_Micr {
 	
 	@When("^I hit the API with requestbody \"([^\"]*)\" with passing the micrcode \"([^\"]*)\" value \"([^\"]*)\" and replacing the value of ifsc \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void i_hit_the_API_with_requestbody_with_passing_the_micrcode_value_and_replacing_the_value_of_ifsc_and(String requestBodyPath, String ifsckey, String ifscvalue, String micrKey, String micrValue) throws Throwable {
-       
-		System.out.println(ifsckey+"--"+ifscvalue+"----"+micrKey+"---------"+micrValue);
-		
+       		
 		if (requestBodyPath != null && !requestBodyPath.isEmpty()) {
 			JSONParser jsonParser = new JSONParser();
 			FILE_PATH = System.getProperty("user.dir") + "/ApiRequest/" + requestBodyPath;
@@ -138,7 +136,7 @@ public class Ifsc_Micr {
 				JSONObject finalJsonRequest = ReusableFunction.replacekeyInJSONObject(jsonobjectToreplaceMicrkeyValue, micrKey, micrValue); 
 				
 				FINALREQUEST=finalJsonRequest.toJSONString();
-				logger.info("Request Body is ==================== "+FINALREQUEST);
+				
 			} catch (FileNotFoundException | ParseException exc) {
 				exc.printStackTrace();
 			}

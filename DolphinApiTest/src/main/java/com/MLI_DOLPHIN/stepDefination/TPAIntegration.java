@@ -210,24 +210,20 @@ public class TPAIntegration {
 			if (requestBody.length() > 0) {
 				responseBody = WebservicesMethod.POST_METHOD(testUrl, requestBody,
 						ReusableFunction.requestHeaders(header));
-//				System.out.println("------------" + responseBody.prettyPrint());
+				logger.info("TPA integration response for negative test ::" + responseBody.prettyPrint());
 			} else {
 				logger.info("sent request is invaild ");
-	//			assert
 			}
 			
 			if (msgCode.equals("400")) {
 				responseBody.then().root("msgInfo").body("msgCode", Matchers.equalToIgnoringCase(msgCode)).and()
 						.body("msg", Matchers.equalTo(msg));
 				logger.info("verify the error msg due to sending invaild input data: RESULT AS PER EXPECTATION");
-	//			logger.info("Response Body : " + responseBody.prettyPrint());
 			} else if (msgCode.equals("")) {
 				responseBody.then().body("error", Matchers.equalToIgnoringCase(msg));
 				logger.info("Verify bad request ");
-	//			logger.info("Response Body : " + responseBody.prettyPrint());
 			} else {
 				logger.info("Unexpected response received from api.");
-	//			logger.info("Response Body : " + responseBody.prettyPrint());
 				
 			}
 			logger.info("Response Body : " + responseBody.prettyPrint());
@@ -238,15 +234,6 @@ public class TPAIntegration {
 	public void set_header_values_for_TPA_Integration(String inputHeader) throws Throwable {
           header =inputHeader;
 	}
-	
-/*	@Given("^:Set the x-correlation-ID data for TPA Integration into request \"([^\"]*)\" and \"([^\"]*)\"$")
-	public void set_the_input_test_data_for_TPA_Integration_in_request(String apiKey, String apiValue) throws Throwable {
-     JSONObject requestInjsonObject= ReusableFunction.createJSONObject(requestBody);
-     JSONObject updatedRequest=ReusableFunction.replacekeyInJSONObject(requestInjsonObject, apiKey, apiValue);
-     requestBody=  updatedRequest.toString();
- 	
-	}
-*/	
 	@Given("^:Set the Input Value for TPA Integration in request \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void set_the_input_value_for_TPA_Integration_in_request(String apiKey, String apiValue) throws Throwable {
      JSONObject requestInjsonObject= ReusableFunction.createJSONObject(requestBody);
@@ -255,32 +242,4 @@ public class TPAIntegration {
  	
 	}
 	
-	
-	
-	
-	/*@When("^i want to send the request for Discrepancy Rule Engine$")
-	public void i_want_to_send_the_request_for_discrepancy_rule_engine() throws Throwable {
-		responseBody = WebservicesMethod.POST_METHOD(url, requestBody,
-				ReusableFunction.requestHeaders(header));
-		logger.info("Response Body for premium::" + responseBody.prettyPrint());
-
-	}*/	
-
-//	@SuppressWarnings("deprecation")
-//	@Then("^i want check premium amount \"([^\"]*)\" and \"([^\"]*)\"$")
-//	public void i_want_check_premium_amount_and(String premiumPartA, String premiumPartB) throws Throwable {
-//       responseBody.then().root("payload.premiumAmount").body(premiumPartA.trim(), Matchers.notNullValue())
-//       .and().body(premiumPartB.trim(), Matchers.notNullValue(String.class)); 
-//		responseBody.then().rootPath("payload").body("premiumAmount.Part A", Matchers.notNullValue());
-
-//		responseBody.then().rootPath("payload")
-//		.body("premiumAmount.Part A", Matchers.hasItem(premiumPartA));
-//                      .and().body("Part B", Matchers.hasItem(premiumB))
-//                      .and().body("Part C", Matchers.hasItem(premiumC));
-//
-	
-	}
-
-
-
-//}
+}
