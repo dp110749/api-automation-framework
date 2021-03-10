@@ -116,6 +116,43 @@ public class LE_SJB_Service {
       responseBody.then().root("payload.premiumAmount").body("AFYP", Matchers.equalTo(afyp));
       logger.info("Validation of AFYP is Successfull..");
 	}
+	@Given("^Lets set the illustration url\"([^\"]*)\"$")
+	public void lets_set_the_illustration_url(String illustrationUrl) throws Throwable {
+     endPointUrl=illustrationUrl;
+     logger.info("Set url successfully..");
+	}
 
+	@When("^Lets validate the illustration generated or not$")
+	public void lets_validate_the_illustration_generated_or_not() throws Throwable {
+              responseBody.then().root("payload").body("illustrationPdfBase64", Matchers.notNullValue());
+              logger.info("illustration generated successfully...");
+	}
+	@Given("^Lets set the sumAssurd\"([^\"]*)\" and afypvalue\"([^\"]*)\"$")
+	public void lets_set_the_sumAssurd(String inputSumAssurd,String inputafyp) throws Throwable {
+       sumAssured=inputSumAssurd;
+       logger.info("SumAssurd set successfully is :"+sumAssured);
+       afyp=inputafyp;
+	}
+	@Given("^Set Correlation id\"([^\"]*)\"$")
+	public void set_Correlation_id(String inputCorrelationID) throws Throwable {
+		correlationID=inputCorrelationID;
+		logger.info("Correlation Id set successfully..");
+	}
+	@Given("^Set the header for SJB\"([^\"]*)\"$")
+	public void set_the_header_for_SJB(String inputHeadr) throws Throwable {
+		header = inputHeadr;
+		logger.info("Header set successfully..");
+	}
+	@Given("^Set the channel for SJB\"([^\"]*)\"$")
+	public void set_the_chnnel_for_SJB(String inputchannel) throws Throwable {
+		channel = inputchannel;
+		logger.info("Channel set successfully..");
+	}
+	@Given("^Set the insurdGender for SJB\"([^\"]*)\"$")
+	public void set_the_insurdGender_for_SJB(String inputInsurdGender) throws Throwable {
+		insuredGender=inputInsurdGender;
+		logger.info("Insurd Gender set successfully..");
+
+	}
 
 }

@@ -3,7 +3,6 @@ package com.MLI_DOLPHIN.stepDefination;
 import java.io.IOException;
 import java.util.List;
 import java.util.regex.Pattern;
-
 import org.apache.log4j.Logger;
 import org.hamcrest.Matchers;
 import com.MLI_DOLPHIN.baseclass.WebservicesMethod;
@@ -161,9 +160,5 @@ public class LE_SWP_Service {
     header=inputHeader;
     logger.info("user set header as null..");
 	}
-
-
-
-
 
 }
