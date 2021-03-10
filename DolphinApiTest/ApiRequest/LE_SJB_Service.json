@@ -1,0 +1,41 @@
+{
+    "metadata": {
+        "X-Correlation-ID": "{{X-Correlation-ID}}",
+        "X-App-ID": "IBPS",
+        "ProposalNumber": "330983198"
+    },
+    "payload": {
+        "nameOfInsured": "Gyan",
+        "ageOfInsured": "25",
+        "genderOfInsured": "{{genderOfInsured}}",
+        "nameOfPayer": "Gyan",
+        "ageOfPayer": "25",
+        "genderOfPayer": "T",
+        "isNri": "No",
+        "policyHolderStateName": "HARYANA",
+        "maxLifeRegisteredStateName": "Haryana",
+        "sumAssured": "{{sumAssured}}",
+        "policyTerm": "20",
+        "premiumPayingTerm": "20",
+        "paymentModeName": "12",
+        "premiumPaymentType": "RGLR",
+        "objectiveOfInsurance": "IP",
+        "channel": "{{channel}}",
+        "productName": "SJB_Validation",
+        "edc": "2021-02-23",
+        "emrBaseIsRequired": "No",
+        "emrBaseRate": "",
+        "flatExtraBaseIsRequired": "No",
+        "flatExtraBaseRate": "",
+        "flatExtraBaseDuration": "",
+        "policyHolderStateCode": null,
+        "maxLifeRegisteredStateCode": null,
+        "isLiEqualsPh": "Y",
+        "relayPointId": null,
+        "relayPointName": null,
+        "reasonOfFailure": null,
+        "request": null,
+        "response": null,
+        "committedPremium": "0.0"
+    }
+}
