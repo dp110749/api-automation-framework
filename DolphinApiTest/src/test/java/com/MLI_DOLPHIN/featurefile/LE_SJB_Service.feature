@@ -130,7 +130,7 @@ Examples:
 |channel  |
 |  M      |
 
- @SJB_NegativeTest006
+ @SJB_NegativeTest006	
 Scenario Outline: To check functionality of SJB when pass invaild Gender
 Given Set the Expected data
 |ResponseStatusCode|ResponseMsgCode|ResponseMessage|ResponseAFYP|
@@ -144,9 +144,4 @@ Examples:
 |insurdGender  |
 |  M           |
 
- 
- 
- 
- 
- 
  
