@@ -1,0 +1,35 @@
+{
+    "metadata": {
+        "X-Correlation-ID": "{{X-Correlation-ID}}",
+        "X-App-ID": "DOLPHIN"
+    },
+    "payload": {
+        "ageOfInsured": "{{ageOfInsured}}",
+        "channel": "{{channel}}",
+        "income": "{{income}}",
+        "lifeStage": "SINGLE WITH CHILDREN",
+        "need": "{{need}}",
+        "planGroup": "{{planGroup}}",
+        "isForm2": "{{isForm2}}",
+        "isInsuredAgeLessThan18": "{{isInsuredAgeLessThan18}}",
+        "isPayorRiderTaken": "{{isPayorRiderTaken}}",
+        "isPremHalfOfIncome": "{{isPremHalfOfIncome}}",
+        "balanceFund": "{{balanceFund}}",
+        "conservativeFund": "N",
+        "dfa": "{{dfa}}",
+        "diversifiedEquityFund": "N",
+        "dynamicBondFund": "N",
+        "growthFund": "{{growthFund}}",
+        "growthSuperFund": "{{growthSuperFund}}",
+        "highGrowthFund": "{{highGrowthFund}}",
+        "irpScore": "{{irpScore}}",
+        "lifeCycleBased": "{{lifeCycleBased}}",
+        "moneyMarketFund": "N",
+        "pensionMaxFund": "N",
+        "pensionPreFund": "N",
+        "secureFund": "N",
+        "stp": "{{stp}}",
+        "triggerBased": "{{triggerBased}}",
+        "productFamily": "{{productFamily}}"
+       }
+}
