@@ -120,4 +120,23 @@ Examples:
 | 200           | 200        |Success   | FAIL        | very Aggressive |  N    |14        |ULIP             |U2NF20   | N  | N           | N         |  Y       | N            |  N            |N           |
 | 200           | 200        |Success   | PASS        | very Aggressive |  Y    |14        |ULIP             |U2NF20   | N  | N           | N         |  N       | N            |  N            |N           |
 
+@NegativeTest_01
+Scenario Outline: To test the functionality of PSM Service when pass correlationId as null
+Given Lets set the correlation id for PSM"<CorrelationID>"
+When Lets Send the POST request for PSM
+Then Lets valiate the response status code"<RespStatusCode>"
+And Lets Validate the response message code"<RespMsgCode>"
+And Lets Validate teh response Message"<RespMsg>"
+Examples:
+|RespStatusCode |RespMsgCode |RespMsg   |CorrelationID|
+| 200           | 400        |Failure   |             |
+
+@NegativeTest_02
+Scenario Outline: To test the functionality of PSM Service when pass correlationId as null
+Given Lets set the endPointUrlfor PSM"<url>"
+When Lets Send the POST request for PSM
+Then Lets valiate the response status code"<RespStatusCode>"
+Examples:
+|RespStatusCode   |url               |
+| 403             |developer/psm/dsd |
 

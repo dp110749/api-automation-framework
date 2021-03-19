@@ -307,6 +307,19 @@ public class PSM_Service {
 		logger.info("User set the balancedFund is  :" + balancedFund);	
 
 	}
+	@Given("^Lets set the correlation id for PSM\"([^\"]*)\"$")
+	public void lest_Set_the_CorrelationID(String inputCorrelationId) throws Throwable {
+		correlarionID=inputCorrelationId;
+		logger.info("User set the corrleationID is  :" + correlarionID);	
+
+	}
+	@Given("^Lets set the endPointUrlfor PSM\"([^\"]*)\"$")
+	public void lest_Set_the_EndPointUrl(String inputEndPointUrl) throws Throwable {
+		endPointUrl=inputEndPointUrl;
+		logger.info("User set the endPoint url is  :" + endPointUrl);	
+
+	}
+
 
 
 
