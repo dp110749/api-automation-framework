@@ -24,7 +24,7 @@ Scenario: To test the functionality of myAgent Service the with multiple data
 	Given Set the Test data for MyAgent Service 
 	
 		|TestData              |oparationType |responseData                   |msg                                              | msgCode  |
-		|{"agentId1":"615118"} | changeData   | Radhika Sareen                | Agent Valid                                     | 200      |  
+		|{"agentId1":"358768"} | changeData   | Ramani Sachidanandan          | Agent Valid                                     | 200      |  
 		|{"agentId1":"447660"} | changeData   | Salzina Cruzinha Fernandes    | Agent Valid                                     | 200      | 	
 		|{"agentId1":"655393"} |changeData    | null                          | Agent655393 Not Valid : Agent channel does not match  | 200      |		
  
