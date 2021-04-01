@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "X-Correlation-ID": "{{X-Correlation-ID}}",
+    "X-App-ID": "IBPS"
+  },
+  "payload": {
+    "transactionID": "9e59098a45f549e894",
+    "nameOfPayer": "M",
+    "ageOfPayer": "28",
+    "genderOfPayer": "M",
+    "nameOfInsured": "K",
+    "ageOfInsured": "{{ageOfInsured}}",
+    "genderOfInsured": "F",
+    "isNri": "No",
+    "policyHolderStateName": "DELHI",
+    "maxLifeRegisteredStateName": "MAHARASHTRA",
+    "sumAssured": "2000000",
+    "maturityAge": "60",
+    "edc": "2020-05-30",
+    "paymentModeName": "12",
+    "isLIEqualsPH": "N",
+    "spCode": "122609",
+    "committedPremium": "{{committedPremium}}",
+    "channel": "{{channel}}",
+    "productCode": "86",
+    "productName": "{{productName}}",
+    "productGroup": "Traditional",
+    "objectiveOfInsurance": "CEIP",
+    "agentId": "100766"
+  }
+}
