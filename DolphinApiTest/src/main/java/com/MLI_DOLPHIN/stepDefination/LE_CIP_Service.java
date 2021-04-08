@@ -107,6 +107,23 @@ public class LE_CIP_Service {
         endPointUrl=inputendPointUrl;
         logger.info("User set the end point url successfully..");
 	}
+	@Given("^Lets set the insurd age\"([^\"]*)\"$")
+	public void lets_set_the_insurd_age(String inputIinsuredAge) throws Throwable {
+		insuredAge = inputIinsuredAge;
+		logger.info("Set the input insured age Successfully..");
+	
+	}
 
+	@Given("^Lets set the channel\"([^\"]*)\"$")
+	public void lets_set_the_channel(String inputChannel) throws Throwable {
+		channel = inputChannel;
+		logger.info("set the committed premium successfully..");	
+	}
+
+	@Given("^Lets set the committed premium\"([^\"]*)\"$")
+	public void lets_set_the_committed_premium(String inputcommittedPremium) throws Throwable {
+		committedPremium=inputcommittedPremium;
+		logger.info("Set the committed premium successfully..");
+	}
 
 }
