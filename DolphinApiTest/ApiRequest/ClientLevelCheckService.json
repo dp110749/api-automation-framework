@@ -1,0 +1,27 @@
+{
+    "metadata": {
+        "X-Correlation-ID": "{{X-Correlation-ID}}",
+        "X-App-ID": "iBPS"
+    },
+    "payload": {
+        "insuredAge": "{{insuredAge}}",
+        "insuredClientId": "{{insuredClientId}}",
+        "currentBaseProductCode": "{{currentBaseProductCode}}",
+        "currentBaseSumAssured": "{{currentBaseSumAssured}}",
+        "currentBasePremium": "5000",
+        "riderInfo": [
+            {
+                "currentRiderProduct": "{{currentRiderProduct1}}",
+                "currentRiderSumAssured": "{{currentRiderSumAssured1}}",
+                "currentRiderPremium": "500",
+                "riderPlanDuration": "40"
+            },
+            {
+                "currentRiderProduct": "EFGWOP",
+                "currentRiderSumAssured": "20000.00",
+                "currentRiderPremium": "500",
+                "riderPlanDuration": "40"
+            }
+         ]
+    }
+}
