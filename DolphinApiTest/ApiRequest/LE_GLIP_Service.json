@@ -1,0 +1,32 @@
+
+{
+    "metadata": {
+        "X-Correlation-ID": "387645633-af3ZQ8EBUYdCsDE",
+        "X-App-ID": "IBPS",
+        "ProposalNumber": "387645633"
+    },
+    "payload": {
+        "nameOfInsured": "Keoiroir",
+        "policyHolderStateCode": null,
+        "maxLifeRegisteredStateCode": null,
+        "ageOfInsured": "{{ageOfInsured}}",
+        "genderOfInsured": "M",
+        "nameOfAnnuitant": "Keoiroir",
+        "ageOfAnnuitant": "50",
+        "genderOfAnnuitant": "M",
+        "isNri": "N_N",
+        "policyHolderStateName": "RAJASTHAN",
+        "maxLifeRegisteredStateName": "HARYANA",
+        "incomePaymentFrequency": "12",
+        "annuityPurchasedFrom": "IAJ",
+        "variant": "{{variant}}",
+        "purchasePrice": "{{purchasePrice}}",
+        "defermentPeriod": "",
+        "annuityOption": "IAJ",
+        "rop": "IAJ",
+        "IsOnline": "N",
+        "channel": "A",
+        "edc": "2021-07-26",
+        "productName": "{{productName}}"
+    }
+}
