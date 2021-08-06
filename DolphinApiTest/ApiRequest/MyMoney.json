@@ -4,7 +4,7 @@
       "X-App-ID": "IBPS"
     },
     "payload": {
-      "policyNo": "329989917",
-      "premiumAmount" : "250001"
+      "policyNo": "{{policyNo}}",
+      "premiumAmount" : "{{premiumAmount}}"
     }
 }
