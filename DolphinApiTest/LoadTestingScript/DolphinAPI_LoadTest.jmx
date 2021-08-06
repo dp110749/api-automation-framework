@@ -8712,6 +8712,200 @@
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Client_Level_Check" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;123456-asdfg&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;iBPS&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;insuredAge&quot;: &quot;3&quot;,&#xd;
+        &quot;insuredClientId&quot;: &quot;5005563508&quot;,&#xd;
+        &quot;currentBaseProductCode&quot;: &quot;100000&quot;,&#xd;
+        &quot;currentBaseSumAssured&quot;: &quot;4000000&quot;,&#xd;
+        &quot;currentBasePremium&quot;: &quot;150000&quot;,&#xd;
+        &quot;riderInfo&quot;: [&#xd;
+            {&#xd;
+                &quot;currentRiderProduct&quot;: &quot;VP02&quot;,&#xd;
+                &quot;currentRiderSumAssured&quot;: &quot;9999999&quot;,&#xd;
+                &quot;currentRiderPremium&quot;: &quot;50000&quot;,&#xd;
+                &quot;riderPlanDuration&quot;: &quot;201&quot;&#xd;
+            }&#xd;
+         ]&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/dev-dolphin-client-level-check</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_GLIP_PREMIUM" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
+        &quot;ProposalNumber&quot;: &quot;387645656&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;annuityPurchasedFrom&quot;: &quot;IAJ&quot;,&#xd;
+        &quot;annuityOption&quot;: &quot;IAJ&quot;,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;edc&quot;: &quot;2021-07-26&quot;,&#xd;
+        &quot;isNri&quot;: &quot;N_N&quot;,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;defermentPeriod&quot;: &quot;&quot;,&#xd;
+        &quot;channel&quot;: &quot;A&quot;,&#xd;
+        &quot;purchasePrice&quot;: &quot;1200000&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Guaranteed Lifetime Income Plan&quot;,&#xd;
+        &quot;IsOnline&quot;: &quot;N&quot;,&#xd;
+        &quot;rop&quot;: &quot;IAJ&quot;,&#xd;
+        &quot;ageOfAnnuitant&quot;: &quot;60&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
+        &quot;genderOfAnnuitant&quot;: &quot;M&quot;,&#xd;
+        &quot;incomePaymentFrequency&quot;: &quot;12&quot;,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;RAJASTHAN&quot;,&#xd;
+        &quot;variant&quot;: &quot;IAJ&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;Keoiroir&quot;,&#xd;
+        &quot;nameOfAnnuitant&quot;: &quot;Keoiroir&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;abc&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/lepremium</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_GLIP_ILLUSTRATION" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
+        &quot;ProposalNumber&quot;: &quot;387645656&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;annuityPurchasedFrom&quot;: &quot;IAJ&quot;,&#xd;
+        &quot;annuityOption&quot;: &quot;IAJ&quot;,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;edc&quot;: &quot;2021-07-26&quot;,&#xd;
+        &quot;isNri&quot;: &quot;N_N&quot;,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;defermentPeriod&quot;: &quot;&quot;,&#xd;
+        &quot;channel&quot;: &quot;A&quot;,&#xd;
+        &quot;purchasePrice&quot;: &quot;1200000&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Guaranteed Lifetime Income Plan&quot;,&#xd;
+        &quot;IsOnline&quot;: &quot;N&quot;,&#xd;
+        &quot;rop&quot;: &quot;IAJ&quot;,&#xd;
+        &quot;ageOfAnnuitant&quot;: &quot;60&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
+        &quot;genderOfAnnuitant&quot;: &quot;M&quot;,&#xd;
+        &quot;incomePaymentFrequency&quot;: &quot;12&quot;,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;RAJASTHAN&quot;,&#xd;
+        &quot;variant&quot;: &quot;IAJ&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;Keoiroir&quot;,&#xd;
+        &quot;nameOfAnnuitant&quot;: &quot;Keoiroir&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;abc&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/leillustration</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
       </hashTree>
       <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Aggregate Graph" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
