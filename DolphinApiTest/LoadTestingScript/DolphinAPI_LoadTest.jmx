@@ -1009,51 +1009,71 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;metadata&quot;: {&#xd;
-    &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
-    &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
-	&quot;ProposalNumber&quot;: &quot;602378715&quot;&#xd;
-  },&#xd;
-  &quot;payload&quot;: {&#xd;
-    &quot;nameOfPayer&quot;: &quot;ABCD&quot;,&#xd;
-    &quot;ageOfPayer&quot;: &quot;45&quot;,&#xd;
-    &quot;genderOfPayer&quot;: &quot;F&quot;,&#xd;
-    &quot;nameOfInsured&quot;: &quot;Aashkaar&quot;,&#xd;
-    &quot;ageOfInsured&quot;: &quot;40&quot;,&#xd;
-    &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
-    &quot;isNri&quot;: &quot;No&quot;,&#xd;
-    &quot;policyHolderStateName&quot;: &quot;GUJARAT&quot;,&#xd;
-    &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
-    &quot;isLIEqualsPH&quot;: &quot;C&quot;,&#xd;
-    &quot;policyTerm&quot;: &quot;30&quot;,&#xd;
-    &quot;premiumPayingTerm&quot;: &quot;20&quot;,&#xd;
-    &quot;paymentModeName&quot;: &quot;03&quot;,&#xd;
-    &quot;committedPremium&quot;: &quot;80000&quot;,&#xd;
-    &quot;isSurrenderRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;coverMultiple&quot;: &quot;10&quot;,&#xd;
-    &quot;productCode&quot;: &quot;34&quot;,&#xd;
-    &quot;productName&quot;: &quot;Max Life Fast Track Super Plan&quot;,&#xd;
-    &quot;growthFund&quot;: &quot;20&quot;,&#xd;
-    &quot;growthSuperFund&quot;: &quot;10&quot;,&#xd;
-    &quot;conservativeFund&quot;: &quot;20&quot;,&#xd;
-    &quot;secureFund&quot;: &quot;20&quot;,&#xd;
-    &quot;balancedFund&quot;: &quot;20&quot;,&#xd;
-    &quot;highGrowthFund&quot;: &quot;10&quot;,&#xd;
-    &quot;dfaOption&quot;: &quot;No&quot;,&#xd;
-    &quot;stpOption&quot;: &quot;No&quot;,&#xd;
-    &quot;channel&quot;: &quot;K&quot;,&#xd;
-    &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
-    &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
-    &quot;emrDuration&quot;: &quot;&quot;,&#xd;
-    &quot;emrRate&quot;: &quot;&quot;,&#xd;
-    &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;agentId&quot;: &quot;719707&quot;&#xd;
-  }&#xd;
-} &#xd;
-&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;ProposalNumber&quot;: &quot;600998967&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;agentId&quot;: &quot;447660&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;29&quot;,&#xd;
+        &quot;ageOfPayer&quot;: &quot;29&quot;,&#xd;
+        &quot;balancedFund&quot;: &quot;30&quot;,&#xd;
+        &quot;channel&quot;: &quot;A&quot;,&#xd;
+        &quot;channelId&quot;: &quot;9094&quot;,&#xd;
+        &quot;ciDisabilityRiderEmrIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderEmrRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderIsRequired&quot;: &quot;Yes&quot;,&#xd;
+        &quot;ciDisabilityRiderPolicyTerm&quot;: &quot;10&quot;,&#xd;
+        &quot;ciDisabilityRiderSumAssured&quot;: &quot;500000.00&quot;,&#xd;
+        &quot;ciDisabilityRiderVariant&quot;: &quot;UCIPPL&quot;,&#xd;
+        &quot;committedPremium&quot;: &quot;50000.0&quot;,&#xd;
+        &quot;conservativeFund&quot;: &quot;20&quot;,&#xd;
+        &quot;coverMultiple&quot;: &quot;10&quot;,&#xd;
+        &quot;dfaOption&quot;: &quot;No&quot;,&#xd;
+        &quot;emrDuration&quot;: &quot;&quot;,&#xd;
+        &quot;emrRate&quot;: &quot;&quot;,&#xd;
+        &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
+        &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
+        &quot;growthFund&quot;: &quot;20&quot;,&#xd;
+        &quot;growthSuperFund&quot;: &quot;10&quot;,&#xd;
+        &quot;highGrowthFund&quot;: &quot;10&quot;,&#xd;
+        &quot;isLIEqualsPH&quot;: &quot;Y&quot;,&#xd;
+        &quot;isNri&quot;: &quot;No&quot;,&#xd;
+        &quot;IsOnline&quot;: &quot;N&quot;,&#xd;
+        &quot;isSurrenderRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;Shadab&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;Shadab&quot;,&#xd;
+        &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+        &quot;paymentModeCode&quot;: null,&#xd;
+        &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;policyTerm&quot;: &quot;10&quot;,&#xd;
+        &quot;premiumPayingTerm&quot;: &quot;5&quot;,&#xd;
+        &quot;productCode&quot;: &quot;34&quot;,&#xd;
+        &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Fast Track Super Plan&quot;,&#xd;
+        &quot;reasonOfFailure&quot;: null,&#xd;
+        &quot;relayPointId&quot;: null,&#xd;
+        &quot;relayPointName&quot;: null,&#xd;
+        &quot;request&quot;: null,&#xd;
+        &quot;response&quot;: null,&#xd;
+        &quot;secureFund&quot;: &quot;10&quot;,&#xd;
+        &quot;stpOption&quot;: &quot;No&quot;,&#xd;
+        &quot;surrenderOptionAmountArray&quot;: [&#xd;
+        ]&#xd;
+    }&#xd;
+}&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1097,51 +1117,71 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;metadata&quot;: {&#xd;
-    &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
-    &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
-	&quot;ProposalNumber&quot;: &quot;602378715&quot;&#xd;
-  },&#xd;
-  &quot;payload&quot;: {&#xd;
-    &quot;nameOfPayer&quot;: &quot;ABCD&quot;,&#xd;
-    &quot;ageOfPayer&quot;: &quot;45&quot;,&#xd;
-    &quot;genderOfPayer&quot;: &quot;F&quot;,&#xd;
-    &quot;nameOfInsured&quot;: &quot;Aashkaar&quot;,&#xd;
-    &quot;ageOfInsured&quot;: &quot;40&quot;,&#xd;
-    &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
-    &quot;isNri&quot;: &quot;No&quot;,&#xd;
-    &quot;policyHolderStateName&quot;: &quot;GUJARAT&quot;,&#xd;
-    &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
-    &quot;isLIEqualsPH&quot;: &quot;C&quot;,&#xd;
-    &quot;policyTerm&quot;: &quot;30&quot;,&#xd;
-    &quot;premiumPayingTerm&quot;: &quot;20&quot;,&#xd;
-    &quot;paymentModeName&quot;: &quot;03&quot;,&#xd;
-    &quot;committedPremium&quot;: &quot;80000&quot;,&#xd;
-    &quot;isSurrenderRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;coverMultiple&quot;: &quot;10&quot;,&#xd;
-    &quot;productCode&quot;: &quot;34&quot;,&#xd;
-    &quot;productName&quot;: &quot;Max Life Fast Track Super Plan&quot;,&#xd;
-    &quot;growthFund&quot;: &quot;20&quot;,&#xd;
-    &quot;growthSuperFund&quot;: &quot;10&quot;,&#xd;
-    &quot;conservativeFund&quot;: &quot;20&quot;,&#xd;
-    &quot;secureFund&quot;: &quot;20&quot;,&#xd;
-    &quot;balancedFund&quot;: &quot;20&quot;,&#xd;
-    &quot;highGrowthFund&quot;: &quot;10&quot;,&#xd;
-    &quot;dfaOption&quot;: &quot;No&quot;,&#xd;
-    &quot;stpOption&quot;: &quot;No&quot;,&#xd;
-    &quot;channel&quot;: &quot;K&quot;,&#xd;
-    &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
-    &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
-    &quot;emrDuration&quot;: &quot;&quot;,&#xd;
-    &quot;emrRate&quot;: &quot;&quot;,&#xd;
-    &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;agentId&quot;: &quot;719707&quot;&#xd;
-  }&#xd;
-} &#xd;
-&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;ProposalNumber&quot;: &quot;600998967&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;agentId&quot;: &quot;447660&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;29&quot;,&#xd;
+        &quot;ageOfPayer&quot;: &quot;29&quot;,&#xd;
+        &quot;balancedFund&quot;: &quot;30&quot;,&#xd;
+        &quot;channel&quot;: &quot;A&quot;,&#xd;
+        &quot;channelId&quot;: &quot;9094&quot;,&#xd;
+        &quot;ciDisabilityRiderEmrIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderEmrRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderIsRequired&quot;: &quot;Yes&quot;,&#xd;
+        &quot;ciDisabilityRiderPolicyTerm&quot;: &quot;10&quot;,&#xd;
+        &quot;ciDisabilityRiderSumAssured&quot;: &quot;500000.00&quot;,&#xd;
+        &quot;ciDisabilityRiderVariant&quot;: &quot;UCIPPL&quot;,&#xd;
+        &quot;committedPremium&quot;: &quot;50000.0&quot;,&#xd;
+        &quot;conservativeFund&quot;: &quot;20&quot;,&#xd;
+        &quot;coverMultiple&quot;: &quot;10&quot;,&#xd;
+        &quot;dfaOption&quot;: &quot;No&quot;,&#xd;
+        &quot;emrDuration&quot;: &quot;&quot;,&#xd;
+        &quot;emrRate&quot;: &quot;&quot;,&#xd;
+        &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
+        &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
+        &quot;growthFund&quot;: &quot;20&quot;,&#xd;
+        &quot;growthSuperFund&quot;: &quot;10&quot;,&#xd;
+        &quot;highGrowthFund&quot;: &quot;10&quot;,&#xd;
+        &quot;isLIEqualsPH&quot;: &quot;Y&quot;,&#xd;
+        &quot;isNri&quot;: &quot;No&quot;,&#xd;
+        &quot;IsOnline&quot;: &quot;N&quot;,&#xd;
+        &quot;isSurrenderRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;Shadab&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;Shadab&quot;,&#xd;
+        &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+        &quot;paymentModeCode&quot;: null,&#xd;
+        &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;policyTerm&quot;: &quot;10&quot;,&#xd;
+        &quot;premiumPayingTerm&quot;: &quot;5&quot;,&#xd;
+        &quot;productCode&quot;: &quot;34&quot;,&#xd;
+        &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Fast Track Super Plan&quot;,&#xd;
+        &quot;reasonOfFailure&quot;: null,&#xd;
+        &quot;relayPointId&quot;: null,&#xd;
+        &quot;relayPointName&quot;: null,&#xd;
+        &quot;request&quot;: null,&#xd;
+        &quot;response&quot;: null,&#xd;
+        &quot;secureFund&quot;: &quot;10&quot;,&#xd;
+        &quot;stpOption&quot;: &quot;No&quot;,&#xd;
+        &quot;surrenderOptionAmountArray&quot;: [&#xd;
+        ]&#xd;
+    }&#xd;
+}&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1381,59 +1421,63 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;metadata&quot;: {&#xd;
-    &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
-    &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
-    &quot;ProposalNumber&quot;: &quot;602378715&quot;&#xd;
-  },&#xd;
-  &quot;payload&quot;: {&#xd;
-    &quot;addRiderRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;addRiderSumAssured&quot;: &quot;&quot;,&#xd;
-    &quot;wopPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;termPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;termPlusRiderSumAssured&quot;: &quot;&quot;,&#xd;
-    &quot;termPlusRiderTermYears&quot;: &quot;&quot;,&#xd;
-    &quot;nameOfInsured&quot;: &quot;kkkkk&quot;,&#xd;
-    &quot;ageOfInsured&quot;: &quot;28&quot;,&#xd;
-    &quot;genderOfInsured&quot;: &quot;F&quot;,&#xd;
-    &quot;nameOfPayer&quot;: &quot;kkkkk&quot;,&#xd;
-    &quot;ageOfPayer&quot;: &quot;28&quot;,&#xd;
-    &quot;genderOfPayer&quot;: &quot;F&quot;,&#xd;
-    &quot;isNri&quot;: &quot;No&quot;,&#xd;
-    &quot;policyHolderStateName&quot;: &quot;RAJASTHAN&quot;,&#xd;
-    &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
-    &quot;isLIEqualsPH&quot;: &quot;C&quot;,&#xd;
-    &quot;policyTerm&quot;: &quot;20&quot;,&#xd;
-    &quot;premiumPayingTerm&quot;: &quot;10&quot;,&#xd;
-    &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
-    &quot;committedPremium&quot;: &quot;200000.00&quot;,&#xd;
-    &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
-    &quot;channel&quot;: &quot;X&quot;,&#xd;
-    &quot;productCode&quot;: &quot;128&quot;,&#xd;
-    &quot;productName&quot;: &quot;Max Life Assured Wealth Plan&quot;,&#xd;
-    &quot;productGroup&quot;: &quot;Traditional&quot;,&#xd;
-    &quot;surrenderOption&quot;: &quot;No&quot;,&#xd;
-    &quot;agentId&quot;: &quot;&quot;,&#xd;
-    &quot;edc&quot;: &quot;2020-07-13&quot;,&#xd;
-    &quot;solveOption&quot;: &quot;SA&quot;,&#xd;
-    &quot;sumAssured&quot;: &quot;6587155.96&quot;,&#xd;
-    &quot;isCATChannel&quot;: &quot;N&quot;,&#xd;
-    &quot;emrRate&quot;: &quot;&quot;,&#xd;
-    &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
-    &quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
-    &quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
-    &quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
-    &quot;wopPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;wopPlusRiderEmr&quot;: &quot;&quot;,&#xd;
-    &quot;isDefenseChannelCase&quot;: &quot;&quot;&#xd;
-  }&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;ProposalNumber&quot;: &quot;384763769&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;addRiderRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;addRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;agentId&quot;: &quot;&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;58&quot;,&#xd;
+        &quot;ageOfPayer&quot;: &quot;58&quot;,&#xd;
+        &quot;channel&quot;: &quot;BY&quot;,&#xd;
+        &quot;committedPremium&quot;: &quot;300000.00&quot;,&#xd;
+        &quot;covidRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;covidRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;edc&quot;: &quot;2021-08-11&quot;,&#xd;
+        &quot;emrRate&quot;: &quot;&quot;,&#xd;
+        &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
+        &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
+        &quot;isCATChannel&quot;: &quot;N&quot;,&#xd;
+        &quot;isDefenseChannelCase&quot;: &quot;&quot;,&#xd;
+        &quot;isLIEqualsPH&quot;: &quot;Y&quot;,&#xd;
+        &quot;isNri&quot;: &quot;N_N&quot;,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;AKULA&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;AKULA&quot;,&#xd;
+        &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+        &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;KARNATAKA&quot;,&#xd;
+        &quot;policyTerm&quot;: &quot;10&quot;,&#xd;
+        &quot;premiumPayingTerm&quot;: &quot;5&quot;,&#xd;
+        &quot;productCode&quot;: &quot;128&quot;,&#xd;
+        &quot;productGroup&quot;: &quot;Traditional&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Assured Wealth Plan&quot;,&#xd;
+        &quot;solveOption&quot;: &quot;SA&quot;,&#xd;
+        &quot;sumAssured&quot;: &quot;2165752.24&quot;,&#xd;
+        &quot;surrenderOption&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderTermYears&quot;: &quot;&quot;,&#xd;
+        &quot;wopPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;wopPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;wopPlusRiderRequired&quot;: &quot;No&quot;&#xd;
+    }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1473,60 +1517,65 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;metadata&quot;: {&#xd;
-    &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
-    &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
-    &quot;ProposalNumber&quot;: &quot;602378715&quot;&#xd;
-  },&#xd;
-  &quot;payload&quot;: {&#xd;
-    &quot;addRiderRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;addRiderSumAssured&quot;: &quot;&quot;,&#xd;
-    &quot;wopPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;termPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;termPlusRiderSumAssured&quot;: &quot;&quot;,&#xd;
-    &quot;termPlusRiderTermYears&quot;: &quot;&quot;,&#xd;
-    &quot;nameOfInsured&quot;: &quot;kkkkk&quot;,&#xd;
-    &quot;ageOfInsured&quot;: &quot;28&quot;,&#xd;
-    &quot;genderOfInsured&quot;: &quot;F&quot;,&#xd;
-    &quot;nameOfPayer&quot;: &quot;kkkkk&quot;,&#xd;
-    &quot;ageOfPayer&quot;: &quot;28&quot;,&#xd;
-    &quot;genderOfPayer&quot;: &quot;F&quot;,&#xd;
-    &quot;isNri&quot;: &quot;No&quot;,&#xd;
-    &quot;policyHolderStateName&quot;: &quot;RAJASTHAN&quot;,&#xd;
-    &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
-    &quot;isLIEqualsPH&quot;: &quot;C&quot;,&#xd;
-    &quot;policyTerm&quot;: &quot;20&quot;,&#xd;
-    &quot;premiumPayingTerm&quot;: &quot;10&quot;,&#xd;
-    &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
-    &quot;committedPremium&quot;: &quot;200000.00&quot;,&#xd;
-    &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
-    &quot;channel&quot;: &quot;X&quot;,&#xd;
-    &quot;productCode&quot;: &quot;128&quot;,&#xd;
-    &quot;productName&quot;: &quot;Max Life Assured Wealth Plan&quot;,&#xd;
-    &quot;productGroup&quot;: &quot;Traditional&quot;,&#xd;
-    &quot;surrenderOption&quot;: &quot;No&quot;,&#xd;
-    &quot;agentId&quot;: &quot;&quot;,&#xd;
-    &quot;edc&quot;: &quot;2020-07-13&quot;,&#xd;
-    &quot;solveOption&quot;: &quot;SA&quot;,&#xd;
-    &quot;sumAssured&quot;: &quot;6587155.96&quot;,&#xd;
-    &quot;isCATChannel&quot;: &quot;N&quot;,&#xd;
-    &quot;emrRate&quot;: &quot;&quot;,&#xd;
-    &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
-    &quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
-    &quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
-    &quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
-    &quot;wopPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;wopPlusRiderEmr&quot;: &quot;&quot;,&#xd;
-    &quot;isDefenseChannelCase&quot;: &quot;&quot;&#xd;
-  }&#xd;
-}</stringProp>
+    &quot;metadata&quot;: {&#xd;
+        &quot;ProposalNumber&quot;: &quot;384763769&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;addRiderRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;addRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;agentId&quot;: &quot;&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;58&quot;,&#xd;
+        &quot;ageOfPayer&quot;: &quot;58&quot;,&#xd;
+        &quot;channel&quot;: &quot;BY&quot;,&#xd;
+        &quot;committedPremium&quot;: &quot;300000.00&quot;,&#xd;
+        &quot;covidRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;covidRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;edc&quot;: &quot;2021-08-11&quot;,&#xd;
+        &quot;emrRate&quot;: &quot;&quot;,&#xd;
+        &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
+        &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
+        &quot;isCATChannel&quot;: &quot;N&quot;,&#xd;
+        &quot;isDefenseChannelCase&quot;: &quot;&quot;,&#xd;
+        &quot;isLIEqualsPH&quot;: &quot;Y&quot;,&#xd;
+        &quot;isNri&quot;: &quot;N_N&quot;,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;AKULA&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;AKULA&quot;,&#xd;
+        &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+        &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;KARNATAKA&quot;,&#xd;
+        &quot;policyTerm&quot;: &quot;10&quot;,&#xd;
+        &quot;premiumPayingTerm&quot;: &quot;5&quot;,&#xd;
+        &quot;productCode&quot;: &quot;128&quot;,&#xd;
+        &quot;productGroup&quot;: &quot;Traditional&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Assured Wealth Plan&quot;,&#xd;
+        &quot;solveOption&quot;: &quot;SA&quot;,&#xd;
+        &quot;sumAssured&quot;: &quot;2165752.24&quot;,&#xd;
+        &quot;surrenderOption&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderTermYears&quot;: &quot;&quot;,&#xd;
+        &quot;wopPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;wopPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;wopPlusRiderRequired&quot;: &quot;No&quot;&#xd;
+    }&#xd;
+}&#xd;
+</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -1564,65 +1613,80 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-  &quot;metadata&quot;: {&#xd;
-    &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
-    &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
-	&quot;ProposalNumber&quot;: &quot;602378715&quot;&#xd;
-  },&#xd;
-  &quot;payload&quot;: {&#xd;
-    &quot;transactionId&quot;: &quot;9e59098a45f549e894&quot;,&#xd;
-    &quot;nameOfPayer&quot;: &quot;Ph&quot;,&#xd;
-    &quot;ageOfPayer&quot;: &quot;54&quot;,&#xd;
-    &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
-    &quot;nameOfInsured&quot;: &quot;Li&quot;,&#xd;
-    &quot;ageOfInsured&quot;: &quot;55&quot;,&#xd;
-    &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
-    &quot;isNri&quot;: &quot;No&quot;,&#xd;
-    &quot;policyHolderStateName&quot;: &quot;ANDHRA PRADESH&quot;,&#xd;
-    &quot;maxLifeRegisteredStateName&quot;: &quot;MAHARASHTRA&quot;,&#xd;
-    &quot;isLIEqualsPH&quot;: &quot;C&quot;,&#xd;
-    &quot;policyTerm&quot;: &quot;45&quot;,&#xd;
-    &quot;premiumPayingTerm&quot;: &quot;7&quot;,&#xd;
-    &quot;edc&quot;: &quot;2020-01-28&quot;,&#xd;
-    &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
-    &quot;committedPremium&quot;: &quot;100000&quot;,&#xd;
-    &quot;variant&quot;: &quot;Whole Life&quot;,&#xd;
-    &quot;premiumPaymentType&quot;: &quot;LTD&quot;,&#xd;
-    &quot;coverMultiple&quot;: &quot;10&quot;,&#xd;
-    &quot;growthSuperFund&quot;: &quot;0&quot;,&#xd;
-    &quot;conservativeFund&quot;: &quot;0&quot;,&#xd;
-    &quot;growthFund&quot;: &quot;0&quot;,&#xd;
-    &quot;secureFund&quot;: &quot;50&quot;,&#xd;
-    &quot;balancedFund&quot;: &quot;0&quot;,&#xd;
-    &quot;highGrowthFund&quot;: &quot;0&quot;,&#xd;
-    &quot;moneyMarketFund&quot;: &quot;20&quot;,&#xd;
-    &quot;diversifiedEquityFund&quot;: &quot;10&quot;,&#xd;
-    &quot;dynamicBondFund&quot;: &quot;20&quot;,&#xd;
-    &quot;fundOption1&quot;: &quot;205&quot;,&#xd;
-    &quot;fundOption2&quot;: &quot;202&quot;,&#xd;
-    &quot;triggerPercentage&quot;: &quot;10&quot;,&#xd;
-    &quot;dfaOption&quot;: &quot;No&quot;,&#xd;
-    &quot;stpOption&quot;: &quot;No&quot;,&#xd;
-    &quot;lpsOption&quot;: &quot;&quot;,&#xd;
-    &quot;tbpsOption&quot;: &quot;&quot;,&#xd;
-    &quot;smpsOption&quot;: &quot;&quot;,&#xd;
-    &quot;channel&quot;: &quot;A&quot;,&#xd;
-    &quot;productName&quot;: &quot;Max Life Flexi Invest Plus Plan&quot;,&#xd;
-    &quot;productCode&quot;: &quot;132&quot;,&#xd;
-    &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
-    &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
-    &quot;emrDuration&quot;: &quot;&quot;,&#xd;
-    &quot;emrRate&quot;: &quot;&quot;,&#xd;
-    &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;agentId&quot;: &quot;101372&quot;&#xd;
-  }&#xd;
-}&#xd;
-&#xd;
-</stringProp>
+                <stringProp name="Argument.value"> {&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;ProposalNumber&quot;: &quot;600996938&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;transactionId&quot;: &quot;12345&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;VArnit&quot;,&#xd;
+        &quot;ageOfPayer&quot;: &quot;30&quot;,&#xd;
+        &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;VArnit&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;30&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
+        &quot;isNri&quot;: &quot;No&quot;,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;Haryana&quot;,&#xd;
+        &quot;isLIEqualsPH&quot;: &quot;Y&quot;,&#xd;
+        &quot;policyTerm&quot;: &quot;10&quot;,&#xd;
+        &quot;premiumPayingTerm&quot;: &quot;5&quot;,&#xd;
+        &quot;productCode&quot;: &quot;132&quot;,&#xd;
+        &quot;edc&quot;: &quot;2021-08-12 00:00:00&quot;,&#xd;
+        &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
+        &quot;committedPremium&quot;: &quot;200000.0&quot;,&#xd;
+        &quot;variant&quot;: &quot;Wealth&quot;,&#xd;
+        &quot;premiumPaymentType&quot;: &quot;LTD&quot;,&#xd;
+        &quot;coverMultiple&quot;: &quot;10&quot;,&#xd;
+        &quot;growthSuperFund&quot;: &quot;&quot;,&#xd;
+        &quot;conservativeFund&quot;: &quot;&quot;,&#xd;
+        &quot;growthFund&quot;: &quot;&quot;,&#xd;
+        &quot;secureFund&quot;: &quot;&quot;,&#xd;
+        &quot;balancedFund&quot;: &quot;&quot;,&#xd;
+        &quot;highGrowthFund&quot;: &quot;&quot;,&#xd;
+        &quot;moneyMarketFund&quot;: &quot;&quot;,&#xd;
+        &quot;diversifiedEquityFund&quot;: &quot;&quot;,&#xd;
+        &quot;dynamicBondFund&quot;: &quot;&quot;,&#xd;
+        &quot;fundOption1&quot;: &quot;&quot;,&#xd;
+        &quot;fundOption2&quot;: &quot;&quot;,&#xd;
+        &quot;triggerPercentage&quot;: &quot;&quot;,&#xd;
+        &quot;dfaOption&quot;: &quot;No&quot;,&#xd;
+        &quot;stpOption&quot;: &quot;Yes&quot;,&#xd;
+        &quot;channel&quot;: &quot;K&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Flexi Invest Plus Plan&quot;,&#xd;
+        &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
+        &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+        &quot;agentId&quot;: &quot;&quot;,&#xd;
+        &quot;paymentModeCode&quot;: null,&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;lpsOption&quot;: &quot;No&quot;,&#xd;
+        &quot;tbpsOption&quot;: &quot;No&quot;,&#xd;
+        &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;emrRate&quot;: &quot;&quot;,&#xd;
+        &quot;emrDuration&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+        &quot;IsOnline&quot;: &quot;N&quot;,&#xd;
+        &quot;relayPointId&quot;: null,&#xd;
+        &quot;relayPointName&quot;: null,&#xd;
+        &quot;reasonOfFailure&quot;: null,&#xd;
+        &quot;request&quot;: null,&#xd;
+        &quot;response&quot;: null,&#xd;
+        &quot;ciDisabilityRiderEmrRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderEmrIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderIsRequired&quot;: &quot;Yes&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderPolicyTerm&quot;: &quot;10&quot;,&#xd;
+        &quot;ciDisabilityRiderSumAssured&quot;: &quot;500000.00&quot;,&#xd;
+        &quot;ciDisabilityRiderVariant&quot;: &quot;UCIPPL&quot;&#xd;
+    }&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -1664,65 +1728,80 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-  &quot;metadata&quot;: {&#xd;
-    &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
-    &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
-	&quot;ProposalNumber&quot;: &quot;602378715&quot;&#xd;
-  },&#xd;
-  &quot;payload&quot;: {&#xd;
-    &quot;transactionId&quot;: &quot;9e59098a45f549e894&quot;,&#xd;
-    &quot;nameOfPayer&quot;: &quot;Ph&quot;,&#xd;
-    &quot;ageOfPayer&quot;: &quot;54&quot;,&#xd;
-    &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
-    &quot;nameOfInsured&quot;: &quot;Li&quot;,&#xd;
-    &quot;ageOfInsured&quot;: &quot;55&quot;,&#xd;
-    &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
-    &quot;isNri&quot;: &quot;No&quot;,&#xd;
-    &quot;policyHolderStateName&quot;: &quot;ANDHRA PRADESH&quot;,&#xd;
-    &quot;maxLifeRegisteredStateName&quot;: &quot;MAHARASHTRA&quot;,&#xd;
-    &quot;isLIEqualsPH&quot;: &quot;C&quot;,&#xd;
-    &quot;policyTerm&quot;: &quot;45&quot;,&#xd;
-    &quot;premiumPayingTerm&quot;: &quot;7&quot;,&#xd;
-    &quot;edc&quot;: &quot;2020-01-28&quot;,&#xd;
-    &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
-    &quot;committedPremium&quot;: &quot;100000&quot;,&#xd;
-    &quot;variant&quot;: &quot;Whole Life&quot;,&#xd;
-    &quot;premiumPaymentType&quot;: &quot;LTD&quot;,&#xd;
-    &quot;coverMultiple&quot;: &quot;10&quot;,&#xd;
-    &quot;growthSuperFund&quot;: &quot;0&quot;,&#xd;
-    &quot;conservativeFund&quot;: &quot;0&quot;,&#xd;
-    &quot;growthFund&quot;: &quot;0&quot;,&#xd;
-    &quot;secureFund&quot;: &quot;50&quot;,&#xd;
-    &quot;balancedFund&quot;: &quot;0&quot;,&#xd;
-    &quot;highGrowthFund&quot;: &quot;0&quot;,&#xd;
-    &quot;moneyMarketFund&quot;: &quot;20&quot;,&#xd;
-    &quot;diversifiedEquityFund&quot;: &quot;10&quot;,&#xd;
-    &quot;dynamicBondFund&quot;: &quot;20&quot;,&#xd;
-    &quot;fundOption1&quot;: &quot;205&quot;,&#xd;
-    &quot;fundOption2&quot;: &quot;202&quot;,&#xd;
-    &quot;triggerPercentage&quot;: &quot;10&quot;,&#xd;
-    &quot;dfaOption&quot;: &quot;No&quot;,&#xd;
-    &quot;stpOption&quot;: &quot;No&quot;,&#xd;
-    &quot;lpsOption&quot;: &quot;&quot;,&#xd;
-    &quot;tbpsOption&quot;: &quot;&quot;,&#xd;
-    &quot;smpsOption&quot;: &quot;&quot;,&#xd;
-    &quot;channel&quot;: &quot;A&quot;,&#xd;
-    &quot;productName&quot;: &quot;Max Life Flexi Invest Plus Plan&quot;,&#xd;
-    &quot;productCode&quot;: &quot;132&quot;,&#xd;
-    &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
-    &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
-    &quot;emrDuration&quot;: &quot;&quot;,&#xd;
-    &quot;emrRate&quot;: &quot;&quot;,&#xd;
-    &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;agentId&quot;: &quot;101372&quot;&#xd;
-  }&#xd;
-}&#xd;
-&#xd;
-</stringProp>
+                <stringProp name="Argument.value"> {&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;ProposalNumber&quot;: &quot;600996938&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;transactionId&quot;: &quot;12345&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;VArnit&quot;,&#xd;
+        &quot;ageOfPayer&quot;: &quot;30&quot;,&#xd;
+        &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;VArnit&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;30&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
+        &quot;isNri&quot;: &quot;No&quot;,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;Haryana&quot;,&#xd;
+        &quot;isLIEqualsPH&quot;: &quot;Y&quot;,&#xd;
+        &quot;policyTerm&quot;: &quot;10&quot;,&#xd;
+        &quot;premiumPayingTerm&quot;: &quot;5&quot;,&#xd;
+        &quot;productCode&quot;: &quot;132&quot;,&#xd;
+        &quot;edc&quot;: &quot;2021-08-12 00:00:00&quot;,&#xd;
+        &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
+        &quot;committedPremium&quot;: &quot;200000.0&quot;,&#xd;
+        &quot;variant&quot;: &quot;Wealth&quot;,&#xd;
+        &quot;premiumPaymentType&quot;: &quot;LTD&quot;,&#xd;
+        &quot;coverMultiple&quot;: &quot;10&quot;,&#xd;
+        &quot;growthSuperFund&quot;: &quot;&quot;,&#xd;
+        &quot;conservativeFund&quot;: &quot;&quot;,&#xd;
+        &quot;growthFund&quot;: &quot;&quot;,&#xd;
+        &quot;secureFund&quot;: &quot;&quot;,&#xd;
+        &quot;balancedFund&quot;: &quot;&quot;,&#xd;
+        &quot;highGrowthFund&quot;: &quot;&quot;,&#xd;
+        &quot;moneyMarketFund&quot;: &quot;&quot;,&#xd;
+        &quot;diversifiedEquityFund&quot;: &quot;&quot;,&#xd;
+        &quot;dynamicBondFund&quot;: &quot;&quot;,&#xd;
+        &quot;fundOption1&quot;: &quot;&quot;,&#xd;
+        &quot;fundOption2&quot;: &quot;&quot;,&#xd;
+        &quot;triggerPercentage&quot;: &quot;&quot;,&#xd;
+        &quot;dfaOption&quot;: &quot;No&quot;,&#xd;
+        &quot;stpOption&quot;: &quot;Yes&quot;,&#xd;
+        &quot;channel&quot;: &quot;K&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Flexi Invest Plus Plan&quot;,&#xd;
+        &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
+        &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+        &quot;agentId&quot;: &quot;&quot;,&#xd;
+        &quot;paymentModeCode&quot;: null,&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;lpsOption&quot;: &quot;No&quot;,&#xd;
+        &quot;tbpsOption&quot;: &quot;No&quot;,&#xd;
+        &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;emrRate&quot;: &quot;&quot;,&#xd;
+        &quot;emrDuration&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+        &quot;IsOnline&quot;: &quot;N&quot;,&#xd;
+        &quot;relayPointId&quot;: null,&#xd;
+        &quot;relayPointName&quot;: null,&#xd;
+        &quot;reasonOfFailure&quot;: null,&#xd;
+        &quot;request&quot;: null,&#xd;
+        &quot;response&quot;: null,&#xd;
+        &quot;ciDisabilityRiderEmrRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderEmrIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderIsRequired&quot;: &quot;Yes&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderPolicyTerm&quot;: &quot;10&quot;,&#xd;
+        &quot;ciDisabilityRiderSumAssured&quot;: &quot;500000.00&quot;,&#xd;
+        &quot;ciDisabilityRiderVariant&quot;: &quot;UCIPPL&quot;&#xd;
+    }&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -2147,66 +2226,71 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-  &quot;metadata&quot;: {&#xd;
-    &quot;X-Correlation-ID&quot;: &quot;31873127329799381273192&quot;,&#xd;
-    &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
-	&quot;ProposalNumber&quot;: &quot;602378715&quot;&#xd;
-  },&#xd;
-  &quot;payload&quot;: {&#xd;
-    &quot;transactionId&quot;: &quot;9e59098a45f549e894&quot;,&#xd;
-    &quot;addRiderIsRequired&quot;: &quot;Yes&quot;,&#xd;
-    &quot;addRiderSumAssured&quot;: &quot;60000&quot;,&#xd;
-    &quot;termPlusRiderRequired&quot;: &quot;Yes&quot;,&#xd;
-    &quot;termPlusRiderSumAssured&quot;: &quot;400000&quot;,&#xd;
-    &quot;wopPlusRiderRequired&quot;: &quot;Yes&quot;,&#xd;
-    &quot;nameOfInsured&quot;: &quot;K&quot;,&#xd;
-    &quot;ageOfInsured&quot;: &quot;30&quot;,&#xd;
-    &quot;genderOfInsured&quot;: &quot;F&quot;,&#xd;
-    &quot;isNri&quot;: &quot;No&quot;,&#xd;
-    &quot;policyHolderStateName&quot;: &quot;UTTAR PRADESH&quot;,&#xd;
-    &quot;maxLifeRegisteredStateName&quot;: &quot;MAHARASHTRA&quot;,&#xd;
-    &quot;isLIEqualsPH&quot;: &quot;N&quot;,&#xd;
-    &quot;nameOfPayer&quot;: &quot;M&quot;,&#xd;
-    &quot;ageOfPayer&quot;: &quot;28&quot;,&#xd;
-    &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
-    &quot;isDefenceChannelCase&quot;: &quot;No&quot;,&#xd;
-    &quot;bonusOption&quot;: &quot;2&quot;,&#xd;
-    &quot;policyTerm&quot;: &quot;12&quot;,&#xd;
-    &quot;premiumPayingTerm&quot;: &quot;6&quot;,&#xd;
-    &quot;solveOption&quot;: &quot;PR&quot;,&#xd;
-    &quot;premiumPaymentType&quot;: &quot;LTD&quot;,&#xd;
-    &quot;edc&quot;: &quot;2020-05-30&quot;,&#xd;
-    &quot;paymentModeName&quot;: &quot;06&quot;,&#xd;
-    &quot;spCode&quot;: &quot;122609&quot;,&#xd;
-    &quot;committedPremium&quot;: &quot;60000&quot;,&#xd;
-    &quot;surrenderOption&quot;: &quot;Yes&quot;,&#xd;
-    &quot;agentId&quot;: &quot;100766&quot;,&#xd;
-    &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
-    &quot;channel&quot;: &quot;K&quot;,&#xd;
-    &quot;productCode&quot;: &quot;101&quot;,&#xd;
-    &quot;productName&quot;: &quot;Max Life Savings Advantage Plan&quot;,&#xd;
-    &quot;productGroup&quot;: &quot;Traditional&quot;,&#xd;
-    &quot;isCATChannel&quot;: &quot;&quot;,&#xd;
-    &quot;sumAssured&quot;: &quot;6000&quot;,&#xd;
-    &quot;emrRate&quot;: &quot;&quot;,&#xd;
-    &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
-    &quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
-    &quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
-    &quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
-    &quot;wopPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;wopPlusRiderEmr&quot;: &quot;&quot;,&#xd;
-    &quot;maturityValueAmount&quot;: &quot;2000&quot;&#xd;
-  }&#xd;
-}&#xd;
-</stringProp>
+                <stringProp name="Argument.value"> {&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;ProposalNumber&quot;: &quot;370365843&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;covidRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;covidRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;transactionId&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;addRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderTerm&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderRequired&quot;: &quot;Yes&quot;,&#xd;
+        &quot;termPlusRiderSumAssured&quot;: &quot;150000.00&quot;,&#xd;
+        &quot;wopPlusRiderRequired&quot;: &quot;Yes&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;Jyoti&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;33&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;F&quot;,&#xd;
+        &quot;isNri&quot;: &quot;N_N&quot;,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;isLIEqualsPH&quot;: &quot;Y&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;Jyoti&quot;,&#xd;
+        &quot;ageOfPayer&quot;: &quot;33&quot;,&#xd;
+        &quot;genderOfPayer&quot;: &quot;F&quot;,&#xd;
+        &quot;isDefenceChannelCase&quot;: &quot;No&quot;,&#xd;
+        &quot;bonusOption&quot;: &quot;3&quot;,&#xd;
+        &quot;policyTerm&quot;: &quot;30&quot;,&#xd;
+        &quot;premiumPayingTerm&quot;: &quot;5&quot;,&#xd;
+        &quot;solveOption&quot;: &quot;SA&quot;,&#xd;
+        &quot;premiumPaymentType&quot;: &quot;LTD&quot;,&#xd;
+        &quot;edc&quot;: &quot;2021-08-12 00:00:00&quot;,&#xd;
+        &quot;paymentModeName&quot;: &quot;06&quot;,&#xd;
+        &quot;spCode&quot;: &quot;MAX715367&quot;,&#xd;
+        &quot;committedPremium&quot;: &quot;125000.00&quot;,&#xd;
+        &quot;surrenderOption&quot;: &quot;No&quot;,&#xd;
+        &quot;agentId&quot;: &quot;&quot;,&#xd;
+        &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+        &quot;channel&quot;: &quot;K&quot;,&#xd;
+        &quot;productCode&quot;: &quot;101&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Savings Advantage Plan&quot;,&#xd;
+        &quot;productGroup&quot;: &quot;Traditional&quot;,&#xd;
+        &quot;isCATChannel&quot;: &quot;N&quot;,&#xd;
+        &quot;paymentModeCode&quot;: null,&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;sumAssured&quot;: &quot;1365899.29&quot;,&#xd;
+        &quot;maturityValueAmount&quot;: &quot;30&quot;,&#xd;
+        &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;emrRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;wopPlusRiderEmrRequired&quot;: &quot;&quot;,&#xd;
+        &quot;wopPlusRiderEmr&quot;: &quot;&quot;&#xd;
+    }&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -2244,66 +2328,71 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-  &quot;metadata&quot;: {&#xd;
-    &quot;X-Correlation-ID&quot;: &quot;31873127329799381273192&quot;,&#xd;
-    &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
-	&quot;ProposalNumber&quot;: &quot;602378715&quot;&#xd;
-  },&#xd;
-  &quot;payload&quot;: {&#xd;
-    &quot;transactionId&quot;: &quot;9e59098a45f549e894&quot;,&#xd;
-    &quot;addRiderIsRequired&quot;: &quot;Yes&quot;,&#xd;
-    &quot;addRiderSumAssured&quot;: &quot;60000&quot;,&#xd;
-    &quot;termPlusRiderRequired&quot;: &quot;Yes&quot;,&#xd;
-    &quot;termPlusRiderSumAssured&quot;: &quot;400000&quot;,&#xd;
-    &quot;wopPlusRiderRequired&quot;: &quot;Yes&quot;,&#xd;
-    &quot;nameOfInsured&quot;: &quot;K&quot;,&#xd;
-    &quot;ageOfInsured&quot;: &quot;30&quot;,&#xd;
-    &quot;genderOfInsured&quot;: &quot;F&quot;,&#xd;
-    &quot;isNri&quot;: &quot;No&quot;,&#xd;
-    &quot;policyHolderStateName&quot;: &quot;UTTAR PRADESH&quot;,&#xd;
-    &quot;maxLifeRegisteredStateName&quot;: &quot;MAHARASHTRA&quot;,&#xd;
-    &quot;isLIEqualsPH&quot;: &quot;N&quot;,&#xd;
-    &quot;nameOfPayer&quot;: &quot;M&quot;,&#xd;
-    &quot;ageOfPayer&quot;: &quot;28&quot;,&#xd;
-    &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
-    &quot;isDefenceChannelCase&quot;: &quot;No&quot;,&#xd;
-    &quot;bonusOption&quot;: &quot;2&quot;,&#xd;
-    &quot;policyTerm&quot;: &quot;12&quot;,&#xd;
-    &quot;premiumPayingTerm&quot;: &quot;6&quot;,&#xd;
-    &quot;solveOption&quot;: &quot;PR&quot;,&#xd;
-    &quot;premiumPaymentType&quot;: &quot;LTD&quot;,&#xd;
-    &quot;edc&quot;: &quot;2020-05-30&quot;,&#xd;
-    &quot;paymentModeName&quot;: &quot;06&quot;,&#xd;
-    &quot;spCode&quot;: &quot;122609&quot;,&#xd;
-    &quot;committedPremium&quot;: &quot;60000&quot;,&#xd;
-    &quot;surrenderOption&quot;: &quot;Yes&quot;,&#xd;
-    &quot;agentId&quot;: &quot;100766&quot;,&#xd;
-    &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
-    &quot;channel&quot;: &quot;K&quot;,&#xd;
-    &quot;productCode&quot;: &quot;101&quot;,&#xd;
-    &quot;productName&quot;: &quot;Max Life Savings Advantage Plan&quot;,&#xd;
-    &quot;productGroup&quot;: &quot;Traditional&quot;,&#xd;
-    &quot;isCATChannel&quot;: &quot;&quot;,&#xd;
-    &quot;sumAssured&quot;: &quot;6000&quot;,&#xd;
-    &quot;emrRate&quot;: &quot;&quot;,&#xd;
-    &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
-    &quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
-    &quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
-    &quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
-    &quot;wopPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;wopPlusRiderEmr&quot;: &quot;&quot;,&#xd;
-    &quot;maturityValueAmount&quot;: &quot;2000&quot;&#xd;
-  }&#xd;
-}&#xd;
-</stringProp>
+                <stringProp name="Argument.value"> {&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;ProposalNumber&quot;: &quot;370365843&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;covidRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;covidRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;transactionId&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;addRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderTerm&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderRequired&quot;: &quot;Yes&quot;,&#xd;
+        &quot;termPlusRiderSumAssured&quot;: &quot;150000.00&quot;,&#xd;
+        &quot;wopPlusRiderRequired&quot;: &quot;Yes&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;Jyoti&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;33&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;F&quot;,&#xd;
+        &quot;isNri&quot;: &quot;N_N&quot;,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;isLIEqualsPH&quot;: &quot;Y&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;Jyoti&quot;,&#xd;
+        &quot;ageOfPayer&quot;: &quot;33&quot;,&#xd;
+        &quot;genderOfPayer&quot;: &quot;F&quot;,&#xd;
+        &quot;isDefenceChannelCase&quot;: &quot;No&quot;,&#xd;
+        &quot;bonusOption&quot;: &quot;3&quot;,&#xd;
+        &quot;policyTerm&quot;: &quot;30&quot;,&#xd;
+        &quot;premiumPayingTerm&quot;: &quot;5&quot;,&#xd;
+        &quot;solveOption&quot;: &quot;SA&quot;,&#xd;
+        &quot;premiumPaymentType&quot;: &quot;LTD&quot;,&#xd;
+        &quot;edc&quot;: &quot;2021-08-12 00:00:00&quot;,&#xd;
+        &quot;paymentModeName&quot;: &quot;06&quot;,&#xd;
+        &quot;spCode&quot;: &quot;MAX715367&quot;,&#xd;
+        &quot;committedPremium&quot;: &quot;125000.00&quot;,&#xd;
+        &quot;surrenderOption&quot;: &quot;No&quot;,&#xd;
+        &quot;agentId&quot;: &quot;&quot;,&#xd;
+        &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+        &quot;channel&quot;: &quot;K&quot;,&#xd;
+        &quot;productCode&quot;: &quot;101&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Savings Advantage Plan&quot;,&#xd;
+        &quot;productGroup&quot;: &quot;Traditional&quot;,&#xd;
+        &quot;isCATChannel&quot;: &quot;N&quot;,&#xd;
+        &quot;paymentModeCode&quot;: null,&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;sumAssured&quot;: &quot;1365899.29&quot;,&#xd;
+        &quot;maturityValueAmount&quot;: &quot;30&quot;,&#xd;
+        &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;emrRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;wopPlusRiderEmrRequired&quot;: &quot;&quot;,&#xd;
+        &quot;wopPlusRiderEmr&quot;: &quot;&quot;&#xd;
+    }&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -2515,51 +2604,61 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
+                <stringProp name="Argument.value"> {&#xd;
     &quot;metadata&quot;: {&#xd;
         &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
         &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
-        &quot;ProposalNumber&quot;: &quot;602378715&quot;&#xd;
+        &quot;ProposalNumber&quot;: &quot;600996441&quot;&#xd;
     },&#xd;
     &quot;payload&quot;: {&#xd;
         &quot;partnerCareRiderRequired&quot;: &quot;No&quot;,&#xd;
-        &quot;nameOfInsured&quot;: &quot;Akash&quot;,&#xd;
-        &quot;ageOfInsured&quot;: &quot;27&quot;,&#xd;
-        &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
-        &quot;nameOfPayer&quot;: &quot;Akash&quot;,&#xd;
-        &quot;ageOfPayer&quot;: &quot;27&quot;,&#xd;
-        &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;SKghjk&quot;,&#xd;
+        &quot;ageOfPayer&quot;: &quot;45&quot;,&#xd;
+        &quot;genderOfPayer&quot;: &quot;F&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;dsfsdfsd&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;40&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;F&quot;,&#xd;
         &quot;isNri&quot;: &quot;No&quot;,&#xd;
-        &quot;policyHolderStateName&quot;: &quot;Haryana&quot;,&#xd;
-        &quot;maxLifeRegisteredStateName&quot;: &quot;Haryana&quot;,&#xd;
-        &quot;isLIEqualsPH&quot;: &quot;Yes&quot;,&#xd;
-        &quot;policyTerm&quot;: &quot;12&quot;,&#xd;
-        &quot;premiumPayingTerm&quot;: &quot;5&quot;,&#xd;
-        &quot;paymentModeName&quot;: &quot;03&quot;,&#xd;
-        &quot;committedPremium&quot;: &quot;200000&quot;,&#xd;
-        &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
-        &quot;channel&quot;: &quot;A&quot;,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;isLIEqualsPH&quot;: &quot;N&quot;,&#xd;
+        &quot;policyTerm&quot;: &quot;20&quot;,&#xd;
+        &quot;premiumPayingTerm&quot;: &quot;20&quot;,&#xd;
+        &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
+        &quot;committedPremium&quot;: &quot;300000.0&quot;,&#xd;
         &quot;productCode&quot;: &quot;78&quot;,&#xd;
-        &quot;productName&quot;: &quot;Max Life Platinum Wealth Plan&quot;,&#xd;
-        &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
         &quot;surrenderOption&quot;: &quot;No&quot;,&#xd;
-        &quot;agentId&quot;: &quot;719707&quot;,&#xd;
         &quot;coverMultiple&quot;: &quot;10&quot;,&#xd;
-        &quot;growthSuperFund&quot;: &quot;0&quot;,&#xd;
-        &quot;conservativeFund&quot;: &quot;0&quot;,&#xd;
-        &quot;growthFund&quot;: &quot;0&quot;,&#xd;
-        &quot;secureFund&quot;: &quot;0&quot;,&#xd;
-        &quot;balancedFund&quot;: &quot;0&quot;,&#xd;
-        &quot;highGrowthFund&quot;: &quot;0&quot;,&#xd;
+        &quot;growthSuperFund&quot;: &quot;&quot;,&#xd;
+        &quot;conservativeFund&quot;: &quot;&quot;,&#xd;
+        &quot;growthFund&quot;: &quot;&quot;,&#xd;
+        &quot;secureFund&quot;: &quot;&quot;,&#xd;
+        &quot;balancedFund&quot;: &quot;&quot;,&#xd;
+        &quot;highGrowthFund&quot;: &quot;&quot;,&#xd;
         &quot;dfaOption&quot;: &quot;Yes&quot;,&#xd;
         &quot;stpOption&quot;: &quot;No&quot;,&#xd;
-        &quot;emrDuration&quot;: &quot;&quot;,&#xd;
-        &quot;emrRate&quot;: &quot;&quot;,&#xd;
-        &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
-        &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
-        &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+        &quot;channel&quot;: &quot;A&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Platinum Wealth Plan&quot;,&#xd;
+        &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
+        &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+        &quot;agentId&quot;: &quot;&quot;,&#xd;
+        &quot;premiumPaymentType&quot;: &quot;RGLR&quot;,&#xd;
         &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
-        &quot;premiumPaymentType&quot;: &quot;LTD&quot;&#xd;
+        &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+        &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;emrRate&quot;: &quot;&quot;,&#xd;
+        &quot;emrDuration&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderEmrRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderEmrIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderIsRequired&quot;: &quot;Yes&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderPolicyTerm&quot;: &quot;20&quot;,&#xd;
+        &quot;ciDisabilityRiderSumAssured&quot;: &quot;900000.00&quot;,&#xd;
+        &quot;ciDisabilityRiderVariant&quot;: &quot;UCIPDR&quot;,&#xd;
+        &quot;IsOnline&quot;: &quot;N&quot;&#xd;
     }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2599,54 +2698,63 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-  &quot;metadata&quot;: {&#xd;
-    &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
-    &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
-    &quot;ProposalNumber&quot;: &quot;602378715&quot;&#xd;
-  },&#xd;
-  &quot;payload&quot;: {&#xd;
-    &quot;partnerCareRiderRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;nameOfInsured&quot;: &quot;Akash&quot;,&#xd;
-    &quot;ageOfInsured&quot;: &quot;27&quot;,&#xd;
-    &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
-    &quot;nameOfPayer&quot;: &quot;Akash&quot;,&#xd;
-    &quot;ageOfPayer&quot;: &quot;27&quot;,&#xd;
-    &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
-    &quot;isNri&quot;: &quot;No&quot;,&#xd;
-    &quot;policyHolderStateName&quot;: &quot;Haryana&quot;,&#xd;
-    &quot;maxLifeRegisteredStateName&quot;: &quot;Haryana&quot;,&#xd;
-    &quot;isLIEqualsPH&quot;: &quot;Yes&quot;,&#xd;
-    &quot;policyTerm&quot;: &quot;12&quot;,&#xd;
-    &quot;premiumPayingTerm&quot;: &quot;5&quot;,&#xd;
-    &quot;paymentModeName&quot;: &quot;03&quot;,&#xd;
-    &quot;committedPremium&quot;: &quot;200000&quot;,&#xd;
-    &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
-    &quot;channel&quot;: &quot;A&quot;,&#xd;
-    &quot;productCode&quot;: &quot;78&quot;,&#xd;
-    &quot;productName&quot;: &quot;Max Life Platinum Wealth Plan&quot;,&#xd;
-    &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
-    &quot;surrenderOption&quot;: &quot;No&quot;,&#xd;
-    &quot;agentId&quot;: &quot;719707&quot;,&#xd;
-    &quot;coverMultiple&quot;: &quot;10&quot;,&#xd;
-    &quot;growthSuperFund&quot;: &quot;0&quot;,&#xd;
-    &quot;conservativeFund&quot;: &quot;0&quot;,&#xd;
-    &quot;growthFund&quot;: &quot;0&quot;,&#xd;
-    &quot;secureFund&quot;: &quot;0&quot;,&#xd;
-    &quot;balancedFund&quot;: &quot;0&quot;,&#xd;
-    &quot;highGrowthFund&quot;: &quot;0&quot;,&#xd;
-    &quot;dfaOption&quot;: &quot;Yes&quot;,&#xd;
-    &quot;stpOption&quot;: &quot;No&quot;,&#xd;
-    &quot;emrDuration&quot;: &quot;&quot;,&#xd;
-    &quot;emrRate&quot;: &quot;&quot;,&#xd;
-    &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
-    &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
-    &quot;premiumPaymentType&quot;: &quot;LTD&quot;&#xd;
-  }&#xd;
-}&#xd;
-</stringProp>
+                <stringProp name="Argument.value"> {&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;ProposalNumber&quot;: &quot;600996441&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;partnerCareRiderRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;SKghjk&quot;,&#xd;
+        &quot;ageOfPayer&quot;: &quot;45&quot;,&#xd;
+        &quot;genderOfPayer&quot;: &quot;F&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;dsfsdfsd&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;40&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;F&quot;,&#xd;
+        &quot;isNri&quot;: &quot;No&quot;,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;isLIEqualsPH&quot;: &quot;N&quot;,&#xd;
+        &quot;policyTerm&quot;: &quot;20&quot;,&#xd;
+        &quot;premiumPayingTerm&quot;: &quot;20&quot;,&#xd;
+        &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
+        &quot;committedPremium&quot;: &quot;300000.0&quot;,&#xd;
+        &quot;productCode&quot;: &quot;78&quot;,&#xd;
+        &quot;surrenderOption&quot;: &quot;No&quot;,&#xd;
+        &quot;coverMultiple&quot;: &quot;10&quot;,&#xd;
+        &quot;growthSuperFund&quot;: &quot;&quot;,&#xd;
+        &quot;conservativeFund&quot;: &quot;&quot;,&#xd;
+        &quot;growthFund&quot;: &quot;&quot;,&#xd;
+        &quot;secureFund&quot;: &quot;&quot;,&#xd;
+        &quot;balancedFund&quot;: &quot;&quot;,&#xd;
+        &quot;highGrowthFund&quot;: &quot;&quot;,&#xd;
+        &quot;dfaOption&quot;: &quot;Yes&quot;,&#xd;
+        &quot;stpOption&quot;: &quot;No&quot;,&#xd;
+        &quot;channel&quot;: &quot;A&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Platinum Wealth Plan&quot;,&#xd;
+        &quot;productGroup&quot;: &quot;ULIP&quot;,&#xd;
+        &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+        &quot;agentId&quot;: &quot;&quot;,&#xd;
+        &quot;premiumPaymentType&quot;: &quot;RGLR&quot;,&#xd;
+        &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+        &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;emrRate&quot;: &quot;&quot;,&#xd;
+        &quot;emrDuration&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderEmrRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderEmrIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderIsRequired&quot;: &quot;Yes&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderPolicyTerm&quot;: &quot;20&quot;,&#xd;
+        &quot;ciDisabilityRiderSumAssured&quot;: &quot;900000.00&quot;,&#xd;
+        &quot;ciDisabilityRiderVariant&quot;: &quot;UCIPDR&quot;,&#xd;
+        &quot;IsOnline&quot;: &quot;N&quot;&#xd;
+    }&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -2684,51 +2792,68 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-        &quot;metadata&quot;: {&#xd;
-                &quot;X-Correlation-ID&quot;: &quot;31871273192&quot;,&#xd;
-                &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
-				&quot;ProposalNumber&quot;: &quot;602378715&quot;&#xd;
-        },&#xd;
-        &quot;payload&quot;: {&#xd;
-                &quot;transactionId&quot;: &quot;9e59098a45f549e894&quot;,&#xd;
-                &quot;addRiderIsRequired&quot;: &quot;Yes&quot;,&#xd;
-                &quot;addRiderSumAssured&quot;: &quot;50000&quot;,&#xd;
-                &quot;termPlusRiderRequired&quot;: &quot;Yes&quot;,&#xd;
-                &quot;termPlusRiderSumAssured&quot;: &quot;60000&quot;,&#xd;
-                &quot;termPlusRiderTermYears&quot;: &quot;5&quot;,&#xd;
-                &quot;wopPlusRiderRequired&quot;: &quot;Yes&quot;,&#xd;
-                &quot;nameOfPayer&quot;: &quot;M&quot;,&#xd;
-                &quot;ageOfPayer&quot;: &quot;28&quot;,&#xd;
-                &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
-                &quot;nameOfInsured&quot;: &quot;K&quot;,&#xd;
-                &quot;ageOfInsured&quot;: &quot;28&quot;,&#xd;
-                &quot;genderOfInsured&quot;: &quot;F&quot;,&#xd;
-                &quot;isNri&quot;: &quot;No&quot;,&#xd;
-                &quot;policyHolderStateName&quot;: &quot;DELHI&quot;,&#xd;
-                &quot;maxLifeRegisteredStateName&quot;: &quot;MAHARASHTRA&quot;,&#xd;
-                &quot;isDefenceChannelCase&quot;: &quot;No&quot;,&#xd;
-                &quot;bonusOption&quot;: &quot;2&quot;,&#xd;
-                &quot;policyTerm&quot;: &quot;20&quot;,&#xd;
-                &quot;premiumPayingTerm&quot;: &quot;8&quot;,&#xd;
-                &quot;solveOption&quot;: &quot;PR&quot;,&#xd;
-                &quot;edc&quot;: &quot;2020-05-30&quot;,&#xd;
-                &quot;paymentModeName&quot;: &quot;06&quot;,&#xd;
-                &quot;spCode&quot;: &quot;122609&quot;,&#xd;
-                &quot;committedPremium&quot;: &quot;250000&quot;,&#xd;
-                &quot;surrenderOption&quot;: &quot;No&quot;,&#xd;
-                &quot;channel&quot;: &quot;A&quot;,&#xd;
-                &quot;productCode&quot;: &quot;101&quot;,&#xd;
-                &quot;productName&quot;: &quot;Max Life Future Genius Education Plan&quot;,&#xd;
-                &quot;productGroup&quot;: &quot;Traditional&quot;,&#xd;
-                &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
-                &quot;isCATChannel&quot;: &quot;&quot;,&#xd;
-                &quot;agentId&quot;: &quot;100766&quot;,&#xd;
-                &quot;sumAssured&quot;: &quot;2000000&quot;,&#xd;
-                &quot;maturityValueAmount&quot;: &quot;2000&quot;&#xd;
-        }&#xd;
-}&#xd;
-</stringProp>
+                <stringProp name="Argument.value">  {&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;372352153-A6hn4GjNdKxCvM0&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;ProposalNumber&quot;: &quot;372352153&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;transactionId&quot;: &quot;12345678&quot;,&#xd;
+        &quot;addRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;addRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderTermYears&quot;: &quot;&quot;,&#xd;
+        &quot;wopPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;Mohit&quot;,&#xd;
+        &quot;ageOfPayer&quot;: &quot;33&quot;,&#xd;
+        &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;Mohit&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;33&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
+        &quot;isNri&quot;: &quot;N_N&quot;,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;RAJASTHAN&quot;,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;isDefenceChannelCase&quot;: &quot;No&quot;,&#xd;
+        &quot;bonusOption&quot;: &quot;1&quot;,&#xd;
+        &quot;policyTerm&quot;: &quot;13&quot;,&#xd;
+        &quot;premiumPayingTerm&quot;: &quot;10&quot;,&#xd;
+        &quot;solveOption&quot;: &quot;SA&quot;,&#xd;
+        &quot;edc&quot;: &quot;2021-07-12&quot;,&#xd;
+        &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
+        &quot;spCode&quot;: &quot;8502956&quot;,&#xd;
+        &quot;committedPremium&quot;: &quot;100000.00&quot;,&#xd;
+        &quot;surrenderOption&quot;: &quot;No&quot;,&#xd;
+        &quot;channel&quot;: &quot;A&quot;,&#xd;
+        &quot;productCode&quot;: &quot;81&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Future Genius Education Plan&quot;,&#xd;
+        &quot;productGroup&quot;: &quot;Traditional&quot;,&#xd;
+        &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+        &quot;isCATChannel&quot;: &quot;N&quot;,&#xd;
+        &quot;agentId&quot;: &quot;&quot;,&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;sumAssured&quot;: &quot;1108278.84&quot;,&#xd;
+        &quot;maturityValueAmount&quot;: &quot;&quot;,&#xd;
+        &quot;covidRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;covidRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;emrRate&quot;: &quot;&quot;,&#xd;
+        &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;wopPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;wopPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;&#xd;
+    }&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -2766,51 +2891,68 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-        &quot;metadata&quot;: {&#xd;
-                &quot;X-Correlation-ID&quot;: &quot;31871273192&quot;,&#xd;
-                &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
-				&quot;ProposalNumber&quot;: &quot;602378715&quot;&#xd;
-        },&#xd;
-        &quot;payload&quot;: {&#xd;
-                &quot;transactionId&quot;: &quot;9e59098a45f549e894&quot;,&#xd;
-                &quot;addRiderIsRequired&quot;: &quot;Yes&quot;,&#xd;
-                &quot;addRiderSumAssured&quot;: &quot;50000&quot;,&#xd;
-                &quot;termPlusRiderRequired&quot;: &quot;Yes&quot;,&#xd;
-                &quot;termPlusRiderSumAssured&quot;: &quot;60000&quot;,&#xd;
-                &quot;termPlusRiderTermYears&quot;: &quot;5&quot;,&#xd;
-                &quot;wopPlusRiderRequired&quot;: &quot;Yes&quot;,&#xd;
-                &quot;nameOfPayer&quot;: &quot;M&quot;,&#xd;
-                &quot;ageOfPayer&quot;: &quot;28&quot;,&#xd;
-                &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
-                &quot;nameOfInsured&quot;: &quot;K&quot;,&#xd;
-                &quot;ageOfInsured&quot;: &quot;28&quot;,&#xd;
-                &quot;genderOfInsured&quot;: &quot;F&quot;,&#xd;
-                &quot;isNri&quot;: &quot;No&quot;,&#xd;
-                &quot;policyHolderStateName&quot;: &quot;DELHI&quot;,&#xd;
-                &quot;maxLifeRegisteredStateName&quot;: &quot;MAHARASHTRA&quot;,&#xd;
-                &quot;isDefenceChannelCase&quot;: &quot;No&quot;,&#xd;
-                &quot;bonusOption&quot;: &quot;2&quot;,&#xd;
-                &quot;policyTerm&quot;: &quot;20&quot;,&#xd;
-                &quot;premiumPayingTerm&quot;: &quot;8&quot;,&#xd;
-                &quot;solveOption&quot;: &quot;PR&quot;,&#xd;
-                &quot;edc&quot;: &quot;2020-05-30&quot;,&#xd;
-                &quot;paymentModeName&quot;: &quot;06&quot;,&#xd;
-                &quot;spCode&quot;: &quot;122609&quot;,&#xd;
-                &quot;committedPremium&quot;: &quot;250000&quot;,&#xd;
-                &quot;surrenderOption&quot;: &quot;No&quot;,&#xd;
-                &quot;channel&quot;: &quot;A&quot;,&#xd;
-                &quot;productCode&quot;: &quot;101&quot;,&#xd;
-                &quot;productName&quot;: &quot;Max Life Future Genius Education Plan&quot;,&#xd;
-                &quot;productGroup&quot;: &quot;Traditional&quot;,&#xd;
-                &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
-                &quot;isCATChannel&quot;: &quot;&quot;,&#xd;
-                &quot;agentId&quot;: &quot;100766&quot;,&#xd;
-                &quot;sumAssured&quot;: &quot;2000000&quot;,&#xd;
-                &quot;maturityValueAmount&quot;: &quot;2000&quot;&#xd;
-        }&#xd;
-}&#xd;
-</stringProp>
+                <stringProp name="Argument.value">  {&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;372352153-A6hn4GjNdKxCvM0&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;ProposalNumber&quot;: &quot;372352153&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;transactionId&quot;: &quot;12345678&quot;,&#xd;
+        &quot;addRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;addRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderTermYears&quot;: &quot;&quot;,&#xd;
+        &quot;wopPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;Mohit&quot;,&#xd;
+        &quot;ageOfPayer&quot;: &quot;33&quot;,&#xd;
+        &quot;genderOfPayer&quot;: &quot;M&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;Mohit&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;33&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;M&quot;,&#xd;
+        &quot;isNri&quot;: &quot;N_N&quot;,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;RAJASTHAN&quot;,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;isDefenceChannelCase&quot;: &quot;No&quot;,&#xd;
+        &quot;bonusOption&quot;: &quot;1&quot;,&#xd;
+        &quot;policyTerm&quot;: &quot;13&quot;,&#xd;
+        &quot;premiumPayingTerm&quot;: &quot;10&quot;,&#xd;
+        &quot;solveOption&quot;: &quot;SA&quot;,&#xd;
+        &quot;edc&quot;: &quot;2021-07-12&quot;,&#xd;
+        &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
+        &quot;spCode&quot;: &quot;8502956&quot;,&#xd;
+        &quot;committedPremium&quot;: &quot;100000.00&quot;,&#xd;
+        &quot;surrenderOption&quot;: &quot;No&quot;,&#xd;
+        &quot;channel&quot;: &quot;A&quot;,&#xd;
+        &quot;productCode&quot;: &quot;81&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Future Genius Education Plan&quot;,&#xd;
+        &quot;productGroup&quot;: &quot;Traditional&quot;,&#xd;
+        &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+        &quot;isCATChannel&quot;: &quot;N&quot;,&#xd;
+        &quot;agentId&quot;: &quot;&quot;,&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;sumAssured&quot;: &quot;1108278.84&quot;,&#xd;
+        &quot;maturityValueAmount&quot;: &quot;&quot;,&#xd;
+        &quot;covidRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;covidRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;emrRate&quot;: &quot;&quot;,&#xd;
+        &quot;emrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;wopPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;wopPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;&#xd;
+    }&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -8256,80 +8398,87 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-	&quot;metadata&quot;: {&#xd;
-		&quot;X-Correlation-ID&quot;: &quot;331247353-VUAfDKvI5Xsrjw9&quot;,&#xd;
-		&quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
-		&quot;ProposalNumber&quot;: &quot;331247353&quot;&#xd;
-	},&#xd;
-	&quot;payload&quot;: {&#xd;
-		&quot;transactionID&quot;: null,&#xd;
-		&quot;wopPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;termPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;termPlusRiderSumAssured&quot;: &quot;&quot;,&#xd;
-		&quot;termPlusRiderTermYears&quot;: &quot;&quot;,&#xd;
-		&quot;addRiderIsRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;addRiderSumAssured&quot;: &quot;&quot;,&#xd;
-		&quot;addRiderTerm&quot;: &quot;&quot;,&#xd;
-		&quot;nameOfPayer&quot;: &quot;Anil&quot;,&#xd;
-		&quot;ageOfPayer&quot;: &quot;52&quot;,&#xd;
-		&quot;sexOfPayer&quot;: &quot;M&quot;,&#xd;
-		&quot;nameOfInsured&quot;: &quot;Harish&quot;,&#xd;
-		&quot;ageOfInsured&quot;: &quot;48&quot;,&#xd;
-		&quot;sexOfInsured&quot;: &quot;M&quot;,&#xd;
-		&quot;isNri&quot;: &quot;No&quot;,&#xd;
-		&quot;policyHolderStateName&quot;: &quot;KARNATAKA&quot;,&#xd;
-		&quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
-		&quot;isLIEqualsPH&quot;: &quot;N&quot;,&#xd;
-		&quot;customerDiscount&quot;: &quot;&quot;,&#xd;
-		&quot;policyTerm&quot;: &quot;5&quot;,&#xd;
-		&quot;premiumPayingTerm&quot;: &quot;1&quot;,&#xd;
-		&quot;solveOption&quot;: &quot;PR&quot;,&#xd;
-		&quot;variant&quot;: &quot;TSWPW1&quot;,&#xd;
-		&quot;incomePaymentFrequency&quot;: &quot;12&quot;,&#xd;
-		&quot;annualIncome&quot;: &quot;18148&quot;,&#xd;
-		&quot;edc&quot;: &quot;2021-03-08&quot;,&#xd;
-		&quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
-		&quot;committedPremium&quot;: &quot;125000.00&quot;,&#xd;
-		&quot;isPOSP&quot;: null,&#xd;
-		&quot;spCode&quot;: null,&#xd;
-		&quot;riskClass&quot;: &quot;NS&quot;,&#xd;
-		&quot;channel&quot;: &quot;A&quot;,&#xd;
-		&quot;productCode&quot;: &quot;133&quot;,&#xd;
-		&quot;productName&quot;: &quot;Max Life Smart Wealth Plan&quot;,&#xd;
-		&quot;productGroup&quot;: &quot;TRAD&quot;,&#xd;
-		&quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
-		&quot;paymentModeCode&quot;: null,&#xd;
-		&quot;policyHolderStateCode&quot;: null,&#xd;
-		&quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
-		&quot;agentId&quot;: &quot;&quot;,&#xd;
-		&quot;emrRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;emrRate&quot;: &quot;&quot;,&#xd;
-		&quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
-		&quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
-		&quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
-		&quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
-		&quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
-		&quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
-		&quot;wopPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;wopPlusRiderEmr&quot;: &quot;&quot;,&#xd;
-		&quot;covidRiderIsRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;covidRiderSumAssured&quot;: &quot;&quot;,&#xd;
-		&quot;ciDisabilityRiderEmrRate&quot;: null,&#xd;
-		&quot;ciDisabilityRiderEmrRequired&quot;: null,&#xd;
-		&quot;ciDisabilityRiderFlatExtraDuration&quot;: null,&#xd;
-		&quot;ciDisabilityRiderFlatExtraRate&quot;: null,&#xd;
-		&quot;ciDisabilityRiderFlatExtraRequired&quot;: null,&#xd;
-		&quot;ciDisabilityRiderIsRequired&quot;: null,&#xd;
-		&quot;ciDisabilityRiderPolicyTerm&quot;: null,&#xd;
-		&quot;ciDisabilityRiderSumAssured&quot;: null,&#xd;
-		&quot;ciDisabilityRiderVariant&quot;: null,&#xd;
-		&quot;annuitantEmrRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;annuitantEmrRate&quot;: &quot;&quot;&#xd;
-	}&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;ProposalNumber&quot;: &quot;371257528&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;transactionID&quot;: null,&#xd;
+        &quot;wopPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderTermYears&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;addRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderTerm&quot;: &quot;&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;Swp&quot;,&#xd;
+        &quot;ageOfPayer&quot;: &quot;53&quot;,&#xd;
+        &quot;sexOfPayer&quot;: &quot;F&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;K&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;57&quot;,&#xd;
+        &quot;sexOfInsured&quot;: &quot;M&quot;,&#xd;
+        &quot;isNri&quot;: &quot;N_Y&quot;,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;KARNATAKA&quot;,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;isLIEqualsPH&quot;: &quot;N&quot;,&#xd;
+        &quot;customerDiscount&quot;: &quot;&quot;,&#xd;
+        &quot;policyTerm&quot;: &quot;5&quot;,&#xd;
+        &quot;premiumPayingTerm&quot;: &quot;1&quot;,&#xd;
+        &quot;solveOption&quot;: &quot;PR&quot;,&#xd;
+        &quot;variant&quot;: &quot;TSWPW1&quot;,&#xd;
+        &quot;incomePaymentFrequency&quot;: &quot;01&quot;,&#xd;
+        &quot;annualIncome&quot;: &quot;1470.00&quot;,&#xd;
+        &quot;edc&quot;: &quot;2021-07-29&quot;,&#xd;
+        &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
+        &quot;committedPremium&quot;: &quot;125000.00&quot;,&#xd;
+        &quot;isPOSP&quot;: null,&#xd;
+        &quot;spCode&quot;: null,&#xd;
+        &quot;riskClass&quot;: &quot;NS&quot;,&#xd;
+        &quot;channel&quot;: &quot;W&quot;,&#xd;
+        &quot;productCode&quot;: &quot;133&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Smart Wealth Plan&quot;,&#xd;
+        &quot;productGroup&quot;: &quot;TRAD&quot;,&#xd;
+        &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+        &quot;paymentModeCode&quot;: null,&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;agentId&quot;: &quot;&quot;,&#xd;
+        &quot;emrRequired&quot;: &quot;Yes&quot;,&#xd;
+        &quot;emrRate&quot;: &quot;50&quot;,&#xd;
+        &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;wopPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;wopPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;covidRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;covidRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;isOnline&quot;: &quot;Y&quot;,&#xd;
+        &quot;ciDisabilityRiderEmrRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderEmrIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderflatExtraIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderflatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderflatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderPolicyTerm&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderVariant&quot;: &quot;&quot;,&#xd;
+        &quot;annuitantEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;annuitantEmrRate&quot;: &quot;&quot;,&#xd;
+        &quot;relayPointId&quot;: null,&#xd;
+        &quot;relayPointName&quot;: null,&#xd;
+        &quot;reasonOfFailure&quot;: null,&#xd;
+        &quot;request&quot;: null,&#xd;
+        &quot;response&quot;: null,&#xd;
+        &quot;IsOnline&quot;: &quot;Y&quot;&#xd;
+    }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -8369,80 +8518,87 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-	&quot;metadata&quot;: {&#xd;
-		&quot;X-Correlation-ID&quot;: &quot;331247353-VUAfDKvI5Xsrjw9&quot;,&#xd;
-		&quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
-		&quot;ProposalNumber&quot;: &quot;331247353&quot;&#xd;
-	},&#xd;
-	&quot;payload&quot;: {&#xd;
-		&quot;transactionID&quot;: null,&#xd;
-		&quot;wopPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;termPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;termPlusRiderSumAssured&quot;: &quot;&quot;,&#xd;
-		&quot;termPlusRiderTermYears&quot;: &quot;&quot;,&#xd;
-		&quot;addRiderIsRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;addRiderSumAssured&quot;: &quot;&quot;,&#xd;
-		&quot;addRiderTerm&quot;: &quot;&quot;,&#xd;
-		&quot;nameOfPayer&quot;: &quot;Anil&quot;,&#xd;
-		&quot;ageOfPayer&quot;: &quot;52&quot;,&#xd;
-		&quot;sexOfPayer&quot;: &quot;M&quot;,&#xd;
-		&quot;nameOfInsured&quot;: &quot;Harish&quot;,&#xd;
-		&quot;ageOfInsured&quot;: &quot;48&quot;,&#xd;
-		&quot;sexOfInsured&quot;: &quot;M&quot;,&#xd;
-		&quot;isNri&quot;: &quot;No&quot;,&#xd;
-		&quot;policyHolderStateName&quot;: &quot;KARNATAKA&quot;,&#xd;
-		&quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
-		&quot;isLIEqualsPH&quot;: &quot;N&quot;,&#xd;
-		&quot;customerDiscount&quot;: &quot;&quot;,&#xd;
-		&quot;policyTerm&quot;: &quot;5&quot;,&#xd;
-		&quot;premiumPayingTerm&quot;: &quot;1&quot;,&#xd;
-		&quot;solveOption&quot;: &quot;PR&quot;,&#xd;
-		&quot;variant&quot;: &quot;TSWPW1&quot;,&#xd;
-		&quot;incomePaymentFrequency&quot;: &quot;12&quot;,&#xd;
-		&quot;annualIncome&quot;: &quot;18148&quot;,&#xd;
-		&quot;edc&quot;: &quot;2021-03-08&quot;,&#xd;
-		&quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
-		&quot;committedPremium&quot;: &quot;125000.00&quot;,&#xd;
-		&quot;isPOSP&quot;: null,&#xd;
-		&quot;spCode&quot;: null,&#xd;
-		&quot;riskClass&quot;: &quot;NS&quot;,&#xd;
-		&quot;channel&quot;: &quot;A&quot;,&#xd;
-		&quot;productCode&quot;: &quot;133&quot;,&#xd;
-		&quot;productName&quot;: &quot;Max Life Smart Wealth Plan&quot;,&#xd;
-		&quot;productGroup&quot;: &quot;TRAD&quot;,&#xd;
-		&quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
-		&quot;paymentModeCode&quot;: null,&#xd;
-		&quot;policyHolderStateCode&quot;: null,&#xd;
-		&quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
-		&quot;agentId&quot;: &quot;&quot;,&#xd;
-		&quot;emrRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;emrRate&quot;: &quot;&quot;,&#xd;
-		&quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
-		&quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
-		&quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
-		&quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
-		&quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
-		&quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
-		&quot;wopPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;wopPlusRiderEmr&quot;: &quot;&quot;,&#xd;
-		&quot;covidRiderIsRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;covidRiderSumAssured&quot;: &quot;&quot;,&#xd;
-		&quot;ciDisabilityRiderEmrRate&quot;: null,&#xd;
-		&quot;ciDisabilityRiderEmrRequired&quot;: null,&#xd;
-		&quot;ciDisabilityRiderFlatExtraDuration&quot;: null,&#xd;
-		&quot;ciDisabilityRiderFlatExtraRate&quot;: null,&#xd;
-		&quot;ciDisabilityRiderFlatExtraRequired&quot;: null,&#xd;
-		&quot;ciDisabilityRiderIsRequired&quot;: null,&#xd;
-		&quot;ciDisabilityRiderPolicyTerm&quot;: null,&#xd;
-		&quot;ciDisabilityRiderSumAssured&quot;: null,&#xd;
-		&quot;ciDisabilityRiderVariant&quot;: null,&#xd;
-		&quot;annuitantEmrRequired&quot;: &quot;No&quot;,&#xd;
-		&quot;annuitantEmrRate&quot;: &quot;&quot;&#xd;
-	}&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;,&#xd;
+        &quot;ProposalNumber&quot;: &quot;371257528&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;transactionID&quot;: null,&#xd;
+        &quot;wopPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderTermYears&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;addRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderTerm&quot;: &quot;&quot;,&#xd;
+        &quot;nameOfPayer&quot;: &quot;Swp&quot;,&#xd;
+        &quot;ageOfPayer&quot;: &quot;53&quot;,&#xd;
+        &quot;sexOfPayer&quot;: &quot;F&quot;,&#xd;
+        &quot;nameOfInsured&quot;: &quot;K&quot;,&#xd;
+        &quot;ageOfInsured&quot;: &quot;57&quot;,&#xd;
+        &quot;sexOfInsured&quot;: &quot;M&quot;,&#xd;
+        &quot;isNri&quot;: &quot;N_Y&quot;,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;KARNATAKA&quot;,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;HARYANA&quot;,&#xd;
+        &quot;isLIEqualsPH&quot;: &quot;N&quot;,&#xd;
+        &quot;customerDiscount&quot;: &quot;&quot;,&#xd;
+        &quot;policyTerm&quot;: &quot;5&quot;,&#xd;
+        &quot;premiumPayingTerm&quot;: &quot;1&quot;,&#xd;
+        &quot;solveOption&quot;: &quot;PR&quot;,&#xd;
+        &quot;variant&quot;: &quot;TSWPW1&quot;,&#xd;
+        &quot;incomePaymentFrequency&quot;: &quot;01&quot;,&#xd;
+        &quot;annualIncome&quot;: &quot;1470.00&quot;,&#xd;
+        &quot;edc&quot;: &quot;2021-07-29&quot;,&#xd;
+        &quot;paymentModeName&quot;: &quot;12&quot;,&#xd;
+        &quot;committedPremium&quot;: &quot;125000.00&quot;,&#xd;
+        &quot;isPOSP&quot;: null,&#xd;
+        &quot;spCode&quot;: null,&#xd;
+        &quot;riskClass&quot;: &quot;NS&quot;,&#xd;
+        &quot;channel&quot;: &quot;W&quot;,&#xd;
+        &quot;productCode&quot;: &quot;133&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Smart Wealth Plan&quot;,&#xd;
+        &quot;productGroup&quot;: &quot;TRAD&quot;,&#xd;
+        &quot;objectiveOfInsurance&quot;: &quot;IP&quot;,&#xd;
+        &quot;paymentModeCode&quot;: null,&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;agentId&quot;: &quot;&quot;,&#xd;
+        &quot;emrRequired&quot;: &quot;Yes&quot;,&#xd;
+        &quot;emrRate&quot;: &quot;50&quot;,&#xd;
+        &quot;flatExtraBaseRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;flatExtraBaseRate&quot;: &quot;&quot;,&#xd;
+        &quot;flatExtraBaseDuration&quot;: &quot;&quot;,&#xd;
+        &quot;addRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;addRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;termPlusRiderFlatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;wopPlusRiderEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;wopPlusRiderEmr&quot;: &quot;&quot;,&#xd;
+        &quot;covidRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;covidRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;isOnline&quot;: &quot;Y&quot;,&#xd;
+        &quot;ciDisabilityRiderEmrRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderEmrIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderflatExtraIsRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;ciDisabilityRiderflatExtraDuration&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderflatExtraRate&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderPolicyTerm&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderSumAssured&quot;: &quot;&quot;,&#xd;
+        &quot;ciDisabilityRiderVariant&quot;: &quot;&quot;,&#xd;
+        &quot;annuitantEmrRequired&quot;: &quot;No&quot;,&#xd;
+        &quot;annuitantEmrRate&quot;: &quot;&quot;,&#xd;
+        &quot;relayPointId&quot;: null,&#xd;
+        &quot;relayPointName&quot;: null,&#xd;
+        &quot;reasonOfFailure&quot;: null,&#xd;
+        &quot;request&quot;: null,&#xd;
+        &quot;response&quot;: null,&#xd;
+        &quot;IsOnline&quot;: &quot;Y&quot;&#xd;
+    }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -8898,6 +9054,134 @@
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
               <stringProp name="-202516509">Success</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_SPP_ILLUSTRATION" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;nameOfInsured&quot;: &quot;ABC&quot;,&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;ageOfInsured&quot;: &quot;46&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;F&quot;,&#xd;
+        &quot;nameOfAnnuitant&quot;: &quot;ABC&quot;,&#xd;
+        &quot;ageOfAnnuitant&quot;: &quot;60&quot;,&#xd;
+        &quot;genderOfAnnuitant&quot;: &quot;F&quot;,&#xd;
+        &quot;isNri&quot;: &quot;N_N&quot;,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;DELHI&quot;,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;DELHI&quot;,&#xd;
+        &quot;incomePaymentFrequency&quot;: &quot;12&quot;,&#xd;
+        &quot;annuityPurchasedFrom&quot;: &quot;TIASR&quot;,&#xd;
+        &quot;purchasePrice&quot;: &quot;1200000&quot;,&#xd;
+        &quot;annuityOption&quot;: &quot;TIASR&quot;,&#xd;
+        &quot;channel&quot;: &quot;A&quot;,&#xd;
+        &quot;edc&quot;: &quot;2021-03-15&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Saral Pension Plan&quot;,&#xd;
+        &quot;IsOnline&quot;: &quot;No&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/leillustration</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+              <stringProp name="-202516509">Success</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LE_SPP_PREMIUM" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;metadata&quot;: {&#xd;
+        &quot;X-Correlation-ID&quot;: &quot;${__time()}&quot;,&#xd;
+        &quot;X-App-ID&quot;: &quot;IBPS&quot;&#xd;
+    },&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;nameOfInsured&quot;: &quot;ABC&quot;,&#xd;
+        &quot;policyHolderStateCode&quot;: null,&#xd;
+        &quot;maxLifeRegisteredStateCode&quot;: null,&#xd;
+        &quot;ageOfInsured&quot;: &quot;46&quot;,&#xd;
+        &quot;genderOfInsured&quot;: &quot;F&quot;,&#xd;
+        &quot;nameOfAnnuitant&quot;: &quot;ABC&quot;,&#xd;
+        &quot;ageOfAnnuitant&quot;: &quot;60&quot;,&#xd;
+        &quot;genderOfAnnuitant&quot;: &quot;F&quot;,&#xd;
+        &quot;isNri&quot;: &quot;N_N&quot;,&#xd;
+        &quot;policyHolderStateName&quot;: &quot;DELHI&quot;,&#xd;
+        &quot;maxLifeRegisteredStateName&quot;: &quot;DELHI&quot;,&#xd;
+        &quot;incomePaymentFrequency&quot;: &quot;12&quot;,&#xd;
+        &quot;annuityPurchasedFrom&quot;: &quot;TIASR&quot;,&#xd;
+        &quot;purchasePrice&quot;: &quot;1200000&quot;,&#xd;
+        &quot;annuityOption&quot;: &quot;TIASR&quot;,&#xd;
+        &quot;channel&quot;: &quot;A&quot;,&#xd;
+        &quot;edc&quot;: &quot;2021-03-15&quot;,&#xd;
+        &quot;productName&quot;: &quot;Max Life Saral Pension Plan&quot;,&#xd;
+        &quot;IsOnline&quot;: &quot;No&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/developer/lepremium</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-202516509">Success</stringProp>
+              <stringProp name="49586">200</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
