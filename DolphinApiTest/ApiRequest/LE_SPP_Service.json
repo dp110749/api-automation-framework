@@ -1,0 +1,27 @@
+{
+    "metadata": {
+        "X-Correlation-ID": "31873127329799381273192",
+        "X-App-ID": "IBPS"
+    },
+    "payload": {
+        "nameOfInsured": "ABC",
+        "policyHolderStateCode": null,
+        "maxLifeRegisteredStateCode": null,
+        "ageOfInsured": "{{ageOfInsured}}",
+        "genderOfInsured": "F",
+        "nameOfAnnuitant": "ABC",
+        "ageOfAnnuitant": "60",
+        "genderOfAnnuitant": "F",
+        "isNri": "N_N",
+        "policyHolderStateName": "DELHI",
+        "maxLifeRegisteredStateName": "DELHI",
+        "incomePaymentFrequency": "12",
+        "annuityPurchasedFrom": "TIASR",
+        "purchasePrice": "{{purchasePrice}}",
+        "annuityOption": "TIASR",
+        "channel": "{{channel}}",
+        "edc": "2021-03-15",
+        "productName": "{{productName}}",
+        "IsOnline": "No"
+    }
+}
