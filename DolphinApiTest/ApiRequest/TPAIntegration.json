@@ -1,40 +1,98 @@
 {
     "metadata": {
-        "X-Correlation-ID": "600452031-4A2468A0AC076A4",
-        "X-App-ID": "IBPS"
+        "X-Correlation-ID": "370854390-8BD8BAFBE1E06E4",
+        "X-App-ID": "IBPS",
+        "proposalNumber": "370854390"
     },
     "payload": {
-        "CRMLeadID": "c:\\Windows\\system.ini",
-        "EquoteNumber": "",
-        "ProposalNo": "600352031",
-        "ProductName": "UIPWF5",
-        "StatusCodeDisplayText": "NewLead",
-        "FirstName": "Mayank",
-        "MiddleName": "",
-        "LastName": "Gandhi",
-        "DateOfBirth": "3/3/1988",
-        "Gender": "Male",
-        "EmailId": "test@gmail.com",
-        "MobileNo1": "9899066892",
-        "MobileNo2": "9885432212",
-        "PanNumber": "",
-        "HouseNoAptNameSociety": "efdsd",
-        "RoadAreaSector": "dfdsfds",
-        "CityDistrict": "NEW DELHI",
-        "PinCode": "110034",
-        "StateUT": "DELHI",
-        "NomineeFirstName": "fdfsdf",
-        "NomineeMiddleName": "",
-        "NomineeLastName": ".",
-        "NomineeDob": "12/10/1956",
-        "SmokerClass": "No",
-        "MedicalCategory": "",
-        "ServiceType": "",
-        "PreferredLabId": "",
-        "PreferredTestDate": "",
-        "PreferredTestTime": "",
-        "DiscrepancyMsg": "",
-        "packageId": "301",
+        "applicationName": "DOLPHIN",
+        "afyp": "234400",
+        "declaredIncome": "1200000",
+        "sumAssured": "2000000",
+        "medicalSumAssured": "2000000",
+        "channelName": "PB024",
+        "planCode": "TSWEM",
+        "planName": "TSWEM",
+        "crifIncome": "00",
+        "crifScore": "00",
+        "occupation": "Salaried",
+        "education": "Graduate",
+        "nationality": "Indian",
+        "stateCode": "UP",
+        "stateName": "UTTAR PRADESH",
+        "cityCode": "AGRA",
+        "cityName": "AGRA",
+        "countryName": "India",
+        "pinCode": "229292",
+        "vendor": "",
+        "prevPackageTestId": [
+            {
+                "prevPackageTestId": "IGNORE"
+            },
+            {
+                "prevPackageTestId": "IGNORE"
+            }
+        ],
+        "currentPackageTestId": [
+            {
+                "currentPackageTestId": "IGNORE"
+            },
+            {
+                "currentPackageTestId": "IGNORE"
+            }
+        ],
+        "prevAddInfo": [
+            {
+                "prevAddInfo": "IGNORE"
+            },
+            {
+                "prevAddInfo": "IGNORE"
+            }
+        ],
+        "currentAddInfo": [
+            {
+                "currentAddInfo": "IGNORE"
+            },
+            {
+                "currentAddInfo": "IGNORE"
+            }
+        ],
+        "categoryName": "lab",
+        "requestType": "",
+        "hniCustomer": "false",
+        "addInfo": "N",
+        "tpaName": "",
+        "crmLeadId": "",
+        "eQuoteNumber": "",
+        "proposalNo": "{{proposalNo}}",
+        "productName": "{{productName}}",
+        "statusCodeDisplayText": "UpdatedNewLead",
+        "firstName": "singh",
+        "middleName": "",
+        "lastName": ".",
+        "dateOfBirth": "15/9/2010",
+        "gender": "Female",
+        "emailId": "test@gmail.com",
+        "mobileNo1": "9873042860",
+        "mobileNo2": "9879797897",
+        "panNumber": "",
+        "houseNoAptNameSociety": "{{houseNoAptNameSociety}}",
+        "roadAreaSector": "dfg",
+        "cityDistrict": "AGRA",
+        "pinCode1": "{{pinCode1}}",
+        "stateUt": "UTTAR PRADESH",
+        "nomineeFirstName": "",
+        "nomineeMiddleName": "",
+        "nomineeLastName": "",
+        "nomineeDob": "",
+        "smokerClass": "{{smokerClass}}",
+        "medicalCategory": "",
+        "serviceType": "",
+        "preferredLabId": "",
+        "preferredTestDate": "",
+        "preferredTestTime": "",
+        "discrepancyMsg": "",
+        "packageId": "0",
         "testId": ""
     }
 }

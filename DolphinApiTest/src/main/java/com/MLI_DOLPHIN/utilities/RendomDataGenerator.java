@@ -1,67 +1,62 @@
 package com.MLI_DOLPHIN.utilities;
+
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.math3.random.RandomDataGenerator;
 
 import com.github.javafaker.Faker;
 
-
 public class RendomDataGenerator {
-	
-	public static Faker fakerapi ;
-	
-	public static String userName(){
-		String generatedString =RandomStringUtils.randomAlphabetic(1);
-			return("jhon"+generatedString); 		
+
+	public static Faker fakerapi;
+
+	public static String userName() {
+		String generatedString = RandomStringUtils.randomAlphabetic(1);
+		return ("jhon" + generatedString);
 	}
-	/*This is function is used to generate 16 number */
-	public static String Rendom_numberGenerator(){
-		String generatedString =RandomStringUtils.randomNumeric(16);
-			return(generatedString); 		
+
+	/* This is function is used to generate 16 number */
+	public static String getPinCode() {
+		String generatedString = RandomStringUtils.randomNumeric(6);
+		return (generatedString);
 	}
-	/*This is function is used to generate 9 number */
-	public static String Random_numberGenerator9(){
-		String generatedString =RandomStringUtils.randomNumeric(9);
-			return(generatedString); 		
+
+	/* This is function is used to generate 9 number */
+	public static String get9DigitNumber() {
+		String generatedString = RandomStringUtils.randomNumeric(9);
+		return (generatedString);
 	}
-	public static String rendom_numberGenerator(){
-		String generatedString =RandomStringUtils.randomNumeric(2);
-			return(generatedString); 		
+
+	public static String get2DigitNumber() {
+		String generatedString = RandomStringUtils.randomNumeric(2);
+		return (generatedString);
 	}
-	public static String Fname(){
-		
-		fakerapi= new Faker();
+
+	public static String getFirstname() {
+
+		fakerapi = new Faker();
 		return fakerapi.name().firstName();
 	}
-	
-	public static String Mname(){
-		
-		fakerapi= new Faker();
-		return fakerapi.name().nameWithMiddle();		
-	}
-	
-	public static String Lname(){		
-		fakerapi= new Faker();
-		return fakerapi.name().lastName();		
-	}
-	public static String MobNumber(){		
-		fakerapi= new Faker();
-		return fakerapi.phoneNumber().cellPhone();		
-	}
-	public static String address(){		
-		fakerapi= new Faker();
-		return fakerapi.address().city();		
-	}
-	
-//	public static void main(String[] args) {
-//		System.out.println("user name  =="+userName());
-//		System.out.println("user  mob  =="+MobNumber());
-//		System.out.println("user  fname  =="+Fname());
-//		System.out.println("user  mname  =="+Mname());
-//		System.out.println("user    lanem =="+Lname());
-//		System.out.println("user  address =="+address());
-//		System.out.println("user  mob  ==");
-//		
-//	}
-//
 
+	public static String getMiddlename() {
+
+		fakerapi = new Faker();
+		return fakerapi.name().nameWithMiddle();
+	}
+
+	public static String getLatsname() {
+		fakerapi = new Faker();
+		return fakerapi.name().lastName();
+	}
+
+	public static String getMobNumber() {
+		fakerapi = new Faker();
+		return fakerapi.phoneNumber().cellPhone();
+	}
+
+	public static String getAddress() {
+		fakerapi = new Faker();
+		return fakerapi.address().city();
+
+	}
 
 }
