@@ -9,7 +9,16 @@ import io.restassured.response.Response;
 public class WebservicesMethod {
 	
 	public static GetToken gettoken;
+	public String endPointUrl;
+	public String header;
+	public String requestFile;
+	public String correlationId;
+	public String method_Type;
+	public int getSecondRowData;
+	public String requestBody;
+    public String responseCode;
 	public static Response responseBody;
+	
     /*This fun is used to send the post Request..*/
 	public static Response Select_API_METHOD(String methodType,String uRI, String Requestbody,Map<String, String> headers) {
 		
