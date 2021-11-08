@@ -21,7 +21,6 @@ public class WebservicesMethod {
 	
     /*This fun is used to send the post Request..*/
 	public static Response Select_API_METHOD(String methodType,String uRI, String Requestbody,Map<String, String> headers) {
-		
 		gettoken = new GetToken();
 		
 		switch(methodType){

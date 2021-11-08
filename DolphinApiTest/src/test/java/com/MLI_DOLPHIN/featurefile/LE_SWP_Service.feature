@@ -2,14 +2,14 @@
 Feature: To test the functionality of SWP product for premium and illustration
 Background:
 Given Set the pre request test data for SWP
-|EndPointUrl          |Header                                              |RequestFile         |correlationId  |commitedPremium |productName                |
-|/developer/lepremium |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY  |LE_SWP_Service.json |123433         |260000          |Max Life Smart Wealth Plan |
+|EndPointUrl          |Header                                              |RequestFile         |correlationId  |commitedPremium |productName                |MethodType|
+|/developer/lepremium |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY  |LE_SWP_Service.json |123433         |260000          |Max Life Smart Wealth Plan |POST      |
 
 @SWP_PositiveTest001
 Scenario: To calculate the premium when pass premium 125000 for SWP
 Given To set the expected data 
 |ExpResponseCode|ExpResponseMsgCode|ExpResponseMessage|ExpATP       |
-|200            |200               |Success           |520000.00    | 
+|200            |200               |Success           |260000    | 
 When Send the POST request for SWP
 Then Lets Validate the response code for SWP
 And Lets Validate response Msg Code and message for SWP
@@ -34,7 +34,7 @@ Examples:
 Scenario Outline: : To generate the AFYP when user pass premium 160000
 Given To set the expected data 
 |ExpResponseCode|ExpResponseMsgCode|ExpResponseMessage|ExpAFYP       |
-|200            |200               |Success           | 320000.00    | 
+|200            |200               |Success           | 160000   | 
 
 Given Set the premium in request"<committedPremium>"
 When Send the POST request for SWP
