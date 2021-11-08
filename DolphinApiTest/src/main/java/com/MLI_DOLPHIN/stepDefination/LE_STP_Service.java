@@ -15,13 +15,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 
-public class LE_STP_Service {
+public class LE_STP_Service extends WebservicesMethod{
 	private final static Logger logger = Logger.getLogger(LE_STP_Service.class.getName());
-	private String endPointUrl;
-	private String headers;
-	private String requestFile;
-	private String requestBody;
-	private Response responseBody;
 	private String expResponseCode;
 	private String expResponseMSgCode;
 	private String expResponseMessage;
@@ -31,20 +26,21 @@ public class LE_STP_Service {
 	private String oparationType;
 	private List<String> listOfSetData ;
 	private List<List<String>> numOfRow;
-	private int getSecondRow;
-
 	
 	@Given("^Set the pre request test data for STP$")
 	public void set_the_pre_request_test_data_for_STP(DataTable preRequestData) throws Throwable {
 		listOfSetData=preRequestData.asList(String.class);
 		numOfRow=preRequestData.raw();
-		getSecondRow=listOfSetData.size()/numOfRow.size();
-		for(int i=getSecondRow;i<listOfSetData.size();i++){
+		getSecondRowData=listOfSetData.size()/numOfRow.size();
+		for(int i=getSecondRowData;i<listOfSetData.size();i++){
 			endPointUrl=listOfSetData.get(i);
 			i++;
-			headers=listOfSetData.get(i);
+			header=listOfSetData.get(i);
 			i++;
 			requestFile=listOfSetData.get(i);
+			i++;
+			method_Type =listOfSetData.get(i);
+			break;
 		}
           requestBody=ReusableFunction.readJsonFile(requestFile);
 	}
@@ -54,8 +50,8 @@ public class LE_STP_Service {
 
 		listOfSetData=expOutPutListData.asList(String.class);
 		numOfRow=expOutPutListData.raw();
-		getSecondRow=listOfSetData.size()/numOfRow.size();
-		for(int i= getSecondRow;i<listOfSetData.size();i++){
+		getSecondRowData=listOfSetData.size()/numOfRow.size();
+		for(int i= getSecondRowData;i<listOfSetData.size();i++){
 			expResponseCode=listOfSetData.get(i);
 			i++;
 			expResponseMSgCode=listOfSetData.get(i);
@@ -63,6 +59,8 @@ public class LE_STP_Service {
 			expResponseMessage=listOfSetData.get(i);
 			i++;
 			expOutPutData=listOfSetData.get(i);
+			
+			
 		  }		
 	}
 	
@@ -70,8 +68,8 @@ public class LE_STP_Service {
 	public void i_want_to_set_multiple_set_of_data_for_STP(DataTable multipleSetOfData) throws Throwable {
     listOfSetData= multipleSetOfData.asList(String.class);
     numOfRow=multipleSetOfData.raw();
-    getSecondRow=listOfSetData.size()/numOfRow.size();
-    for(int i=getSecondRow;i<listOfSetData.size();i++){
+    getSecondRowData=listOfSetData.size()/numOfRow.size();
+    for(int i=getSecondRowData;i<listOfSetData.size();i++){
     	testData=listOfSetData.get(i);
     	i++;
     	oparationType=listOfSetData.get(i);
@@ -83,16 +81,18 @@ public class LE_STP_Service {
     	expOutPutData=listOfSetData.get(i);
     	i++;
     	expAFYP=listOfSetData.get(i);
+    	
     	logger.info("Test data is :: "+testData+ "Opraration Type :: "+oparationType+ "response MsgCode is::"+expResponseMSgCode+ "");
     	
+    	
     	requestBody =ReusableFunction.getSpecificRequest(requestBody, testData, oparationType);
-    	responseBody=WebservicesMethod.POST_METHOD(endPointUrl, requestBody, ReusableFunction.requestHeaders(headers));
+    	responseBody=WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
 		logger.info("Response Body is :"+responseBody.prettyPrint());
 		if(expResponseMSgCode.equalsIgnoreCase("200")){
-		    responseBody.then().root("msgInfo").body("msgCode", Matchers.equalTo(expResponseMSgCode))
+		    responseBody.then().root("msgInfo").body("msgCode", Matchers.equalToIgnoringCase(expResponseMSgCode))
 		    .and()
 		    .body("msg", Matchers.equalTo(expResponseMessage));		    
-		    responseBody.then().root("payload").body("premiumAmount.sumAssusred", Matchers.equalTo(expOutPutData))
+		    responseBody.then().root("payload").body("premiumAmount.sumAssusred", Matchers.equalToIgnoringCase(expOutPutData))
 		    .and()
 		    .body("premiumAmount.AFYP", Matchers.equalTo(expAFYP));
 		    logger.info("Validation of successfull response with valid data for STP");
@@ -125,8 +125,8 @@ public class LE_STP_Service {
 	public void i_want_to_set_multiple_set_of_data_for_STP_to_generate_illustration(DataTable inputTestData) throws Throwable {
 	    listOfSetData= inputTestData.asList(String.class);
 	    numOfRow=inputTestData.raw();
-	    getSecondRow=listOfSetData.size()/numOfRow.size();
-	    for(int i=getSecondRow;i<listOfSetData.size();i++){
+	    getSecondRowData=listOfSetData.size()/numOfRow.size();
+	    for(int i=getSecondRowData;i<listOfSetData.size();i++){
 	    	testData=listOfSetData.get(i);
 	    	i++;
 	    	oparationType=listOfSetData.get(i);
@@ -135,7 +135,7 @@ public class LE_STP_Service {
 	    	i++;
 	    	expResponseMessage=listOfSetData.get(i);
 	    	requestBody =ReusableFunction.getSpecificRequest(requestBody, testData, oparationType);
-	    	responseBody=WebservicesMethod.POST_METHOD(endPointUrl, requestBody, ReusableFunction.requestHeaders(headers));
+	    	responseBody=WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
 			logger.info("Response Body is :"+responseBody.prettyPrint());
 			if(expResponseMessage.equalsIgnoreCase("Successful")){
 			    responseBody.then().root("msgInfo").body("msgCode", Matchers.equalTo(expResponseMSgCode));
@@ -149,13 +149,17 @@ public class LE_STP_Service {
 		
 	@Given("^I want to set the header for request\"([^\"]*)\"$")
 	public void i_want_to_set_the_header_for_request(String inputHeader) throws Throwable {
-		headers=inputHeader;
+		header=inputHeader;
 		logger.info("input header set the successfully..");
 
 	}
 	@When("^I want to send the request for STP$")
 	public void i_want_to_send_the_request_for_STP() throws Throwable {
-		responseBody=WebservicesMethod.POST_METHOD(endPointUrl, requestBody, ReusableFunction.requestHeaders(headers));
+//		System.out.println("====  ----------"+endPointUrl);
+//		System.out.println("====  ----------"+method_Type);
+//		System.out.println("====  ----------"+requestBody);
+//		System.out.println("====  ----------"+header);
+		responseBody=WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl,requestBody, ReusableFunction.requestHeaders(header));
 		logger.info("Response Body is :"+responseBody.prettyPrint());
 	}
 
@@ -174,7 +178,7 @@ public class LE_STP_Service {
 
 	@Then("^I want to validate response Message for STP$")
 	public void i_want_to_validate_response_Message_for_STP() throws Throwable {
-		responseBody.then().root("msgInfo").body("msgCode", Matchers.equalTo(expResponseMSgCode));
+		responseBody.then().root("msgInfo").body("msgCode", Matchers.equalToIgnoringCase(expResponseMSgCode));
 		logger.info("Validation of expected response Msg is :" + expResponseMessage + " Successfull");
 
 	}
@@ -211,7 +215,7 @@ public class LE_STP_Service {
 	@Then("^I want to validate the bad request message$")
 	public void i_want_to_validate_the_bad_request_message() throws Throwable {
 		responseBody.then().root("msgInfo").body("msgCode", Matchers.equalTo(expResponseMSgCode))
-		.and().body("msg", Matchers.equalTo(expResponseMessage));
+		.and().body("msg", Matchers.equalToIgnoringCase(expResponseMessage));
 		logger.info("Validation of expected response Msg is :" + expResponseMessage + " Successfull");
 		
 	}
