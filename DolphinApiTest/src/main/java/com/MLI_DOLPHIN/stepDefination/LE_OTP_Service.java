@@ -23,6 +23,7 @@ public class LE_OTP_Service {
 	private String correlationId;
 	private String insurdGender;
 	private String sumAssurd;
+	private String method_Type;
 	private int getSecondOfData;
 	private String requestBody;
 	private Response responseBody;
@@ -44,7 +45,9 @@ public class LE_OTP_Service {
       i++;
       insurdGender=listOfpreData.get(i);
       i++;
-      sumAssurd=listOfpreData.get(i);     
+      sumAssurd=listOfpreData.get(i);
+      i++;
+      method_Type=listOfpreData.get(i);
       }
       logger.info("Pre request data set successfully...");     
 	}
@@ -54,6 +57,7 @@ public class LE_OTP_Service {
 		} catch (IOException e) {
 			
 			e.printStackTrace();
+			
 		}
 		requestBody=requestBody.replaceAll(Pattern.quote("{{"+"X-Correlation-ID"+"}}"),correlationId );
 		requestBody=requestBody.replaceAll(Pattern.quote("{{"+"genderOfInsured"+"}}"),insurdGender );
@@ -65,7 +69,9 @@ public class LE_OTP_Service {
 
 	@When("^Lets send the POST request for OTP product$")
 	public void lets_send_the_POST_request_for_OTP_product() throws Throwable {
-		responseBody=WebservicesMethod.POST_METHOD(endPointUrl, setData_in_RequestBody(), ReusableFunction.requestHeaders(header));
+//		System.out.println("=========="+WebservicesMethod.Select_API_METHOD("POST",endPointUrl, setData_in_RequestBody(), ReusableFunction.requestHeaders(header)));
+		responseBody=WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, setData_in_RequestBody(), ReusableFunction.requestHeaders(header));
+		System.out.println("Response Boooooo----"+responseBody);
 		logger.info("response body of OPT post request :"+responseBody.prettyPrint());
 		
 	}
