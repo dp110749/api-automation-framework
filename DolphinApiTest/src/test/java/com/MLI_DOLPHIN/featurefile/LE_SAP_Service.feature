@@ -2,8 +2,8 @@
 Feature: To Test the functionality of SAP service
 Background:
 Given Set pre set of test data for SAP
-|EndPointUrl          |Header                                             |JsonRequestFile    |
-|/developer/lepremium |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |LE_SAP_Service.json|
+|EndPointUrl          |Header                                             |JsonRequestFile    |MethodType|
+|/developer/lepremium |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |LE_SAP_Service.json|POST      |
 
 @SAP_forPremiumCalculation_01
 Scenario Outline:To Test premium calculater for SAP
@@ -15,15 +15,15 @@ And I want to validate the calaculated Sumassured"<OutPutSumAssurred>"
 
 Examples:
 |ResponseCode|ResponseMsgCode|ResponseMessage|OutPutSumAssurred |
-|200         | 200           | Success       |550998.5931169256 |
+|200         | 200           | success       |2965288.68        |
 
 @SAP_forPremiumCalculation_02
 Scenario: To test the functionality when user send the new premium value
 Given pass the set of test data 
-|TestData                       |OparationType   |ResponseCode|ResponseMsgCode|ResponseMesg|OutPutData          |
-|{"committedPremium": "150000"} | changeData     | 200        |200            |Success     | 688748.241396157   |
-|{"committedPremium": ""}       | changeData     | 200        |500            |Failure     |                    |
-|{"committedPremium": ""}       | removeData     | 200        | 500           |Failure     |                    |
+|TestData                       |OparationType   |ResponseCode|ResponseMsgCode|ResponseMesg|OutPutData    |
+|{"sumAssured": "150000"}       | changeData     | 200        |200            |success     | 2965288.68   |
+|{"sumAssured": ""}             | changeData     | 200        |500            |Failure     |              |
+|{"sumAssured": ""}             | removeData     | 200        | 500           |Failure     |              |
 
 @SAP_Positive_02	
 Scenario Outline:To Test Illustration for SAP
@@ -36,7 +36,7 @@ And I want to validate illustration is generated or not
 
 Examples:
 |ResponseCode|ResponseMsgCode|ResponseMessage|IllustrationUrl           |
-|200         | 200           | Success       |/developer/leillustration |
+|200         | 200           | success       |/developer/leillustration |
 
 @SAP_Negative_02		
 Scenario Outline:To test the functionality when user send correlation ID as null for SAP

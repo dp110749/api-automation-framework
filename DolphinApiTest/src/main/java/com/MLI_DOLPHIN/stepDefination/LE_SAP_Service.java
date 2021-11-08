@@ -15,15 +15,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 
-public class LE_SAP_Service {
+public class LE_SAP_Service extends WebservicesMethod{
 	
 	private final static Logger logger = Logger.getLogger(LE_SAP_Service.class.getName());
-	private String requestFile;
-	private String endPointUrl;
-	private String header;
-	private int secondRow;
-	private String requestBody;
-	private Response responseBody;
 	private String responseCode;
 	private String responseMsgCode;
 	private String responseMessge;
@@ -37,13 +31,15 @@ public class LE_SAP_Service {
 	public void set_pre_set_of_test_data_for_SAP(DataTable preSetOfData) throws Throwable {
 	List<String> listOfData =preSetOfData.asList(String.class);
 	List<List<String>>numbOfRow =preSetOfData.raw();
-	secondRow =listOfData.size()/numbOfRow.size();
-	for (int i=secondRow;i<listOfData.size();i++){
+	getSecondRowData =listOfData.size()/numbOfRow.size();
+	for (int i=getSecondRowData;i<listOfData.size();i++){
 		endPointUrl=listOfData.get(i);
 		i++;
 		header=listOfData.get(i);
 		i++;
 		requestFile=listOfData.get(i);
+		i++;
+		method_Type=listOfData.get(i);
      	}
 	   requestBody =ReusableFunction.readJsonFile(requestFile);
 	}
@@ -56,7 +52,7 @@ public class LE_SAP_Service {
 
 	@When("^I want send the request for SAP$")
 	public void i_want_send_the_request_for_SAP() throws Throwable {
-    responseBody=WebservicesMethod.POST_METHOD(endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
+    responseBody=WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
 	logger.info("Request Send Successfully.."+responseBody.prettyPrint());
 	}
 
@@ -103,8 +99,8 @@ public class LE_SAP_Service {
 	public void pass_the_set_of_test_data(DataTable setOfTestData) throws Throwable {
 		List<String> listOfData= setOfTestData.asList(String.class);
 		List<List<String>> numOfRow=setOfTestData.raw();
-		secondRow=listOfData.size()/numOfRow.size();
-		for(int i=secondRow;i<listOfData.size();i++){
+		getSecondRowData=listOfData.size()/numOfRow.size();
+		for(int i=getSecondRowData;i<listOfData.size();i++){
 			testData=listOfData.get(i);
 			i++;
 			oparationType=listOfData.get(i);
@@ -119,7 +115,7 @@ public class LE_SAP_Service {
 			
 			requestBody=ReusableFunction.getSpecificRequest(requestBody, testData, oparationType);
 			Thread.sleep(1000  );
-			responseBody=WebservicesMethod.POST_METHOD(endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
+			responseBody=WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
 			logger.info("Response body is ::"+responseBody.prettyPrint());
 			if(responseMessge.equals("Success")){
 				Assert.assertEquals(responseCode, String.valueOf(responseBody.getStatusCode()));
