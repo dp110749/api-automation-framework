@@ -12,48 +12,44 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 
-public class LE_SJB_Service {
+public class LE_SJB_Service extends WebservicesMethod{
 	private final static Logger logger = Logger.getLogger(LE_SJB_Service.class.getName());
-	private String endPointUrl;
-	private String header;
-	private String requestFile;
-	private String correlationID;
+
 	private String insuredGender;
 	private String sumAssured;
 	private String channel;
-	private String requestBody;
-	private int getSecondRow;
 	private String responseCode;
 	private String responseMsgCode;
 	private String responseMessage;
 	private String afyp;
-	private Response responseBody;
 	
 	@Given("^Set the pre request of data for SJB product$")
 	public void set_the_pre_request_of_data_for_SJB_product(DataTable preRequestData) throws Throwable {
     List<String>listOfpreSetData =preRequestData.asList(String.class);
     List<List<String>> numOfRow =preRequestData.raw();
-    getSecondRow=listOfpreSetData.size()/numOfRow.size();
-    for(int i=getSecondRow;i<listOfpreSetData.size();i++){
+    getSecondRowData=listOfpreSetData.size()/numOfRow.size();
+    for(int i=getSecondRowData;i<listOfpreSetData.size();i++){
     	endPointUrl=listOfpreSetData.get(i);
     	i++;
     	header=listOfpreSetData.get(i);
     	i++;
     	requestFile=listOfpreSetData.get(i);
     	i++;
-    	correlationID=listOfpreSetData.get(i);
+    	correlationId=listOfpreSetData.get(i);
     	i++;
     	insuredGender=listOfpreSetData.get(i);
     	i++;
     	sumAssured=listOfpreSetData.get(i);
     	i++;
-    	channel=listOfpreSetData.get(i);  	
+    	channel=listOfpreSetData.get(i); 
+    	i++;
+    	method_Type=listOfpreSetData.get(i);
       }
        requestBody=ReusableFunction.readJsonFile(requestFile);
 		logger.info("Read json request Successfully..");
 	}
 	public String completeRequest(){
-		requestBody=requestBody.replaceAll(Pattern.quote("{{"+"X-Correlation-ID"+"}}"),correlationID );
+		requestBody=requestBody.replaceAll(Pattern.quote("{{"+"X-Correlation-ID"+"}}"),correlationId );
 		requestBody=requestBody.replaceAll(Pattern.quote("{{"+"genderOfInsured"+"}}"),insuredGender );
 		requestBody=requestBody.replaceAll(Pattern.quote("{{"+"sumAssured"+"}}"),sumAssured);
 		requestBody=requestBody.replaceAll(Pattern.quote("{{"+"channel"+"}}"),channel);
@@ -66,8 +62,8 @@ public class LE_SJB_Service {
 	public void set_the_Expected_data(DataTable expOutData) throws Throwable {
       List<String> listOfData =expOutData.asList(String.class);
       List<List<String>> numOfrow=expOutData.raw();
-      getSecondRow=listOfData.size()/numOfrow.size();
-      for(int i=getSecondRow;i<listOfData.size();i++){
+      getSecondRowData=listOfData.size()/numOfrow.size();
+      for(int i=getSecondRowData;i<listOfData.size();i++){
     	  responseCode=listOfData.get(i);
     	  i++;
     	  responseMsgCode=listOfData.get(i);
@@ -81,7 +77,7 @@ public class LE_SJB_Service {
 
 	@When("^send the POST request for SJB$")
 	public void send_the_POST_request_for_SJB() throws Throwable {
-		responseBody=WebservicesMethod.POST_METHOD(endPointUrl, completeRequest(), ReusableFunction.requestHeaders(header));
+		responseBody=WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, completeRequest(), ReusableFunction.requestHeaders(header));
 		logger.info("User send the POST request is ::"+responseBody.prettyPrint());
 	}
 
@@ -135,7 +131,7 @@ public class LE_SJB_Service {
 	}
 	@Given("^Set Correlation id\"([^\"]*)\"$")
 	public void set_Correlation_id(String inputCorrelationID) throws Throwable {
-		correlationID=inputCorrelationID;
+		correlationId=inputCorrelationID;
 		logger.info("Correlation Id set successfully..");
 	}
 	@Given("^Set the header for SJB\"([^\"]*)\"$")
