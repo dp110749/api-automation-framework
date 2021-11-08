@@ -10,29 +10,22 @@ import cucumber.api.DataTable;
 import cucumber.api.java.en.*;
 import io.restassured.response.Response;
 
-public class LE_SPP_Service {
+public class LE_SPP_Service extends WebservicesMethod{
 	private final static Logger logger = Logger.getLogger(LE_SPP_Service.class.getName());
-	private String endPointUrl;
-	private String header;
-	private String requestFile;
-	private String requestBody;
-	private String responseMSgCode;
-	private String responseMsg;
+
 	private String ageOfInsured;
 	private String purchasePrice;
 	private String productName;
 	private String channelName;
 	private List<String> listOfSetData;
 	private List<List<String>> numberOfRow;
-	private int getSecondRowdata;
-	private Response responseBody;
 
 	@Given("^Set the prerequiest set of data for LE SPP Service$")
 	public void set_the_prerequiest_set_of_data_for_LE_SPP_Service(DataTable inputPreRequestData) throws Throwable {
 		listOfSetData = inputPreRequestData.asList(String.class);
 		numberOfRow = inputPreRequestData.raw();
-		getSecondRowdata = listOfSetData.size() / numberOfRow.size();
-		for (int i = getSecondRowdata; i < listOfSetData.size(); i++) {
+		getSecondRowData = listOfSetData.size() / numberOfRow.size();
+		for (int i = getSecondRowData; i < listOfSetData.size(); i++) {
 			endPointUrl = listOfSetData.get(i);
 			i++;
 			header = listOfSetData.get(i);
@@ -46,6 +39,8 @@ public class LE_SPP_Service {
 			productName = listOfSetData.get(i);
 			i++;
 			channelName = listOfSetData.get(i);
+			i++;
+			method_Type=listOfSetData.get(i);
 		}
 
 		requestBody = ReusableFunction.readJsonFile(requestFile);
@@ -99,7 +94,7 @@ public class LE_SPP_Service {
 
 	@When("^Send the valid request for SPP Service$")
 	public void send_the_valid_request_for_SPP_Service() throws Throwable {
-		responseBody = WebservicesMethod.POST_METHOD(endPointUrl, getRequestBody(),
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, getRequestBody(),
 				ReusableFunction.requestHeaders(header));
 		logger.info("Send the request successfully to server.." + responseBody.prettyPrint());
 	}
