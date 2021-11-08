@@ -13,16 +13,10 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 
-public class MyAgent {
+public class MyAgent extends WebservicesMethod{
 
 	Logger logger = Logger.getLogger(MyAgent.class.getName());
-	private int secondRow;
-	private String endPoint;
-	private String requestHeader;
-	private String requestFile;
-	private String requestBody;
-	private Response responseBody;
-	private String actualResponseCode;
+
 	private String testData;
 	private String actValue;
 	private String msgDescription;
@@ -33,14 +27,16 @@ public class MyAgent {
 	public void set_the_preRequest_set_of_data(DataTable inputData) throws Throwable {
 		List<String> listOfRecords = inputData.asList(String.class);
 		List<List<String>> numOfRow = inputData.raw();
-		secondRow = listOfRecords.size() / numOfRow.size();
+		getSecondRowData = listOfRecords.size() / numOfRow.size();
 
-		for (int i = secondRow; i < listOfRecords.size(); i++) {
-			endPoint = listOfRecords.get(i);
+		for (int i = getSecondRowData; i < listOfRecords.size(); i++) {
+			endPointUrl = listOfRecords.get(i);
 			i++;
-			requestHeader = listOfRecords.get(i);
+			header = listOfRecords.get(i);
 			i++;
 			requestFile = listOfRecords.get(i);
+			i++;
+			method_Type=listOfRecords.get(i);
 		}
 		requestBody = ReusableFunction.readJsonFile(requestFile);
 
@@ -48,9 +44,9 @@ public class MyAgent {
 
 	@When("^I want to send the request for MyAgent$")
 	public void i_want_to_send_the_request_for_MyAgent() throws Throwable {
-		responseBody = WebservicesMethod.POST_METHOD(endPoint, requestBody,
-				ReusableFunction.requestHeaders(requestHeader));
-		logger.info("Response Body:::----" + responseBody.prettyPrint());
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody,
+				ReusableFunction.requestHeaders(header));
+		logger.info("Response Body :" + responseBody.prettyPrint());
 	}
 
 	@Then("^Lets validate response appId response time for MyAgent$")
@@ -61,13 +57,13 @@ public class MyAgent {
 
 	@Then("^I want to validate the response code for myAgent\"([^\"]*)\"$")
 	public void i_want_to_validate_the_response_code_for_myAgent(String expResponseCode) throws Throwable {
-		actualResponseCode = String.valueOf(responseBody.getStatusCode());
-		if (actualResponseCode.equals(expResponseCode)) {
-			Assert.assertEquals(actualResponseCode, expResponseCode);
-			logger.info("Validated response code is ==" + actualResponseCode);
+		responseCode = String.valueOf(responseBody.getStatusCode());
+		if (responseCode.equals(expResponseCode)) {
+			Assert.assertEquals(responseCode, expResponseCode);
+			logger.info("Validated response code is :" + responseCode);
 		} else {
 			logger.info("Response Code is not matching with the expected Code : FAILED");
-			Assert.assertEquals(actualResponseCode, expResponseCode);
+			Assert.assertEquals(responseCode, expResponseCode);
 		}
 	}
 
@@ -118,9 +114,9 @@ public class MyAgent {
 
 			String testRequest=requestBody;
 			testRequest = ReusableFunction.getSpecificRequest(testRequest, testData, oparationType);
-			responseBody = WebservicesMethod.POST_METHOD(endPoint, testRequest,
-					ReusableFunction.requestHeaders(requestHeader));
-			logger.info("Response Body is ====" + responseBody.prettyPrint());
+			responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, testRequest,
+					ReusableFunction.requestHeaders(header));
+			logger.info("Response Body is :" + responseBody.prettyPrint());
 			if (msgCode.equals("200") && msgDescription.contains("Agent Valid")) {
 				responseBody.then().root("msgInfo").body("msgCode", Matchers.equalTo(msgCode)).and()
 						.body("msgDescription", Matchers.equalTo(msgDescription));
@@ -154,12 +150,12 @@ public class MyAgent {
 	@Given("^I want to set test data\"([^\"]*)\"$")
 	public void i_want_to_set_test_data(String pretestData) throws Throwable {
 		if(pretestData.contains("x-api-key:")){
-		requestHeader =pretestData;
-		logger.info("Test data set successfully !!"+requestHeader);
+		header =pretestData;
+		logger.info("Test data set successfully !!"+header);
 		
 		}else if(pretestData.contains("/developer")){
-		  endPoint=pretestData;
-		  logger.info("Test data set successfully !!"+endPoint);
+		  endPointUrl=pretestData;
+		  logger.info("Test data set successfully !!"+endPointUrl);
 		}else{
 			logger.info("No preRequist test data set !!");
 		}

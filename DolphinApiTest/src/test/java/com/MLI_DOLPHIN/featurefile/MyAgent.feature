@@ -4,8 +4,8 @@ Feature: TO Test the functionality of MyAgent MS Service
 Background: 
 	Given : Set the preRequest set of data 
 	
-		|url                | header                                                |jsonFileqwq    |
-		|/developer/myagent  | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY   | MyAgent.json  |
+		|url                | header                                                |jsonFileqwq    |MethodType|
+		|/developer/myagent  | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY   | MyAgent.json  |POST      |
 @positiveTest		
 Scenario Outline: 
 	To Test the functionality when Send Valid Request For MyAgent 
@@ -53,13 +53,13 @@ Scenario Outline: To test the functionality of when send the header as null
 @negativeTest		
 Scenario Outline: To test the functionality of when send the invaild endPoint
 
-	Given I want to set test data"<testheader>"	
+	Given I want to set test data"<endPointUrl>"	
 	When I want to send the request for MyAgent 
 	Then I want to validate the response code for myAgent"<reponseCode>" 
 	
 	Examples: 
-	|testheader               |reponseCode |
-	| /developer/myagent121   |403         |
+	|endPointUrl               |reponseCode |
+	| /developer/myagent121    |403         |
 	
 	
 		
