@@ -3,8 +3,8 @@ Feature: To test the functionality of policy admin for create and update
 Background: 
 	Given set pre set of data 
 	
-		|url                    |header                                             |jsonFile        |
-		|/developer/policyadmin |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |PolicyAdmin.json|
+		|url                    |header                                             |jsonFile        |MethodType|
+		|/developer/policyadmin |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |PolicyAdmin.json|POST      |
 		
 Scenario Outline: 
 To Test the functionality when Send Valid Request For create XMl 
