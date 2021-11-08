@@ -3,8 +3,8 @@ Feature: To Test functionality of SPS service
 Background: Set the test data
 Given Set the request test data for SPS
 
-|url                   |header                                             |requestFile|
-|/developer/lepremium  |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |LE_SPS.json|
+|url                   |header                                             |requestFile|MethodType|
+|/developer/lepremium  |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |LE_SPS.json|POST      |
 
 Scenario Outline: 
 	To test the Functionality LE SPS servcie when user send Valid Request for Premium 
@@ -22,9 +22,9 @@ Scenario Outline:
 Scenario: To test the functionality when user send the TRAD product instead of ULIP.
    Given I want to set the test data 
 		|msgCode|message |TestData                                          |oparatioType |
-		|500    |Failure |{"productName":"Max Life Fast Track Super Plan"}  |changeData   |
-		|500    |Failure |{"ageOfInsured": ""}                              |changeData   |
-		|500    |Failure |{"committedPremium":"000000.00"}                  |changeData   |
+		|500    |Failed |{"productName":"Max Life Fast Track Super Plan"}  |changeData   |
+		|500    |Failed |{"ageOfInsured": ""}                              |changeData   |
+		|500    |Failed |{"committedPremium":"000000.00"}                  |changeData   |
    When I want send the request 
    Then I want to validate the response Msgcode 
    And  I want to validate the response message
