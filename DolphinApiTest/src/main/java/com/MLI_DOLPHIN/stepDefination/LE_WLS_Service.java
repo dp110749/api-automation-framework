@@ -16,15 +16,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
-public class LE_WLS_Service {
+public class LE_WLS_Service extends WebservicesMethod{
 	private static final Logger logger = Logger.getLogger(LE_WLS_Service.class);
-	private int secondRow;
-	private String endPointurl;
-	private String header;
-	private String requestFile;
-	private String requestBoday;
-	private Response responseBody;
-	private String statusCode;
 	private String inputTestData;
 	private String responseMessage;
 	private String oparationtype;
@@ -33,27 +26,29 @@ public class LE_WLS_Service {
 	public void set_the_pre_test_for_request(DataTable inputPreTestData) throws Throwable {
 		List<String> listOfData =inputPreTestData.asList(String.class);
 		List<List<String>>numOfRow =inputPreTestData.raw();
-		secondRow=listOfData.size()/numOfRow.size();
-		for(int i=secondRow;i<listOfData.size();i++){
-			endPointurl=listOfData.get(i);
+		getSecondRowData=listOfData.size()/numOfRow.size();
+		for(int i=getSecondRowData;i<listOfData.size();i++){
+			endPointUrl=listOfData.get(i);
 			i++;
 			header=listOfData.get(i);
 			i++;
 			requestFile=listOfData.get(i);
+			i++;
+			method_Type=listOfData.get(i);
 		}
-		requestBoday =ReusableFunction.readJsonFile(requestFile);
+		requestBody =ReusableFunction.readJsonFile(requestFile);
 	}
 
 	@When("^I want to send the request$")
 	public void i_want_to_send_the_request() throws Throwable {
-		responseBody= WebservicesMethod.POST_METHOD(endPointurl, requestBoday, ReusableFunction.requestHeaders(header));
+		responseBody= WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
 	    logger.info("Response received from API:"+responseBody.body().prettyPrint());
 	}
 
 	@Then("^I want to validate the response code\"([^\"]*)\"$")
-	public void i_want_to_validate_the_response_code(String responseCode) throws Throwable {
-	  statusCode=String.valueOf(responseBody.getStatusCode());
-	  Assert.assertEquals(statusCode, responseCode);
+	public void i_want_to_validate_the_response_code(String expResponseCode) throws Throwable {
+	  responseCode=String.valueOf(responseBody.getStatusCode());
+	  Assert.assertEquals(responseCode, expResponseCode);
 	  logger.info("Varification of response status code successfull.");
 	}
 
@@ -93,8 +88,8 @@ public class LE_WLS_Service {
     	   header=inputData;
     	   logger.info("Input data set successfully is :"+header);
        }else if(inputData.contains("developer")){
-    	   endPointurl=inputData;
-    	   logger.info("Input data set successfully is :"+endPointurl);
+    	   endPointUrl=inputData;
+    	   logger.info("Input data set successfully is :"+endPointUrl);
        }else{
     	   logger.info("No Input data set");
        }
@@ -116,21 +111,21 @@ public class LE_WLS_Service {
 			i++;
 			oparationtype =listOfrequestData.get(i);
 			i++;
-			statusCode=listOfrequestData.get(i);
+			responseCode=listOfrequestData.get(i);
 			i++;
 			responseMessage=listOfrequestData.get(i);			
 		}
-		requestBoday =ReusableFunction.getSpecificRequest(requestBoday, inputTestData, oparationtype);
+		requestBody =ReusableFunction.getSpecificRequest(requestBody, inputTestData, oparationtype);
 	}
 	@Then("^I want to validate the response code and message$")
 	public void i_want_to_validate_the_response_code_and_message() throws Throwable {		
 		if(responseMessage.contains("Bad Request")){
-		assertEquals(String.valueOf(responseBody.getStatusCode()),statusCode);
+		assertEquals(String.valueOf(responseBody.getStatusCode()),responseCode);
 		logger.info("Validation of status code is successfull");
 		responseBody.then().body("error", Matchers.equalTo(responseMessage));
 		logger.info("Validation of response mesaage is successfull..");
 		} else if(responseMessage.contains("Unknow Product")){
-			assertEquals(String.valueOf(responseBody.getStatusCode()),statusCode);
+			assertEquals(String.valueOf(responseBody.getStatusCode()),responseCode);
 			logger.info("Validation of status code is successfull");
 			responseBody.then().body("errorMessage", Matchers.equalTo(responseMessage));
 			logger.info("Validation of response mesaage is successfull..");
@@ -141,9 +136,9 @@ public class LE_WLS_Service {
 	}
 	@Given("^To Set the correlatinKey\"([^\"]*)\" and value\"([^\"]*)\" in the request for WLS$")
 	public void SetCorrelationID(String inputKey, String inputValue) throws Throwable {
-      JSONObject jsonObjectRequest =ReusableFunction.createJSONObject(requestBoday);
+      JSONObject jsonObjectRequest =ReusableFunction.createJSONObject(requestBody);
       jsonObjectRequest =ReusableFunction.replacekeyInJSONObject(jsonObjectRequest, inputKey, inputValue);
-      requestBoday=jsonObjectRequest.toString();
+      requestBody=jsonObjectRequest.toString();
 	}
 
 }

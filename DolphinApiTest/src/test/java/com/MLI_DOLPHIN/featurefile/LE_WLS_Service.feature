@@ -4,8 +4,8 @@ Feature: To test the functionality of WLS Service for premium and illustration
 Background:
 
 Given Set the pre test for request
-|endPointUrl            |Requestheader                                      |RequestFile         |
-|/developer/lepremium   |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |LE_WLS_Service.json |
+|endPointUrl            |Requestheader                                      |RequestFile         |MethodType |
+|/developer/lepremium   |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |LE_WLS_Service.json |POST       |
 
 Scenario Outline:To test the functionality of premium calculator for WLS
 When I want to send the request
@@ -17,7 +17,7 @@ And  I want to validate the response appId and time
 
 Examples:
 |responseCode |msgCode |message  |outPutData       |
-|200          |200     |Success  |140300902.71     |
+|200          |200     |success  |140300902.71     |
 
 @WLS_illustration
 Scenario Outline:To test the functionality to generate illustration for WLS
@@ -31,7 +31,7 @@ And  i want to validate the response data
 
 Examples:
 |responseCode |msgCode |message  |inputData                 |
-|200          |200     |Success  |/developer/leillustration |
+|200          |200     |success  |/developer/leillustration |
 
 @WLS_Negative_1
 Scenario Outline:To test the functionality when user send invalid url for WLS
@@ -76,7 +76,7 @@ Scenario: Validate the response when user remove the field from the request for 
 Given Set the input request data for WLS
 
 |inputData                         |oparationType|responseCode |responseMessage |
-|{"committedPremium": "2000000.00"}|removeData   |200          |Success     |
+|{"committedPremium": "2000000.00"}|removeData   |200          |success     |
 When I want to send the request
 Then I want to validate the response code and message 
 
