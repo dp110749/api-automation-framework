@@ -13,14 +13,10 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 
-public class UW_MedicalReport {
+public class UW_MedicalReport extends WebservicesMethod{
 	private final static Logger logger = Logger.getLogger(UW_MedicalReport.class.getName());
-	public String requestfile;
-	public String header;
-	public String endPointUrl;
+	
 	public String inputData;
-	public String requestBody;
-	public Response responseBody;
 	public String actionToperform;
 	public String newRequestBody;
 
@@ -37,16 +33,18 @@ public class UW_MedicalReport {
 			count++;
 			endPointUrl = data.get(i + count);
 			count++;
-			requestfile = data.get(i + count);
+			requestFile = data.get(i + count);
+			i++;
+			method_Type=data.get(i+count);
 			break;
 		}
-		requestBody = ReusableFunction.readJsonFile(requestfile);
+		requestBody = ReusableFunction.readJsonFile(requestFile);
 	}
 
 	@When("^i want to send the request$")
 	public void i_want_to_send_the_request() throws Throwable {
 
-		responseBody = WebservicesMethod.POST_METHOD(endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
 		logger.info("Response Body is :" + responseBody.getBody().prettyPrint());
 	}
 

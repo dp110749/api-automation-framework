@@ -2,15 +2,8 @@
 Feature: To Test The Functionality of UW Medical Report API 
 Background: 
 	Given i want to set the header url and request 
-	
-	#       |      ValidData      |   InvalidData       |invalidUrl|header|
-	#       |{"category": "T+M"}  |{"category": "T+M+1"}|x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6sss | /developer/microservices/mli/dolphin/api/medicalReport/ReportTrigger|
-	#       |{"category": "T"}    |{"category": "T+S"}  |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLVY | /developer/microservices/mli/dolphin/api/myAgent/ReportTrigger/v1|
-	#       |{"category": "T+B"}  |{"category": ""}     |x-api-key:null	||
-	
-		|Header                                              |Url                       |Requestfile          |
-		
-		| x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | /developer/medicalreport |UW_MedicalReport.json|
+		|Header                                              |Url                       |Requestfile          |MethodType|		
+		| x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | /developer/medicalreport |UW_MedicalReport.json|POST      |
 		
 @PositiveTest_MR_1 
 Scenario Outline: to test the functionality when user send the valid request with category T+M+B 
