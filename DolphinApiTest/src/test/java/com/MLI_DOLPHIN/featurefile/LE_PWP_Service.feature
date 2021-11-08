@@ -19,7 +19,7 @@ Scenario Outline:
 	
 	Examples: 
 		|statusCode|responseMessage|
-		|200       |Success        |
+		|200       |success        |
 @NegativeTest		
 Scenario Outline: 
 	send the invaild request when user remove the field request
@@ -64,7 +64,7 @@ Scenario Outline:
 	
 	Examples: 
 		|statusCode|responseMessage |
-		|200       |Success         |
+		|200       |success         |
 		 
 @NegativeTest	
 Scenario Outline: 
