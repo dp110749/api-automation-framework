@@ -24,22 +24,22 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 
-public class TPAIntegration {
+public class TPAIntegration extends WebservicesMethod{
 
 	private final static Logger logger = Logger.getLogger(TPAIntegration.class.getName());
 
-	private String header;
-	private String url;
-	private String requestFile;
+//	private String header;
+//	private String url;
+//	private String requestFile;
 	private String proposalNumber;
 	private String houseNoAptNameSociety;
 	private String productName;
 	private String smokerClass;
 	private String pinCode;
-	private String requestBody;
-	private Response responseBody;
-	private String actualResponseCode;
-	private int getSecondRowData;
+//	private String requestBody;
+//	private Response responseBody;
+//	private String actualResponseCode;
+//	private int getSecondRowData;
 
 	@Given("^set input request testdata$")
 	public void set_input_request_testdata(DataTable presetData) throws Throwable {
@@ -48,7 +48,7 @@ public class TPAIntegration {
 		List<List<String>> rowNum = presetData.raw();
 		getSecondRowData = listOfSetData.size() / rowNum.size();
 		for (int i = getSecondRowData; i < listOfSetData.size(); i++) {
-			url = listOfSetData.get(i);
+			endPointUrl = listOfSetData.get(i);
 			i++;
 			header = listOfSetData.get(i);
 			i++;
@@ -57,6 +57,8 @@ public class TPAIntegration {
 			productName = listOfSetData.get(i);
 			i++;
 			smokerClass = listOfSetData.get(i);
+			i++;
+			method_Type = listOfSetData.get(i);
 			break;
 		}
 		requestBody = ReusableFunction.readJsonFile(requestFile);
@@ -151,20 +153,20 @@ public class TPAIntegration {
 
 	@When("^Send the request for TPA Integration$")
 	public void Send_the_request_for_TPA_Integration() throws Throwable {
-		responseBody = WebservicesMethod.POST_METHOD(url, getRequestBody(), ReusableFunction.requestHeaders(header));
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, getRequestBody(), ReusableFunction.requestHeaders(header));
 		logger.info("Response Body is ::" + responseBody.prettyPrint());
 	}
 
 	@Then("^Validate response code \"([^\"]*)\"$")
 	public void Validate_response_code(String expResponseCode) throws Throwable {
 		Thread.sleep(2000);
-		actualResponseCode = String.valueOf(responseBody.getStatusCode());
-		if (actualResponseCode.equals(expResponseCode)) {
-			Assert.assertEquals(actualResponseCode, expResponseCode);
-			logger.info("Validated response code is ==" + actualResponseCode);
+		responseCode = String.valueOf(responseBody.getStatusCode());
+		if (responseCode.equals(expResponseCode)) {
+			Assert.assertEquals(responseCode, expResponseCode);
+			logger.info("Validated response code is ==" + responseCode);
 		} else {
 			logger.info("Response Code is not matching with the expected Code : FAILED");
-			Assert.assertEquals(actualResponseCode, expResponseCode);
+			Assert.assertEquals(responseCode, expResponseCode);
 		}
 	}
 
@@ -179,10 +181,8 @@ public class TPAIntegration {
 		 * the Java code) String actualMessageCode =
 		 * jsonPathEvaluator.get("msgCode");
 		 */
-System.out.println("input----"+expMessageCode);
 		Map<String, String> firstlevel = responseBody.jsonPath().getMap("msgInfo");
 		String actualMessageCode = firstlevel.get("msgCode");
-		System.out.println("====="+firstlevel.get("msgCode"));
 
 		if (actualMessageCode.equals(expMessageCode)) {
 			Assert.assertEquals(actualMessageCode, expMessageCode);
