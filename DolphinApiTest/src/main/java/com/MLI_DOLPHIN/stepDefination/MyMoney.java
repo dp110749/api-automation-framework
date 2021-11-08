@@ -19,40 +19,36 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 
-public class MyMoney {
+public class MyMoney extends WebservicesMethod{
 
 	private final static Logger logger = Logger.getLogger(MyMoney.class.getName());
-	public String endPointUri;
-	public String apiHeader;
-	private String requestFile;
 	private String policyNumber;
 	private String premiumAmount;
-	public String STATUS_CODE;
 	public String FILE_PATH;
 	public String APIREQUEST;
-	public String requestBody;
 	public String TESTREQUEST;
 	public String FINALREQUEST;
-	public Response responseOFbody;
 	private List<String> listOfSetData;
 	private List<List<String>> numOfRow;
-	private int getSecondRow;
-
+	
 	@Given("^Set the prerequest data for my-MoneyService$")
 	public void set_the_prerequest_data_for_my_MoneyService(DataTable SetOfPreRequestData) throws Throwable {
 		listOfSetData = SetOfPreRequestData.asList(String.class);
 		numOfRow = SetOfPreRequestData.raw();
-		getSecondRow = listOfSetData.size() / numOfRow.size();
-		for (int i = getSecondRow; i < listOfSetData.size(); i++) {
-			endPointUri = listOfSetData.get(i);
+		getSecondRowData = listOfSetData.size() / numOfRow.size();
+		for (int i = getSecondRowData; i < listOfSetData.size(); i++) {
+			endPointUrl = listOfSetData.get(i);
 			i++;
-			apiHeader = listOfSetData.get(i);
+			header = listOfSetData.get(i);
 			i++;
 			requestFile = listOfSetData.get(i);
 			i++;
 			policyNumber = listOfSetData.get(i);
 			i++;
 			premiumAmount = listOfSetData.get(i);
+			i++;
+			method_Type=listOfSetData.get(i);
+			break;
 		}
 		requestBody = ReusableFunction.readJsonFile(requestFile);
 	}
@@ -91,7 +87,7 @@ public class MyMoney {
 
 	@When("^I set header for mymoney api \"([^\"]*)\"$")
 	public void i_set_header_for_mymoney_api(String header) throws Throwable {
-		apiHeader = header;
+		this.header = header;
 
 	}
 
@@ -129,34 +125,34 @@ public class MyMoney {
 		if (getRequestBody() != null && !getRequestBody().isEmpty()) {
 			if (requestBody.length() > 0) {
 
-				responseOFbody = WebservicesMethod.POST_METHOD(endPointUri, getRequestBody(),
-						ReusableFunction.requestHeaders(apiHeader));
+				responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, getRequestBody(),
+						ReusableFunction.requestHeaders(header));
 			} else {
 				logger.info(" Request Body cannot be null or empty!");
 			}
 		}
-		STATUS_CODE = String.valueOf(responseOFbody.getStatusCode());
-		logger.info("Response Body is " + responseOFbody.body().prettyPrint());
+		responseCode = String.valueOf(responseBody.getStatusCode());
+		logger.info("Response Body is " + responseBody.body().prettyPrint());
 
 	}
 
 	@Then("^I try to verify mymoney rsponse status code is\"([^\"]*)\"$")
 	public void i_try_to_verify_mymoney_response_status_code_is(String statusCode) throws Throwable {
-		Assert.assertEquals(statusCode, STATUS_CODE);
+		Assert.assertEquals(statusCode, responseCode);
 		logger.info("Varification of response status ");
 	}
 
 	@Then("^I want to validate the response message for mymoney\"([^\"]*)\"$")
 
 	public void VerryFyResponseMessage(String responseMsg) throws Throwable {
-		responseOFbody.then().root("msgInfo").body("msg", Matchers.equalTo(responseMsg));
+		responseBody.then().root("msgInfo").body("msg", Matchers.equalTo(responseMsg));
 		logger.info("Varification of response message is " + responseMsg);
 	}
 
 	@Then("^I try to validate the response time response type and response app id for myMoney api$")
 	public void i_try_to_validate_the_response_time_response_type_and_response_app_id_for_myMoney_api()
 			throws Throwable {
-		responseOFbody.then().spec(SpecificationFactory.getGenericResponseSpec());
+		responseBody.then().spec(SpecificationFactory.getGenericResponseSpec());
 	}
 
 	/*
@@ -171,14 +167,14 @@ public class MyMoney {
 	@Then("^I want to validate the collected amount\"([^\"]*)\"$")
 
 	public void i_want_to_validate_the_collected_amount(String expCollectedAmount) throws Throwable {
-		String bodyStringValue = responseOFbody.asString();
+		String bodyStringValue = responseBody.asString();
 		Assert.assertTrue(bodyStringValue.contains(expCollectedAmount));
 		logger.info("Validated collected amount is " + expCollectedAmount);
 	}
 
 	@Then("^i want to validate the bounce amount\"([^\"]*)\"$")
 	public void i_want_to_validate_the_bounce_amount(String expBounceAmount) throws Throwable {
-		String bodyStringValue = responseOFbody.asString();
+		String bodyStringValue = responseBody.asString();
 		Assert.assertTrue(bodyStringValue.contains(expBounceAmount));
 		logger.info("Validate bounce amount is " + expBounceAmount);
 
@@ -186,7 +182,7 @@ public class MyMoney {
 
 	@Then("^i want to validate the clear amount\"([^\"]*)\"$")
 	public void i_want_to_validate_the_clear_aamount(String expClearAmount) throws Throwable {
-		String bodyStringValue = responseOFbody.asString();
+		String bodyStringValue = responseBody.asString();
 		Assert.assertTrue(bodyStringValue.contains(expClearAmount));
 		logger.info("Validate clear amount is " + expClearAmount);
 
@@ -194,7 +190,7 @@ public class MyMoney {
 	
 	@Then("^I want to validate the response status of policy\"([^\"]*)\"$")
 	public void i_want_to_validate_the_response_status_of_policy(String expResponseMessage) throws Throwable {
-		String bodyStringValue = responseOFbody.asString();
+		String bodyStringValue = responseBody.asString();
 		Assert.assertTrue(bodyStringValue.contains(expResponseMessage));
 		logger.info("Validated Policy Status is " + expResponseMessage);
 
@@ -234,7 +230,7 @@ public class MyMoney {
 	@Then("^I want to validate if mymoney api response body contains specific string \"([^\"]*)\"$")
 	public void i_want_to_validate_if_mymoney_api_response_body_contains_specific_string(String errorMesg)
 			throws Throwable {
-		String bodyStringValue = responseOFbody.asString();
+		String bodyStringValue = responseBody.asString();
 		Assert.assertTrue(bodyStringValue.contains(errorMesg));
 		logger.info("Validation of error message successfull.");
 	}
@@ -242,7 +238,7 @@ public class MyMoney {
 	@When("^I set header for myMoney api \"([^\"]*)\"$")
 	public void i_set_header_for_myMoney_api(String inputheader) throws Throwable {
 
-		apiHeader = inputheader;
+		header = inputheader;
 		logger.info("Set the request header successfully.");
 
 	}
@@ -250,7 +246,7 @@ public class MyMoney {
 	@Then("^I want to validate if myMoney api response body contains specific string \"([^\"]*)\"$")
 	public void i_want_to_validate_if_myMoney_api_response_body_contains_specific_string(String message)
 			throws Throwable {
-		responseOFbody.then().body("message", Matchers.equalTo(message));
+		responseBody.then().body("message", Matchers.equalTo(message));
 		logger.info("Validation of response body message when send the header as null.");
 	}
 
