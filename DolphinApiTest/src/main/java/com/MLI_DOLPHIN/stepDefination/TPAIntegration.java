@@ -27,20 +27,13 @@ import io.restassured.response.ResponseBody;
 public class TPAIntegration extends WebservicesMethod{
 
 	private final static Logger logger = Logger.getLogger(TPAIntegration.class.getName());
-
-//	private String header;
-//	private String url;
-//	private String requestFile;
+	
 	private String proposalNumber;
 	private String houseNoAptNameSociety;
 	private String productName;
 	private String smokerClass;
 	private String pinCode;
-//	private String requestBody;
-//	private Response responseBody;
-//	private String actualResponseCode;
-//	private int getSecondRowData;
-
+	
 	@Given("^set input request testdata$")
 	public void set_input_request_testdata(DataTable presetData) throws Throwable {
 
