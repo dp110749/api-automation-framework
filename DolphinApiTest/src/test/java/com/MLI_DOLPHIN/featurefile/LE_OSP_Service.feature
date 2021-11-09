@@ -2,8 +2,8 @@
 Feature: To Test the functionality of OSP service 
 Background:
 Given Set the pre request data for OSP
-|EndPoint             | Headers                                            |RequestFile           |CorrelationId |Gender|InsurdAge |ComittedPrimium |PaymentMode |
-|/developer/lepremium | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | LE_OSP_Service.json  |3232323       |M     | 25       | 50000          | 03         | 
+|EndPoint             | Headers                                            |RequestFile           |CorrelationId |Gender|InsurdAge |ComittedPrimium |PaymentMode |MethodType|
+|/developer/lepremium | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | LE_OSP_Service.json  |3232323       |M     | 20       | 50000          | 03         |POST      |
 
 @OSP_PostiveTest01
 Scenario Outline:: To test the functionnality of OSP premium calculation when pass premium 50000
@@ -16,7 +16,7 @@ And Let Validate the ModelPremium for OSP is"<ModelPremium>"
 
 Examples:
 |ResponseCode | MSgCode |RespMessage |SumAssurd|ModelPremium |    
-| 200         | 200     | Success    |550000   | 12500       |
+| 200         | 200     | success    |500000   | 50000       |
 
 @OSP_PostiveTest02
 Scenario Outline:: To test the functionnality of OSP premium calculation when pass Diffrent Set Data
@@ -33,8 +33,8 @@ And Let Validate the ModelPremium for OSP is"<ModelPremium>"
 
 Examples:
 |ResponseCode | MSgCode |RespMessage |SumAssurd |ModelPremium |InsuredGender|InsuredAge|ComittedPremium|PaymentMode|   
-| 200         | 200     | Success    |880000    | 20000       |M            |35        |80000          | 03        |
-| 200         | 200     | Success    |1650000   | 150000      |M            |40        |150000         | 12        |
+| 200         | 200     | success    |800000    | 80000       |M            |22        |80000          | 03        |
+| 200         | 200     | success    |1500000   | 150000      |M            |23        |150000         | 12        |
 
 
 @OSP_PostiveTest03
@@ -47,7 +47,7 @@ And Lets Validate the repsonse message for OSP is"<RespMessage>"
 And Lest Validate the illustration is generated or not
 Examples:
 |ResponseCode | MSgCode |RespMessage |EndPointUrl               |   
-| 200         | 200     | Success    |/developer/leillustration |
+| 200         | 200     | success    |/developer/leillustration |
 
 @OSP_PostiveTest04
 Scenario Outline:: To test the functionnality of OSP illustration generate when pass Diffrent Set Data
@@ -63,8 +63,8 @@ And Lets Validate the repsonse message for OSP is"<RespMessage>"
 
 Examples:
 |ResponseCode | MSgCode |RespMessage | EndPointUrl                  |InsuredGender |InsuredAge|ComittedPremium|PaymentMode|   
-| 200         | 200     | Success    | /developer/leillustration    |M             |35        |80000          | 06        |
-| 200         | 200     | Success    | /developer/leillustration    |M             |40        |150000         | 12        |
+| 200         | 200     | success    | /developer/leillustration    |M             |20        |80000          | 06        |
+| 200         | 200     | success    | /developer/leillustration    |M             |22        |150000         | 12        |
 
 
 @OSP_NegativeTest01

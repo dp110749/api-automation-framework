@@ -14,26 +14,26 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 
-public class LE_OSP_Service {
+public class LE_OSP_Service extends WebservicesMethod{
 	private final static Logger logger = Logger.getLogger(LE_OSP_Service.class.getName());
-	private int getSecondRow;
-	private String endPointUrl;
-	private String header;
-	private String requestFile;
-	private String correlationId;
+//	private int getSecondRow;
+//	private String endPointUrl;
+//	private String header;
+//	private String requestFile;
+//	private String correlationId;
 	private String insuredGender;
 	private String insuredAge;
 	private String commitedPrimun;
 	private String paymentMode;
-	private String requestBody;
-	private Response responseBody;
+//	private String requestBody;
+//	private Response responseBody;
 
 	@Given("^Set the pre request data for OSP$")
 	public void set_the_pre_request_data_for_OSP(DataTable inputPreRequestData) throws Throwable {
 		List<String> listOfpreSetOfData = inputPreRequestData.asList(String.class);
 		List<List<String>> NumberOfRow = inputPreRequestData.raw();
-		getSecondRow = listOfpreSetOfData.size() / NumberOfRow.size();
-		for (int i = getSecondRow; i < listOfpreSetOfData.size(); i++) {
+		getSecondRowData = listOfpreSetOfData.size() / NumberOfRow.size();
+		for (int i = getSecondRowData; i < listOfpreSetOfData.size(); i++) {
 			endPointUrl = listOfpreSetOfData.get(i);
 			i++;
 			header = listOfpreSetOfData.get(i);
@@ -49,6 +49,8 @@ public class LE_OSP_Service {
 			commitedPrimun = listOfpreSetOfData.get(i);
 			i++;
 			paymentMode = listOfpreSetOfData.get(i);
+			i++;
+			method_Type=listOfpreSetOfData.get(i);
 
 		}
 		logger.info("Set prequest data in variable successfully..");
@@ -67,7 +69,7 @@ public class LE_OSP_Service {
 
 	@When("^Send the POST request for OSP$")
 	public void send_the_POST_request_for_OSP() throws Throwable {
-		responseBody = WebservicesMethod.POST_METHOD(endPointUrl, getFinalRequestBody(),
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, getFinalRequestBody(),
 				ReusableFunction.requestHeaders(header));
 		logger.info("Response body of OSP is ==" + responseBody.prettyPrint());
 
