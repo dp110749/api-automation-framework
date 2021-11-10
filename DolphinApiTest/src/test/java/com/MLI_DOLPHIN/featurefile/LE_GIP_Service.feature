@@ -2,14 +2,14 @@
 Feature: To test the functionality of premium calculator and illustration generator of GIP
 Background:
 Given Set the pre request test data for GIP
-|EndPointUrl           |Header                                             |RequestFile         |
-|/developer/lepremium |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY  |LE_GIP_Service.json |  
+|EndPointUrl           |Header                                              |RequestFile         |MethodType|
+|/developer/lepremium  |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY  |LE_GIP_Service.json |POST      | 
 
 @GIP_forPremiumCalculation_01
 Scenario: To Test premium calculater for GIP
 Given I want to set the validation Data
 |ResponseCode|ResponseMsgCode|ResponseMessage|OutPutSumAssurred |
-|200         | 200           | Success       |3208054           |
+|200         | 200           | success       |3208054           |
 
 When I want send the request For GIP
 Then I want to validate the responseCode for GIP
@@ -21,7 +21,7 @@ And I want to validate the calaculated Sumassured for GIP
 Scenario Outline:To Test the functionality of Illustration generator service
 Given I want to set the validation Data
 |ResponseCode|ResponseMsgCode|ResponseMessage|OutPutSumAssurred |
-|200         | 200           | Success       |                  |
+|200         | 200           | success       |                  |
 
 Given I want to set the illustration URL"<illustrationUrl>"
 When I want send the request For GIP
@@ -37,11 +37,11 @@ Examples:
 @GIP_testWithMultipleData
 Scenario: To Test the Functionality of GIP premium generator with multiple set of data
 Given I want to set the test data in GIP request
-|TestData                       |OparationType   |ResponseCode|ResponseMsgCode|ResponseMesg|OutPutData                             |
-|{"committedPremium": "150000"} | changeData     | 200        |200            |Success     | 2406041                               |
-|{"productName": "Assurd Wealth Plan"}|changeData |200        |               |Unknown product name||
-|{"productName": "Max Life Guaranteed Income Plan","committedPremium": "90000"}  | changeData     | 200        |500            |Failure     | Minimum Premium allowed is Rs. 100000 |
-|{"committedPremium": ""}       | removeData     | 200        | 500              | Failure|                                       |
+|TestData                                                                        |OparationType   |ResponseCode|ResponseMsgCode|ResponseMesg         |OutPutData                             |
+|{"committedPremium": "150000"}                                                  | changeData     | 200        |200            |success              | 2406041                               |
+|{"productName": "Assurd Wealth Plan"}                                           |changeData      |200         |               |Unknown product name |                                       |
+|{"productName": "Max Life Guaranteed Income Plan","committedPremium": "90000"}  | changeData     | 200        |500            |Failure              | Minimum Premium allowed is Rs. 100000 |
+|{"committedPremium": ""}                                                        | removeData     | 200        | 500           | Failure             |                                       |
 
 
 @GIP_NegativeTest_02
@@ -66,8 +66,8 @@ Given I want to set the validation Data
 |403          |               | Forbidden       |                  |
 
 Given Set the pre request test data for GIP
-|EndPointUrl           |Header                     |RequestFile         |
-|/developer/lepremium  |x-api-key:                 |LE_GIP_Service.json |  
+|EndPointUrl           |Header                     |RequestFile         |MethodType|
+|/developer/lepremium  |x-api-key:                 |LE_GIP_Service.json |POST      |
 
 When I want send the request For GIP
 Then I want to validate the responseCode for GIP

@@ -14,14 +14,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 
-public class LE_GIP_Service {
+public class LE_GIP_Service extends WebservicesMethod{
 	
 	private final static Logger logger = Logger.getLogger(LE_GIP_Service.class.getName());
-	private String endPointUrl;
-	private String headers;
-	private String requestFile;
-	private String requestBody;
-	private Response responseBody;
 	private String expResponseCode;
 	private String expResponseMSgCode;
 	private String expResponseMessage;
@@ -30,19 +25,22 @@ public class LE_GIP_Service {
 	private String oparationType;
 	private List<String> listOfSetData ;
 	private List<List<String>> numOfRow;
-	private int getSecondRow;
 
 @Given("^Set the pre request test data for GIP$")
 public void set_the_pre_request_test_data_for_GIP(DataTable preSetOfData) throws Throwable {
+	
  listOfSetData =preSetOfData.asList(String.class);
  numOfRow=preSetOfData.raw();
- getSecondRow=listOfSetData.size()/numOfRow.size();
-for(int i=getSecondRow;i<listOfSetData.size();i++){
+ getSecondRowData=listOfSetData.size()/numOfRow.size();
+for(int i=getSecondRowData;i<listOfSetData.size();i++){
 	endPointUrl=listOfSetData.get(i);
 	i++;
-	headers=listOfSetData.get(i);
+	header=listOfSetData.get(i);
 	i++;
 	requestFile=listOfSetData.get(i);
+	i++;
+	method_Type=listOfSetData.get(i);
+   
   }
 	requestBody=ReusableFunction.readJsonFile(requestFile);
 }
@@ -51,8 +49,8 @@ for(int i=getSecondRow;i<listOfSetData.size();i++){
 public void i_want_to_set_the_validation_Data(DataTable inputData) throws Throwable {
 	 listOfSetData=inputData.asList(String.class);
 	 numOfRow=inputData.raw();
-	 getSecondRow=listOfSetData.size()/numOfRow.size();
-	 for(int i=getSecondRow;i<listOfSetData.size();i++){
+	 getSecondRowData=listOfSetData.size()/numOfRow.size();
+	 for(int i=getSecondRowData;i<listOfSetData.size();i++){
 		expResponseCode=listOfSetData.get(i); 
 		i++;
 		expResponseMSgCode=listOfSetData.get(i);
@@ -60,12 +58,12 @@ public void i_want_to_set_the_validation_Data(DataTable inputData) throws Throwa
 		expResponseMessage=listOfSetData.get(i);
 		i++;
 		expOutPutData=listOfSetData.get(i);
-		
+		break;
 	 }
 }
 @When("^I want send the request For GIP$")
 public void i_want_send_the_request_For_GIP() throws Throwable {
-   responseBody=WebservicesMethod.POST_METHOD(endPointUrl, requestBody, ReusableFunction.requestHeaders(headers));
+   responseBody=WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
    logger.info("User getting response is :"+responseBody.body().prettyPrint());
 }
 @Then("^I want to validate the responseCode for GIP$")
@@ -138,8 +136,8 @@ public void to_Set_the_correlatinKey_and_value_in_the_request_for_GIP(String cor
 public void pass_the_set_of_test_data(DataTable setOfTestData) throws Throwable {
 	List<String> listOfData= setOfTestData.asList(String.class);
 	List<List<String>> numOfRow=setOfTestData.raw();
-	getSecondRow=listOfData.size()/numOfRow.size();
-	for(int i=getSecondRow;i<listOfData.size();i++){
+	getSecondRowData=listOfData.size()/numOfRow.size();
+	for(int i=getSecondRowData;i<listOfData.size();i++){
 		testData=listOfData.get(i);
 		i++;
 		oparationType=listOfData.get(i);
@@ -151,12 +149,12 @@ public void pass_the_set_of_test_data(DataTable setOfTestData) throws Throwable 
 		expResponseMessage=listOfData.get(i);
 		i++;
 		expOutPutData=listOfData.get(i);
-		
+	
 		requestBody=ReusableFunction.getSpecificRequest(requestBody, testData, oparationType);
 		Thread.sleep(1000  );
-		responseBody=WebservicesMethod.POST_METHOD(endPointUrl, requestBody, ReusableFunction.requestHeaders(headers));
+		responseBody=WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
 		logger.info("Response body is ::"+responseBody.prettyPrint());
-		if(expResponseMessage.equals("Success")){
+		if(expResponseMessage.equalsIgnoreCase("Success")){
 			Assert.assertEquals(expResponseCode, String.valueOf(responseBody.getStatusCode()));
 			logger.info("Validation of response code is successfull..");
 		    responseBody.then().root("msgInfo").body("msgCode", Is.is(expResponseMSgCode))
