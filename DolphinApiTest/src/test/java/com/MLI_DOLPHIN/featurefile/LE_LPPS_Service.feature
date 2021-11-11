@@ -6,8 +6,8 @@ Background:
 
 	Given : set the request url header and request body 
 	
-		|url_illustation           |url_premium         |header                                              |requestfile   |
-		|/developer/leillustration |/developer/lepremium| x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | LE_LPPS.json |
+		|url_illustation           |url_premium         |header                                              |requestfile   |MethodType |
+		|/developer/leillustration |/developer/lepremium| x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | LE_LPPS.json |POST       |
 
 @PositiveTest		
 Scenario Outline: 
@@ -22,7 +22,7 @@ Scenario Outline:
 	Examples: 
 	
 		|statusCode|responseMessage|
-		|   200    |   Success     |
+		|   200    |   success     |
 
 @NegativeTest		
 Scenario Outline: 
@@ -80,7 +80,7 @@ Scenario Outline:
 	Examples: 
 	
 		| statusCode  | responseMessage|
-		|  200        | Success        |	
+		|  200        | success        |	
 
 @NegativeTest		
 Scenario Outline: 
