@@ -10,6 +10,7 @@ import org.testng.Assert;
 import com.MLI_DOLPHIN.baseclass.WebservicesMethod;
 import com.MLI_DOLPHIN.specs.SpecificationFactory;
 import com.MLI_DOLPHIN.utilities.ReusableFunction;
+import com.sun.xml.bind.v2.runtime.reflect.opt.MethodAccessor_Double;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
@@ -17,19 +18,15 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 
-public class LE_FYPP_Service {
+public class LE_FYPP_Service extends WebservicesMethod{
 
 	private final static Logger logger = Logger.getLogger(LE_FYPP_Service.class.getName());
 	private String lepremiumUrl;
 	private String leillustrationUrl;
-	private String header;
-	private String requestFile;
-	private String requestBody;
 	private String testData;
 	private String oparationType;
 	private Response responseBody;
 	private String actualResponseCode;
-	private int getSecondRowData;
 	private String testUrl;
 	private String msgCode;
 	private String msgDescription;
@@ -48,6 +45,8 @@ public class LE_FYPP_Service {
 			header = listOfSetData.get(i);
 			i++;
 			requestFile = listOfSetData.get(i);
+			i++;
+			method_Type =listOfSetData.get(i);
 			break;
 		}
 		requestBody = ReusableFunction.readJsonFile(requestFile);
@@ -55,7 +54,7 @@ public class LE_FYPP_Service {
 
 	@When("^i want to send the request for illustration generator$")
 	public void i_want_to_send_the_request_for_illustration_generator() throws Throwable {
-		responseBody = WebservicesMethod.POST_METHOD(leillustrationUrl, requestBody,
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type,leillustrationUrl, requestBody,
 				ReusableFunction.requestHeaders(header));
 		logger.info("Response Body is ::" + responseBody.prettyPrint());
 	}
@@ -81,11 +80,22 @@ public class LE_FYPP_Service {
 		logger.info("Validation of response app id and response time successfully pass::");
 	}
 
-	@Then("^i want validate the response message \"([^\"]*)\"$")
-	public void i_want_validate_the_response_message(String arg1) throws Throwable {
+	@SuppressWarnings("deprecation")
+	@Then("^i want validate the response message\"([^\"]*)\"$")
+	public void i_want_validate_the_response_message(String actualMessgae) throws Throwable {
+		if(actualMessgae.contains("success")) {
+     responseBody.then().root("msgInfo").body("msg", Matchers.equalTo(actualMessgae));
+     logger.info("Validation of message..");
+		}else if(actualMessgae.contains("fail")) {
+			
+		}else if(actualMessgae.contains("Forbidden")) {
+			responseBody.then().body("message", Matchers.equalToIgnoringCase(actualMessgae));
+		}else {
+			logger.warn("..No Record found..");
+		}
+     }
 
-	}
-
+	
 	@Then("^i want check the illustration is generated or not$")
 	public void i_want_check_the_illustration_is_generated_or_not() throws Throwable {
 		boolean ellustraion = responseBody.then().root("payload").body("illustrationPdfBase64",
@@ -114,7 +124,7 @@ public class LE_FYPP_Service {
 			msgDescription = listOfTestData.get(i);
 			requestBody = ReusableFunction.getSpecificRequest(requestBody, testData, oparationType);
 			if (requestBody.length() > 0) {
-				responseBody = WebservicesMethod.POST_METHOD(testUrl, requestBody,
+				responseBody = WebservicesMethod.Select_API_METHOD(method_Type,testUrl, requestBody,
 						ReusableFunction.requestHeaders(header));
 				logger.info("Response data ...."+responseBody.prettyPrint());
 			} else {
@@ -149,13 +159,12 @@ public class LE_FYPP_Service {
 	
 	@When("^i want to send the request for premium generator$")
 	public void i_want_to_send_the_request_for_premium_generator() throws Throwable {
-		responseBody = WebservicesMethod.POST_METHOD(lepremiumUrl, requestBody,
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type, lepremiumUrl, requestBody,
 				ReusableFunction.requestHeaders(header));
 		logger.info("Response Body for premium::" + responseBody.prettyPrint());
 
 	}	
 
-	@SuppressWarnings("deprecation")
 	@Then("^i want check premium amount \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void i_want_check_premium_amount_and(String premiumPartA, String premiumPartB) throws Throwable {
 //       responseBody.then().root("payload.premiumAmount").body(premiumPartA.trim(), Matchers.notNullValue())
@@ -168,6 +177,10 @@ public class LE_FYPP_Service {
 //                      .and().body("Part C", Matchers.hasItem(premiumC));
 //
 	
+	}
+	@Then("^i want validate the response message \"([^\"]*)\"$")
+	public void validateTheMessage(String message) throws Throwable {
+		
 	}
 
 
