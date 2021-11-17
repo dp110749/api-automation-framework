@@ -16,28 +16,21 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 
-public class LE_CIP_Service {
+public class LE_CIP_Service extends WebservicesMethod{
 	
 	private final static Logger logger = Logger.getLogger(LE_CIP_Service.class.getName());
-	private String endPointUrl;
-	private String header;
-	private String requestFile;
-	private String correlationId;
+
 	private String insuredAge;
 	private String channel;
 	private String committedPremium;
 	private String productName;
-	private int getSecodeRow;
-	private String requestBody;
-	private Response responseBody;
-	
 	
 	@Given("^Set pre request data for CIP plan$")
 	public void set_pre_request_data_for_CIP_plan(DataTable preRequestData) throws Throwable {
         List<String> listOfData =preRequestData.asList(String.class);
         List<List<String>> numOfRow =preRequestData.raw();
-        getSecodeRow=listOfData.size()/numOfRow.size();
-        for(int i=getSecodeRow;i<listOfData.size();i++){
+        getSecondRowData=listOfData.size()/numOfRow.size();
+        for(int i=getSecondRowData;i<listOfData.size();i++){
         	endPointUrl=listOfData.get(i);
         	i++;
         	header=listOfData.get(i);
@@ -54,6 +47,7 @@ public class LE_CIP_Service {
         	i++;
         	productName=listOfData.get(i);
         	i++;
+        	method_Type=listOfData.get(i);
         }
         logger.info("Set the data in variable sccessfully..");
 	}
@@ -71,7 +65,7 @@ public class LE_CIP_Service {
 
 	@When("^Send the POST Request for CIP$")
 	public void send_the_POST_Request_for_CIP() throws Throwable {
-		responseBody=WebservicesMethod.POST_METHOD(endPointUrl, getCompleteRequest(), ReusableFunction.requestHeaders(header));
+		responseBody=WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, getCompleteRequest(), ReusableFunction.requestHeaders(header));
 		 logger.info("Response Body is .."+responseBody.prettyPrint());
 	}
 

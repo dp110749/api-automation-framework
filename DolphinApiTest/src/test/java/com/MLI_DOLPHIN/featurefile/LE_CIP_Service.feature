@@ -2,8 +2,8 @@
 Feature: To test the functionality of CIP LE Service 
 Background:
 Given Set pre request data for CIP plan
-|EndPoint             |Header                                            |RequestFile        |CorrelationID|InsuredAge|Channel|ComittedPremium|productName|
-|/developer/lepremium |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY|LE_CIP_Service.json|21344        | 27       |K      |15000          |Max Life Cancer Insurance Plan|
+|EndPoint             |Header                                            |RequestFile        |CorrelationID|InsuredAge|Channel|ComittedPremium|productName|MethodType|
+|/developer/lepremium |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY|LE_CIP_Service.json|21344        | 27       |K      |15000          |Max Life Cancer Insurance Plan|POST|
 
 @PositiveTest001
 Scenario Outline: Test the functionality of CIP plan when pass premium 15000
