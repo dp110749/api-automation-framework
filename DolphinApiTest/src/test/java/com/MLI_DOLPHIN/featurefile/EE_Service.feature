@@ -3,8 +3,8 @@ Feature: To test the functionality of EE
 Background: 
 	Given :set the url request and header 
 	
-		|url                        |header                                            |requestFile      |           
-		|/developer/autounderwriting|x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| EE_Service.json |
+		|url                        |header                                            |requestFile      | MethodType|          
+		|/developer/autounderwriting|x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY| EE_Service.json | POST      |
 
 @PositiveTest		
 Scenario Outline: to test functionality when user send the valid request 
