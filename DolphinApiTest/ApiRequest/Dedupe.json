@@ -1,21 +1,60 @@
+
 {
-    "metadata": {
-        "X-Correlation-ID": "12113123",
-        "X-App-ID": "DOLPHIN",
-        "proposalNumber": "12345678"
-    },
-    "payload": {
-        "firstName": "ANIL",
-        "gender": "F",
-        "panNo": "BVDPS1118J",
-        "mobileNo": "",
-        "emailId": "",
-        "dob": "01-01-1982",
-        "prevPolicy": "",
-        "lastName": "KUMAR",
-        "udiNumber": "",
-        "eaiNumber": "",
-        "ckycNumber": "",
-        "bankAccNumber": ""
-    }
+"metadata":{
+"X-App-ID":"IBPS",
+"X-Correlation-ID":"387643687-h9mVnP9lKA4oimp",
+"ProposalNumber":"387643687"
+},
+"payload":{
+"dob":"1992-10-30",
+"gender":"MALE",
+"panNo":"",
+"ckycNumber":"",
+"eiaNumber":"3213113313313",
+"voterId":[
+],
+"prevPolicy":[
+],
+"drivingLicense":[
+],
+"passport":[
+],
+"emailId":[
+],
+"mobileNo":[
+],
+"name":[
+{
+"firstName":"PAYORAADHAR",
+"middleName":"",
+"lastName":"BXC"
 }
+],
+"fatherName":[
+{
+"fatherFirstName":"",
+"fatherMiddleName":"",
+"fatherLastName":""
+}
+],
+"bankDetails":[
+{
+"accountNumber":"",
+"ifscCode":""
+}
+],
+"addresses":[
+{
+"addressType":"Permanent",
+"addressLine1":"xyz",
+"addressLine2":"abc",
+"addressLine3":"",
+"city":"New Delhi",
+"pincode":"110001",
+"state":"DL",
+"country":"IND"
+}
+]
+}
+}
+
