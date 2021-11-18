@@ -4,8 +4,8 @@ Feature: To check the functionality of Discrepancy Rule Engine service
 Background: 
 
 	Given set the input request testdata 
-		|url                     |header                                             | requestFile               | 
-		|/developer/discrepancy  |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | DiscrepancyRuleEngine.json|
+		|url                     |header                                             | requestFile               |MethodType| 
+		|/developer/discrepancy  |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | DiscrepancyRuleEngine.json|POST      |
 		
 @PositiveTestDiscrepancy1 
 Scenario Outline: 

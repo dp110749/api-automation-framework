@@ -15,20 +15,13 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 
-public class DiscrepancyRuleEngine {
+public class DiscrepancyRuleEngine extends WebservicesMethod {
 
 	private final static Logger logger = Logger.getLogger(DiscrepancyRuleEngine.class.getName());
-	
-	private String header;
-	
-	private String url;
-	private String requestFile;
-	private String requestBody;
+
 	private String testData;
 	private String operationType;
-	private Response responseBody;
 	private String actualResponseCode;
-	private int getSecondRowData;
 	private String testUrl;
 	private String msgCode;
 	private String msg;
@@ -38,18 +31,16 @@ public class DiscrepancyRuleEngine {
 
 		List<String> listOfSetData = presetData.asList(String.class);
 		List<List<String>> rowNum = presetData.raw();
-		
+
 		getSecondRowData = listOfSetData.size() / rowNum.size();
-	/*	System.out.println(listOfSetData.size()+"-------"+rowNum.size());*/
 		for (int i = getSecondRowData; i < listOfSetData.size(); i++) {
-/*			System.out.println("-------------------------------------------"+listOfSetData.get(i));*/
-			url = listOfSetData.get(i);
+			endPointUrl = listOfSetData.get(i);
 			i++;
-			/*url = listOfSetData.get(i);
-			i++;*/
 			header = listOfSetData.get(i);
 			i++;
 			requestFile = listOfSetData.get(i);
+			i++;
+			method_Type = listOfSetData.get(i);
 			break;
 		}
 		requestBody = ReusableFunction.readJsonFile(requestFile);
@@ -57,7 +48,7 @@ public class DiscrepancyRuleEngine {
 
 	@When("^i want to send the request for Discrepancy Rule Engine$")
 	public void i_want_to_send_the_request_for_Discrepancy_Rule_Engine() throws Throwable {
-		responseBody = WebservicesMethod.POST_METHOD(url, requestBody,
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type, endPointUrl, requestBody,
 				ReusableFunction.requestHeaders(header));
 		logger.info("Response Body is ::" + responseBody.prettyPrint());
 	}
@@ -88,17 +79,6 @@ public class DiscrepancyRuleEngine {
 
 	}
 
-	/*@Then("^i want check the illustration is generated or not$")
-	public void i_want_check_the_illustration_is_generated_or_not() throws Throwable {
-		boolean ellustraion = responseBody.then().root("payload").body("illustrationPdfBase64",
-				Matchers.notNullValue()) != null;
-		if (ellustraion == true) {
-			logger.info("Illustration is generated successfully");
-		} else {
-			logger.info("Illustration is not generated.");
-		}
-	}*/
-
 	@Given("^:Set testdata$")
 	public void set_testdata(DataTable inputTestData) throws Throwable {
 		List<String> listOfTestData = inputTestData.asList(String.class);
@@ -116,17 +96,17 @@ public class DiscrepancyRuleEngine {
 			msg = listOfTestData.get(i);
 			requestBody = ReusableFunction.getSpecificRequest(requestBody, testData, operationType);
 			if (requestBody.length() > 0) {
-				responseBody = WebservicesMethod.POST_METHOD(testUrl, requestBody,
+				responseBody = WebservicesMethod.Select_API_METHOD(method_Type, testUrl, requestBody,
 						ReusableFunction.requestHeaders(header));
-//				System.out.println("------------" + responseBody.prettyPrint());
+				// System.out.println("------------" + responseBody.prettyPrint());
 			} else {
 				logger.info("send request is invaild ");
 			}
-			
+
 			if (msgCode.equals("400")) {
 
-				responseBody.then().root("response").body("msgInfo.msgCode", Matchers.equalToIgnoringCase(msgCode)).and()
-				.body("msgInfo.msg", Matchers.equalTo(msg));
+				responseBody.then().root("response").body("msgInfo.msgCode", Matchers.equalToIgnoringCase(msgCode))
+						.and().body("msgInfo.msg", Matchers.equalTo(msg));
 				logger.info("verify error msg for invaild input data.");
 			} else if (msgCode.equals("")) {
 				responseBody.then().body("error", Matchers.equalToIgnoringCase(msg));
@@ -134,60 +114,36 @@ public class DiscrepancyRuleEngine {
 			} else {
 				logger.info("No response received from api or expected response not matched.");
 			}
-		}		
-	} 
-	
+		}
+	}
+
 	@Given("^:Set the header values \"([^\"]*)\"$")
 	public void set_the_header_values(String inputHeader) throws Throwable {
-          header =inputHeader;
+		header = inputHeader;
 	}
-	
+
 	@Given("^:Set the x-correlation-ID data into request \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void set_the_input_test_data_in_request(String apiKey, String apiValue) throws Throwable {
-     JSONObject requestInjsonObject= ReusableFunction.createJSONObject(requestBody);
-     JSONObject updatedRequest=ReusableFunction.replacekeyInJSONObject(requestInjsonObject, apiKey, apiValue);
-     requestBody=  updatedRequest.toString();
- 	
+		JSONObject requestInjsonObject = ReusableFunction.createJSONObject(requestBody);
+		JSONObject updatedRequest = ReusableFunction.replacekeyInJSONObject(requestInjsonObject, apiKey, apiValue);
+		requestBody = updatedRequest.toString();
+
 	}
-	
+
 	@Given("^:Set the proposerGenderFlag data into request \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void set_the_input_testdata_in_request(String apiKey, String apiValue) throws Throwable {
-		JSONObject requestInjsonObject= ReusableFunction.createJSONObject(requestBody);
-	    JSONObject updatedRequest=ReusableFunction.replacekeyInJSONObject(requestInjsonObject, apiKey, apiValue);
-     requestBody=  updatedRequest.toString();
- 	
+		JSONObject requestInjsonObject = ReusableFunction.createJSONObject(requestBody);
+		JSONObject updatedRequest = ReusableFunction.replacekeyInJSONObject(requestInjsonObject, apiKey, apiValue);
+		requestBody = updatedRequest.toString();
+
 	}
-	
+
 	@Given("^:Set the dobProposerFlag data into request \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void set_the_input_testdatadobProposerFlag_in_request(String apiKey, String apiValue) throws Throwable {
-		JSONObject requestInjsonObject= ReusableFunction.createJSONObject(requestBody);
-	    JSONObject updatedRequest=ReusableFunction.replacekeyInJSONObject(requestInjsonObject, apiKey, apiValue);
-     requestBody=  updatedRequest.toString();
- 	
-	}
-	/*@When("^i want to send the request for Discrepancy Rule Engine$")
-	public void i_want_to_send_the_request_for_discrepancy_rule_engine() throws Throwable {
-		responseBody = WebservicesMethod.POST_METHOD(url, requestBody,
-				ReusableFunction.requestHeaders(header));
-		logger.info("Response Body for premium::" + responseBody.prettyPrint());
+		JSONObject requestInjsonObject = ReusableFunction.createJSONObject(requestBody);
+		JSONObject updatedRequest = ReusableFunction.replacekeyInJSONObject(requestInjsonObject, apiKey, apiValue);
+		requestBody = updatedRequest.toString();
 
-	}*/	
-
-//	@SuppressWarnings("deprecation")
-//	@Then("^i want check premium amount \"([^\"]*)\" and \"([^\"]*)\"$")
-//	public void i_want_check_premium_amount_and(String premiumPartA, String premiumPartB) throws Throwable {
-//       responseBody.then().root("payload.premiumAmount").body(premiumPartA.trim(), Matchers.notNullValue())
-//       .and().body(premiumPartB.trim(), Matchers.notNullValue(String.class)); 
-//		responseBody.then().rootPath("payload").body("premiumAmount.Part A", Matchers.notNullValue());
-
-//		responseBody.then().rootPath("payload")
-//		.body("premiumAmount.Part A", Matchers.hasItem(premiumPartA));
-//                      .and().body("Part B", Matchers.hasItem(premiumB))
-//                      .and().body("Part C", Matchers.hasItem(premiumC));
-//
-	
 	}
 
-
-
-//}
+}
