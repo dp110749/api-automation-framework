@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.xml.ws.Endpoint;
 
+import org.apache.commons.math3.distribution.WeibullDistribution;
 import org.apache.log4j.Logger;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
@@ -21,18 +22,12 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 
-public class DedupeService {
+public class DedupeService extends WebservicesMethod{
 
 	private static final Logger logger = Logger.getLogger(DedupeService.class);
-	private String header;
-	private String url;
-	private String requestFile;
-	private String requestBody;
 	private String testData;
 	private String operationType;
-	private Response responseBody;
 	private String actualResponseCode;
-	private int getSecondRowData;
 	private String testUrl;
 	private String msgCode;
 	private String msg;
@@ -47,11 +42,13 @@ public class DedupeService {
 		getSecondRowData = listOfSetData.size() / rowNum.size();
 
 		for (int i = getSecondRowData; i < listOfSetData.size(); i++) {
-			url = listOfSetData.get(i);
+			endPointUrl = listOfSetData.get(i);
 			i++;
 			header = listOfSetData.get(i);
 			i++;
 			requestFile = listOfSetData.get(i);
+			i++;
+			method_Type=listOfSetData.get(i);
 			break;
 		}
 		requestBody = ReusableFunction.readJsonFile(requestFile);
@@ -61,7 +58,7 @@ public class DedupeService {
 	public void i_want_to_send_the_request_for_Dedupe_Servcie() throws Throwable {
 
 		if (requestBody.length() > 0) {
-			responseBody = WebservicesMethod.POST_METHOD(url, requestBody, ReusableFunction.requestHeaders(header));
+			responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
 			logger.info("Response body is :: " + responseBody.prettyPrint());
 		} else {
 			logger.info("Invalid Request..");
@@ -123,7 +120,7 @@ public class DedupeService {
 			msg = listOfTestData.get(i);
 			requestBody = ReusableFunction.getSpecificRequest(requestBody, testData, operationType);
 			if (requestBody.length() > 0) {
-				responseBody = WebservicesMethod.POST_METHOD(testUrl, requestBody,
+				responseBody = WebservicesMethod.Select_API_METHOD(method_Type,testUrl, requestBody,
 						ReusableFunction.requestHeaders(header));
 			} else {
 				logger.info("sent request is invaild ");
