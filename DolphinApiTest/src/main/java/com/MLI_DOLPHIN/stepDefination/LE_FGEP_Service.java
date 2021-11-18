@@ -17,15 +17,15 @@ import cucumber.api.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-public class LE_FGEP_Service {
+public class LE_FGEP_Service extends WebservicesMethod{
 	
 	private static final Logger logger = Logger.getLogger(LE_FGEP_Service.class);
-	private int getSecondRowData;
-	private String endPointUrl;
-	private String header;
-	private String requestFile;
-	private String requestBody;
-	private Response responseBody;
+//	private int getSecondRowData;
+//	private String endPointUrl;
+//	private String header;
+//	private String requestFile;
+//	private String requestBody;
+//	private Response responseBody;
 	private String actualResponseCode;
 	private String msgCode;
 	private String responseMsg;
@@ -42,7 +42,9 @@ public class LE_FGEP_Service {
 			i++;
 			header=listOfData.get(i);
 			i++;
-            requestFile=listOfData.get(i);			
+            requestFile=listOfData.get(i);
+            i++;
+            method_Type=listOfData.get(i);
 		}
 		requestBody = ReusableFunction.readJsonFile(requestFile);
 	}
@@ -57,7 +59,7 @@ public class LE_FGEP_Service {
 	@When("^I want to send the request for FGEP$")
 	public void i_want_to_send_the_request_for_FGEP() throws Throwable {
 
-		responseBody =WebservicesMethod.POST_METHOD(endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
+		responseBody =WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
 		logger.info("Response data is :"+responseBody.prettyPrint());
 	}
 
