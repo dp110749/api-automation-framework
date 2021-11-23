@@ -14,26 +14,19 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 
-public class LE_OTP_Service {
+public class LE_OTP_Service extends WebservicesMethod{
 	
 	private final static Logger logger = Logger.getLogger(LE_OTP_Service.class.getName());
-	private String endPointUrl;
-	private String header;
-	private String requestFile;
-	private String correlationId;
-	private String insurdGender;
-	private String sumAssurd;
-	private int getSecondOfData;
-	private String requestBody;
-	private Response responseBody;
 	
+	public String insurdGender;
+	public String sumAssurd;
 	
 	@Given("^To set the pre request set of data for OTP$")
 	public void to_set_the_pre_request_set_of_data_for_OTP(DataTable preRequistSetOfData) throws Throwable {
       List<String> listOfpreData = preRequistSetOfData.asList(String.class);
       List<List<String>> numberOfRow= preRequistSetOfData.raw();
-      getSecondOfData=listOfpreData.size()/numberOfRow.size();
-      for(int i=getSecondOfData;i<listOfpreData.size();i++){
+      getSecondRowData=listOfpreData.size()/numberOfRow.size();
+      for(int i=getSecondRowData;i<listOfpreData.size();i++){
       endPointUrl=listOfpreData.get(i);
       i++;
       header =listOfpreData.get(i);
@@ -44,7 +37,9 @@ public class LE_OTP_Service {
       i++;
       insurdGender=listOfpreData.get(i);
       i++;
-      sumAssurd=listOfpreData.get(i);     
+      sumAssurd=listOfpreData.get(i);
+      i++;
+      method_Type=listOfpreData.get(i);
       }
       logger.info("Pre request data set successfully...");     
 	}
@@ -54,6 +49,7 @@ public class LE_OTP_Service {
 		} catch (IOException e) {
 			
 			e.printStackTrace();
+			
 		}
 		requestBody=requestBody.replaceAll(Pattern.quote("{{"+"X-Correlation-ID"+"}}"),correlationId );
 		requestBody=requestBody.replaceAll(Pattern.quote("{{"+"genderOfInsured"+"}}"),insurdGender );
@@ -65,7 +61,8 @@ public class LE_OTP_Service {
 
 	@When("^Lets send the POST request for OTP product$")
 	public void lets_send_the_POST_request_for_OTP_product() throws Throwable {
-		responseBody=WebservicesMethod.POST_METHOD(endPointUrl, setData_in_RequestBody(), ReusableFunction.requestHeaders(header));
+		responseBody=WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, setData_in_RequestBody(), ReusableFunction.requestHeaders(header));
+		System.out.println("Response Boooooo----"+responseBody);
 		logger.info("response body of OPT post request :"+responseBody.prettyPrint());
 		
 	}

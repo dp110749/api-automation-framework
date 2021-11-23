@@ -2,14 +2,14 @@
 Feature: To test the functionality of STP product for premium and illustration
 Background:
 Given Set the pre request test data for STP
-|EndPointUrl          |Header                                             |RequestFile         |
-|/developer/lepremium |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY  |LE_STP_Service.json | 
-
+|EndPointUrl          |Header                                             |RequestFile          |MethodType |
+|/developer/lepremium |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY  |LE_STP_Service.json |POST      |
+ 
 @PremiumGenerator_001
 Scenario: To Test premium calculator 
 Given I want to set output data for STP
 |ResponseCode|ResponseMsgCode|ResponseMessage|OutPutSumAssurred |
-|200         | 200           | Success       |7000000.00        |
+|200         | 200           | success       |7000000.00        |
 
 When I want to send the request for STP
 Then I want to validate response code for STP 
@@ -37,8 +37,8 @@ Examples:
 Scenario: To test the functionality of premium generator with multiple set of data for STP
 Given I want to set multiple set of data for STP
 |inputData                    |oparationType   |MsgCode|Message    |expectedSumAssured|ExpectedpATP|
-|{"sumAssured": "4000000.00"} |changeData      |200    |Success    |4000000.00        |7520        |
-|{"sumAssured": "2800000.00"} |changeData      |200    |Success    |2800000.00        |5264        |
+|{"sumAssured": "4000000.00"} |changeData      |200    |success    |4000000.00        |7520        |
+|{"sumAssured": "2800000.00"} |changeData      |200    |success    |2800000.00        |5264        |
 |{"sumAssured": ""}           |changeData      |500    |Failed     |null              |null        |
 |{"sumAssured": ""}           |removeData      |500    |Failed     |null              |null        |
 
@@ -47,8 +47,8 @@ Scenario Outline: To test the functionality of illustration generator with multi
 Given I want to set the endpoint url for illustration"<endPoint>" 
 Given I want to set multiple set of data for STP to generate illustration
 |inputData                    |oparationType   |MsgCode|Message    |
-|{"sumAssured": "4000000.00"} |changeData      |200    |Success    |
-|{"sumAssured": "2800000.00"} |changeData      |200    |Success    |
+|{"sumAssured": "4000000.00"} |changeData      |200    |success    |
+|{"sumAssured": "2800000.00"} |changeData      |200    |success    |
 
 
 Examples:

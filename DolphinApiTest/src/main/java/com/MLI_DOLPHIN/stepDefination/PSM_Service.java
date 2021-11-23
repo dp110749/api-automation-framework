@@ -3,6 +3,8 @@ package com.MLI_DOLPHIN.stepDefination;
 import java.io.IOException;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import org.apache.commons.math3.random.CorrelatedRandomVectorGenerator;
 import org.apache.log4j.Logger;
 import org.hamcrest.Matchers;
 import com.MLI_DOLPHIN.baseclass.WebservicesMethod;
@@ -14,15 +16,9 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 
-public class PSM_Service {
+public class PSM_Service extends WebservicesMethod{
 
 	private final static Logger logger = Logger.getLogger(PSM_Service.class.getName());
-	
-	private int getSecondRow;
-	private String endPointUrl;
-	private String header;
-	private String requestFile;
-	private String correlarionID;
 	private String income;
 	private String need;
 	private String channel;
@@ -42,23 +38,20 @@ public class PSM_Service {
 	private String highGrowthFund;
 	private String superGrowthFund;
 	private String balancedFund;
-	private String requestBody;
-	private Response responseBody;
-	
 	
 	@Given("^Set the data in request$")
 	public void set_the_data_in_request(DataTable preRequestData) throws Throwable {
 		List<String> listOfPreData =preRequestData.asList(String.class);
 		List<List<String>>numberOfRow =preRequestData.raw();
-        getSecondRow=listOfPreData.size()/numberOfRow.size();
-        for(int i=getSecondRow;i<listOfPreData.size();i++){
+        getSecondRowData=listOfPreData.size()/numberOfRow.size();
+        for(int i=getSecondRowData;i<listOfPreData.size();i++){
         	endPointUrl=listOfPreData.get(i);
         	i++;
         	header=listOfPreData.get(i);
         	i++;
         	requestFile=listOfPreData.get(i);
         	i++;
-        	correlarionID=listOfPreData.get(i);
+        	correlationId=listOfPreData.get(i);
         	i++;
         	income=listOfPreData.get(i);
         	i++;
@@ -97,6 +90,8 @@ public class PSM_Service {
         	superGrowthFund=listOfPreData.get(i);
         	i++;
         	balancedFund=listOfPreData.get(i);
+        	i++;
+        	method_Type=listOfPreData.get(i);
         	
         }
        
@@ -108,7 +103,7 @@ public class PSM_Service {
 		} catch (IOException e) {			
 			e.printStackTrace();
 		}
-		requestBody=requestBody.replaceAll(Pattern.quote("{{"+"X-Correlation-ID"+"}}"), correlarionID);
+		requestBody=requestBody.replaceAll(Pattern.quote("{{"+"X-Correlation-ID"+"}}"), correlationId);
 		requestBody=requestBody.replaceAll(Pattern.quote("{{"+"income"+"}}"),income);
 		requestBody=requestBody.replaceAll(Pattern.quote("{{"+"need"+"}}"), need);
 		requestBody=requestBody.replaceAll(Pattern.quote("{{"+"channel"+"}}"), channel);
@@ -135,7 +130,7 @@ public class PSM_Service {
 
 	@When("^Lets Send the POST request for PSM$")
 	public void lets_Send_the_POST_request_for_PSM() throws Throwable {
-       responseBody=WebservicesMethod.POST_METHOD(endPointUrl, getRequestBody(), ReusableFunction.requestHeaders(header));
+       responseBody=WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, getRequestBody(), ReusableFunction.requestHeaders(header));
        logger.info("response Body is ::"+responseBody.prettyPrint());
 	}
 
@@ -309,8 +304,8 @@ public class PSM_Service {
 	}
 	@Given("^Lets set the correlation id for PSM\"([^\"]*)\"$")
 	public void lest_Set_the_CorrelationID(String inputCorrelationId) throws Throwable {
-		correlarionID=inputCorrelationId;
-		logger.info("User set the corrleationID is  :" + correlarionID);	
+		correlationId=inputCorrelationId;
+		logger.info("User set the corrleationID is  :" + correlationId);	
 
 	}
 	@Given("^Lets set the endPointUrlfor PSM\"([^\"]*)\"$")

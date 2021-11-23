@@ -3,8 +3,8 @@ Feature: Test the functionality of premium calculation and illustration for GLIP
 
   Background: 
     Given Set the prerequest data for GLIP product
-      | EndPoint             | Header                                             | RequestFile          | purchasePrice | variant | ProductName                              | AgeOfInsured |
-      | /developer/lepremium | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | LE_GLIP_Service.json |    2190676.00 | IAJ     | Max Life Guaranteed Lifetime Income Plan |           50 |
+      | EndPoint             | Header                                             | RequestFile          | purchasePrice | variant | ProductName                              | AgeOfInsured |MethodType|
+      | /developer/lepremium | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | LE_GLIP_Service.json |    2190676.00 | IAJ     | Max Life Guaranteed Lifetime Income Plan |           50 |POST      |
 
   @SmockTesting
   Scenario Outline: Send the valid request for GLIP product and validate the response
@@ -18,7 +18,7 @@ Feature: Test the functionality of premium calculation and illustration for GLIP
 
     Examples: 
       | ResponseCode | ResponseMessage | ResponseAFYP | AnualisedPremium | InstallmentPremium | AnualIncome  |
-      |          200 | Success         |      2190676 |          2190676 |        2230108.168 | 142437.75352 |
+      |          200 | Success         |      2190676 |          2190676 |        2230108.168 | 146337.15 |
 
   @SmockTesting
   Scenario Outline: Send the valid request for GLIP product and validate the response
@@ -44,8 +44,8 @@ Feature: Test the functionality of premium calculation and illustration for GLIP
 
     Examples: 
       | InputPurchasePrice | ResponseCode | ResponseMessage | ResponseAFYP | AnualisedPremium | InstallmentPremium | AnualIncome |
-      |            1000000 |          200 | Success         |      1000000 |          1000000 |            1018000 |       64390 |
-      |            5000000 |          200 | Success         |      5000000 |          5000000 |            5090000 |      325100 |
+      |            1000000 |          200 | Success         |      1000000 |          1000000 |            1018000 |       66180 |
+      |            5000000 |          200 | Success         |      5000000 |          5000000 |            5090000 |      334000 |
 
   @FunctionalTesting
   Scenario Outline: Test the functionality of GLIP LE illustration generation with multiple set of data

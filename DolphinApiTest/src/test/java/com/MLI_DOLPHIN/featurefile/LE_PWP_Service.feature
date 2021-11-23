@@ -4,8 +4,8 @@ Feature: test the functionality of premium and illustration generator for PWP
 Background: 
 	Given Set the url header and request 
 	
-		|  illustrationurl         |     premiumurl         |     header                                         |  reqtestFile     |
-		|/developer/leillustration |/developer/lepremium    | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |LE_PWPService.json|
+		|  illustrationurl         |     premiumurl         |     header                                         |  reqtestFile     |MethodType|
+		|/developer/leillustration |/developer/lepremium    | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |LE_PWPService.json|POST      |
 
 @PositiveTest		
 Scenario Outline: 
@@ -19,7 +19,7 @@ Scenario Outline:
 	
 	Examples: 
 		|statusCode|responseMessage|
-		|200       |Success        |
+		|200       |success        |
 @NegativeTest		
 Scenario Outline: 
 	send the invaild request when user remove the field request
@@ -64,7 +64,7 @@ Scenario Outline:
 	
 	Examples: 
 		|statusCode|responseMessage |
-		|200       |Success         |
+		|200       |success         |
 		 
 @NegativeTest	
 Scenario Outline: 

@@ -2,8 +2,8 @@
 Feature: To Test the functionality of LE OTP product 
 Background: 
 Given To set the pre request set of data for OTP
-|EndPointUrl           |Header                                             |RequestFile         |CorrelationId  |InsuredGender|SumAssured   |
-|/developer/lepremium  |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |LE_OTP_Service.json |1202122        |M            |2500000      | 
+|EndPointUrl           |Header                                             |RequestFile         |CorrelationId  |InsuredGender|SumAssured   |MethodType|
+|/developer/lepremium  |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |LE_OTP_Service.json |1202122        |M            |2500000      |POST      |
 
 @OTP_PositiveTest
 Scenario Outline: To test the functionality generated premium when pass sumAssurd 250000
@@ -15,7 +15,7 @@ And Let validate the committed premium for OTP"<CommittedPremium>"
 
 Examples:
 |ResponseCode|ResponseMsgCode|ResponseMsg |CommittedPremium |
-|200         |200            |Success     | 4307            |
+|200         |200            |success     | 4307            |
 
 @OTP_PositiveTest001
 Scenario Outline: To test the functionality generated illustration when pass sumAssurd 250000
@@ -28,7 +28,7 @@ And Lets validate the response of illustration
 
 Examples:
 |ResponseCode|ResponseMsgCode|ResponseMsg |    endPointulr           |
-|200         |200            |Success     |/developer/leillustration |
+|200         |200            |success     |/developer/leillustration |
 
 @OTP_PositiveTest002
 Scenario Outline: To test the functionality generated illustration when pass diffrent input sumAssurd 
@@ -42,8 +42,8 @@ And Lets validate the response of illustration
 
 Examples:
 |ResponseCode|ResponseMsgCode|ResponseMsg |    endPointulr           |SumAssurd |
-|200         |200            |Success     |/developer/leillustration |5000000   |
-|200         |200            |Success     |/developer/leillustration |3000000   |
+|200         |200            |success     |/developer/leillustration |5000000   |
+|200         |200            |success     |/developer/leillustration |3000000   |
 
 @OTP_PositiveTest003
 Scenario Outline: To test the functionality generated premium when pass diffrent input sumAssurd 
@@ -56,8 +56,8 @@ And Let validate the committed premium for OTP"<CommittedPremium>"
 
 Examples:
 |ResponseCode|ResponseMsgCode|ResponseMsg |SumAssurd |CommittedPremium |
-|200         |200            |Success     |5000000   |7139             |
-|200         |200            |Success     |3000000   |5168.4           |
+|200         |200            |success     |5000000   |7139             |
+|200         |200            |success     |3000000   |5168.4           |
 
 @OTP_NegativeTest001
 Scenario Outline: To test the functionality when pass sumAssurd Zero

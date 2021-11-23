@@ -2,8 +2,8 @@
 Feature: To Test the functionality of PSM service
 Background: Set the preRequest set of data 
 Given Set the data in request 
-|endPoint       |Header                                             |RequestFile     |CorrelationId|Income  |Need        |channel|planGroup|productFamily|insurdAge|IsPremiumHalfOfIncome |IsForm2 |IsInsuredAge18|isinsuredtakenRider|STP|IrpScore | DFA|LifeCycleBase |TriggerBased|GrowthFund |HighGrowth|SuperGrowthFund|BalanceFund |                     
-|/developer/psm |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |PSM_Service.json|31212        |1500000 |PROTECTION  |F      |U2NF20   |ULIP         |30       |Y                     |Y       |Y             |Y                  |Y  | 8       | N  | N            | N          | N         |N         |      N        | N          |
+|endPoint       |Header                                             |RequestFile     |CorrelationId|Income  |Need        |channel|planGroup|productFamily|insurdAge|IsPremiumHalfOfIncome |IsForm2 |IsInsuredAge18|isinsuredtakenRider|STP|IrpScore | DFA|LifeCycleBase |TriggerBased|GrowthFund |HighGrowth|SuperGrowthFund|BalanceFund |MethodType  |                   
+|/developer/psm |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |PSM_Service.json|31212        |1500000 |PROTECTION  |F      |U2NF20   |ULIP         |30       |Y                     |Y       |Y             |Y                  |Y  | 8       | N  | N            | N          | N         |N         |      N        | N          |POST        |
 
 @PSM_PossitiveTest
 Scenario Outline: To test the functionality Fail case PSM recomendtation for ULIP
@@ -132,7 +132,7 @@ Examples:
 | 200           | 400        |Failure   |             |
 
 @NegativeTest_02
-Scenario Outline: To test the functionality of PSM Service when pass correlationId as null
+Scenario Outline: To test the functionality of PSM Service when pass invalid EndPoint Url
 Given Lets set the endPointUrlfor PSM"<url>"
 When Lets Send the POST request for PSM
 Then Lets valiate the response status code"<RespStatusCode>"

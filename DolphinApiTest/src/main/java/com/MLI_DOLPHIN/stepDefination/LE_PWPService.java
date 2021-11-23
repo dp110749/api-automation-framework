@@ -16,33 +16,31 @@ import cucumber.api.java.en.Then;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 
-public class LE_PWPService {
+public class LE_PWPService extends WebservicesMethod {
 	private final static Logger logger = Logger.getLogger(LE_PWPService.class.getName());
+	
 	public String illustrationUrl;
-	public String premiumUrl;
-	public String headers;
-	public String requestFile;
-	public String requestBody;
-	public Response responseBody;
-	public String responseStatusCode;
+	public String premiumUrl;	
 	public String testData;
 	public String oparationToperform;
-	
+
 	@Given("^Set the url header and request$")
 	public void set_the_url_header_and_request(DataTable initialData) throws Throwable {
 
 		List<String>  listOfdata= initialData.asList(String.class);
 		List<List<String>>  numOfRow= initialData.raw();
 		
-		int secondRow=listOfdata.size()/numOfRow.size();
-		for(int i=secondRow;i<listOfdata.size();i++){
+		getSecondRowData =listOfdata.size()/numOfRow.size();
+		for(int i=getSecondRowData;i<listOfdata.size();i++){
 			illustrationUrl=listOfdata.get(i);
 			i++;
 			premiumUrl=listOfdata.get(i);
 			i++;
-			headers=listOfdata.get(i);
+			header=listOfdata.get(i);
 			i++;
 			requestFile=listOfdata.get(i);
+			i++;
+			method_Type=listOfdata.get(i);
 			break;
 		}
 		requestBody=ReusableFunction.readJsonFile(requestFile);
@@ -51,15 +49,15 @@ public class LE_PWPService {
 
 	@Then("^: Send the request for illustation$")
 	public void send_the_request() throws Throwable {
-		responseBody = WebservicesMethod.POST_METHOD(illustrationUrl, requestBody,
-				ReusableFunction.requestHeaders(headers));
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type,illustrationUrl, requestBody,
+				ReusableFunction.requestHeaders(header));
 		logger.info("Response Body is ::" + responseBody.prettyPrint());
 	}
 
 	@Then("^: I want to validate the response \"([^\"]*)\"$")
 	public void i_want_to_validate_the_response(String statusCode) throws Throwable {
-		responseStatusCode = String.valueOf(responseBody.getStatusCode());
-		Assert.assertEquals(statusCode, responseStatusCode);
+		responseCode = String.valueOf(responseBody.getStatusCode());
+		Assert.assertEquals(statusCode, responseCode);
 		logger.info("Varification of status code is successfully pass:");
 
 	}
@@ -108,8 +106,8 @@ public class LE_PWPService {
 	
 	@Then("^: Send the request for premium$")
 	public void send_the_request_for_premium() throws Throwable {
-		responseBody = WebservicesMethod.POST_METHOD(premiumUrl, requestBody,
-				ReusableFunction.requestHeaders(headers));
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type,premiumUrl, requestBody,
+				ReusableFunction.requestHeaders(header));
 		logger.info("Response Body is ::" + responseBody.prettyPrint());
 	
 	}

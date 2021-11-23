@@ -2,8 +2,8 @@
 Feature: To Test functionality of pramium and illustration of FGEP Product
 Background: 
 Given  Set the preRequest test data for FGEP product 
-|EndPointUrl          |         Header                                      |RequestFile           |
-|/developer/lepremium | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY  | LE_FGEP_Service.json |
+|EndPointUrl          |         Header                                      |RequestFile           |MethodType|
+|/developer/lepremium | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY  | LE_FGEP_Service.json |POST      |
 
 @Test0001
 Scenario Outline:To test the functionality of premium generator og FGEP
@@ -17,7 +17,7 @@ And I want to validate the response time for FGEP
 
 Examples:  
 |ResponseCode |ResponseMSG |ResponseMSGCode |SummAssuerd         |AFYP               |
-|200          |Success     |200             |944598.6589217972   |129200.36538461539 |
+|200          |success     |200             |944598.6589217972   |57837.778846153844 |
 
 @FGEP_PositiveIllustrationGenerator_01
 Scenario Outline: To Test the functionality of illustration generator for FGEP
@@ -31,7 +31,7 @@ And I want to validate Illustration generated or not
 
 Examples:
 |ResponseCode |ResponseMSG |ResponseMSGCode |EndPointUrl                |
-|200          |Success     |200             | /developer/leillustration |
+|200          |success     |200             | /developer/leillustration |
 
 @FGEP_PossitiveTestForPremium_02
 Scenario Outline:To test the functionality of premium generator with different data
@@ -49,7 +49,7 @@ And I want to validate the response time for FGEP
 
 Examples:  
 |ResponseCode |ResponseMSG |ResponseMSGCode |SummAssuerd         |AFYP               |
-|200          |Success     |200             |944598.6589217972   |129200.36538461539 |
+|200          |success     |200             |944598.6589217972   |57837.778846153844 |
 
 @FGEP_PositiveIllustrationGenerator_02
 Scenario Outline: To Test the functionality of illustration generator for FGEP
@@ -66,7 +66,7 @@ And I want to validate Illustration generated or not
 
 Examples:
 |ResponseCode |ResponseMSG |ResponseMSGCode |EndPointUrl                |
-|200          |Success     |200             | /developer/leillustration |
+|200          |success     |200             | /developer/leillustration |
 
 @FGEP_NegativeTest_01
 Scenario Outline:To test the functionality of FGEP When user send invalid Product Name
@@ -95,7 +95,7 @@ And I want to validate the response time for FGEP
 
 Examples:
 |ResponseCode |ResponseMSG |ResponseMSGCode |
-|200          |Failure     |500             | 
+|200          |success     |200             | 
 
 @FGEP_NegativeTest_03
 Scenario Outline: To Test the functionality of illustration generator for FGEP

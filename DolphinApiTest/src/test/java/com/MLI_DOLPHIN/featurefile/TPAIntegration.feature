@@ -3,8 +3,8 @@ Feature: To check the functionality of TPA Integration service
 
   Background: 
     Given set input request testdata
-      | url                     | header                                             | requestFile         | ProductName | SmokeClass |
-      | developer/medicalreport | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | TPAIntegration.json | TSWPPL      | Yes        |
+      | url                     | header                                             | requestFile         | ProductName | SmokeClass |MethodType|
+      | developer/medicalreport | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | TPAIntegration.json | TSWPPL      | Yes        |POST     |
 
   @PositiveTestTPA1
   Scenario Outline: 

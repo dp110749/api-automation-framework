@@ -16,15 +16,15 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 
-public class LE_LPPS_Service {
+public class LE_LPPS_Service extends WebservicesMethod{
 
 	private final static Logger logger = Logger.getLogger(LE_LPPS_Service.class.getName());
 	public String illustrationUrl;
 	public String premiumUrl;
-	public String header;
-	public String filePath;
-	public String requestBody;
-	public Response responseBody;
+//	public String header;
+//	public String filePath;
+//	public String requestBody;
+//	public Response responseBody;
 	public String responseStatusCode;
 	public String inputTestData;
 	public String oparationType;
@@ -34,23 +34,25 @@ public class LE_LPPS_Service {
 
 		List<String> listData = dataSetup.asList(String.class);
 		List<List<String>> numRow = dataSetup.raw();
-		int secondRowData = listData.size() / numRow.size();
-		for (int i = secondRowData; i < listData.size(); i++) {
+	 getSecondRowData = listData.size() / numRow.size();
+		for (int i = getSecondRowData; i < listData.size(); i++) {
 			illustrationUrl = listData.get(i);
 			i++;
 			premiumUrl = listData.get(i);
 			i++;
 			header = listData.get(i);
 			i++;
-			filePath = listData.get(i);
+			requestFile = listData.get(i);
+			i++;
+			method_Type=listData.get(i);
 			break;
 		}
-		requestBody = ReusableFunction.readJsonFile(filePath);
+		requestBody = ReusableFunction.readJsonFile(requestFile);
 	}
 
 	@When("^:I want to send the request$")
 	public void i_want_to_send_the_request() throws Throwable {
-		responseBody = WebservicesMethod.POST_METHOD(illustrationUrl, requestBody,
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type,illustrationUrl, requestBody,
 				ReusableFunction.requestHeaders(header));
 		logger.info("Response Body is ::" + responseBody.prettyPrint());
 	}
@@ -129,7 +131,7 @@ public class LE_LPPS_Service {
 
 	@When("^:I want to send the request for premium$")
 	public void i_want_to_send_the_request_for_premium() throws Throwable {
-		responseBody = WebservicesMethod.POST_METHOD(premiumUrl, requestBody, ReusableFunction.requestHeaders(header));
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type,premiumUrl, requestBody, ReusableFunction.requestHeaders(header));
 		logger.info("Response Body is ::" + responseBody.prettyPrint());
 
 	}

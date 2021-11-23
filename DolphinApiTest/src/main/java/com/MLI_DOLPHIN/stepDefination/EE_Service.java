@@ -17,14 +17,9 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 
-public class EE_Service {
+public class EE_Service extends WebservicesMethod{
 	
 	private final static Logger logger = Logger.getLogger(EE_Service.class.getName());
-	public String endPointUrl;
-	public String requestFile;
-	public String header;
-	public String requestBody;
-	public Response responseBody;
 	public String statuscode;
     public String testData;
 	
@@ -40,6 +35,8 @@ public class EE_Service {
 			header = listOfdata.get(i);
 			i++;
 			requestFile = listOfdata.get(i);
+			i++;
+			method_Type=listOfdata.get(i);
 			break;
 
 		}
@@ -50,7 +47,7 @@ public class EE_Service {
 	@When("^:i want to send the request$")
 	public void i_want_to_send_the_request() throws Throwable {
 		Thread.sleep(1000);
-		responseBody=WebservicesMethod.POST_METHOD(endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
+		responseBody=WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
         logger.info("response body is ::"+responseBody.prettyPrint());
 	}
 

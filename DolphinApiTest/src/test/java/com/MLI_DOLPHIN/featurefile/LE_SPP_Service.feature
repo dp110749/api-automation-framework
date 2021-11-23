@@ -2,8 +2,8 @@
 Feature: Test functionality of LE SPP service
 Background:
 Given Set the prerequiest set of data for LE SPP Service 
-|EndPoint              |Header                                              |RequestFile         |AgeOfInsured|purchasePrice |ProductName                 |Channel|
-|/developer/lepremium  |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY  |LE_SPP_Service.json | 45         |800000        |Max Life Saral Pension Plan |A      |
+|EndPoint              |Header                                              |RequestFile         |AgeOfInsured|purchasePrice |ProductName                 |Channel|MethodType|
+|/developer/lepremium  |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY  |LE_SPP_Service.json | 45         |800000        |Max Life Saral Pension Plan |A      |POST      |
 
 @SmokTesting
 Scenario Outline: Test the valid spp premium caculator service with valid set of test data

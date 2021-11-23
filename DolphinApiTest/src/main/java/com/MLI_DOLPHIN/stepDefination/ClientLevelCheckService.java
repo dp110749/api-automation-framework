@@ -14,31 +14,23 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 
-public class ClientLevelCheckService {
+public class ClientLevelCheckService extends WebservicesMethod{
 	private final static Logger logger = Logger.getLogger(ClientLevelCheckService.class.getName());
-	private String responseCode;
-	private String responseMsgCode;
-	private String responseMsg;
-	private int getSecondRow;
-	private String endPointUrl;
-	private String header;
-	private String requestFile;
-	private String correlationId;
 	private String insuredAge;
 	private String insuredClientId;
 	private String currentBaseProductCode;
 	private String currentBaseSumAssured;
 	private String currentRiderProductCode;
 	private String currentRiderSumAssured;
-	private String requestBody;
-	private Response responseBody;
 	
 	@Given("^To set the pre request data for client level check$")
 	public void to_set_the_pre_request_data_for_client_level_check(DataTable preInputData) throws Throwable {
 		List<String> preListData =preInputData.asList(String.class);
 		List<List<String>> numberOfRow =preInputData.raw();
-		getSecondRow=preListData.size()/numberOfRow.size();
-		for(int i=getSecondRow;i<preListData.size();i++){
+		getSecondRowData=preListData.size()/numberOfRow.size();
+		for(int i=getSecondRowData;i<preListData.size();i++){
+			method_Type=preListData.get(i);
+			i++;
 			endPointUrl=preListData.get(i);
 			i++;
 			header =preListData.get(i);
@@ -78,7 +70,7 @@ public class ClientLevelCheckService {
 
 	@When("^Send the request for client level check$")
 	public void send_the_request_for_client_level_check() throws Throwable {
-	responseBody=WebservicesMethod.POST_METHOD(endPointUrl, getRequestBody(), ReusableFunction.requestHeaders(header));
+	responseBody=WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, getRequestBody(), ReusableFunction.requestHeaders(header));
 	logger.info("User send the response data is  "+responseBody.prettyPrint());
 	}
 

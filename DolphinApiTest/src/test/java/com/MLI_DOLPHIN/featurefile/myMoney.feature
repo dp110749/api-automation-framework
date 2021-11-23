@@ -4,8 +4,8 @@ Feature: POST: To Test the feature of MYMONEY API
 
   Background: 
     Given Set the prerequest data for my-MoneyService
-      | EndPoint           | Header                                             | RequestFile  | PolicyNumber | PreMiumAmount |
-      | /developer/mymoney | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | MyMoney.json |    329989917 |        250001 |
+      | EndPoint           | Header                                             | RequestFile  | PolicyNumber | PreMiumAmount |methodType |
+      | /developer/mymoney | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | MyMoney.json |    329989917 |         250001 |POST      |
 
   @SmockTetsing
   Scenario Outline: To test the functionality of Mymoney Api when we pass the valid

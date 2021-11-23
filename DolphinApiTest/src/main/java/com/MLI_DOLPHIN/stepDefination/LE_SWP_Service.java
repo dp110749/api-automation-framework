@@ -14,32 +14,32 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 
-public class LE_SWP_Service {
+public class LE_SWP_Service extends WebservicesMethod{
 	
 	private final static Logger logger = Logger.getLogger(LE_SWP_Service.class.getName());
-	private int getSecondrowData;
-	private String endPointUlr;
-	private String header;
-	private String requestFile;
+//	private int getSecondrowData;
+//	private String endPointUlr;
+//	private String header;
+//	private String requestFile;
 	private String expResponseStatusCode;
 	private String actResponseStatusCode;
 	private String expResponseMsgCode;
 	private String expResponseMessage;
 	private String expATPvalue;
-	private String requestBody;
-	private Response responseBody;
+//	private String requestBody;
+//	private Response responseBody;
 	private String  correlationId;
 	private String  comittedPremium;
 	private String  productName;
 	
-		
+	
 	@Given("^Set the pre request test data for SWP$")
 	public void set_the_pre_request_test_data_for_SWP(DataTable preSetofData) throws Throwable {
      List<String> listPreSetData =preSetofData.asList(String.class);
      List<List<String>> numOfRows =preSetofData.raw();
-     getSecondrowData=listPreSetData.size()/numOfRows.size();
-     for(int i =getSecondrowData;i<listPreSetData.size();i++){
-    	 endPointUlr=listPreSetData.get(i);
+     getSecondRowData=listPreSetData.size()/numOfRows.size();
+     for(int i =getSecondRowData;i<listPreSetData.size();i++){
+    	 endPointUrl=listPreSetData.get(i);
     	 i++;
     	header= listPreSetData.get(i);
     	i++;
@@ -50,6 +50,8 @@ public class LE_SWP_Service {
     	comittedPremium=listPreSetData.get(i);
     	i++;
     	productName=listPreSetData.get(i);
+    	i++;
+    	method_Type=listPreSetData.get(i);
     	
      }
  }
@@ -71,8 +73,8 @@ public class LE_SWP_Service {
 	public void to_set_the_expected_data(DataTable expSetofData) throws Throwable {
 	     List<String> listPreSetData =expSetofData.asList(String.class);
 	     List<List<String>> numOfRows =expSetofData.raw();
-	     getSecondrowData=listPreSetData.size()/numOfRows.size();
-	     for(int i =getSecondrowData;i<listPreSetData.size();i++){
+	     getSecondRowData=listPreSetData.size()/numOfRows.size();
+	     for(int i =getSecondRowData;i<listPreSetData.size();i++){
 	    	 expResponseStatusCode=listPreSetData.get(i);
 	    	 i++;
 	    	expResponseMsgCode= listPreSetData.get(i);
@@ -87,7 +89,7 @@ public class LE_SWP_Service {
 	@When("^Send the POST request for SWP$")
 	public void send_the_POST_request_for_SWP() throws Throwable {
 		
-		responseBody = WebservicesMethod.POST_METHOD(endPointUlr,set_input_data_in_Request(),
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl,set_input_data_in_Request(),
 				ReusableFunction.requestHeaders(header));
 		logger.info("Response Body is ::" + responseBody.prettyPrint());
 
@@ -106,20 +108,20 @@ public class LE_SWP_Service {
      if(expResponseMsgCode.equals("200")){
     	 responseBody.then().root("msgInfo").body("msgCode", Matchers.equalTo(expResponseMsgCode))
     	 .and()
-    	 .body("msg", Matchers.equalTo(expResponseMessage));
+    	 .body("msg", Matchers.equalToIgnoringCase(expResponseMessage));
     	 logger.info("Validation of response message code is "+ expResponseMsgCode + "and message is "+expResponseMessage);
     	 
      }else if(expResponseMsgCode.equals("500")){
        	 responseBody.then().root("msgInfo").body("msgCode", Matchers.equalTo(expResponseMsgCode))
     	 .and()
-    	 .body("msg", Matchers.equalTo(expResponseMessage));
+    	 .body("msg", Matchers.equalToIgnoringCase(expResponseMessage));
        	 logger.info("Validation of response message code is "+ expResponseMsgCode + "and message is "+expResponseMessage);
 
     	 
      }else if(expResponseMsgCode.equals("400")){
        	 responseBody.then().root("msgInfo").body("msgCode", Matchers.equalTo(expResponseMsgCode))
     	 .and()
-    	 .body("msg", Matchers.equalTo(expResponseMessage));
+    	 .body("msg", Matchers.equalToIgnoringCase(expResponseMessage));
        	 logger.info("Validation of response message code is "+ expResponseMsgCode + "and message is "+expResponseMessage);
 
     	 
@@ -136,7 +138,7 @@ public class LE_SWP_Service {
 	
 	@Given("^Set the endPoint url\"([^\"]*)\"$")
 	public void set_the_endPoint_url(String urlEndPoint) throws Throwable {
-    endPointUlr=urlEndPoint;
+    endPointUrl=urlEndPoint;
     logger.info("End point set successfully...");
 	}
 

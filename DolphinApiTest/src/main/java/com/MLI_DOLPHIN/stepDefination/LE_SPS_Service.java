@@ -14,14 +14,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 		
-public class LE_SPS_Service {
+public class LE_SPS_Service extends WebservicesMethod{
 	private static final Logger logger = Logger.getLogger(LE_SPS_Service.class);
-	private int secondRowData;
-	private String endPointUrl;
-	private String header;
-	private String requestFile;
-	private String requestBody;
-	private Response responseBody;
 	private String actualResponseCode;
 	private String msgCode;
 	private String responseMsg;
@@ -32,13 +26,15 @@ public class LE_SPS_Service {
 	public void set_the_request_test_data_for_SPS(DataTable inputData) throws Throwable {
 		List<String> listOfData = inputData.asList(String.class);
 		List<List<String>> numberOfRow = inputData.raw();
-		secondRowData = listOfData.size() / numberOfRow.size();
-		for (int i = secondRowData; i < listOfData.size(); i++) {
+		getSecondRowData = listOfData.size() / numberOfRow.size();
+		for (int i = getSecondRowData; i < listOfData.size(); i++) {
 			endPointUrl = listOfData.get(i);
 			i++;
 			header = listOfData.get(i);
 			i++;
 			requestFile = listOfData.get(i);
+			i++;
+			method_Type=listOfData.get(i);
 		}
 		requestBody = ReusableFunction.readJsonFile(requestFile);
 
@@ -46,7 +42,7 @@ public class LE_SPS_Service {
 
 	@When("^I want send the request$")
 	public void i_want_send_the_request() throws Throwable {
-		responseBody = WebservicesMethod.POST_METHOD(endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
 		logger.info("Response Body is :: "+responseBody.prettyPrint());
 	}
 
@@ -98,11 +94,10 @@ public class LE_SPS_Service {
 	public void i_want_to_set_the_test_data(DataTable inputData) throws Throwable {
 		List<String> listOfInputData =inputData.asList(String.class);
 		List<List<String>>numberOfRaw =inputData.raw();
-		secondRowData=listOfInputData.size()/numberOfRaw.size();
-		for(int i=secondRowData;i<listOfInputData.size();i++){
+		getSecondRowData=listOfInputData.size()/numberOfRaw.size();
+		for(int i=getSecondRowData;i<listOfInputData.size();i++){
 			
-			msgCode=listOfInputData.get(i);
-			i++;
+			msgCode=listOfInputData.get(i);			i++;
 			responseMsg=listOfInputData.get(i);
 			i++;
 			inputTestData=listOfInputData.get(i);
@@ -131,12 +126,12 @@ public class LE_SPS_Service {
 
 	@Then("^I want to validate the response message$")
 	public void i_want_to_validate_the_response_message() throws Throwable {
-		  responseBody.then().root("msgInfo").body("msg", Is.is(responseMsg));
+		  responseBody.then().root("msgInfo").body("msg", Matchers.equalToIgnoringCase(responseMsg));
 		  logger.info("validation of response message is successful..");	
 	}
 	@Then("^I want to validate the error message$")
 	public void i_want_to_validate_the_error_message() throws Throwable {
-		responseBody.then().body("errorMessage", Is.is(responseMsg));
+		responseBody.then().body("errorMessage", Matchers.equalToIgnoringCase(responseMsg));
 		logger.info("Error message validate successfully..");
 	}
 	@Given("^I want to set the correlatinKey\"([^\"]*)\" and value\"([^\"]*)\" in the request$")
@@ -147,7 +142,7 @@ public class LE_SPS_Service {
 	}
 	@Then("^I want to validate the response error message\"([^\"]*)\"$")
 	public void i_want_to_validate_the_response_error_message(String errorMessage) throws Throwable {
-		responseBody.then().body("error", Is.is(errorMessage));
+		responseBody.then().body("error", Matchers.equalToIgnoringCase(errorMessage));
 		logger.info("Error message validate successfully..");
 	}
 	

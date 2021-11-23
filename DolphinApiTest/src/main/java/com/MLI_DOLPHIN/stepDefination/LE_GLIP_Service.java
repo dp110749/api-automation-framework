@@ -10,29 +10,29 @@ import com.MLI_DOLPHIN.baseclass.WebservicesMethod;
 import com.MLI_DOLPHIN.utilities.ReusableFunction;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.*;
-import io.restassured.response.Response;
 
-public class LE_GLIP_Service {
+
+public class LE_GLIP_Service  extends WebservicesMethod{
 	private final static Logger logger = Logger.getLogger(LE_GLIP_Service.class.getName());
-	private String endPointUrl;
-	private String header;
-	private String requestFile;
+//	private String endPointUrl;
+//	private String header;
+//	private String requestFile;
 	private String purchesePrice;
 	private String variant;
 	private String productName;
 	private String ageOfInsured;
-	private String requestBody;
-	private Response responseBody;
+//	private String requestBody;
+//	private Response responseBody;
 	private List<String> listOfSetData;
 	private List<List<String>> numOfRow;
-	private int getSecondRow;
+//	private int getSecondRow;
 
 	@Given("^Set the prerequest data for GLIP product$")
 	public void setThePrerequistDataForGLIP(DataTable preSetOfData) throws IOException {
 		listOfSetData = preSetOfData.asList(String.class);
 		numOfRow = preSetOfData.raw();
-		getSecondRow = listOfSetData.size() / numOfRow.size();
-		for (int i = getSecondRow; i < listOfSetData.size(); i++) {
+		getSecondRowData = listOfSetData.size() / numOfRow.size();
+		for (int i = getSecondRowData; i < listOfSetData.size(); i++) {
 			endPointUrl = listOfSetData.get(i);
 			i++;
 			header = listOfSetData.get(i);
@@ -46,6 +46,8 @@ public class LE_GLIP_Service {
 			productName = listOfSetData.get(i);
 			i++;
 			ageOfInsured = listOfSetData.get(i);
+			i++;
+			method_Type=listOfSetData.get(i);
 		}
 		requestBody = ReusableFunction.readJsonFile(requestFile);
 	}
@@ -61,7 +63,7 @@ public class LE_GLIP_Service {
 
 	@When("^Lets send the POST request for GLIP$")
 	public void lets_send_the_POST_request_for_GLIP() throws Throwable {
-		responseBody = WebservicesMethod.POST_METHOD(endPointUrl, getRequestBody(),
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, getRequestBody(),
 				ReusableFunction.requestHeaders(header));
 		logger.info("Getting Response is =: " + responseBody.prettyPrint());
 	}
@@ -72,18 +74,21 @@ public class LE_GLIP_Service {
 		logger.info("Validation of response code is successfull ..");
 	}
 
+	@SuppressWarnings("deprecation")
 	@Then("^Lets validate the response message for GLIP\"([^\"]*)\"$")
 	public void lets_validate_the_response_message_for_GLIP(String responseMsg) throws Throwable {
-		responseBody.then().root("msgInfo").body("msg", Matchers.equalTo(responseMsg));
+		responseBody.then().root("msgInfo").body("msg", Matchers.equalToIgnoringCase(responseMsg));
 		logger.info("Validation of response message is successfull");
 	}
 
+	@SuppressWarnings("deprecation")
 	@Then("^Lets validate the response of AFYP\"([^\"]*)\"$")
 	public void lets_validate_the_response_of_AFYP(String expResponseValueOfAFYP) throws Throwable {
 		responseBody.then().root("payload.premiumAmount").body("AFYP", Matchers.equalTo(expResponseValueOfAFYP));
 		logger.info("Validated  afyp is " + expResponseValueOfAFYP);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Then("^Lets validate the response of Anualised premium\"([^\"]*)\"$")
 	public void lets_validate_the_response_of_Anualised_premium(String expAnualisedPremium) throws Throwable {
 
@@ -93,6 +98,7 @@ public class LE_GLIP_Service {
 
 	}
 
+	@SuppressWarnings("deprecation")
 	@Then("^Lets validate the response of installment Premium\"([^\"]*)\"$")
 	public void lets_validate_the_response_of_installment_Premium(String expInstallMentPremium) throws Throwable {
 		responseBody.then().root("payload.premiumAmount").body("biInstallmentPremium",

@@ -18,15 +18,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 
-public class DolphinPush {
+public class DolphinPush extends WebservicesMethod{
 
 	private static final Logger logger = Logger.getLogger(DedupeService.class);
-	private int getSecondRowData;
-	private String endPointUrl;
-	private String header;
-	private String requestFile;
-	private String requestBody;
-	private Response responseBody;
 	private String actResponseCode;
 	private String testData;
 	private String oparationType;
@@ -47,6 +41,8 @@ public class DolphinPush {
 			header = listOfSetData.get(i);
 			i++;
 			requestFile = listOfSetData.get(i);
+			i++;
+			method_Type=listOfSetData.get(i);
 			break;
 		}
 		requestBody = ReusableFunction.readJsonFile(requestFile);
@@ -56,13 +52,12 @@ public class DolphinPush {
 	public void i_want_to_send_the_request_for_DolphinPush_Servcie() throws Throwable {
 
 		if (requestBody.length() > 1) {
-			responseBody = WebservicesMethod.POST_METHOD(endPointUrl, requestBody,
+			responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody,
 					ReusableFunction.requestHeaders(header));
 			logger.info("Response Body ::"+responseBody.prettyPrint());
 		} else {
 			logger.info("request Formate is wrong..");
 		}
-
 		
 	}
 

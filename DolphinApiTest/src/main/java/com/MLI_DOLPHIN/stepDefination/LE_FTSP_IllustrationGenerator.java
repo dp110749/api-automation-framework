@@ -18,16 +18,16 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 
-public class LE_FTSP_IllustrationGenerator {
+public class LE_FTSP_IllustrationGenerator extends WebservicesMethod{
 	
-	public String RESPONSEBODY;
+//	public String RESPONSEBODY;
 	public String STATUSCODE;
 	public String ENDPOINTURL;
-	public String REQUESTBODY;
+//	public String REQUESTBODY;
 	public String FINALREQUEST;
-	public String FILE_PATH;
-	public String HEADER;
-	public Response responseOFbody;
+//	public String FILE_PATH;
+//	public String HEADER;
+//	public Response responseOFbody;
 	private final static Logger logger = Logger.getLogger(LE_FTSP_IllustrationGenerator.class.getName());
 	
 	@Description("To test when user send the valid request illustration should be generate:")
@@ -40,7 +40,7 @@ public class LE_FTSP_IllustrationGenerator {
 	@Step("Set the request header {0}")
 	@When("^I set the header \"([^\"]*)\"$")
 	public void i_set_the_header(String header) throws Throwable {
-		HEADER=header;
+		this.header=header;
 	}
 		
 	@When("^I send the complete request body for \"([^\"]*)\"$")
@@ -65,9 +65,9 @@ public class LE_FTSP_IllustrationGenerator {
 			}
 		}
 */		
-		responseOFbody=ReusableFunction.getResponse(requestBodyPath, ENDPOINTURL, HEADER);
-		STATUSCODE = String.valueOf(responseOFbody.getStatusCode());
-		logger.info("Response Body is " + responseOFbody.body().prettyPrint());
+		responseBody=ReusableFunction.getResponse(method_Type,requestBodyPath, ENDPOINTURL, header);
+		STATUSCODE = String.valueOf(responseBody.getStatusCode());
+		logger.info("Response Body is " + responseBody.body().prettyPrint());
         
 	}
 
@@ -78,7 +78,7 @@ public class LE_FTSP_IllustrationGenerator {
 	}
 	@Then("^I try to validate the generated illustration is not empty$")
 	public void i_try_to_validate_the_generated_illustration_is_not_empty() throws Throwable {
-		responseOFbody.then().root("payload")
+		responseBody.then().root("payload")
 		.body("illustrationPdfBase64", Matchers.notNullValue());
 		 logger.info("Illustration is generated successfully");
 
@@ -86,14 +86,14 @@ public class LE_FTSP_IllustrationGenerator {
 	
 	@Then("^I try to validate the response time response type and response app id for LE FTSP$")
 	public void i_try_to_validate_the_response_time_response_type_and_response_app_id_for_LE_FTSP() throws Throwable {
-            responseOFbody.then().spec(SpecificationFactory.getGenericResponseSpec());
+		responseBody.then().spec(SpecificationFactory.getGenericResponseSpec());
             logger.info("validation of response time type of response and response app id");
 	}
 
 	
 	@Then("^I try to validate response  message  discription \"([^\"]*)\" and correlation id \"([^\"]*)\"$")
 	public void i_try_to_validate_response_message_discription_and_correlation_id(String message, String correlationId) throws Throwable {
-		responseOFbody.then().root("msgInfo").body("msgDescription", Matchers.equalTo(message))
+		responseBody.then().root("msgInfo").body("msgDescription", Matchers.equalTo(message))
 		.and().root("metadata").body("X-Correlation-ID", Matchers.equalTo(correlationId));
 		logger.info("Varification of correlation id and successful message generated");
 	}
@@ -104,12 +104,12 @@ public class LE_FTSP_IllustrationGenerator {
 		
 		if (requestBodyPath != null && !requestBodyPath.isEmpty()) {
 			JSONParser jsonParser = new JSONParser();
-			FILE_PATH = System.getProperty("user.dir") + "/ApiRequest/" + requestBodyPath;
-			logger.info("Path of requestbody file is :: " + FILE_PATH);
-			try (FileReader reader = new FileReader(FILE_PATH)) {
+			requestFile = System.getProperty("user.dir") + "/ApiRequest/" + requestBodyPath;
+			logger.info("Path of requestbody file is :: " + requestFile);
+			try (FileReader reader = new FileReader(requestFile)) {
 				Object obj = jsonParser.parse(reader);
-				REQUESTBODY = obj.toString();
-				JSONObject jsonobject = ReusableFunction.createJSONObject(REQUESTBODY);
+				requestBodyPath = obj.toString();
+				JSONObject jsonobject = ReusableFunction.createJSONObject(requestBody);
 				JSONObject jsonRequest = ReusableFunction.replacekeyInJSONObject(jsonobject, insuredNameKey, insuredNameValue);
 				FINALREQUEST = jsonRequest.toString();
 				logger.info("Request Body is :: " + FINALREQUEST);
@@ -119,13 +119,13 @@ public class LE_FTSP_IllustrationGenerator {
 		}
 		if (FINALREQUEST.length() > 0) {
 
-			responseOFbody = WebservicesMethod.POST_METHOD(ENDPOINTURL, FINALREQUEST,
-					ReusableFunction.requestHeaders(HEADER));
+			responseBody = WebservicesMethod.Select_API_METHOD(method_Type,ENDPOINTURL, FINALREQUEST,
+					ReusableFunction.requestHeaders(header));
 		} else {
 			logger.info(" Request Body cannot be null or empty!");
 		}
-		STATUSCODE = String.valueOf(responseOFbody.getStatusCode());
-		logger.info("Response body is ::" + responseOFbody.body().prettyPrint());
+		STATUSCODE = String.valueOf(responseBody.getStatusCode());
+		logger.info("Response body is ::" + responseBody.body().prettyPrint());
 
 	}
 /*	@Then("^I try to validate the generated premium is partA \"([^\"]*)\" and premium partB \"([^\"]*)\" and premium partC \"([^\"]*)\"$")

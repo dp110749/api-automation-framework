@@ -4,8 +4,8 @@ Feature: To check the functionality of FYPP service for premium and illustration
 Background: 
 
 	Given set the input prequest test data 
-		|illustrationUrl            |premiumUrl           |header                                              | requestFile        | 
-		| /developer/leillustration |/developer/lepremium | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | LE_FYPPService.json|
+		|illustrationUrl            |premiumUrl           |header                                              | requestFile        |MethodType |
+		| /developer/leillustration |/developer/lepremium | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | LE_FYPPService.json|POST       |
 		
 @PositiveTest
 Scenario Outline: 
@@ -14,12 +14,12 @@ Scenario Outline:
 	When i want to send the request for illustration generator 
 	Then i want to validate response code "<StatusCode>" 
 	And i want to validate response app id response time 
-	And i want validate the response message "<responseMessage>" 
+	And i want validate the response message"<responseMessage>" 
 	And i want check the illustration is generated or not 
 	
 	Examples: 
 		|StatusCode|responseMessage|
-		|200       | Success       |
+		|200       | success       |
 		
 @NegativeTest
 Scenario: 
@@ -29,8 +29,9 @@ Given :Set testing data
 	|inputData              | oparationType|url                        |msgCode |Responsemessage   |
 	|{ "productCode": "21"} | changeData   | /developer/leillustration | 500    | Failure          |
 	|{ "productCode": ""}   | changeData   | /developer/leillustration | 500    | Failed           |
-	|{ "productCode": ""}   | removeData   | /developer/leillustration | 500    | Failed      |
-				
+	|{ "productCode": ""}   | removeData   | /developer/leillustration | 500    | Failed           |
+
+@NegativeTest			
 Scenario Outline: 
 	: To test the functionality when user send the null header for illustration generator
 			 
@@ -38,12 +39,13 @@ Scenario Outline:
 	When i want to send the request for illustration generator 
 	Then i want to validate response code "<StatusCode>" 
 	And i want to validate response app id response time 
-	And i want validate the response message "<responseMessage>" 
+	And i want validate the response message"<responseMessage>" 
 	
 	Examples: 
 		|header         |StatusCode|responseMessage|
 		|x-api-key:null |400       | Fobiden       |
-				
+
+@NegativeTest				
 Scenario Outline: 
 : To test the functionality when user send the x-core-relation ID as null for illustration generator 		
 Given : Set the x-correlation id data in request "<apiKey>" and "<apiValue>" 
@@ -63,22 +65,22 @@ To test the functionality when user send the valid request for premium generator
 When i want to send the request for premium generator 
 Then i want to validate response code "<StatusCode>" 
 And i want to validate response app id response time 
-And i want validate the response message "<responseMessage>" 
+And i want validate the response message "<Msg>" 
 #	And i want check premium amount "<premiumAmountpartA>" and "<premiumAmountPartB>"
 
 Examples: 
 	|StatusCode|premiumAmountpartA|premiumAmountPartB|msgCode|Msg|			
-	| 200      |500000            |Part B-4%         |200    | Success|			
+	| 200      |500000            |Part B-4%         |200    | success|			
 				
 @NegativeTest
 Scenario: 
 	To test the functionality when user send the invalid request for premium generator 
 	Given :Set testing data 
 	
-		|inputData              | oparationType|url                   |msgCode |Responsemessage   |
-		|{ "productCode": "21"} | changeData   | /developer/lepremium | 500    | Failure           |
-		|{ "productCode": "" }  | changeData   | /developer/lepremium | 500    | Failed           |
-		|{ "productCode": ""}   | removeData   | /developer/lepremium | 500    | Failed     |
+		|inputData              | oparationType|url                   |msgCode |Responsemessage |
+		|{ "productCode": "21"} | changeData   | /developer/lepremium | 500    | Failure        |
+		|{ "productCode": "" }  | changeData   | /developer/lepremium | 500    | Failed         |
+		|{ "productCode": ""}   | removeData   | /developer/lepremium | 500    | Failed         |
 						
 						
  

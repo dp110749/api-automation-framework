@@ -14,32 +14,16 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 
-public class PolicyAdmin {
+public class PolicyAdmin extends WebservicesMethod{
 
 	private static final Logger logger = Logger.getLogger(PolicyAdmin.class);
-	private String header;
-	private String url;
-	private String requestFile;
-	private String requestBody;
 	private String testData;
 	private String operationType;
-	private Response responseBody;
 	private String actualResponseCode;
-	private int getSecondRowData;
 	private String testUrl;
 	private String msgCode;
 	private String msg;
 	private JSONObject newRequest;
-/*	private String transTypeKey;
-	private String transTypeValue;
-	private String genderKey;
-	private String genderValue;
-	private String exactIncomeKey;
-	private String exactIncomeValue;
-	private String dobKey;
-	private String dobValue;
-	private String modelPremiumKey;
-	private String modelPremiumValue;*/
 	private String inputKey;
 	private String inputValue;
 
@@ -52,11 +36,13 @@ public class PolicyAdmin {
 		getSecondRowData = listOfSetData.size() / rowNum.size();
 
 		for (int i = getSecondRowData; i < listOfSetData.size(); i++) {
-			url = listOfSetData.get(i);
+			endPointUrl = listOfSetData.get(i);
 			i++;
 			header = listOfSetData.get(i);
 			i++;
 			requestFile = listOfSetData.get(i);
+			i++;
+			method_Type=listOfSetData.get(i);
 			break;
 		}
 		requestBody = ReusableFunction.readJsonFile(requestFile);
@@ -67,7 +53,7 @@ public class PolicyAdmin {
 	public void i_want_to_send_the_request_for_policyAdmin() throws Throwable {
 
 		if (requestBody.length() > 0) {
-			responseBody = WebservicesMethod.POST_METHOD(url, requestBody, ReusableFunction.requestHeaders(header));
+			responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
 			logger.info("Response body is :: " + responseBody.prettyPrint());
 		} else {
 			logger.info("Invalid Request..");
@@ -151,7 +137,7 @@ public class PolicyAdmin {
 
 			header = testData;
 		} else if (testData.contains("developer")) {
-			url = testData;
+			endPointUrl = testData;
 		} else {
 			logger.info("Data Does not set..");
 		}
@@ -176,7 +162,7 @@ public class PolicyAdmin {
 			testRequest = newRequest.toString();
 			if (testRequest.length() > 1) {
 				Thread.sleep(1000);
-				responseBody = WebservicesMethod.POST_METHOD(url, testRequest, ReusableFunction.requestHeaders(header));
+				responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, testRequest, ReusableFunction.requestHeaders(header));
 			} else {
 				logger.info("Request Body is Null");
 			}
@@ -218,7 +204,7 @@ public class PolicyAdmin {
 			requestBody = newRequest.toString();
 			if (requestBody.length() > 1) {
 				Thread.sleep(1000);
-				responseBody = WebservicesMethod.POST_METHOD(url, requestBody, ReusableFunction.requestHeaders(header));
+				responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
 				logger.info("response is"+responseBody.prettyPrint());
 			} else {
 				logger.info("Request Body is Null");

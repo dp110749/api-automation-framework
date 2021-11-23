@@ -5,8 +5,8 @@ Background:
 
 	Given Set the request test data 
 	
-		|url                            |header                                             | requestFile  | 
-		|/developer/dev-dolphin-dedupe  |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | Dedupe.json  |
+		|url                            |header                                             | requestFile  |MethodType| 
+		|/developer/dev-dolphin-dedupe  |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | Dedupe.json  |POST      |
 		
 Scenario Outline: 
 	To test the Functionality of Dedupe servcie when user send valid set if data in request 
