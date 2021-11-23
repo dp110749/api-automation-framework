@@ -141,7 +141,7 @@ public class ReusableFunction {
     	
     }
     
-    public static Response getResponse(String requestBodyPath ,String endPontUrl,String header) throws IOException{
+    public static Response getResponse(String methodType,String requestBodyPath ,String endPontUrl,String header) throws IOException{
 		if (requestBodyPath != null && !requestBodyPath.isEmpty()) {
 			JSONParser jsonParser = new JSONParser();
 			FILE_PATH = System.getProperty("user.dir") + "/ApiRequest/" + requestBodyPath;
@@ -154,7 +154,7 @@ public class ReusableFunction {
 			}
 			if (REQUESTBODY.length() > 0) {
 
-				RESPONSEBODY = WebservicesMethod.POST_METHOD(endPontUrl, REQUESTBODY,
+				RESPONSEBODY = WebservicesMethod.Select_API_METHOD(methodType,endPontUrl, REQUESTBODY,
 						ReusableFunction.requestHeaders(header));																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		
 			} else {
 				ReusableFunctionlogger.info(" Request Body cannot be null or empty!");

@@ -13,16 +13,16 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 
-public class LE_AWP_Service {
+public class LE_AWP_Service extends WebservicesMethod{
 
 	private final static Logger logger = Logger.getLogger(LE_AWP_Service.class.getName());
-	public String headers;
-	public String endPointUrl;
-	public Response response;
+	//public String headers;
+//	public String endPointUrl;
+//	public Response response;
 	public String expStatusCode;
-	public String requestBodyPath;
+//	public String requestBodyPath;
 	public String inputTestData;
-	public String requestBody;
+//	public String requestBody;
 	public String oparationToperform;
 	public String invalidField;
 
@@ -34,49 +34,51 @@ public class LE_AWP_Service {
 		int loopStart = inputdatalist.size() / NumOfRow.size();
 		int count = 0;
 		for (int i = loopStart; i < inputdatalist.size(); i++) {
-			requestBodyPath = inputdatalist.get(i + count);
+			requestFile = inputdatalist.get(i + count);
 			count++;
 			endPointUrl = inputdatalist.get(i + count);
 			count++;
-			headers = inputdatalist.get(i + count);
+			header = inputdatalist.get(i + count);
+			count++;
+			method_Type=inputdatalist.get(i+count);
 
 			break;
 		}
-		requestBody=ReusableFunction.readJsonFile(requestBodyPath);
+		requestBody=ReusableFunction.readJsonFile(requestFile);
 		logger.info("Set up of request url and header");
 		
 	}
 
 	@When("^Send the post request$")
 	public void send_the_request() throws Throwable {
-		response = WebservicesMethod.POST_METHOD(endPointUrl, requestBody, ReusableFunction.requestHeaders(headers));
+		responseBody = WebservicesMethod.Select_API_METHOD(method_Type,endPointUrl, requestBody, ReusableFunction.requestHeaders(header));
 
-		logger.info("response body is::" + response.getBody().prettyPrint());
+		logger.info("response body is::" + responseBody.getBody().prettyPrint());
 	}
 
 	@Then("^I try Validate the response status code \"([^\"]*)\"$")
 	public void validate_the_response_status_code(String statusCode) throws Throwable {
-		expStatusCode = String.valueOf(response.getStatusCode());
+		expStatusCode = String.valueOf(responseBody.getStatusCode());
 		Assert.assertEquals(expStatusCode, statusCode.toString());
 		logger.info("validation of response status code.");
 	}
 
 	@Then("^I want to validate the response time and request type response app id$")
 	public void i_want_to_validate_the_response_time_and_request_type_response_app_id() throws Throwable {
-		response.then().spec(SpecificationFactory.getGenericResponseSpec());
+		responseBody.then().spec(SpecificationFactory.getGenericResponseSpec());
 		logger.info("Varificarion of response time request type and appId.");
 	}
 
 	@Then("^I want to validate the illustration generated or not for valid  request$")
 	public void i_want_to_validate_the_illustration_generated_or_not_for_valid_request() throws Throwable {
-		response.then().root("payload").body("illustrationPdfBase64", Matchers.notNullValue());
+		responseBody.then().root("payload").body("illustrationPdfBase64", Matchers.notNullValue());
 		logger.info("Illustration is generated successfully");
 
 	}
 
 	@Then("^i want to validate success message \"([^\"]*)\"$")
 	public void i_want_to_validate_success_message(String message) throws Throwable {
-		response.then().root("msgInfo").body("msg", Matchers.equalTo(message.trim()));
+		responseBody.then().root("msgInfo").body("msg", Matchers.equalTo(message.trim()));
 		logger.info("varification of message response message");
 	}
 
@@ -99,7 +101,7 @@ public class LE_AWP_Service {
 
 	@Then("^i want to validate response error message \"([^\"]*)\"$")
 	public void i_want_to_validate_response_error_message(String responseMessage) throws Throwable {
-		response.then().body("error", Matchers.equalTo(responseMessage.trim()));
+		responseBody.then().body("error", Matchers.equalTo(responseMessage.trim()));
 		logger.info("Validation of error message successfull");
 
 	}
@@ -122,7 +124,7 @@ public class LE_AWP_Service {
 
 	@Given("^i want to set headerValue \"([^\"]*)\"$")
 	public void i_want_to_set_headerValue(String header) throws Throwable {
-		headers=header;
+		this.header=header;
 	}
 
 	@Given("^I want to set request url \"([^\"]*)\"$")
@@ -146,14 +148,14 @@ public class LE_AWP_Service {
 
 	@Then("^I want to validate the premium Amount$")
 	public void i_want_to_validate_the_premium_Amount() throws Throwable {
-		response.then().root("payload").body("premiumAmount", Matchers.notNullValue());
+		responseBody.then().root("payload").body("premiumAmount", Matchers.notNullValue());
 		logger.info("Premium is generated successfully");
 
 	}
 
 	@Then("^i want to validate error message \"([^\"]*)\"$")
 	public void i_want_to_validate_error_message(String errorMessage) throws Throwable {
-		response.then().body("error", Matchers.equalToIgnoringCase(errorMessage));
+		responseBody.then().body("error", Matchers.equalToIgnoringCase(errorMessage));
 		logger.info("Varification of error message when send invalid url");
 
 	}

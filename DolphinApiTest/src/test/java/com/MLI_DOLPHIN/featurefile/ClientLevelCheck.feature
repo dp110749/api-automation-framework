@@ -2,8 +2,8 @@
 Feature: To test the functionality of client level check service
 Background:
 Given To set the pre request data for client level check
-|EndPointUrl                               |Header                                             |RequestBody                 |XcorrelationId |insuredAge |insuredClientId|currentBaseProductCode|currentBaseSumAssured |currentRiderProduct|currentRiderSumAssured|
-|/developer/dev-dolphin-client-level-check |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |ClientLevelCheckService.json|21213          | 6         |6000053009     |  DCCCP               |5000000.00            |VP02               |249567                |
+|MethodType|EndPointUrl                               |Header                                             |RequestBody                 |XcorrelationId |insuredAge |insuredClientId|currentBaseProductCode|currentBaseSumAssured |currentRiderProduct|currentRiderSumAssured|
+|POST      |/developer/dev-dolphin-client-level-check |x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY |ClientLevelCheckService.json|21213          | 6         |6000053009     |  DCCCP               |5000000.00            |VP02               |249567                |
 
 Scenario Outline: To test the functionality of client level check when pass exact allowed sumAssured for base product 
 When Send the request for client level check 

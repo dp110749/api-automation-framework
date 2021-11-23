@@ -4,18 +4,32 @@ import static io.restassured.RestAssured.reset;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.junit.runner.RunWith;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import com.MLI_DOLPHIN.utilities.ReusableFunction;
+import com.github.mkolisnyk.cucumber.runner.ExtendedCucumber;
+import com.github.mkolisnyk.cucumber.runner.ExtendedCucumberOptions;
+
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
-@CucumberOptions(features = "src/test/java/com/MLI_DOLPHIN/featurefile",
+@RunWith(ExtendedCucumber.class)
+@ExtendedCucumberOptions(
+		jsonReport ="target/cucumber.json",
+		toPDF=true,
+		
+		retryCount=2,
+	   
+		detailedAggregatedReport=false
+		)
 
-tags="@OTP_AllTest",
-//tags ="@OauthApI,@IFSC_MICR_API,@TPAIntegrationTest,@DiscrepancyRuleEngineTest,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@UW_MedicalReportService,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest,@Dolphin_Push_Test,@DedupeAllScenarios,@PolicyadminAllScenarios,@MyAgentAllScenarios,@SPSTest,@AllTestOf_SAP,@AllScenariosOfWLS,@AllScenarios_Test_For_GIP,@AllTestScenarioForFGEP,@AllTest_of_STP,@SWP_ServiceTest,@SJB_ServiceTest,@OTP_AllTest,@PSM_AllTest,@OSP_AllScenarios,@CIPAllTestScenarios,@ClientLevelCheckAllScenarios,@AllScenariosOfGLIP,@SSPTest",
+@CucumberOptions(features = "./src/test/java/com/MLI_DOLPHIN/featurefile/",
+
+//tags="@LE_FTSP_IllustrationGenerator",
+tags ="@OauthApI,@IFSC_MICR_API,@TPAIntegrationTest,@DiscrepancyRuleEngineTest,@MYMONEY_API,@LE_FTSP_IllustrationGenerator,@UW_MedicalReportService,@LE_AWPService,@EE_ServiceTest,@LE_LPPSService,@LE_PWPService,@FYPP_PremiumTest,@Dolphin_Push_Test,@DedupeAllScenarios,@PolicyadminAllScenarios,@MyAgentAllScenarios,@SPSTest,@AllTestOf_SAP,@AllScenariosOfWLS,@AllScenarios_Test_For_GIP,@AllTestScenarioForFGEP,@AllTest_of_STP,@SWP_ServiceTest,@SJB_ServiceTest,@OTP_AllTest,@PSM_AllTest,@OSP_AllScenarios,@CIPAllTestScenarios,@ClientLevelCheckAllScenarios,@AllScenariosOfGLIP,@SSPTest",
           glue = { "com.MLI_DOLPHIN.stepDefination" }, plugin = { "pretty",
-				"html:target/cucumber-reports", "json:target/cucumber.json" },strict=true, dryRun =false, monochrome = true)
+        		  "html:target/cucumber-reports", "json:target/cucumber.json" ,"rerun:target/FailTestCase.text"},strict=true, dryRun =false, monochrome = true)
 
 public class TestRunnerClass extends AbstractTestNGCucumberTests {
 	

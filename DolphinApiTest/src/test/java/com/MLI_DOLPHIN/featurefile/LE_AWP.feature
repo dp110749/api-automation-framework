@@ -3,15 +3,12 @@ Feature: LE AWP Service to generate the illustration and premium geneartor
 
 Background: 
 
-	Given Set the request url and header for AWP Service 
-	
-
-	    | requestFile |  illustrationurl          |               header                               |
-		| LE_AWP.json | /developer/leillustration | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | 
+	Given Set the request url and header for IFSC/MICR Service 
+	    | requestFile |  illustrationurl          |               header                               |MethodType|
+		| LE_AWP.json | /developer/leillustration | x-api-key:DTUDHv9UVG8cVT3qmhiSv1UcnvCduzLf1CI6zCVY | POST     |
 		
 		
-		#   When  I Send the POST request 
-@PositiveTest		
+@PositiveTest111	
 Scenario Outline: To test the functionality for illustration generator 
 	When Send the post request 
 	Then I try Validate the response status code "<statusCode>" 
@@ -21,12 +18,12 @@ Scenario Outline: To test the functionality for illustration generator
 	
 	Examples: 
 		|statusCode|messageCode|
-		|  200     |Success|
+		|  200     |success|
 @NegativeTest00001		
 Scenario Outline: To test the functionality when send bad request 
 	Given I remove the field from payload and send request
 	
-    	|   testData          |oparationToperform|  	
+    	|   testData                  |oparationToperform|  	
     	|{"sumAssured": "6587155.96"} |        removeData|
     	
 	When Send the post request 
@@ -72,7 +69,7 @@ Scenario Outline: To test the functionality to generate premium for AWP
 	
 	Examples:
 	| url                  |statuscode|responseMessage|
-	| /developer/lepremium |200       |Success        |
+	| /developer/lepremium |200       |success        |
 	
 @NegativeTest	
 Scenario Outline: To test the functionality when user send wrong url for AWP premium
@@ -101,7 +98,7 @@ Scenario Outline:To test the functionality of AWP premiunm service when user sen
 	
 	Examples:
       |statuscode| responseMessage    |
-	  |  200     | Success            |
+	  |  200     | success            |
 	
 	
 	
